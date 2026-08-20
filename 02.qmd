@@ -1,0 +1,419 @@
+# Audience, Claims, Evidence, and AI Boundaries
+
+## Why audience matters
+
+In many statistics and data science courses, the workflow sounds like this:
+
+1. get the data;
+2. analyze the data;
+3. make a graph;
+4. explain what happened.
+
+That workflow is useful, but it hides one of the most important communication decisions: **who is this for?**
+
+Audience is not something we sprinkle on at the end. Audience affects which question matters, which evidence is relevant, which words are clear, which caveats need to be stated, and which visual form will help rather than distract.
+
+Suppose a dataset shows that visits to a campus tutoring center peak in the two weeks before midterms. That pattern could matter to several groups:
+
+- Students may need to know that booking early is wise.
+- Tutors may need to plan for busier shifts.
+- Administrators may need to allocate staffing.
+- Faculty may need to coordinate review sessions.
+- A public audience may need a simple explanation of how academic support is used.
+
+The evidence is the same, but the communication task is not. A message that works for one audience may be too vague, too technical, too detailed, or too action-oriented for another.
+
+::: {.example title="Example 2.1: Same evidence, different audience"}
+
+Imagine this finding:
+
+> Students who visited the tutoring center at least twice had higher average course grades than students who did not visit.
+
+For students, a reasonable message might be:
+
+> Students who use tutoring often do well, and returning for another visit is a normal part of learning.
+
+For administrators, a better message might be:
+
+> Repeat tutoring visits are associated with stronger course outcomes, but the data do not show whether tutoring caused the difference; additional study could help evaluate program impact.
+
+The student-facing version encourages help-seeking. The administrator-facing version is more careful about causation because it may affect policy, funding, or assessment.
+
+:::
+
+## Audience is a decision context
+
+It is tempting to define an audience only by a label: students, faculty, parents, customers, voters, managers, patients, donors, or fans. Labels help, but they are not enough.
+
+A useful audience description includes context:
+
+- **Need:** What problem or question brings this audience to the data?
+- **Knowledge:** What do they already understand, and what needs explanation?
+- **Power:** What decisions can they make with the information?
+- **Risk:** What could happen if they misunderstand the message?
+- **Constraint:** What time, attention, or technical background do they have?
+
+For example, "students" is too broad. First-year students choosing whether to visit tutoring are different from senior statistics majors evaluating a data visualization. Both are students, but they need different messages.
+
+### Primary and secondary audiences
+
+Many real data products have more than one audience. A public report may be written for community members but also read by journalists, administrators, grant reviewers, and people represented in the data.
+
+When this happens, choose a **primary audience**. The primary audience is the group whose needs most shape the communication. Secondary audiences still matter, especially for ethics and interpretation, but they should not pull the message in every direction.
+
+If every audience is equally important, the result often becomes mushy: too general for technical readers, too technical for general readers, and not very useful for anyone.
+
+### A quick audience profile
+
+Before writing a data claim, try this four-sentence profile:
+
+1. My primary audience is...
+2. They need to understand...
+3. They may already believe or assume...
+4. The biggest risk if I communicate poorly is...
+
+This profile is short, but it forces useful choices.
+
+::: {.example title="Example 2.2: Audience profile"}
+
+Suppose you are communicating a chart about student sleep and exam performance.
+
+Audience profile:
+
+1. My primary audience is first-year college students.
+2. They need to understand that sleep is related to academic performance, but it is not the only factor.
+3. They may already believe that staying up late is a necessary part of college success.
+4. The biggest risk if I communicate poorly is making a correlation sound like a guarantee or making students feel blamed for complicated academic pressures.
+
+That profile points toward a careful message: sleep matters, but the data should not be used to shame students or oversimplify academic success.
+
+:::
+
+## From topic to claim
+
+A topic is a general area. A claim is a specific statement that can be supported, challenged, revised, or rejected using evidence.
+
+Topic:
+
+> Student study habits.
+
+Better question:
+
+> How do study hours vary across the semester?
+
+Possible claim:
+
+> In this sample, reported study hours increased sharply during the two weeks before midterms.
+
+The claim is more useful because it names:
+
+- the group or data source;
+- the measured quantity;
+- the direction or pattern;
+- the time frame.
+
+Good claims are not always bold. Sometimes the strongest claim is cautious:
+
+> The available data suggest a possible increase, but missing responses make the size of the change uncertain.
+
+That is still a claim. It tells the audience what the evidence can and cannot support.
+
+### Common types of data claims
+
+Different claims require different levels of evidence.
+
+| Claim Type | What It Says | Example | Evidence Needed |
+| --- | --- | --- | --- |
+| Descriptive | What was observed | "Forty percent of respondents used tutoring." | Clear measurement and relevant denominator |
+| Comparative | How groups or times differ | "Use was higher before midterms than after midterms." | Fair comparison and consistent definitions |
+| Associational | How variables move together | "Tutoring visits were associated with higher grades." | Attention to confounding and design limits |
+| Causal | One thing produced a change in another | "Tutoring increased grades." | Strong design, usually experiment or careful causal strategy |
+| Predictive | What is likely to happen | "Visits will likely rise next week." | Model validation and uncertainty |
+| Evaluative | Whether something is good, bad, enough, or worth doing | "The program should expand." | Evidence plus values, costs, constraints, and alternatives |
+
+One of the most common communication mistakes is using evidence for one claim type while writing as if it supports a stronger claim type.
+
+If your data are descriptive, do not write a causal headline. If your evidence shows an association, do not write as if you proved an intervention worked.
+
+## The claim ladder
+
+Think of claims as a ladder. Each step requires more evidence than the one below it.
+
+1. **We observed this.**
+2. **This group differed from that group.**
+3. **These variables were associated.**
+4. **This factor likely contributed to that outcome.**
+5. **This action should be taken.**
+
+The higher you climb, the more support you need. A recommendation is not just a statistic with an exclamation point. It requires judgment about consequences, alternatives, cost, uncertainty, and audience needs.
+
+::: {.example title="Example 2.3: Climbing too high"}
+
+Evidence:
+
+> Students who used a study app had higher average exam scores than students who did not.
+
+Careful claim:
+
+> In this sample, study app users had higher average exam scores.
+
+Too high on the ladder:
+
+> The study app improves exam scores.
+
+Why is the second claim too strong? Students who choose to use a study app may already be more organized, more motivated, or taking different courses. The data may show an association, but the claim uses causal language.
+
+:::
+
+## Evidence fit
+
+Evidence fit means the evidence matches the claim. This is one of the most important ideas in data communication.
+
+Ask:
+
+- Does the evidence directly measure the thing named in the claim?
+- Is the denominator clear?
+- Is the comparison fair?
+- Is the time period appropriate?
+- Are the categories defined?
+- Are important groups missing?
+- Could another explanation fit the same pattern?
+
+### Denominators
+
+A percentage without a denominator can mislead.
+
+Consider:
+
+> Complaints increased by 50%.
+
+That sounds large. But it means different things depending on the denominator:
+
+- from 2 complaints to 3;
+- from 200 complaints to 300;
+- from 20,000 complaints to 30,000.
+
+The percentage alone is not enough. Good communication often includes both the rate and the count when the count affects interpretation.
+
+### Benchmarks
+
+Many numbers need a comparison point.
+
+> The average wait time was 14 minutes.
+
+Is that good or bad? It depends. Compared with what?
+
+- last semester?
+- similar offices?
+- the office goal?
+- student expectations?
+- the time required for the service?
+
+Benchmarks help audiences interpret scale. Without a benchmark, a number may be accurate but not meaningful.
+
+### Time frame
+
+Time frame changes interpretation.
+
+> Website traffic increased.
+
+Over what period? Compared to what previous period? Was there a holiday, campaign, news event, outage, or seasonal pattern?
+
+Data communication should make time visible when time affects interpretation.
+
+### Missing data
+
+Missing data are not just a technical problem. They are a communication problem.
+
+If many students skip a survey question about financial stress, the missingness itself may matter. If a public dataset excludes some neighborhoods, the map may look complete while hiding absence. If an AI tool summarizes a dataset without noticing missing values, it may produce a clean but false story.
+
+When missing data could affect the message, say so.
+
+## Responsible AI boundaries
+
+AI tools can help with audience adaptation, claim checking, drafting, revision, and critique. But they also make it easier to write beyond the evidence.
+
+A useful way to think about AI use is to divide tasks into green, yellow, and red zones.
+
+### Green-zone uses
+
+Green-zone uses are usually appropriate if you still verify the result.
+
+- Ask for alternate wording.
+- Ask for possible audience questions.
+- Ask for a plain-language explanation of a technical sentence.
+- Ask for a list of possible caveats.
+- Ask for a critique of whether a claim sounds causal.
+- Ask for help debugging code, followed by your own check.
+
+Green-zone uses support thinking. They do not replace it.
+
+### Yellow-zone uses
+
+Yellow-zone uses may be appropriate, but they require extra care.
+
+- Asking AI to summarize a source or dataset.
+- Asking AI to recommend a chart type.
+- Asking AI to rewrite a whole section.
+- Asking AI to generate code for cleaning or plotting data.
+- Asking AI to create peer review comments.
+
+These tasks can be helpful, but they can also quietly change the meaning. You need to compare the output against the data, the assignment, and your own intended claim.
+
+### Red-zone uses
+
+Red-zone uses are not acceptable in this course unless the instructor gives explicit permission.
+
+- Pasting private, sensitive, or identifiable data into an unapproved AI tool.
+- Letting AI invent sources or citations.
+- Submitting AI-generated claims you have not checked.
+- Using AI to hide lack of understanding.
+- Allowing AI to make the final decision about what the evidence proves.
+- Presenting AI-generated work as if it involved no AI assistance when it did.
+
+The problem is not that AI was used. The problem is unsupported, undisclosed, or irresponsible use.
+
+::: {.example title="Example 2.4: AI boundary check"}
+
+Prompt:
+
+> Here is my paragraph about tutoring visits and grades. Identify any places where I make a causal claim that the data do not support.
+
+This is a green-zone use. The AI is acting as a reviewer, and the student still decides what to revise.
+
+Prompt:
+
+> Here is a file with student names, grades, and tutoring records. Tell me which students are at risk.
+
+This is a red-zone use unless the tool and data handling have been explicitly approved. It involves identifiable student data and could cause harm if mishandled.
+
+:::
+
+## Special cases and edge cases
+
+The simple rules above cover many situations, but data communication often involves ambiguous cases. The goal is not to memorize every possible rule. The goal is to notice when ordinary shortcuts may fail.
+
+### When the audience includes people represented in the data
+
+If your data describe people, some members of your audience may also be people in the dataset or people like them. This changes the ethical stakes.
+
+Avoid language that turns people into problems. For example:
+
+> Low-income students underperform.
+
+That sentence is blunt, but it may be unfair and incomplete. It labels a group rather than investigating conditions, resources, measurement, or institutional factors.
+
+More careful:
+
+> In this dataset, students from lower-income households had lower average scores, a pattern that may reflect unequal access to resources, time, advising, or other support.
+
+The second sentence is longer because the situation is more complicated.
+
+### When the audience wants certainty
+
+Decision-makers often want a clear answer. Data often provide a qualified answer.
+
+A communicator's job is not to pretend uncertainty is gone. It is to make uncertainty usable.
+
+Useful language:
+
+- "The evidence suggests..."
+- "The current data are consistent with..."
+- "The estimate is uncertain because..."
+- "This comparison should be interpreted cautiously..."
+- "The data do not show whether..."
+
+These phrases do not weaken your communication. They make it more honest.
+
+### When a simple message hides an important subgroup
+
+Averages can hide variation.
+
+Suppose average student satisfaction increased from 3.8 to 4.1. That sounds good. But what if satisfaction increased for seniors and decreased for first-year students? A single average would hide an important audience-specific issue.
+
+Before communicating a single summary, ask whether the pattern is similar across important groups.
+
+### When AI makes the message smoother but less true
+
+AI often improves style by removing friction. Sometimes the friction is necessary.
+
+Original:
+
+> Students who visited the tutoring center had higher average grades, but the data cannot tell us whether tutoring caused the difference.
+
+AI revision:
+
+> Tutoring helped students earn higher grades.
+
+The AI version is smooth, but it changes the claim. In this course, accuracy beats smoothness.
+
+## A practical workflow
+
+When you are preparing a data communication product, use this order:
+
+1. **Name the audience.** Write a short audience profile.
+2. **State the claim.** Make it specific enough to check.
+3. **Locate the evidence.** Identify the exact data, summary, graph, or comparison that supports the claim.
+4. **Check the claim type.** Is it descriptive, comparative, associational, causal, predictive, or evaluative?
+5. **Look for missing context.** Denominator, benchmark, time frame, definitions, missing data, and subgroup patterns.
+6. **Use AI carefully.** Ask AI to help revise, critique, or brainstorm, but do not let it determine truth.
+7. **Document AI use.** Record what helped, what you changed, and how you verified the final result.
+
+This workflow is slower than copying a chart into a slide and writing the first sentence that comes to mind. It is also how you avoid many of the mistakes that make data communication misleading.
+
+## Recap
+
+::: {.recap-table}
+| **Keyword** | **Definition** |
+| --- | --- |
+| **Audience** | The people who need to understand, use, question, or act on the message. |
+| **Primary audience** | The audience whose needs most shape the communication. |
+| **Claim** | A specific statement that can be supported, challenged, revised, or rejected using evidence. |
+| **Evidence fit** | The match between what the evidence shows and what the claim says. |
+| **Claim ladder** | The idea that stronger claims, especially causal or action claims, require stronger evidence. |
+| **Denominator** | The total or reference group used to interpret a count, rate, or percentage. |
+| **Benchmark** | A comparison point that helps an audience understand whether a number is large, small, typical, or unusual. |
+| **Responsible AI boundary** | A limit on AI use based on privacy, verification, attribution, evidence, and human responsibility. |
+:::
+
+## Check your understanding
+
+::: {.callout-note collapse="false" title="Problems"}
+
+1. Why is "students" usually too broad to be a complete audience description?
+
+2. Classify each claim as descriptive, comparative, associational, causal, predictive, or evaluative:
+
+   a. "In this sample, 42% of students used tutoring at least once."
+
+   b. "Tutoring users had higher average grades than non-users."
+
+   c. "Tutoring improved student grades."
+
+   d. "The university should expand tutoring hours."
+
+3. A report says, "Complaints increased by 50%." What additional information would help you interpret that claim?
+
+4. Explain why this AI revision is risky:
+
+   Original: "Students who used the study app had higher average exam scores, but the data do not show whether the app caused the difference."
+
+   AI revision: "The study app helped students earn higher exam scores."
+
+5. Give one green-zone AI use, one yellow-zone AI use, and one red-zone AI use for this course.
+
+:::
+
+::: {.callout-tip collapse="true" title="Solutions"}
+
+1. "Students" is too broad because students differ in background knowledge, needs, decisions, constraints, and risks. First-year students deciding whether to seek tutoring need a different message than student government leaders reviewing a campus report.
+
+2. a. Descriptive. b. Comparative or associational, depending on the surrounding context. c. Causal. d. Evaluative or recommendation.
+
+3. You would want the original count and new count, the denominator or population, the time frame, whether reporting procedures changed, and whether the increase is large relative to normal variation.
+
+4. The revision changes an association into a causal claim. The original says app users had higher scores but warns that the data do not prove causation. The AI revision removes that caveat and implies the app produced the improvement.
+
+5. Answers will vary. Green-zone: asking AI to identify vague language in a draft. Yellow-zone: asking AI to summarize a dataset or rewrite a section, followed by careful verification. Red-zone: pasting identifiable student data into an unapproved AI tool or submitting AI-generated claims without checking them.
+
+:::

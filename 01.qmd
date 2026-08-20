@@ -120,22 +120,22 @@ The stronger prompt names the audience, task, constraint, and desired critique. 
 
 :::
 
-## What to bring to the first class meeting
+<!-- ## What to bring to the first class meeting -->
 
-Before class, be ready to discuss a recent example of data communication. It can be a chart, article, dashboard, social media post, sports graphic, public policy claim, or organizational report.
+<!-- Before class, be ready to discuss a recent example of data communication. It can be a chart, article, dashboard, social media post, sports graphic, public policy claim, or organizational report. -->
 
-As you look at it, ask:
+<!-- As you look at it, ask: -->
 
-- What claim is being made?
-- What data or evidence supports the claim?
-- Who seems to be the intended audience?
-- What is clear?
-- What is missing, confusing, or potentially misleading?
-- Where might AI help improve it, and where might AI make it worse?
+<!-- - What claim is being made? -->
+<!-- - What data or evidence supports the claim? -->
+<!-- - Who seems to be the intended audience? -->
+<!-- - What is clear? -->
+<!-- - What is missing, confusing, or potentially misleading? -->
+<!-- - Where might AI help improve it, and where might AI make it worse? -->
 
-You do not need a polished analysis. Bring curiosity and one example you can describe.
+<!-- You do not need a polished analysis. Bring curiosity and one example you can describe. -->
 
-### Recap
+## Recap
 
 ::: {.recap-table}
 | **Keyword** | **Definition** |
@@ -148,7 +148,7 @@ You do not need a polished analysis. Bring curiosity and one example you can des
 | **Verification** | The process of checking that claims, code, summaries, and visuals are accurate and appropriate. |
 :::
 
-### Check your understanding
+## Check your understanding
 
 ::: {.callout-note collapse="false" title="Problems"}
 

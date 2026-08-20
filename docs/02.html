@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Audience, Claims, Evidence, and AI Boundaries – STA 2310 Data Communication with AI</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ac731d99f942368ec2047317e7e82b91.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style type="text/css">
+.sidebar .chapter-number {
+color: #FFB81c;
+}
+.center-panel.quarto-layout-panel {
+justify-content: center;
+column-gap: 1rem;
+}
+</style>
+<style>
+div.callout-example.callout {
+  border-left-color: #008000;
+}
+div.callout-example.callout-style-default > .callout-header {
+  background-color: rgba(0, 128, 0, 0.13);
+}
+div.callout-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-example.callout-style-default .callout-icon::before, div.callout-example.callout-titled .callout-icon::before {
+  content: '📈';
+  background-image: none;
+}
+</style>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Audience, Claims, Evidence, and AI Boundaries</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"></a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What Is Data Communication with AI?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Audience, Claims, Evidence, and AI Boundaries</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#why-audience-matters" id="toc-why-audience-matters" class="nav-link active" data-scroll-target="#why-audience-matters"><span class="header-section-number">2.1</span> Why audience matters</a></li>
+  <li><a href="#audience-is-a-decision-context" id="toc-audience-is-a-decision-context" class="nav-link" data-scroll-target="#audience-is-a-decision-context"><span class="header-section-number">2.2</span> Audience is a decision context</a>
+  <ul class="collapse">
+  <li><a href="#primary-and-secondary-audiences" id="toc-primary-and-secondary-audiences" class="nav-link" data-scroll-target="#primary-and-secondary-audiences">Primary and secondary audiences</a></li>
+  <li><a href="#a-quick-audience-profile" id="toc-a-quick-audience-profile" class="nav-link" data-scroll-target="#a-quick-audience-profile">A quick audience profile</a></li>
+  </ul></li>
+  <li><a href="#from-topic-to-claim" id="toc-from-topic-to-claim" class="nav-link" data-scroll-target="#from-topic-to-claim"><span class="header-section-number">2.3</span> From topic to claim</a>
+  <ul class="collapse">
+  <li><a href="#common-types-of-data-claims" id="toc-common-types-of-data-claims" class="nav-link" data-scroll-target="#common-types-of-data-claims">Common types of data claims</a></li>
+  </ul></li>
+  <li><a href="#the-claim-ladder" id="toc-the-claim-ladder" class="nav-link" data-scroll-target="#the-claim-ladder"><span class="header-section-number">2.4</span> The claim ladder</a></li>
+  <li><a href="#evidence-fit" id="toc-evidence-fit" class="nav-link" data-scroll-target="#evidence-fit"><span class="header-section-number">2.5</span> Evidence fit</a>
+  <ul class="collapse">
+  <li><a href="#denominators" id="toc-denominators" class="nav-link" data-scroll-target="#denominators">Denominators</a></li>
+  <li><a href="#benchmarks" id="toc-benchmarks" class="nav-link" data-scroll-target="#benchmarks">Benchmarks</a></li>
+  <li><a href="#time-frame" id="toc-time-frame" class="nav-link" data-scroll-target="#time-frame">Time frame</a></li>
+  <li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">Missing data</a></li>
+  </ul></li>
+  <li><a href="#responsible-ai-boundaries" id="toc-responsible-ai-boundaries" class="nav-link" data-scroll-target="#responsible-ai-boundaries"><span class="header-section-number">2.6</span> Responsible AI boundaries</a>
+  <ul class="collapse">
+  <li><a href="#green-zone-uses" id="toc-green-zone-uses" class="nav-link" data-scroll-target="#green-zone-uses">Green-zone uses</a></li>
+  <li><a href="#yellow-zone-uses" id="toc-yellow-zone-uses" class="nav-link" data-scroll-target="#yellow-zone-uses">Yellow-zone uses</a></li>
+  <li><a href="#red-zone-uses" id="toc-red-zone-uses" class="nav-link" data-scroll-target="#red-zone-uses">Red-zone uses</a></li>
+  </ul></li>
+  <li><a href="#special-cases-and-edge-cases" id="toc-special-cases-and-edge-cases" class="nav-link" data-scroll-target="#special-cases-and-edge-cases"><span class="header-section-number">2.7</span> Special cases and edge cases</a>
+  <ul class="collapse">
+  <li><a href="#when-the-audience-includes-people-represented-in-the-data" id="toc-when-the-audience-includes-people-represented-in-the-data" class="nav-link" data-scroll-target="#when-the-audience-includes-people-represented-in-the-data">When the audience includes people represented in the data</a></li>
+  <li><a href="#when-the-audience-wants-certainty" id="toc-when-the-audience-wants-certainty" class="nav-link" data-scroll-target="#when-the-audience-wants-certainty">When the audience wants certainty</a></li>
+  <li><a href="#when-a-simple-message-hides-an-important-subgroup" id="toc-when-a-simple-message-hides-an-important-subgroup" class="nav-link" data-scroll-target="#when-a-simple-message-hides-an-important-subgroup">When a simple message hides an important subgroup</a></li>
+  <li><a href="#when-ai-makes-the-message-smoother-but-less-true" id="toc-when-ai-makes-the-message-smoother-but-less-true" class="nav-link" data-scroll-target="#when-ai-makes-the-message-smoother-but-less-true">When AI makes the message smoother but less true</a></li>
+  </ul></li>
+  <li><a href="#a-practical-workflow" id="toc-a-practical-workflow" class="nav-link" data-scroll-target="#a-practical-workflow"><span class="header-section-number">2.8</span> A practical workflow</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">2.9</span> Recap</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding"><span class="header-section-number">2.10</span> Check your understanding</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Audience, Claims, Evidence, and AI Boundaries</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="why-audience-matters" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="why-audience-matters"><span class="header-section-number">2.1</span> Why audience matters</h2>
+<p>In many statistics and data science courses, the workflow sounds like this:</p>
+<ol type="1">
+<li>get the data;</li>
+<li>analyze the data;</li>
+<li>make a graph;</li>
+<li>explain what happened.</li>
+</ol>
+<p>That workflow is useful, but it hides one of the most important communication decisions: <strong>who is this for?</strong></p>
+<p>Audience is not something we sprinkle on at the end. Audience affects which question matters, which evidence is relevant, which words are clear, which caveats need to be stated, and which visual form will help rather than distract.</p>
+<p>Suppose a dataset shows that visits to a campus tutoring center peak in the two weeks before midterms. That pattern could matter to several groups:</p>
+<ul>
+<li>Students may need to know that booking early is wise.</li>
+<li>Tutors may need to plan for busier shifts.</li>
+<li>Administrators may need to allocate staffing.</li>
+<li>Faculty may need to coordinate review sessions.</li>
+<li>A public audience may need a simple explanation of how academic support is used.</li>
+</ul>
+<p>The evidence is the same, but the communication task is not. A message that works for one audience may be too vague, too technical, too detailed, or too action-oriented for another.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 2.1: Same evidence, different audience
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Imagine this finding:</p>
+<blockquote class="blockquote">
+<p>Students who visited the tutoring center at least twice had higher average course grades than students who did not visit.</p>
+</blockquote>
+<p>For students, a reasonable message might be:</p>
+<blockquote class="blockquote">
+<p>Students who use tutoring often do well, and returning for another visit is a normal part of learning.</p>
+</blockquote>
+<p>For administrators, a better message might be:</p>
+<blockquote class="blockquote">
+<p>Repeat tutoring visits are associated with stronger course outcomes, but the data do not show whether tutoring caused the difference; additional study could help evaluate program impact.</p>
+</blockquote>
+<p>The student-facing version encourages help-seeking. The administrator-facing version is more careful about causation because it may affect policy, funding, or assessment.</p>
+</div>
+</div>
+</section>
+<section id="audience-is-a-decision-context" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="audience-is-a-decision-context"><span class="header-section-number">2.2</span> Audience is a decision context</h2>
+<p>It is tempting to define an audience only by a label: students, faculty, parents, customers, voters, managers, patients, donors, or fans. Labels help, but they are not enough.</p>
+<p>A useful audience description includes context:</p>
+<ul>
+<li><strong>Need:</strong> What problem or question brings this audience to the data?</li>
+<li><strong>Knowledge:</strong> What do they already understand, and what needs explanation?</li>
+<li><strong>Power:</strong> What decisions can they make with the information?</li>
+<li><strong>Risk:</strong> What could happen if they misunderstand the message?</li>
+<li><strong>Constraint:</strong> What time, attention, or technical background do they have?</li>
+</ul>
+<p>For example, “students” is too broad. First-year students choosing whether to visit tutoring are different from senior statistics majors evaluating a data visualization. Both are students, but they need different messages.</p>
+<section id="primary-and-secondary-audiences" class="level3">
+<h3 class="anchored" data-anchor-id="primary-and-secondary-audiences">Primary and secondary audiences</h3>
+<p>Many real data products have more than one audience. A public report may be written for community members but also read by journalists, administrators, grant reviewers, and people represented in the data.</p>
+<p>When this happens, choose a <strong>primary audience</strong>. The primary audience is the group whose needs most shape the communication. Secondary audiences still matter, especially for ethics and interpretation, but they should not pull the message in every direction.</p>
+<p>If every audience is equally important, the result often becomes mushy: too general for technical readers, too technical for general readers, and not very useful for anyone.</p>
+</section>
+<section id="a-quick-audience-profile" class="level3">
+<h3 class="anchored" data-anchor-id="a-quick-audience-profile">A quick audience profile</h3>
+<p>Before writing a data claim, try this four-sentence profile:</p>
+<ol type="1">
+<li>My primary audience is…</li>
+<li>They need to understand…</li>
+<li>They may already believe or assume…</li>
+<li>The biggest risk if I communicate poorly is…</li>
+</ol>
+<p>This profile is short, but it forces useful choices.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 2.2: Audience profile
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose you are communicating a chart about student sleep and exam performance.</p>
+<p>Audience profile:</p>
+<ol type="1">
+<li>My primary audience is first-year college students.</li>
+<li>They need to understand that sleep is related to academic performance, but it is not the only factor.</li>
+<li>They may already believe that staying up late is a necessary part of college success.</li>
+<li>The biggest risk if I communicate poorly is making a correlation sound like a guarantee or making students feel blamed for complicated academic pressures.</li>
+</ol>
+<p>That profile points toward a careful message: sleep matters, but the data should not be used to shame students or oversimplify academic success.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="from-topic-to-claim" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="from-topic-to-claim"><span class="header-section-number">2.3</span> From topic to claim</h2>
+<p>A topic is a general area. A claim is a specific statement that can be supported, challenged, revised, or rejected using evidence.</p>
+<p>Topic:</p>
+<blockquote class="blockquote">
+<p>Student study habits.</p>
+</blockquote>
+<p>Better question:</p>
+<blockquote class="blockquote">
+<p>How do study hours vary across the semester?</p>
+</blockquote>
+<p>Possible claim:</p>
+<blockquote class="blockquote">
+<p>In this sample, reported study hours increased sharply during the two weeks before midterms.</p>
+</blockquote>
+<p>The claim is more useful because it names:</p>
+<ul>
+<li>the group or data source;</li>
+<li>the measured quantity;</li>
+<li>the direction or pattern;</li>
+<li>the time frame.</li>
+</ul>
+<p>Good claims are not always bold. Sometimes the strongest claim is cautious:</p>
+<blockquote class="blockquote">
+<p>The available data suggest a possible increase, but missing responses make the size of the change uncertain.</p>
+</blockquote>
+<p>That is still a claim. It tells the audience what the evidence can and cannot support.</p>
+<section id="common-types-of-data-claims" class="level3">
+<h3 class="anchored" data-anchor-id="common-types-of-data-claims">Common types of data claims</h3>
+<p>Different claims require different levels of evidence.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Claim Type</th>
+<th>What It Says</th>
+<th>Example</th>
+<th>Evidence Needed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Descriptive</td>
+<td>What was observed</td>
+<td>“Forty percent of respondents used tutoring.”</td>
+<td>Clear measurement and relevant denominator</td>
+</tr>
+<tr class="even">
+<td>Comparative</td>
+<td>How groups or times differ</td>
+<td>“Use was higher before midterms than after midterms.”</td>
+<td>Fair comparison and consistent definitions</td>
+</tr>
+<tr class="odd">
+<td>Associational</td>
+<td>How variables move together</td>
+<td>“Tutoring visits were associated with higher grades.”</td>
+<td>Attention to confounding and design limits</td>
+</tr>
+<tr class="even">
+<td>Causal</td>
+<td>One thing produced a change in another</td>
+<td>“Tutoring increased grades.”</td>
+<td>Strong design, usually experiment or careful causal strategy</td>
+</tr>
+<tr class="odd">
+<td>Predictive</td>
+<td>What is likely to happen</td>
+<td>“Visits will likely rise next week.”</td>
+<td>Model validation and uncertainty</td>
+</tr>
+<tr class="even">
+<td>Evaluative</td>
+<td>Whether something is good, bad, enough, or worth doing</td>
+<td>“The program should expand.”</td>
+<td>Evidence plus values, costs, constraints, and alternatives</td>
+</tr>
+</tbody>
+</table>
+<p>One of the most common communication mistakes is using evidence for one claim type while writing as if it supports a stronger claim type.</p>
+<p>If your data are descriptive, do not write a causal headline. If your evidence shows an association, do not write as if you proved an intervention worked.</p>
+</section>
+</section>
+<section id="the-claim-ladder" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="the-claim-ladder"><span class="header-section-number">2.4</span> The claim ladder</h2>
+<p>Think of claims as a ladder. Each step requires more evidence than the one below it.</p>
+<ol type="1">
+<li><strong>We observed this.</strong></li>
+<li><strong>This group differed from that group.</strong></li>
+<li><strong>These variables were associated.</strong></li>
+<li><strong>This factor likely contributed to that outcome.</strong></li>
+<li><strong>This action should be taken.</strong></li>
+</ol>
+<p>The higher you climb, the more support you need. A recommendation is not just a statistic with an exclamation point. It requires judgment about consequences, alternatives, cost, uncertainty, and audience needs.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 2.3: Climbing too high
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Evidence:</p>
+<blockquote class="blockquote">
+<p>Students who used a study app had higher average exam scores than students who did not.</p>
+</blockquote>
+<p>Careful claim:</p>
+<blockquote class="blockquote">
+<p>In this sample, study app users had higher average exam scores.</p>
+</blockquote>
+<p>Too high on the ladder:</p>
+<blockquote class="blockquote">
+<p>The study app improves exam scores.</p>
+</blockquote>
+<p>Why is the second claim too strong? Students who choose to use a study app may already be more organized, more motivated, or taking different courses. The data may show an association, but the claim uses causal language.</p>
+</div>
+</div>
+</section>
+<section id="evidence-fit" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="evidence-fit"><span class="header-section-number">2.5</span> Evidence fit</h2>
+<p>Evidence fit means the evidence matches the claim. This is one of the most important ideas in data communication.</p>
+<p>Ask:</p>
+<ul>
+<li>Does the evidence directly measure the thing named in the claim?</li>
+<li>Is the denominator clear?</li>
+<li>Is the comparison fair?</li>
+<li>Is the time period appropriate?</li>
+<li>Are the categories defined?</li>
+<li>Are important groups missing?</li>
+<li>Could another explanation fit the same pattern?</li>
+</ul>
+<section id="denominators" class="level3">
+<h3 class="anchored" data-anchor-id="denominators">Denominators</h3>
+<p>A percentage without a denominator can mislead.</p>
+<p>Consider:</p>
+<blockquote class="blockquote">
+<p>Complaints increased by 50%.</p>
+</blockquote>
+<p>That sounds large. But it means different things depending on the denominator:</p>
+<ul>
+<li>from 2 complaints to 3;</li>
+<li>from 200 complaints to 300;</li>
+<li>from 20,000 complaints to 30,000.</li>
+</ul>
+<p>The percentage alone is not enough. Good communication often includes both the rate and the count when the count affects interpretation.</p>
+</section>
+<section id="benchmarks" class="level3">
+<h3 class="anchored" data-anchor-id="benchmarks">Benchmarks</h3>
+<p>Many numbers need a comparison point.</p>
+<blockquote class="blockquote">
+<p>The average wait time was 14 minutes.</p>
+</blockquote>
+<p>Is that good or bad? It depends. Compared with what?</p>
+<ul>
+<li>last semester?</li>
+<li>similar offices?</li>
+<li>the office goal?</li>
+<li>student expectations?</li>
+<li>the time required for the service?</li>
+</ul>
+<p>Benchmarks help audiences interpret scale. Without a benchmark, a number may be accurate but not meaningful.</p>
+</section>
+<section id="time-frame" class="level3">
+<h3 class="anchored" data-anchor-id="time-frame">Time frame</h3>
+<p>Time frame changes interpretation.</p>
+<blockquote class="blockquote">
+<p>Website traffic increased.</p>
+</blockquote>
+<p>Over what period? Compared to what previous period? Was there a holiday, campaign, news event, outage, or seasonal pattern?</p>
+<p>Data communication should make time visible when time affects interpretation.</p>
+</section>
+<section id="missing-data" class="level3">
+<h3 class="anchored" data-anchor-id="missing-data">Missing data</h3>
+<p>Missing data are not just a technical problem. They are a communication problem.</p>
+<p>If many students skip a survey question about financial stress, the missingness itself may matter. If a public dataset excludes some neighborhoods, the map may look complete while hiding absence. If an AI tool summarizes a dataset without noticing missing values, it may produce a clean but false story.</p>
+<p>When missing data could affect the message, say so.</p>
+</section>
+</section>
+<section id="responsible-ai-boundaries" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="responsible-ai-boundaries"><span class="header-section-number">2.6</span> Responsible AI boundaries</h2>
+<p>AI tools can help with audience adaptation, claim checking, drafting, revision, and critique. But they also make it easier to write beyond the evidence.</p>
+<p>A useful way to think about AI use is to divide tasks into green, yellow, and red zones.</p>
+<section id="green-zone-uses" class="level3">
+<h3 class="anchored" data-anchor-id="green-zone-uses">Green-zone uses</h3>
+<p>Green-zone uses are usually appropriate if you still verify the result.</p>
+<ul>
+<li>Ask for alternate wording.</li>
+<li>Ask for possible audience questions.</li>
+<li>Ask for a plain-language explanation of a technical sentence.</li>
+<li>Ask for a list of possible caveats.</li>
+<li>Ask for a critique of whether a claim sounds causal.</li>
+<li>Ask for help debugging code, followed by your own check.</li>
+</ul>
+<p>Green-zone uses support thinking. They do not replace it.</p>
+</section>
+<section id="yellow-zone-uses" class="level3">
+<h3 class="anchored" data-anchor-id="yellow-zone-uses">Yellow-zone uses</h3>
+<p>Yellow-zone uses may be appropriate, but they require extra care.</p>
+<ul>
+<li>Asking AI to summarize a source or dataset.</li>
+<li>Asking AI to recommend a chart type.</li>
+<li>Asking AI to rewrite a whole section.</li>
+<li>Asking AI to generate code for cleaning or plotting data.</li>
+<li>Asking AI to create peer review comments.</li>
+</ul>
+<p>These tasks can be helpful, but they can also quietly change the meaning. You need to compare the output against the data, the assignment, and your own intended claim.</p>
+</section>
+<section id="red-zone-uses" class="level3">
+<h3 class="anchored" data-anchor-id="red-zone-uses">Red-zone uses</h3>
+<p>Red-zone uses are not acceptable in this course unless the instructor gives explicit permission.</p>
+<ul>
+<li>Pasting private, sensitive, or identifiable data into an unapproved AI tool.</li>
+<li>Letting AI invent sources or citations.</li>
+<li>Submitting AI-generated claims you have not checked.</li>
+<li>Using AI to hide lack of understanding.</li>
+<li>Allowing AI to make the final decision about what the evidence proves.</li>
+<li>Presenting AI-generated work as if it involved no AI assistance when it did.</li>
+</ul>
+<p>The problem is not that AI was used. The problem is unsupported, undisclosed, or irresponsible use.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 2.4: AI boundary check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prompt:</p>
+<blockquote class="blockquote">
+<p>Here is my paragraph about tutoring visits and grades. Identify any places where I make a causal claim that the data do not support.</p>
+</blockquote>
+<p>This is a green-zone use. The AI is acting as a reviewer, and the student still decides what to revise.</p>
+<p>Prompt:</p>
+<blockquote class="blockquote">
+<p>Here is a file with student names, grades, and tutoring records. Tell me which students are at risk.</p>
+</blockquote>
+<p>This is a red-zone use unless the tool and data handling have been explicitly approved. It involves identifiable student data and could cause harm if mishandled.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="special-cases-and-edge-cases" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="special-cases-and-edge-cases"><span class="header-section-number">2.7</span> Special cases and edge cases</h2>
+<p>The simple rules above cover many situations, but data communication often involves ambiguous cases. The goal is not to memorize every possible rule. The goal is to notice when ordinary shortcuts may fail.</p>
+<section id="when-the-audience-includes-people-represented-in-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="when-the-audience-includes-people-represented-in-the-data">When the audience includes people represented in the data</h3>
+<p>If your data describe people, some members of your audience may also be people in the dataset or people like them. This changes the ethical stakes.</p>
+<p>Avoid language that turns people into problems. For example:</p>
+<blockquote class="blockquote">
+<p>Low-income students underperform.</p>
+</blockquote>
+<p>That sentence is blunt, but it may be unfair and incomplete. It labels a group rather than investigating conditions, resources, measurement, or institutional factors.</p>
+<p>More careful:</p>
+<blockquote class="blockquote">
+<p>In this dataset, students from lower-income households had lower average scores, a pattern that may reflect unequal access to resources, time, advising, or other support.</p>
+</blockquote>
+<p>The second sentence is longer because the situation is more complicated.</p>
+</section>
+<section id="when-the-audience-wants-certainty" class="level3">
+<h3 class="anchored" data-anchor-id="when-the-audience-wants-certainty">When the audience wants certainty</h3>
+<p>Decision-makers often want a clear answer. Data often provide a qualified answer.</p>
+<p>A communicator’s job is not to pretend uncertainty is gone. It is to make uncertainty usable.</p>
+<p>Useful language:</p>
+<ul>
+<li>“The evidence suggests…”</li>
+<li>“The current data are consistent with…”</li>
+<li>“The estimate is uncertain because…”</li>
+<li>“This comparison should be interpreted cautiously…”</li>
+<li>“The data do not show whether…”</li>
+</ul>
+<p>These phrases do not weaken your communication. They make it more honest.</p>
+</section>
+<section id="when-a-simple-message-hides-an-important-subgroup" class="level3">
+<h3 class="anchored" data-anchor-id="when-a-simple-message-hides-an-important-subgroup">When a simple message hides an important subgroup</h3>
+<p>Averages can hide variation.</p>
+<p>Suppose average student satisfaction increased from 3.8 to 4.1. That sounds good. But what if satisfaction increased for seniors and decreased for first-year students? A single average would hide an important audience-specific issue.</p>
+<p>Before communicating a single summary, ask whether the pattern is similar across important groups.</p>
+</section>
+<section id="when-ai-makes-the-message-smoother-but-less-true" class="level3">
+<h3 class="anchored" data-anchor-id="when-ai-makes-the-message-smoother-but-less-true">When AI makes the message smoother but less true</h3>
+<p>AI often improves style by removing friction. Sometimes the friction is necessary.</p>
+<p>Original:</p>
+<blockquote class="blockquote">
+<p>Students who visited the tutoring center had higher average grades, but the data cannot tell us whether tutoring caused the difference.</p>
+</blockquote>
+<p>AI revision:</p>
+<blockquote class="blockquote">
+<p>Tutoring helped students earn higher grades.</p>
+</blockquote>
+<p>The AI version is smooth, but it changes the claim. In this course, accuracy beats smoothness.</p>
+</section>
+</section>
+<section id="a-practical-workflow" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="a-practical-workflow"><span class="header-section-number">2.8</span> A practical workflow</h2>
+<p>When you are preparing a data communication product, use this order:</p>
+<ol type="1">
+<li><strong>Name the audience.</strong> Write a short audience profile.</li>
+<li><strong>State the claim.</strong> Make it specific enough to check.</li>
+<li><strong>Locate the evidence.</strong> Identify the exact data, summary, graph, or comparison that supports the claim.</li>
+<li><strong>Check the claim type.</strong> Is it descriptive, comparative, associational, causal, predictive, or evaluative?</li>
+<li><strong>Look for missing context.</strong> Denominator, benchmark, time frame, definitions, missing data, and subgroup patterns.</li>
+<li><strong>Use AI carefully.</strong> Ask AI to help revise, critique, or brainstorm, but do not let it determine truth.</li>
+<li><strong>Document AI use.</strong> Record what helped, what you changed, and how you verified the final result.</li>
+</ol>
+<p>This workflow is slower than copying a chart into a slide and writing the first sentence that comes to mind. It is also how you avoid many of the mistakes that make data communication misleading.</p>
+</section>
+<section id="recap" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="recap"><span class="header-section-number">2.9</span> Recap</h2>
+<div class="recap-table">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Audience</strong></td>
+<td>The people who need to understand, use, question, or act on the message.</td>
+</tr>
+<tr class="even">
+<td><strong>Primary audience</strong></td>
+<td>The audience whose needs most shape the communication.</td>
+</tr>
+<tr class="odd">
+<td><strong>Claim</strong></td>
+<td>A specific statement that can be supported, challenged, revised, or rejected using evidence.</td>
+</tr>
+<tr class="even">
+<td><strong>Evidence fit</strong></td>
+<td>The match between what the evidence shows and what the claim says.</td>
+</tr>
+<tr class="odd">
+<td><strong>Claim ladder</strong></td>
+<td>The idea that stronger claims, especially causal or action claims, require stronger evidence.</td>
+</tr>
+<tr class="even">
+<td><strong>Denominator</strong></td>
+<td>The total or reference group used to interpret a count, rate, or percentage.</td>
+</tr>
+<tr class="odd">
+<td><strong>Benchmark</strong></td>
+<td>A comparison point that helps an audience understand whether a number is large, small, typical, or unusual.</td>
+</tr>
+<tr class="even">
+<td><strong>Responsible AI boundary</strong></td>
+<td>A limit on AI use based on privacy, verification, attribution, evidence, and human responsibility.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="check-your-understanding" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="check-your-understanding"><span class="header-section-number">2.10</span> Check your understanding</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Why is “students” usually too broad to be a complete audience description?</p></li>
+<li><p>Classify each claim as descriptive, comparative, associational, causal, predictive, or evaluative:</p>
+<ol type="a">
+<li><p>“In this sample, 42% of students used tutoring at least once.”</p></li>
+<li><p>“Tutoring users had higher average grades than non-users.”</p></li>
+<li><p>“Tutoring improved student grades.”</p></li>
+<li><p>“The university should expand tutoring hours.”</p></li>
+</ol></li>
+<li><p>A report says, “Complaints increased by 50%.” What additional information would help you interpret that claim?</p></li>
+<li><p>Explain why this AI revision is risky:</p>
+<p>Original: “Students who used the study app had higher average exam scores, but the data do not show whether the app caused the difference.”</p>
+<p>AI revision: “The study app helped students earn higher exam scores.”</p></li>
+<li><p>Give one green-zone AI use, one yellow-zone AI use, and one red-zone AI use for this course.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>“Students” is too broad because students differ in background knowledge, needs, decisions, constraints, and risks. First-year students deciding whether to seek tutoring need a different message than student government leaders reviewing a campus report.</p></li>
+<li><ol type="a">
+<li>Descriptive. b. Comparative or associational, depending on the surrounding context. c.&nbsp;Causal. d.&nbsp;Evaluative or recommendation.</li>
+</ol></li>
+<li><p>You would want the original count and new count, the denominator or population, the time frame, whether reporting procedures changed, and whether the increase is large relative to normal variation.</p></li>
+<li><p>The revision changes an association into a causal claim. The original says app users had higher scores but warns that the data do not prove causation. The AI revision removes that caveat and implies the app produced the improvement.</p></li>
+<li><p>Answers will vary. Green-zone: asking AI to identify vague language in a draft. Yellow-zone: asking AI to summarize a dataset or rewrite a section, followed by careful verification. Red-zone: pasting identifiable student data into an unapproved AI tool or submitting AI-generated claims without checking them.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

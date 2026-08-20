@@ -16,6 +16,7 @@ book:
   chapters:
     - index.qmd
     - 01.qmd
+    - 02.qmd
 
 execute:
   warning: false
@@ -46,7 +47,7 @@ format:
 custom-callout:
   example:
     title: "Example"
-    icon-symbol: "fa-chart-line"
+    icon-symbol: "📈"
     appearance: "simple"
     color: "#008000"
 
