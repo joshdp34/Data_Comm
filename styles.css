@@ -1,0 +1,29 @@
+blank {
+  color: transparent;
+  text-decoration: underline;
+  text-decoration-color: black;
+  cursor: pointer;
+}
+
+blank.clicked {
+  color: red;
+}
+
+.sidebar .chapter-number {
+  color: #FFB81c;
+}
+
+.recap-table table {
+  width: 100%;
+}
+
+.recap-table th {
+  background-color: #f3f6f4;
+}
+
+.ai-use-log {
+  border-left: 4px solid #154734;
+  padding: 0.75rem 1rem;
+  background: #f7faf8;
+  margin: 1rem 0;
+}

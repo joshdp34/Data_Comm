@@ -1,0 +1,175 @@
+# What Is Data Communication with AI?
+
+## The point of the course
+
+Data rarely speaks for itself. A spreadsheet, model output, graph, or dashboard can contain useful evidence, but someone still has to decide what question matters, what comparison is fair, what context the audience needs, and what action the evidence supports.
+
+That work is **data communication**. It is the practice of turning data into a clear, honest, audience-aware message.
+
+In this course, we will treat data communication as more than making a nice graph or writing a polished paragraph. A strong data communication product connects four things:
+
+1. A **question** worth answering.
+2. **Evidence** that is relevant, checked, and described honestly.
+3. An **audience** with real needs, background knowledge, and constraints.
+4. A **message** that helps the audience understand, decide, or ask better questions.
+
+AI tools can help at many points in that process. They can suggest wording, summarize a messy draft, explain code, generate alternative chart ideas, or act like a first-pass reviewer. But AI tools can also invent details, smooth over uncertainty, reproduce bias, misunderstand context, or make weak claims sound confident.
+
+So the central habit of the course is simple:
+
+> Use AI as a collaborator, not as an authority.
+
+You may ask AI tools for help. You may not hand your judgment to them.
+
+## What counts as a data story?
+
+A data story is not necessarily dramatic. It does not need a hero, a villain, or a twist ending. In this class, a **data story** is a claim about the world supported by data and shaped for a particular audience.
+
+For example:
+
+- A campus office wants to know when tutoring demand is highest.
+- A public health group wants to explain why a rate changed over time.
+- A sports analyst wants to show whether a team improved after a roster change.
+- A nonprofit wants donors to understand which need is growing fastest.
+- A city department wants residents to understand a budget tradeoff.
+
+Each example involves data, but the communication problem is different. A campus office may need a concise internal memo. A public health group may need a public-facing explainer. A sports analyst may need a visual comparison. A nonprofit may need a one-page donor brief. A city department may need plain language and careful caveats.
+
+The same dataset can support different products because audiences need different things.
+
+::: {.example title="Example 1.1: Same number, different message"}
+
+Suppose a dataset shows that 38% of students who visited a writing center returned for at least one additional appointment.
+
+That number could be communicated several ways:
+
+- To students: "Many students come back after their first visit, which suggests the center is useful beyond one-time proofreading."
+- To administrators: "Repeat use may indicate sustained demand; staffing plans should account for students who return across the semester."
+- To writing center tutors: "A first appointment often begins an ongoing support relationship, so intake notes and follow-up guidance matter."
+
+The statistic is the same. The communication changes because the audience and purpose change.
+
+:::
+
+## Where AI fits
+
+AI changes the workflow, not the goal. The goal is still to communicate honestly with evidence. AI simply gives us new tools for drafting, coding, revising, critiquing, and exploring alternatives.
+
+In this course, we will use AI in ways that make our thinking more visible. For example, you might ask an AI tool to:
+
+- suggest three possible headlines for a chart;
+- explain a confusing error message in your code;
+- identify places where a paragraph sounds vague;
+- generate possible audience questions about your draft;
+- translate technical language into plain language;
+- propose alternative visual forms for a comparison.
+
+Those are useful starting points. They are not finished work. You still need to check the data, inspect the code, verify factual claims, make design choices, and decide what belongs in the final product.
+
+### The AI use log
+
+For major assignments, you will keep a short AI use log. The goal is not to punish AI use. The goal is to make your workflow transparent and to help you notice when AI helped, when it failed, and when your own judgment changed the final product.
+
+At minimum, an AI use log should record:
+
+- what tool you used;
+- what you asked it to do;
+- what output was useful;
+- what output you rejected or revised;
+- how you verified the final result.
+
+::: {.ai-use-log}
+**Working rule:** If AI affected the final product, document how. If AI suggested something you did not use, you do not need a long essay, but you should understand why you rejected it.
+:::
+
+## Responsible use
+
+Responsible AI use in data communication has three parts.
+
+First, **protect people and data**. Do not paste private, sensitive, confidential, or identifiable data into an AI tool unless the course instructions explicitly say the tool and data are approved for that use. Public datasets can still involve real people, so privacy is not only a technical rule. It is also an ethical habit.
+
+Second, **verify outputs**. AI tools can produce fluent mistakes. They may invent sources, misread a prompt, write code that runs but answers the wrong question, or suggest a chart that hides the important comparison. Fluency is not evidence.
+
+Third, **own the communication**. If your name is on the work, you are responsible for the claims, language, code, and design choices. AI can assist with process, but it cannot take responsibility for the final message.
+
+## A first communication checklist
+
+Before you make a graph, write a paragraph, or ask an AI tool for help, pause and answer these questions:
+
+1. What question am I trying to answer?
+2. Who needs to understand the answer?
+3. What does this audience already know?
+4. What evidence do I have?
+5. What evidence do I still need?
+6. What could be misunderstood?
+7. What should the audience do, think, or ask next?
+
+This checklist will return throughout the course. It is intentionally simple because simple questions catch many complicated mistakes.
+
+::: {.example title="Example 1.2: A weak prompt and a stronger prompt"}
+
+Weak prompt:
+
+> Make this data sound better.
+
+Stronger prompt:
+
+> I am writing for first-year college students who may be nervous about asking for academic help. Based on the paragraph below, suggest three clearer ways to explain the main finding. Do not add facts that are not in the paragraph. Point out any claims that need more evidence.
+
+The stronger prompt names the audience, task, constraint, and desired critique. It also tells the AI not to invent facts. That does not guarantee a good answer, but it gives you a better starting point for responsible revision.
+
+:::
+
+## What to bring to the first class meeting
+
+Before class, be ready to discuss a recent example of data communication. It can be a chart, article, dashboard, social media post, sports graphic, public policy claim, or organizational report.
+
+As you look at it, ask:
+
+- What claim is being made?
+- What data or evidence supports the claim?
+- Who seems to be the intended audience?
+- What is clear?
+- What is missing, confusing, or potentially misleading?
+- Where might AI help improve it, and where might AI make it worse?
+
+You do not need a polished analysis. Bring curiosity and one example you can describe.
+
+### Recap
+
+::: {.recap-table}
+| **Keyword** | **Definition** |
+| --- | --- |
+| **Data communication** | The practice of turning data into a clear, honest, audience-aware message. |
+| **Data story** | A claim about the world supported by data and shaped for a particular audience. |
+| **Audience** | The people who need to understand, use, question, or act on the message. |
+| **AI collaborator** | A tool that can assist with brainstorming, drafting, coding, critique, or revision, while the human remains responsible for judgment. |
+| **AI use log** | A short record of how AI was used, what changed, and how the final work was verified. |
+| **Verification** | The process of checking that claims, code, summaries, and visuals are accurate and appropriate. |
+:::
+
+### Check your understanding
+
+::: {.callout-note collapse="false" title="Problems"}
+
+1. In your own words, explain the difference between data analysis and data communication.
+
+2. Suppose an AI tool suggests a more dramatic headline for a chart. What questions should you ask before using it?
+
+3. Choose one audience for the statistic "38% of students returned for another writing center appointment." Write one sentence that would make the statistic useful for that audience.
+
+4. Name one way AI could help with data communication and one way it could create a problem.
+
+:::
+
+::: {.callout-tip collapse="true" title="Solutions"}
+
+1. Data analysis focuses on working with data to find patterns, summaries, comparisons, or models. Data communication focuses on explaining evidence clearly to an audience so they can understand, decide, or ask better questions.
+
+2. Ask whether the headline is accurate, whether it exaggerates the evidence, whether it matches the audience, whether it hides uncertainty, and whether every claim in it can be supported by the data.
+
+3. Answers will vary. For administrators: "Because more than one-third of students return after an initial appointment, staffing plans should account for repeat visits rather than only first-time demand."
+
+4. AI could help by suggesting clearer wording or possible audience questions. It could create a problem by inventing facts, overstating a result, missing context, or making biased language sound polished.
+
+:::

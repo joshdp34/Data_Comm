@@ -1,0 +1,54 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: |
+    STA 2310 Data Communication with AI
+  sidebar:
+    style: "docked"
+    search: true
+    title: " "
+    background: "#154734"
+    foreground: "#FFB81c"
+  reader-mode: true
+  page-navigation: false
+  chapters:
+    - index.qmd
+    - 01.qmd
+
+execute:
+  warning: false
+  message: false
+  echo: false
+  freeze: auto
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    code-link: true
+    fig-width: 6
+    fig-height: 3
+    number-depth: 2
+    include-in-header:
+      text: |
+        <style type="text/css">
+        .sidebar .chapter-number {
+        color: #FFB81c;
+        }
+        .center-panel.quarto-layout-panel {
+        justify-content: center;
+        column-gap: 1rem;
+        }
+        </style>
+
+custom-callout:
+  example:
+    title: "Example"
+    icon-symbol: "fa-chart-line"
+    appearance: "simple"
+    color: "#008000"
+
+filters:
+  - custom-callout

@@ -1,0 +1,11 @@
+# Introduction {.unnumbered}
+
+These are the course notes for STA 2310: Data Communication with AI.
+
+The course focuses on communicating data-driven insight through writing, visualization, presentation, reproducible workflows, and responsible use of artificial intelligence tools. The notes are written for reading before class. Class time will build from these ideas through discussion, workshop activities, peer review, and project work.
+
+**Prerequisites:** None.
+
+#### Course Description:
+
+Students will learn to craft evidence-based data stories for specific audiences. The course combines data journalism, technical writing, visualization, accessibility, reproducible research practices, and AI literacy. AI tools will be used as assistants for brainstorming, drafting, summarizing, coding, critique, and revision, but students remain responsible for verifying outputs, documenting assistance, and making final communication choices.
