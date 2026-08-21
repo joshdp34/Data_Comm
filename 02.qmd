@@ -289,64 +289,6 @@ This is a red-zone use unless the tool and data handling have been explicitly ap
 
 :::
 
-## Special cases and edge cases
-
-The simple rules above cover many situations, but data communication often involves ambiguous cases. The goal is not to memorize every possible rule. The goal is to notice when ordinary shortcuts may fail.
-
-### When the audience includes people represented in the data
-
-If your data describe people, some members of your audience may also be people in the dataset or people like them. This changes the ethical stakes.
-
-Avoid language that turns people into problems. For example:
-
-> Low-income students underperform.
-
-That sentence is blunt, but it may be unfair and incomplete. It labels a group rather than investigating conditions, resources, measurement, or institutional factors.
-
-More careful:
-
-> In this dataset, students from lower-income households had lower average scores, a pattern that may reflect unequal access to resources, time, advising, or other support.
-
-The second sentence is longer because the situation is more complicated.
-
-### When the audience wants certainty
-
-Decision-makers often want a clear answer. Data often provide a qualified answer.
-
-A communicator's job is not to pretend uncertainty is gone. It is to make uncertainty usable.
-
-Useful language:
-
-- "The evidence suggests..."
-- "The current data are consistent with..."
-- "The estimate is uncertain because..."
-- "This comparison should be interpreted cautiously..."
-- "The data do not show whether..."
-
-These phrases do not weaken your communication. They make it more honest.
-
-### When a simple message hides an important subgroup
-
-Averages can hide variation.
-
-Suppose average student satisfaction increased from 3.8 to 4.1. That sounds good. But what if satisfaction increased for seniors and decreased for first-year students? A single average would hide an important audience-specific issue.
-
-Before communicating a single summary, ask whether the pattern is similar across important groups.
-
-### When AI makes the message smoother but less true
-
-AI often improves style by removing friction. Sometimes the friction is necessary.
-
-Original:
-
-> Students who visited the tutoring center had higher average grades, but the data cannot tell us whether tutoring caused the difference.
-
-AI revision:
-
-> Tutoring helped students earn higher grades.
-
-The AI version is smooth, but it changes the claim. In this course, accuracy beats smoothness.
-
 ## A practical workflow
 
 When you are preparing a data communication product, use this order:
@@ -355,7 +297,7 @@ When you are preparing a data communication product, use this order:
 2. **State the claim.** Make it specific enough to check.
 3. **Locate the evidence.** Identify the exact data, summary, graph, or comparison that supports the claim.
 4. **Check the claim type.** Is it descriptive, comparative, associational, causal, predictive, or evaluative?
-5. **Look for missing context.** Denominator, benchmark, time frame, definitions, missing data, and subgroup patterns.
+5. **Look for missing context.** Denominator, benchmark, time frame, definitions, and missing data.
 6. **Use AI carefully.** Ask AI to help revise, critique, or brainstorm, but do not let it determine truth.
 7. **Document AI use.** Record what helped, what you changed, and how you verified the final result.
 

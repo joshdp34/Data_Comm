@@ -156,6 +156,12 @@ div.callout-example.callout-style-default .callout-icon::before, div.callout-exa
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Audience, Claims, Evidence, and AI Boundaries</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Started with Quarto in RStudio</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -190,16 +196,9 @@ div.callout-example.callout-style-default .callout-icon::before, div.callout-exa
   <li><a href="#yellow-zone-uses" id="toc-yellow-zone-uses" class="nav-link" data-scroll-target="#yellow-zone-uses">Yellow-zone uses</a></li>
   <li><a href="#red-zone-uses" id="toc-red-zone-uses" class="nav-link" data-scroll-target="#red-zone-uses">Red-zone uses</a></li>
   </ul></li>
-  <li><a href="#special-cases-and-edge-cases" id="toc-special-cases-and-edge-cases" class="nav-link" data-scroll-target="#special-cases-and-edge-cases"><span class="header-section-number">2.7</span> Special cases and edge cases</a>
-  <ul class="collapse">
-  <li><a href="#when-the-audience-includes-people-represented-in-the-data" id="toc-when-the-audience-includes-people-represented-in-the-data" class="nav-link" data-scroll-target="#when-the-audience-includes-people-represented-in-the-data">When the audience includes people represented in the data</a></li>
-  <li><a href="#when-the-audience-wants-certainty" id="toc-when-the-audience-wants-certainty" class="nav-link" data-scroll-target="#when-the-audience-wants-certainty">When the audience wants certainty</a></li>
-  <li><a href="#when-a-simple-message-hides-an-important-subgroup" id="toc-when-a-simple-message-hides-an-important-subgroup" class="nav-link" data-scroll-target="#when-a-simple-message-hides-an-important-subgroup">When a simple message hides an important subgroup</a></li>
-  <li><a href="#when-ai-makes-the-message-smoother-but-less-true" id="toc-when-ai-makes-the-message-smoother-but-less-true" class="nav-link" data-scroll-target="#when-ai-makes-the-message-smoother-but-less-true">When AI makes the message smoother but less true</a></li>
-  </ul></li>
-  <li><a href="#a-practical-workflow" id="toc-a-practical-workflow" class="nav-link" data-scroll-target="#a-practical-workflow"><span class="header-section-number">2.8</span> A practical workflow</a></li>
-  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">2.9</span> Recap</a></li>
-  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding"><span class="header-section-number">2.10</span> Check your understanding</a></li>
+  <li><a href="#a-practical-workflow" id="toc-a-practical-workflow" class="nav-link" data-scroll-target="#a-practical-workflow"><span class="header-section-number">2.7</span> A practical workflow</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">2.8</span> Recap</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding"><span class="header-section-number">2.9</span> Check your understanding</a></li>
   </ul>
 </nav>
     </div>
@@ -572,73 +571,22 @@ div.callout-example.callout-style-default .callout-icon::before, div.callout-exa
 </div>
 </section>
 </section>
-<section id="special-cases-and-edge-cases" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="special-cases-and-edge-cases"><span class="header-section-number">2.7</span> Special cases and edge cases</h2>
-<p>The simple rules above cover many situations, but data communication often involves ambiguous cases. The goal is not to memorize every possible rule. The goal is to notice when ordinary shortcuts may fail.</p>
-<section id="when-the-audience-includes-people-represented-in-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="when-the-audience-includes-people-represented-in-the-data">When the audience includes people represented in the data</h3>
-<p>If your data describe people, some members of your audience may also be people in the dataset or people like them. This changes the ethical stakes.</p>
-<p>Avoid language that turns people into problems. For example:</p>
-<blockquote class="blockquote">
-<p>Low-income students underperform.</p>
-</blockquote>
-<p>That sentence is blunt, but it may be unfair and incomplete. It labels a group rather than investigating conditions, resources, measurement, or institutional factors.</p>
-<p>More careful:</p>
-<blockquote class="blockquote">
-<p>In this dataset, students from lower-income households had lower average scores, a pattern that may reflect unequal access to resources, time, advising, or other support.</p>
-</blockquote>
-<p>The second sentence is longer because the situation is more complicated.</p>
-</section>
-<section id="when-the-audience-wants-certainty" class="level3">
-<h3 class="anchored" data-anchor-id="when-the-audience-wants-certainty">When the audience wants certainty</h3>
-<p>Decision-makers often want a clear answer. Data often provide a qualified answer.</p>
-<p>A communicator’s job is not to pretend uncertainty is gone. It is to make uncertainty usable.</p>
-<p>Useful language:</p>
-<ul>
-<li>“The evidence suggests…”</li>
-<li>“The current data are consistent with…”</li>
-<li>“The estimate is uncertain because…”</li>
-<li>“This comparison should be interpreted cautiously…”</li>
-<li>“The data do not show whether…”</li>
-</ul>
-<p>These phrases do not weaken your communication. They make it more honest.</p>
-</section>
-<section id="when-a-simple-message-hides-an-important-subgroup" class="level3">
-<h3 class="anchored" data-anchor-id="when-a-simple-message-hides-an-important-subgroup">When a simple message hides an important subgroup</h3>
-<p>Averages can hide variation.</p>
-<p>Suppose average student satisfaction increased from 3.8 to 4.1. That sounds good. But what if satisfaction increased for seniors and decreased for first-year students? A single average would hide an important audience-specific issue.</p>
-<p>Before communicating a single summary, ask whether the pattern is similar across important groups.</p>
-</section>
-<section id="when-ai-makes-the-message-smoother-but-less-true" class="level3">
-<h3 class="anchored" data-anchor-id="when-ai-makes-the-message-smoother-but-less-true">When AI makes the message smoother but less true</h3>
-<p>AI often improves style by removing friction. Sometimes the friction is necessary.</p>
-<p>Original:</p>
-<blockquote class="blockquote">
-<p>Students who visited the tutoring center had higher average grades, but the data cannot tell us whether tutoring caused the difference.</p>
-</blockquote>
-<p>AI revision:</p>
-<blockquote class="blockquote">
-<p>Tutoring helped students earn higher grades.</p>
-</blockquote>
-<p>The AI version is smooth, but it changes the claim. In this course, accuracy beats smoothness.</p>
-</section>
-</section>
-<section id="a-practical-workflow" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="a-practical-workflow"><span class="header-section-number">2.8</span> A practical workflow</h2>
+<section id="a-practical-workflow" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="a-practical-workflow"><span class="header-section-number">2.7</span> A practical workflow</h2>
 <p>When you are preparing a data communication product, use this order:</p>
 <ol type="1">
 <li><strong>Name the audience.</strong> Write a short audience profile.</li>
 <li><strong>State the claim.</strong> Make it specific enough to check.</li>
 <li><strong>Locate the evidence.</strong> Identify the exact data, summary, graph, or comparison that supports the claim.</li>
 <li><strong>Check the claim type.</strong> Is it descriptive, comparative, associational, causal, predictive, or evaluative?</li>
-<li><strong>Look for missing context.</strong> Denominator, benchmark, time frame, definitions, missing data, and subgroup patterns.</li>
+<li><strong>Look for missing context.</strong> Denominator, benchmark, time frame, definitions, and missing data.</li>
 <li><strong>Use AI carefully.</strong> Ask AI to help revise, critique, or brainstorm, but do not let it determine truth.</li>
 <li><strong>Document AI use.</strong> Record what helped, what you changed, and how you verified the final result.</li>
 </ol>
 <p>This workflow is slower than copying a chart into a slide and writing the first sentence that comes to mind. It is also how you avoid many of the mistakes that make data communication misleading.</p>
 </section>
-<section id="recap" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="recap"><span class="header-section-number">2.9</span> Recap</h2>
+<section id="recap" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="recap"><span class="header-section-number">2.8</span> Recap</h2>
 <div class="recap-table">
 <table class="caption-top table">
 <colgroup>
@@ -688,8 +636,8 @@ div.callout-example.callout-style-default .callout-icon::before, div.callout-exa
 </table>
 </div>
 </section>
-<section id="check-your-understanding" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="check-your-understanding"><span class="header-section-number">2.10</span> Check your understanding</h2>
+<section id="check-your-understanding" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="check-your-understanding"><span class="header-section-number">2.9</span> Check your understanding</h2>
 <div class="callout callout-style-default callout-note callout-titled" title="Problems">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">

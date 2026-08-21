@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Getting Started with Quarto in RStudio – STA 2310 Data Communication with AI</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ac731d99f942368ec2047317e7e82b91.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style type="text/css">
+.sidebar .chapter-number {
+color: #FFB81c;
+}
+.center-panel.quarto-layout-panel {
+justify-content: center;
+column-gap: 1rem;
+}
+</style>
+<style>
+div.callout-example.callout {
+  border-left-color: #008000;
+}
+div.callout-example.callout-style-default > .callout-header {
+  background-color: rgba(0, 128, 0, 0.13);
+}
+div.callout-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-example.callout-style-default .callout-icon::before, div.callout-example.callout-titled .callout-icon::before {
+  content: '📈';
+  background-image: none;
+}
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Started with Quarto in RStudio</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"></a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What Is Data Communication with AI?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Audience, Claims, Evidence, and AI Boundaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Started with Quarto in RStudio</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-basic-idea" id="toc-the-basic-idea" class="nav-link active" data-scroll-target="#the-basic-idea"><span class="header-section-number">3.1</span> The basic idea</a></li>
+  <li><a href="#rstudio-as-the-authoring-environment" id="toc-rstudio-as-the-authoring-environment" class="nav-link" data-scroll-target="#rstudio-as-the-authoring-environment"><span class="header-section-number">3.2</span> RStudio as the authoring environment</a></li>
+  <li><a href="#the-yaml-header" id="toc-the-yaml-header" class="nav-link" data-scroll-target="#the-yaml-header"><span class="header-section-number">3.3</span> The YAML header</a></li>
+  <li><a href="#rendering-one-document-to-html-pdf-or-word" id="toc-rendering-one-document-to-html-pdf-or-word" class="nav-link" data-scroll-target="#rendering-one-document-to-html-pdf-or-word"><span class="header-section-number">3.4</span> Rendering one document to HTML, PDF, or Word</a></li>
+  <li><a href="#documents-html-pages-slides-and-books" id="toc-documents-html-pages-slides-and-books" class="nav-link" data-scroll-target="#documents-html-pages-slides-and-books"><span class="header-section-number">3.5</span> Documents, HTML pages, slides, and books</a>
+  <ul class="collapse">
+  <li><a href="#html-documents" id="toc-html-documents" class="nav-link" data-scroll-target="#html-documents">HTML documents</a></li>
+  <li><a href="#pdf-documents" id="toc-pdf-documents" class="nav-link" data-scroll-target="#pdf-documents">PDF documents</a></li>
+  <li><a href="#word-documents" id="toc-word-documents" class="nav-link" data-scroll-target="#word-documents">Word documents</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#books" id="toc-books" class="nav-link" data-scroll-target="#books">Books</a></li>
+  </ul></li>
+  <li><a href="#including-images" id="toc-including-images" class="nav-link" data-scroll-target="#including-images"><span class="header-section-number">3.6</span> Including images</a>
+  <ul class="collapse">
+  <li><a href="#common-image-problems" id="toc-common-image-problems" class="nav-link" data-scroll-target="#common-image-problems">Common image problems</a></li>
+  </ul></li>
+  <li><a href="#writing-equations" id="toc-writing-equations" class="nav-link" data-scroll-target="#writing-equations"><span class="header-section-number">3.7</span> Writing equations</a>
+  <ul class="collapse">
+  <li><a href="#common-equation-problems" id="toc-common-equation-problems" class="nav-link" data-scroll-target="#common-equation-problems">Common equation problems</a></li>
+  </ul></li>
+  <li><a href="#code-chunks-and-results" id="toc-code-chunks-and-results" class="nav-link" data-scroll-target="#code-chunks-and-results"><span class="header-section-number">3.8</span> Code chunks and results</a></li>
+  <li><a href="#ai-and-quarto" id="toc-ai-and-quarto" class="nav-link" data-scroll-target="#ai-and-quarto"><span class="header-section-number">3.9</span> AI and Quarto</a></li>
+  <li><a href="#official-references" id="toc-official-references" class="nav-link" data-scroll-target="#official-references"><span class="header-section-number">3.10</span> Official references</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">3.11</span> Recap</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding"><span class="header-section-number">3.12</span> Check your understanding</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Started with Quarto in RStudio</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Data communication is not only about choosing the right words or making a good chart. It is also about creating a workflow that helps you make, revise, check, and share your work.</p>
+<p>In this course, we will use <strong>Quarto</strong> for many written and visual products. Quarto lets you write one source file and render it into polished outputs such as HTML pages, PDF documents, Word documents, slides, websites, and books. That means your writing, code, tables, figures, equations, and notes can live together in one reproducible file.</p>
+<p>This chapter introduces the basic model. You do not need to master every option today. You do need to understand what a Quarto file is, how RStudio renders it, and what can go wrong when the same source is sent to different output formats.</p>
+<section id="the-basic-idea" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-basic-idea"><span class="header-section-number">3.1</span> The basic idea</h2>
+<p>A Quarto source file usually ends in <code>.qmd</code>. The <code>.qmd</code> file is the file you edit. The rendered file is the file your audience reads.</p>
+<p>The workflow is:</p>
+<ol type="1">
+<li>write a <code>.qmd</code> source file;</li>
+<li>choose an output format;</li>
+<li>click <strong>Render</strong> in RStudio;</li>
+<li>inspect the rendered output;</li>
+<li>revise the source and render again.</li>
+</ol>
+<p>The source file is plain text. It can contain:</p>
+<ul>
+<li>YAML options at the top;</li>
+<li>headings and paragraphs;</li>
+<li>lists and tables;</li>
+<li>links and images;</li>
+<li>equations;</li>
+<li>code chunks;</li>
+<li>figure captions and cross-references.</li>
+</ul>
+<p>The output file might be:</p>
+<ul>
+<li>an HTML page;</li>
+<li>a PDF document;</li>
+<li>a Word document;</li>
+<li>an HTML slide deck;</li>
+<li>a PowerPoint slide deck;</li>
+<li>a PDF slide deck;</li>
+<li>a multi-chapter book.</li>
+</ul>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 3.1: Source file versus output file
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you write <code>analysis.qmd</code>, that file is the editable source. When you render it, Quarto might create <code>analysis.html</code>, <code>analysis.pdf</code>, or <code>analysis.docx</code>.</p>
+<p>The source file is like a recipe. The rendered file is the meal your audience sees. If you want to change the final product, you usually edit the source file and render again.</p>
+</div>
+</div>
+</section>
+<section id="rstudio-as-the-authoring-environment" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="rstudio-as-the-authoring-environment"><span class="header-section-number">3.2</span> RStudio as the authoring environment</h2>
+<p>We will assume you are using RStudio.</p>
+<p>In RStudio, you can create a new Quarto file by going to <strong>File &gt; New File &gt; Quarto Document</strong>. RStudio will ask for a title and an output format. For your first few documents, HTML is usually the easiest output because it renders quickly and is forgiving.</p>
+<p>RStudio has two useful editing modes:</p>
+<ul>
+<li><strong>Source mode</strong>, where you see the raw Quarto markdown.</li>
+<li><strong>Visual mode</strong>, where RStudio gives you a document-like editing interface.</li>
+</ul>
+<p>You may use either mode. Source mode helps you learn the structure. Visual mode can be helpful for tables, links, images, citations, and equation editing. Even when you use Visual mode, it is worth switching to Source mode sometimes so you can see what RStudio created.</p>
+<p>To render, click the <strong>Render</strong> button near the top of the editor. If your document has multiple formats, RStudio lets you choose which one to render.</p>
+</section>
+<section id="the-yaml-header" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="the-yaml-header"><span class="header-section-number">3.3</span> The YAML header</h2>
+<p>Most Quarto files begin with a YAML header. YAML controls document metadata and rendering options.</p>
+<p>Here is a minimal Quarto document:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My First Quarto Document"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your Name"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>After the YAML header, you write the body of the document:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Main Finding</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>The main finding is that visits increased from September to October.</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Evidence</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>The data came from weekly tutoring center records.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>YAML is picky about indentation. If something fails unexpectedly, check for:</p>
+<ul>
+<li>tabs instead of spaces;</li>
+<li>missing colons;</li>
+<li>uneven indentation;</li>
+<li>quotation marks that do not close;</li>
+<li>a YAML header that starts with <code>---</code> but does not end with <code>---</code>.</li>
+</ul>
+</section>
+<section id="rendering-one-document-to-html-pdf-or-word" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="rendering-one-document-to-html-pdf-or-word"><span class="header-section-number">3.4</span> Rendering one document to HTML, PDF, or Word</h2>
+<p>A single <code>.qmd</code> file can be rendered to several common formats.</p>
+<p>For an HTML page:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Tutoring Center Summary"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For a PDF document:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Tutoring Center Summary"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> pdf</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For a Word document:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Tutoring Center Summary"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> docx</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can also list multiple formats in the same file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Tutoring Center Summary"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In RStudio, you can choose which format to render. From a terminal, the commands would look like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render tutoring-summary.qmd <span class="at">--to</span> html</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render tutoring-summary.qmd <span class="at">--to</span> pdf</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render tutoring-summary.qmd <span class="at">--to</span> docx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>HTML is often best for web reading. PDF is often best for printing or preserving page layout. Word is often best when someone needs to comment, track changes, or edit the file in Microsoft Word.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="PDF rendering depends on LaTeX">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>PDF rendering depends on LaTeX
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>PDF output often requires a working LaTeX installation. If HTML and Word render but PDF fails, the problem may not be your writing. It may be a missing LaTeX tool, a LaTeX package issue, or math/table/image syntax that PDF handles more strictly.</p>
+</div>
+</div>
+</section>
+<section id="documents-html-pages-slides-and-books" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="documents-html-pages-slides-and-books"><span class="header-section-number">3.5</span> Documents, HTML pages, slides, and books</h2>
+<p>Quarto can create several kinds of communication products. The same basic writing rules apply, but the project structure and output format change.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Product</th>
+<th>Usual Source</th>
+<th>Common Outputs</th>
+<th>Typical Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document</td>
+<td>One <code>.qmd</code> file</td>
+<td>HTML, PDF, Word</td>
+<td>Report, memo, analysis, handout</td>
+</tr>
+<tr class="even">
+<td>HTML page</td>
+<td>One <code>.qmd</code> file rendered to <code>html</code></td>
+<td>HTML</td>
+<td>Web page, Canvas page, online notes</td>
+</tr>
+<tr class="odd">
+<td>Slides</td>
+<td>One <code>.qmd</code> file</td>
+<td><code>revealjs</code> HTML, <code>pptx</code>, <code>beamer</code> PDF</td>
+<td>Presentation or short talk</td>
+</tr>
+<tr class="even">
+<td>Book</td>
+<td>A Quarto project with multiple <code>.qmd</code> chapters</td>
+<td>HTML, PDF, Word, EPUB</td>
+<td>Multi-chapter notes, textbook, manual</td>
+</tr>
+</tbody>
+</table>
+<p>The word “document” can be confusing. A Quarto document is the source you write. HTML, PDF, and Word are possible outputs from that source.</p>
+<section id="html-documents" class="level3">
+<h3 class="anchored" data-anchor-id="html-documents">HTML documents</h3>
+<p>HTML is the most web-friendly format. It supports links, responsive layout, search in websites and books, interactive graphics, and embedded media.</p>
+<p>A useful HTML setup might look like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Short Data Report"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>HTML is also the format we will often use when preparing material for Canvas or the course book.</p>
+</section>
+<section id="pdf-documents" class="level3">
+<h3 class="anchored" data-anchor-id="pdf-documents">PDF documents</h3>
+<p>PDF is useful when page layout matters. It is also useful when you need a file that will print consistently.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Printable Data Report"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>PDF is less forgiving than HTML. Very wide tables, huge images, long URLs, and complicated math can overflow the page. If a document renders well to HTML but badly to PDF, inspect the parts that are physically wide.</p>
+</section>
+<section id="word-documents" class="level3">
+<h3 class="anchored" data-anchor-id="word-documents">Word documents</h3>
+<p>Word output is useful when your audience wants to edit, comment, or use track changes.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Editable Data Report"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Word is not just “HTML in Microsoft Word.” Some layouts, interactive features, web-only styling, and advanced figure arrangements may not transfer exactly. If Word is the final format, always open the <code>.docx</code> file and inspect it.</p>
+</section>
+<section id="slides" class="level3">
+<h3 class="anchored" data-anchor-id="slides">Slides</h3>
+<p>Quarto slides are usually written as a <code>.qmd</code> file where headings become slides. The most common HTML slide format is <code>revealjs</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Tutoring Center Patterns"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> revealjs</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Main Finding</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>Tutoring visits increased before midterms.</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## Evidence</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Weekly visit counts</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Course support records</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comparison across four weeks</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For PowerPoint:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Tutoring Center Patterns"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> pptx</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For PDF slides, Quarto can use Beamer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Tutoring Center Patterns"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> beamer</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>There is a special case here. Word (<code>docx</code>) is a document format, not a slide format. If someone asks for editable slides, they probably want PowerPoint (<code>pptx</code>), not Word. If someone asks for a printable slide handout, PDF may be the better choice.</p>
+</section>
+<section id="books" class="level3">
+<h3 class="anchored" data-anchor-id="books">Books</h3>
+<p>A Quarto book is a project made from multiple <code>.qmd</code> files. This course textbook is a Quarto book.</p>
+<p>A small book project might look like this:</p>
+<pre class="text"><code>my-book/
+  _quarto.yml
+  index.qmd
+  01-intro.qmd
+  02-analysis.qmd
+  03-communication.qmd</code></pre>
+<p>The <code>_quarto.yml</code> file controls the book:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> book</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">book</span><span class="kw">:</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Data Communication Book"</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">chapters</span><span class="kw">:</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> index.qmd</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 01-intro.qmd</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 02-analysis.qmd</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 03-communication.qmd</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span><span class="at"> default</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>HTML books are useful for course notes because students can navigate by chapter and use search. PDF or Word book output may be useful for printing or review, but those formats can expose layout problems that do not appear in HTML.</p>
+</section>
+</section>
+<section id="including-images" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="including-images"><span class="header-section-number">3.6</span> Including images</h2>
+<p>Images are central to data communication. Quarto can include common image formats such as <code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.gif</code>, and <code>.svg</code>, although support can vary by output format.</p>
+<p>A good habit is to create an <code>images</code> folder inside your project:</p>
+<pre class="text"><code>project-folder/
+  report.qmd
+  images/
+    tutoring-dashboard.png
+    campus-photo.jpg</code></pre>
+<p>Then include the image with a relative path:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Weekly tutoring dashboard](images/tutoring-dashboard.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The text inside square brackets is the figure caption when the image is treated as a figure. You can also add alt text, size, alignment, and an ID for cross-referencing:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Weekly tutoring dashboard](images/tutoring-dashboard.png)</span>{#fig-tutoring-dashboard fig-alt="A line chart showing tutoring visits increasing before midterms." width="80%"}</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>As shown in @fig-tutoring-dashboard, visits rose in the weeks before midterms.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use image formats intentionally:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Format</th>
+<th>Works Well For</th>
+<th>Watch Out For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.png</code></td>
+<td>Charts, screenshots, diagrams, images with text</td>
+<td>File size can be large</td>
+</tr>
+<tr class="even">
+<td><code>.jpg</code> or <code>.jpeg</code></td>
+<td>Photos</td>
+<td>Text and chart lines may become blurry</td>
+</tr>
+<tr class="odd">
+<td><code>.gif</code></td>
+<td>Simple animation in HTML</td>
+<td>Animation may not work in PDF or Word</td>
+</tr>
+<tr class="even">
+<td><code>.svg</code></td>
+<td>Vector graphics in HTML</td>
+<td>May need conversion for some PDF or Word workflows</td>
+</tr>
+<tr class="odd">
+<td><code>.pdf</code></td>
+<td>Vector figures for PDF output</td>
+<td>Not ideal for HTML pages unless converted</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 3.2: Choosing an image format
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you export a bar chart from R, <code>.png</code> is usually a good choice because the chart text and bars stay sharp. If you include a photograph of students working in a classroom, <code>.jpg</code> is usually better because it compresses photos efficiently.</p>
+<p>If you are rendering to PDF and the image looks blurry, try exporting the plot at a larger size or using a vector format such as <code>.pdf</code> or <code>.svg</code>, depending on the target output.</p>
+</div>
+</div>
+<section id="common-image-problems" class="level3">
+<h3 class="anchored" data-anchor-id="common-image-problems">Common image problems</h3>
+<p>Image problems are common because an image is an external file. The <code>.qmd</code> file points to the image, but the image itself still has to exist in the right place.</p>
+<p>Common problems include:</p>
+<ul>
+<li>the path is wrong;</li>
+<li>the file extension is wrong, such as <code>.jpeg</code> in the folder but <code>.jpg</code> in the source;</li>
+<li>the filename has spaces or inconsistent capitalization;</li>
+<li>the image is outside the project folder;</li>
+<li>the image is huge and makes the output file too large;</li>
+<li>the image is readable on your computer but missing when you share the project.</li>
+</ul>
+<p>Use simple filenames:</p>
+<pre class="text"><code>good: tutoring_dashboard.png
+good: campus-photo.jpg
+avoid: Screenshot 2027-01-18 at 9.45.22 AM.png
+avoid: final FINAL chart (new).jpeg</code></pre>
+<p>For accessibility, include meaningful alt text when the image communicates information. Alt text should describe the information a reader would miss if they could not see the image.</p>
+<p>Weak alt text:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/chart.png)</span>{fig-alt="A chart."}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Better alt text:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/chart.png)</span>{fig-alt="A bar chart showing that tutoring visits were highest during the two weeks before midterms."}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="writing-equations" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="writing-equations"><span class="header-section-number">3.7</span> Writing equations</h2>
+<p>Quarto supports equations written in LaTeX-style math notation.</p>
+<p>Use single dollar signs for inline equations:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>The sample proportion is $\hat{p} = x / n$.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use double dollar signs for display equations:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>\hat{p} = \frac{x}{n}</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>$$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can label an equation and refer to it later:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>z = \frac{x - \mu}{\sigma}</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>$$ {#eq-z-score}</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>The standardized value in @eq-z-score tells us how far an observation is from the mean in standard deviation units.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Here is the same idea rendered as an equation:</p>
+<p><span id="eq-z-score-rendered"><span class="math display">\[
+z = \frac{x - \mu}{\sigma}
+\tag{3.1}\]</span></span></p>
+<p>The value in <a href="#eq-z-score-rendered" class="quarto-xref">Equation&nbsp;<span>3.1</span></a> is useful when we want to communicate how unusual a value is relative to a distribution.</p>
+<section id="common-equation-problems" class="level3">
+<h3 class="anchored" data-anchor-id="common-equation-problems">Common equation problems</h3>
+<p>Equations are powerful, but they also create some predictable problems.</p>
+<p>If you are writing about money, the dollar sign can accidentally start math mode. Escape a dollar sign with a backslash:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>The program cost \$25 per student.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If your equation has an opening brace <code>{</code>, it usually needs a closing brace <code>}</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>\frac{x}{n}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you render to PDF, math errors may stop the whole render. HTML may appear more forgiving, but a broken equation is still a broken communication product.</p>
+<p>For a general audience, do not use equations just because you can. An equation is useful when it clarifies the structure of a calculation. If the audience only needs the idea, a sentence may communicate better.</p>
+</section>
+</section>
+<section id="code-chunks-and-results" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="code-chunks-and-results"><span class="header-section-number">3.8</span> Code chunks and results</h2>
+<p>Quarto can run R code chunks and include the results in the rendered output.</p>
+<p>A basic R chunk looks like this:</p>
+<pre class="text"><code>line 1: ```{r}
+line 2: #| label: simple-mean
+line 3:
+line 4: scores &lt;- c(82, 88, 91, 77, 85)
+line 5: mean(scores)
+line 6: ```</code></pre>
+<p>When you type this in a real <code>.qmd</code> file, remove the <code>line 1:</code> labels. They are included here only so this textbook can display the chunk structure without running it.</p>
+<p>Chunk options let you control what the reader sees:</p>
+<pre class="text"><code>line 1: ```{r}
+line 2: #| label: setup
+line 3: #| include: false
+line 4:
+line 5: library(tidyverse)
+line 6: ```</code></pre>
+<p>In this example, <code>include: false</code> means the code runs but does not appear in the final document.</p>
+<p>For this course, think of code chunks as part of the evidence trail. If a number appears in your report, your Quarto file can show where it came from.</p>
+</section>
+<section id="ai-and-quarto" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="ai-and-quarto"><span class="header-section-number">3.9</span> AI and Quarto</h2>
+<p>AI tools can be helpful when learning Quarto syntax. They can draft YAML headers, suggest image syntax, troubleshoot an error message, or convert a rough outline into a starter <code>.qmd</code> file.</p>
+<p>But AI tools can also invent options, mix syntax from R Markdown, Markdown, HTML, LaTeX, and Quarto, or suggest code that looks plausible but does not render. Treat AI output as a draft, not as proof.</p>
+<p>Responsible AI use with Quarto includes:</p>
+<ul>
+<li>rendering the file yourself;</li>
+<li>reading error messages;</li>
+<li>checking that the output matches the source;</li>
+<li>verifying that images, equations, and links work;</li>
+<li>documenting AI help when course instructions require it.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Test AI-generated Quarto by rendering">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Test AI-generated Quarto by rendering
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If AI gives you Quarto syntax, the render is the first test. If it does not render, the syntax is not ready. If it renders but communicates the wrong thing, the communication is still not ready.</p>
+</div>
+</div>
+</section>
+<section id="official-references" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="official-references"><span class="header-section-number">3.10</span> Official references</h2>
+<p>The official Quarto documentation is more complete than this chapter. These pages are especially useful:</p>
+<ul>
+<li><a href="https://quarto.org/docs/get-started/hello/rstudio.html">Hello, Quarto in RStudio</a></li>
+<li><a href="https://quarto.org/docs/books/">Quarto books</a></li>
+<li><a href="https://quarto.org/docs/authoring/figures.html">Figures</a></li>
+<li><a href="https://quarto.org/docs/presentations/">Presentations</a></li>
+<li><a href="https://quarto.org/docs/manuscripts/authoring/rstudio.html#equations">Equations in RStudio authoring</a></li>
+</ul>
+</section>
+<section id="recap" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="recap"><span class="header-section-number">3.11</span> Recap</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Idea</th>
+<th>Takeaway</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.qmd</code> source</td>
+<td>The editable Quarto file where writing, code, images, and equations live.</td>
+</tr>
+<tr class="even">
+<td>Rendered output</td>
+<td>The file your audience reads, such as HTML, PDF, Word, slides, or a book.</td>
+</tr>
+<tr class="odd">
+<td>YAML</td>
+<td>The document settings at the top of the file.</td>
+</tr>
+<tr class="even">
+<td>HTML</td>
+<td>Best for web reading, links, search, and interactive or flexible layouts.</td>
+</tr>
+<tr class="odd">
+<td>PDF</td>
+<td>Best for printing and fixed page layout, but stricter about formatting.</td>
+</tr>
+<tr class="even">
+<td>Word</td>
+<td>Best for editing and comments, but not identical to HTML or PDF.</td>
+</tr>
+<tr class="odd">
+<td>Slides</td>
+<td>Use <code>revealjs</code> for HTML slides, <code>pptx</code> for PowerPoint, and <code>beamer</code> for PDF slides.</td>
+</tr>
+<tr class="even">
+<td>Books</td>
+<td>Use a Quarto project with multiple chapters and a <code>_quarto.yml</code> file.</td>
+</tr>
+<tr class="odd">
+<td>Images</td>
+<td>Use relative paths, meaningful alt text, and formats that fit the output.</td>
+</tr>
+<tr class="even">
+<td>Equations</td>
+<td>Use <code>$...$</code> inline and <code>$$...$$</code> for display equations.</td>
+</tr>
+<tr class="odd">
+<td>AI help</td>
+<td>Useful for drafting and troubleshooting, but rendering and verification are still your responsibility.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="check-your-understanding"><span class="header-section-number">3.12</span> Check your understanding</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>What is the difference between a <code>.qmd</code> source file and a rendered output file?</p></li>
+<li><p>When might HTML be a better output format than PDF?</p></li>
+<li><p>When might Word be a better output format than HTML?</p></li>
+<li><p>What output format would you choose for editable slides?</p></li>
+<li><p>Why is this image path likely to create problems?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>![](C:/Users/Me/Downloads/final FINAL chart (new).png)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Write Quarto markdown that includes an image named <code>exam_scores.png</code> from an <code>images</code> folder. Include useful alt text.</p></li>
+<li><p>What is wrong with this sentence in a Quarto document?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>The program costs $25 per student and saves $40 in staff time.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Why should you inspect the rendered output even if the source file looks correct?</p></li>
+<li><p>How could an AI tool help with Quarto? What would you still need to verify yourself?</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>A <code>.qmd</code> file is the editable source file. It contains the writing, YAML settings, code, image links, equations, and other instructions. The rendered output is the file an audience reads, such as <code>.html</code>, <code>.pdf</code>, <code>.docx</code>, a slide deck, or a book page.</p></li>
+<li><p>HTML may be better than PDF when the document will be read online, shared through a website or Canvas, searched, linked, updated frequently, or used with interactive or responsive content. HTML is also usually easier to troubleshoot while learning Quarto.</p></li>
+<li><p>Word may be better than HTML when someone needs to edit the document, leave comments, use track changes, or fit the work into an office workflow. It is often a practical format for drafts, reports that need feedback, or documents that will be revised by multiple people.</p></li>
+<li><p>For editable slides, choose PowerPoint output with <code>format: pptx</code>. If you want HTML slides, use <code>format: revealjs</code>. If you want PDF slides, use <code>format: beamer</code> or print/export HTML slides to PDF, depending on the situation.</p></li>
+<li><p>The image path is likely to create problems because it points to a personal location on one computer rather than a project-relative path. It also uses a filename with spaces, parentheses, and repeated words, which increases the chance of mistakes. A better workflow is to put the file inside an <code>images</code> folder in the project and use a relative path such as:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/final_chart.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>One good answer is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Exam score distribution](images/exam_scores.png)</span>{fig-alt="A chart showing the distribution of exam scores."}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The best alt text depends on what the image actually shows. If the chart shows a specific pattern, the alt text should name that pattern.</p></li>
+<li><p>The dollar signs may be interpreted as math delimiters rather than currency symbols. Escape currency dollar signs with backslashes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>The program costs \$25 per student and saves \$40 in staff time.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>The source file can look correct while the rendered output still has problems. Images may be missing, equations may render incorrectly, tables may overflow, links may break, callouts may display oddly, or Word/PDF output may differ from HTML. The render is the version your audience sees, so it must be checked directly.</p></li>
+<li><p>An AI tool could help draft a YAML header, explain an error message, suggest Quarto syntax, revise wording, create a starter outline, or identify places where the document may be unclear. You would still need to render the file, inspect the output, verify that syntax and code work, check that images and equations display correctly, and make sure the final communication is accurate for the audience.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -100,8 +100,8 @@
     ]
   },
   {
-    "objectID": "02.html#why-audience-comes-early",
-    "href": "02.html#why-audience-comes-early",
+    "objectID": "02.html#why-audience-matters",
+    "href": "02.html#why-audience-matters",
     "title": "2  Audience, Claims, Evidence, and AI Boundaries",
     "section": "",
     "text": "get the data;\nanalyze the data;\nmake a graph;\nexplain what happened.\n\n\n\n\n\nStudents may need to know that booking early is wise.\nTutors may need to plan for busier shifts.\nAdministrators may need to allocate staffing.\nFaculty may need to coordinate review sessions.\nA public audience may need a simple explanation of how academic support is used.\n\n\n\n\n\n\n\n\nExampleExample 2.1: Same evidence, different audience\n\n\n\nImagine this finding:\n\nStudents who visited the tutoring center at least twice had higher average course grades than students who did not visit.\n\nFor students, a reasonable message might be:\n\nStudents who use tutoring often do well, and returning for another visit is a normal part of learning.\n\nFor administrators, a better message might be:\n\nRepeat tutoring visits are associated with stronger course outcomes, but the data do not show whether tutoring caused the difference; additional study could help evaluate program impact.\n\nThe student-facing version encourages help-seeking. The administrator-facing version is more careful about causation because it may affect policy, funding, or assessment.",
@@ -160,21 +160,11 @@
     ]
   },
   {
-    "objectID": "02.html#special-cases-and-edge-cases",
-    "href": "02.html#special-cases-and-edge-cases",
-    "title": "2  Audience, Claims, Evidence, and AI Boundaries",
-    "section": "2.7 Special cases and edge cases",
-    "text": "2.7 Special cases and edge cases\nThe simple rules above cover many situations, but data communication often involves ambiguous cases. The goal is not to memorize every possible rule. The goal is to notice when ordinary shortcuts may fail.\n\nWhen the audience includes people represented in the data\nIf your data describe people, some members of your audience may also be people in the dataset or people like them. This changes the ethical stakes.\nAvoid language that turns people into problems. For example:\n\nLow-income students underperform.\n\nThat sentence is blunt, but it may be unfair and incomplete. It labels a group rather than investigating conditions, resources, measurement, or institutional factors.\nMore careful:\n\nIn this dataset, students from lower-income households had lower average scores, a pattern that may reflect unequal access to resources, time, advising, or other support.\n\nThe second sentence is longer because the situation is more complicated.\n\n\nWhen the audience wants certainty\nDecision-makers often want a clear answer. Data often provide a qualified answer.\nA communicator’s job is not to pretend uncertainty is gone. It is to make uncertainty usable.\nUseful language:\n\n“The evidence suggests…”\n“The current data are consistent with…”\n“The estimate is uncertain because…”\n“This comparison should be interpreted cautiously…”\n“The data do not show whether…”\n\nThese phrases do not weaken your communication. They make it more honest.\n\n\nWhen a simple message hides an important subgroup\nAverages can hide variation.\nSuppose average student satisfaction increased from 3.8 to 4.1. That sounds good. But what if satisfaction increased for seniors and decreased for first-year students? A single average would hide an important audience-specific issue.\nBefore communicating a single summary, ask whether the pattern is similar across important groups.\n\n\nWhen AI makes the message smoother but less true\nAI often improves style by removing friction. Sometimes the friction is necessary.\nOriginal:\n\nStudents who visited the tutoring center had higher average grades, but the data cannot tell us whether tutoring caused the difference.\n\nAI revision:\n\nTutoring helped students earn higher grades.\n\nThe AI version is smooth, but it changes the claim. In this course, accuracy beats smoothness.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Audience, Claims, Evidence, and AI Boundaries</span>"
-    ]
-  },
-  {
     "objectID": "02.html#a-practical-workflow",
     "href": "02.html#a-practical-workflow",
     "title": "2  Audience, Claims, Evidence, and AI Boundaries",
-    "section": "2.8 A practical workflow",
-    "text": "2.8 A practical workflow\nWhen you are preparing a data communication product, use this order:\n\nName the audience. Write a short audience profile.\nState the claim. Make it specific enough to check.\nLocate the evidence. Identify the exact data, summary, graph, or comparison that supports the claim.\nCheck the claim type. Is it descriptive, comparative, associational, causal, predictive, or evaluative?\nLook for missing context. Denominator, benchmark, time frame, definitions, missing data, and subgroup patterns.\nUse AI carefully. Ask AI to help revise, critique, or brainstorm, but do not let it determine truth.\nDocument AI use. Record what helped, what you changed, and how you verified the final result.\n\nThis workflow is slower than copying a chart into a slide and writing the first sentence that comes to mind. It is also how you avoid many of the mistakes that make data communication misleading.",
+    "section": "2.7 A practical workflow",
+    "text": "2.7 A practical workflow\nWhen you are preparing a data communication product, use this order:\n\nName the audience. Write a short audience profile.\nState the claim. Make it specific enough to check.\nLocate the evidence. Identify the exact data, summary, graph, or comparison that supports the claim.\nCheck the claim type. Is it descriptive, comparative, associational, causal, predictive, or evaluative?\nLook for missing context. Denominator, benchmark, time frame, definitions, and missing data.\nUse AI carefully. Ask AI to help revise, critique, or brainstorm, but do not let it determine truth.\nDocument AI use. Record what helped, what you changed, and how you verified the final result.\n\nThis workflow is slower than copying a chart into a slide and writing the first sentence that comes to mind. It is also how you avoid many of the mistakes that make data communication misleading.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Audience, Claims, Evidence, and AI Boundaries</span>"
     ]
@@ -183,8 +173,8 @@
     "objectID": "02.html#recap",
     "href": "02.html#recap",
     "title": "2  Audience, Claims, Evidence, and AI Boundaries",
-    "section": "2.9 Recap",
-    "text": "2.9 Recap\n\n\n\n\n\n\n\n\nKeyword\nDefinition\n\n\n\n\nAudience\nThe people who need to understand, use, question, or act on the message.\n\n\nPrimary audience\nThe audience whose needs most shape the communication.\n\n\nClaim\nA specific statement that can be supported, challenged, revised, or rejected using evidence.\n\n\nEvidence fit\nThe match between what the evidence shows and what the claim says.\n\n\nClaim ladder\nThe idea that stronger claims, especially causal or action claims, require stronger evidence.\n\n\nDenominator\nThe total or reference group used to interpret a count, rate, or percentage.\n\n\nBenchmark\nA comparison point that helps an audience understand whether a number is large, small, typical, or unusual.\n\n\nResponsible AI boundary\nA limit on AI use based on privacy, verification, attribution, evidence, and human responsibility.",
+    "section": "2.8 Recap",
+    "text": "2.8 Recap\n\n\n\n\n\n\n\n\nKeyword\nDefinition\n\n\n\n\nAudience\nThe people who need to understand, use, question, or act on the message.\n\n\nPrimary audience\nThe audience whose needs most shape the communication.\n\n\nClaim\nA specific statement that can be supported, challenged, revised, or rejected using evidence.\n\n\nEvidence fit\nThe match between what the evidence shows and what the claim says.\n\n\nClaim ladder\nThe idea that stronger claims, especially causal or action claims, require stronger evidence.\n\n\nDenominator\nThe total or reference group used to interpret a count, rate, or percentage.\n\n\nBenchmark\nA comparison point that helps an audience understand whether a number is large, small, typical, or unusual.\n\n\nResponsible AI boundary\nA limit on AI use based on privacy, verification, attribution, evidence, and human responsibility.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Audience, Claims, Evidence, and AI Boundaries</span>"
     ]
@@ -193,20 +183,140 @@
     "objectID": "02.html#check-your-understanding",
     "href": "02.html#check-your-understanding",
     "title": "2  Audience, Claims, Evidence, and AI Boundaries",
-    "section": "2.10 Check your understanding",
-    "text": "2.10 Check your understanding\n\n\n\n\n\n\nNoteProblems\n\n\n\n\n\n\nWhy is “students” usually too broad to be a complete audience description?\nClassify each claim as descriptive, comparative, associational, causal, predictive, or evaluative:\n\n“In this sample, 42% of students used tutoring at least once.”\n“Tutoring users had higher average grades than non-users.”\n“Tutoring improved student grades.”\n“The university should expand tutoring hours.”\n\nA report says, “Complaints increased by 50%.” What additional information would help you interpret that claim?\nExplain why this AI revision is risky:\nOriginal: “Students who used the study app had higher average exam scores, but the data do not show whether the app caused the difference.”\nAI revision: “The study app helped students earn higher exam scores.”\nGive one green-zone AI use, one yellow-zone AI use, and one red-zone AI use for this course.\n\n\n\n\n\n\n\n\n\n\nTipSolutions\n\n\n\n\n\n\n“Students” is too broad because students differ in background knowledge, needs, decisions, constraints, and risks. First-year students deciding whether to seek tutoring need a different message than student government leaders reviewing a campus report.\n\nDescriptive. b. Comparative or associational, depending on the surrounding context. c. Causal. d. Evaluative or recommendation.\n\nYou would want the original count and new count, the denominator or population, the time frame, whether reporting procedures changed, and whether the increase is large relative to normal variation.\nThe revision changes an association into a causal claim. The original says app users had higher scores but warns that the data do not prove causation. The AI revision removes that caveat and implies the app produced the improvement.\nAnswers will vary. Green-zone: asking AI to identify vague language in a draft. Yellow-zone: asking AI to summarize a dataset or rewrite a section, followed by careful verification. Red-zone: pasting identifiable student data into an unapproved AI tool or submitting AI-generated claims without checking them.",
+    "section": "2.9 Check your understanding",
+    "text": "2.9 Check your understanding\n\n\n\n\n\n\nNoteProblems\n\n\n\n\n\n\nWhy is “students” usually too broad to be a complete audience description?\nClassify each claim as descriptive, comparative, associational, causal, predictive, or evaluative:\n\n“In this sample, 42% of students used tutoring at least once.”\n“Tutoring users had higher average grades than non-users.”\n“Tutoring improved student grades.”\n“The university should expand tutoring hours.”\n\nA report says, “Complaints increased by 50%.” What additional information would help you interpret that claim?\nExplain why this AI revision is risky:\nOriginal: “Students who used the study app had higher average exam scores, but the data do not show whether the app caused the difference.”\nAI revision: “The study app helped students earn higher exam scores.”\nGive one green-zone AI use, one yellow-zone AI use, and one red-zone AI use for this course.\n\n\n\n\n\n\n\n\n\n\nTipSolutions\n\n\n\n\n\n\n“Students” is too broad because students differ in background knowledge, needs, decisions, constraints, and risks. First-year students deciding whether to seek tutoring need a different message than student government leaders reviewing a campus report.\n\nDescriptive. b. Comparative or associational, depending on the surrounding context. c. Causal. d. Evaluative or recommendation.\n\nYou would want the original count and new count, the denominator or population, the time frame, whether reporting procedures changed, and whether the increase is large relative to normal variation.\nThe revision changes an association into a causal claim. The original says app users had higher scores but warns that the data do not prove causation. The AI revision removes that caveat and implies the app produced the improvement.\nAnswers will vary. Green-zone: asking AI to identify vague language in a draft. Yellow-zone: asking AI to summarize a dataset or rewrite a section, followed by careful verification. Red-zone: pasting identifiable student data into an unapproved AI tool or submitting AI-generated claims without checking them.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Audience, Claims, Evidence, and AI Boundaries</span>"
     ]
   },
   {
-    "objectID": "02.html#why-audience-matters",
-    "href": "02.html#why-audience-matters",
-    "title": "2  Audience, Claims, Evidence, and AI Boundaries",
+    "objectID": "03.html",
+    "href": "03.html",
+    "title": "3  Getting Started with Quarto in RStudio",
     "section": "",
-    "text": "get the data;\nanalyze the data;\nmake a graph;\nexplain what happened.\n\n\n\n\n\nStudents may need to know that booking early is wise.\nTutors may need to plan for busier shifts.\nAdministrators may need to allocate staffing.\nFaculty may need to coordinate review sessions.\nA public audience may need a simple explanation of how academic support is used.\n\n\n\n\n\n\n\n\nExampleExample 2.1: Same evidence, different audience\n\n\n\nImagine this finding:\n\nStudents who visited the tutoring center at least twice had higher average course grades than students who did not visit.\n\nFor students, a reasonable message might be:\n\nStudents who use tutoring often do well, and returning for another visit is a normal part of learning.\n\nFor administrators, a better message might be:\n\nRepeat tutoring visits are associated with stronger course outcomes, but the data do not show whether tutoring caused the difference; additional study could help evaluate program impact.\n\nThe student-facing version encourages help-seeking. The administrator-facing version is more careful about causation because it may affect policy, funding, or assessment.",
+    "text": "3.1 The basic idea\nData communication is not only about choosing the right words or making a good chart. It is also about creating a workflow that helps you make, revise, check, and share your work.\nIn this course, we will use Quarto for many written and visual products. Quarto lets you write one source file and render it into polished outputs such as HTML pages, PDF documents, Word documents, slides, websites, and books. That means your writing, code, tables, figures, equations, and notes can live together in one reproducible file.\nThis chapter introduces the basic model. You do not need to master every option today. You do need to understand what a Quarto file is, how RStudio renders it, and what can go wrong when the same source is sent to different output formats.\nA Quarto source file usually ends in .qmd. The .qmd file is the file you edit. The rendered file is the file your audience reads.\nThe workflow is:\nThe source file is plain text. It can contain:\nThe output file might be:",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Audience, Claims, Evidence, and AI Boundaries</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "03.html#the-basic-idea",
+    "href": "03.html#the-basic-idea",
+    "title": "3  Getting Started with Quarto in RStudio",
+    "section": "",
+    "text": "write a .qmd source file;\nchoose an output format;\nclick Render in RStudio;\ninspect the rendered output;\nrevise the source and render again.\n\n\n\nYAML options at the top;\nheadings and paragraphs;\nlists and tables;\nlinks and images;\nequations;\ncode chunks;\nfigure captions and cross-references.\n\n\n\nan HTML page;\na PDF document;\na Word document;\nan HTML slide deck;\na PowerPoint slide deck;\na PDF slide deck;\na multi-chapter book.\n\n\n\n\n\n\n\nExampleExample 3.1: Source file versus output file\n\n\n\nIf you write analysis.qmd, that file is the editable source. When you render it, Quarto might create analysis.html, analysis.pdf, or analysis.docx.\nThe source file is like a recipe. The rendered file is the meal your audience sees. If you want to change the final product, you usually edit the source file and render again.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "03.html#rstudio-as-the-authoring-environment",
+    "href": "03.html#rstudio-as-the-authoring-environment",
+    "title": "3  Getting Started with Quarto in RStudio",
+    "section": "3.2 RStudio as the authoring environment",
+    "text": "3.2 RStudio as the authoring environment\nWe will assume you are using RStudio.\nIn RStudio, you can create a new Quarto file by going to File &gt; New File &gt; Quarto Document. RStudio will ask for a title and an output format. For your first few documents, HTML is usually the easiest output because it renders quickly and is forgiving.\nRStudio has two useful editing modes:\n\nSource mode, where you see the raw Quarto markdown.\nVisual mode, where RStudio gives you a document-like editing interface.\n\nYou may use either mode. Source mode helps you learn the structure. Visual mode can be helpful for tables, links, images, citations, and equation editing. Even when you use Visual mode, it is worth switching to Source mode sometimes so you can see what RStudio created.\nTo render, click the Render button near the top of the editor. If your document has multiple formats, RStudio lets you choose which one to render.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "03.html#the-yaml-header",
+    "href": "03.html#the-yaml-header",
+    "title": "3  Getting Started with Quarto in RStudio",
+    "section": "3.3 The YAML header",
+    "text": "3.3 The YAML header\nMost Quarto files begin with a YAML header. YAML controls document metadata and rendering options.\nHere is a minimal Quarto document:\n---\ntitle: \"My First Quarto Document\"\nauthor: \"Your Name\"\nformat: html\n---\nAfter the YAML header, you write the body of the document:\n## Main Finding\n\nThe main finding is that visits increased from September to October.\n\n## Evidence\n\nThe data came from weekly tutoring center records.\nYAML is picky about indentation. If something fails unexpectedly, check for:\n\ntabs instead of spaces;\nmissing colons;\nuneven indentation;\nquotation marks that do not close;\na YAML header that starts with --- but does not end with ---.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "03.html#rendering-one-document-to-html-pdf-or-word",
+    "href": "03.html#rendering-one-document-to-html-pdf-or-word",
+    "title": "3  Getting Started with Quarto in RStudio",
+    "section": "3.4 Rendering one document to HTML, PDF, or Word",
+    "text": "3.4 Rendering one document to HTML, PDF, or Word\nA single .qmd file can be rendered to several common formats.\nFor an HTML page:\n---\ntitle: \"Tutoring Center Summary\"\nformat: html\n---\nFor a PDF document:\n---\ntitle: \"Tutoring Center Summary\"\nformat: pdf\n---\nFor a Word document:\n---\ntitle: \"Tutoring Center Summary\"\nformat: docx\n---\nYou can also list multiple formats in the same file:\n---\ntitle: \"Tutoring Center Summary\"\nformat:\n  html:\n    toc: true\n  pdf:\n    toc: true\n  docx:\n    toc: true\n---\nIn RStudio, you can choose which format to render. From a terminal, the commands would look like this:\nquarto render tutoring-summary.qmd --to html\nquarto render tutoring-summary.qmd --to pdf\nquarto render tutoring-summary.qmd --to docx\nHTML is often best for web reading. PDF is often best for printing or preserving page layout. Word is often best when someone needs to comment, track changes, or edit the file in Microsoft Word.\n\n\n\n\n\n\nWarningPDF rendering depends on LaTeX\n\n\n\nPDF output often requires a working LaTeX installation. If HTML and Word render but PDF fails, the problem may not be your writing. It may be a missing LaTeX tool, a LaTeX package issue, or math/table/image syntax that PDF handles more strictly.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "03.html#documents-html-pages-slides-and-books",
+    "href": "03.html#documents-html-pages-slides-and-books",
+    "title": "3  Getting Started with Quarto in RStudio",
+    "section": "3.5 Documents, HTML pages, slides, and books",
+    "text": "3.5 Documents, HTML pages, slides, and books\nQuarto can create several kinds of communication products. The same basic writing rules apply, but the project structure and output format change.\n\n\n\n\n\n\n\n\n\nProduct\nUsual Source\nCommon Outputs\nTypical Use\n\n\n\n\nDocument\nOne .qmd file\nHTML, PDF, Word\nReport, memo, analysis, handout\n\n\nHTML page\nOne .qmd file rendered to html\nHTML\nWeb page, Canvas page, online notes\n\n\nSlides\nOne .qmd file\nrevealjs HTML, pptx, beamer PDF\nPresentation or short talk\n\n\nBook\nA Quarto project with multiple .qmd chapters\nHTML, PDF, Word, EPUB\nMulti-chapter notes, textbook, manual\n\n\n\nThe word “document” can be confusing. A Quarto document is the source you write. HTML, PDF, and Word are possible outputs from that source.\n\nHTML documents\nHTML is the most web-friendly format. It supports links, responsive layout, search in websites and books, interactive graphics, and embedded media.\nA useful HTML setup might look like this:\n---\ntitle: \"Short Data Report\"\nformat:\n  html:\n    toc: true\n    number-sections: true\n---\nHTML is also the format we will often use when preparing material for Canvas or the course book.\n\n\nPDF documents\nPDF is useful when page layout matters. It is also useful when you need a file that will print consistently.\n---\ntitle: \"Printable Data Report\"\nformat:\n  pdf:\n    toc: true\n    number-sections: true\n---\nPDF is less forgiving than HTML. Very wide tables, huge images, long URLs, and complicated math can overflow the page. If a document renders well to HTML but badly to PDF, inspect the parts that are physically wide.\n\n\nWord documents\nWord output is useful when your audience wants to edit, comment, or use track changes.\n---\ntitle: \"Editable Data Report\"\nformat:\n  docx:\n    toc: true\n---\nWord is not just “HTML in Microsoft Word.” Some layouts, interactive features, web-only styling, and advanced figure arrangements may not transfer exactly. If Word is the final format, always open the .docx file and inspect it.\n\n\nSlides\nQuarto slides are usually written as a .qmd file where headings become slides. The most common HTML slide format is revealjs.\n---\ntitle: \"Tutoring Center Patterns\"\nformat: revealjs\n---\n\n## Main Finding\n\nTutoring visits increased before midterms.\n\n## Evidence\n\n- Weekly visit counts\n- Course support records\n- Comparison across four weeks\nFor PowerPoint:\n---\ntitle: \"Tutoring Center Patterns\"\nformat: pptx\n---\nFor PDF slides, Quarto can use Beamer:\n---\ntitle: \"Tutoring Center Patterns\"\nformat: beamer\n---\nThere is a special case here. Word (docx) is a document format, not a slide format. If someone asks for editable slides, they probably want PowerPoint (pptx), not Word. If someone asks for a printable slide handout, PDF may be the better choice.\n\n\nBooks\nA Quarto book is a project made from multiple .qmd files. This course textbook is a Quarto book.\nA small book project might look like this:\nmy-book/\n  _quarto.yml\n  index.qmd\n  01-intro.qmd\n  02-analysis.qmd\n  03-communication.qmd\nThe _quarto.yml file controls the book:\nproject:\n  type: book\n\nbook:\n  title: \"My Data Communication Book\"\n  chapters:\n    - index.qmd\n    - 01-intro.qmd\n    - 02-analysis.qmd\n    - 03-communication.qmd\n\nformat:\n  html:\n    theme: cosmo\n  pdf: default\n  docx: default\nHTML books are useful for course notes because students can navigate by chapter and use search. PDF or Word book output may be useful for printing or review, but those formats can expose layout problems that do not appear in HTML.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "03.html#including-images",
+    "href": "03.html#including-images",
+    "title": "3  Getting Started with Quarto in RStudio",
+    "section": "3.6 Including images",
+    "text": "3.6 Including images\nImages are central to data communication. Quarto can include common image formats such as .png, .jpg, .jpeg, .gif, and .svg, although support can vary by output format.\nA good habit is to create an images folder inside your project:\nproject-folder/\n  report.qmd\n  images/\n    tutoring-dashboard.png\n    campus-photo.jpg\nThen include the image with a relative path:\n![Weekly tutoring dashboard](images/tutoring-dashboard.png)\nThe text inside square brackets is the figure caption when the image is treated as a figure. You can also add alt text, size, alignment, and an ID for cross-referencing:\n![Weekly tutoring dashboard](images/tutoring-dashboard.png){#fig-tutoring-dashboard fig-alt=\"A line chart showing tutoring visits increasing before midterms.\" width=\"80%\"}\n\nAs shown in @fig-tutoring-dashboard, visits rose in the weeks before midterms.\nUse image formats intentionally:\n\n\n\n\n\n\n\n\nFormat\nWorks Well For\nWatch Out For\n\n\n\n\n.png\nCharts, screenshots, diagrams, images with text\nFile size can be large\n\n\n.jpg or .jpeg\nPhotos\nText and chart lines may become blurry\n\n\n.gif\nSimple animation in HTML\nAnimation may not work in PDF or Word\n\n\n.svg\nVector graphics in HTML\nMay need conversion for some PDF or Word workflows\n\n\n.pdf\nVector figures for PDF output\nNot ideal for HTML pages unless converted\n\n\n\n\n\n\n\n\n\nExampleExample 3.2: Choosing an image format\n\n\n\nIf you export a bar chart from R, .png is usually a good choice because the chart text and bars stay sharp. If you include a photograph of students working in a classroom, .jpg is usually better because it compresses photos efficiently.\nIf you are rendering to PDF and the image looks blurry, try exporting the plot at a larger size or using a vector format such as .pdf or .svg, depending on the target output.\n\n\n\nCommon image problems\nImage problems are common because an image is an external file. The .qmd file points to the image, but the image itself still has to exist in the right place.\nCommon problems include:\n\nthe path is wrong;\nthe file extension is wrong, such as .jpeg in the folder but .jpg in the source;\nthe filename has spaces or inconsistent capitalization;\nthe image is outside the project folder;\nthe image is huge and makes the output file too large;\nthe image is readable on your computer but missing when you share the project.\n\nUse simple filenames:\ngood: tutoring_dashboard.png\ngood: campus-photo.jpg\navoid: Screenshot 2027-01-18 at 9.45.22 AM.png\navoid: final FINAL chart (new).jpeg\nFor accessibility, include meaningful alt text when the image communicates information. Alt text should describe the information a reader would miss if they could not see the image.\nWeak alt text:\n![](images/chart.png){fig-alt=\"A chart.\"}\nBetter alt text:\n![](images/chart.png){fig-alt=\"A bar chart showing that tutoring visits were highest during the two weeks before midterms.\"}",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "03.html#writing-equations",
+    "href": "03.html#writing-equations",
+    "title": "3  Getting Started with Quarto in RStudio",
+    "section": "3.7 Writing equations",
+    "text": "3.7 Writing equations\nQuarto supports equations written in LaTeX-style math notation.\nUse single dollar signs for inline equations:\nThe sample proportion is $\\hat{p} = x / n$.\nUse double dollar signs for display equations:\n$$\n\\hat{p} = \\frac{x}{n}\n$$\nYou can label an equation and refer to it later:\n$$\nz = \\frac{x - \\mu}{\\sigma}\n$$ {#eq-z-score}\n\nThe standardized value in @eq-z-score tells us how far an observation is from the mean in standard deviation units.\nHere is the same idea rendered as an equation:\n\\[\nz = \\frac{x - \\mu}{\\sigma}\n\\tag{3.1}\\]\nThe value in Equation 3.1 is useful when we want to communicate how unusual a value is relative to a distribution.\n\nCommon equation problems\nEquations are powerful, but they also create some predictable problems.\nIf you are writing about money, the dollar sign can accidentally start math mode. Escape a dollar sign with a backslash:\nThe program cost \\$25 per student.\nIf your equation has an opening brace {, it usually needs a closing brace }:\n\\frac{x}{n}\nIf you render to PDF, math errors may stop the whole render. HTML may appear more forgiving, but a broken equation is still a broken communication product.\nFor a general audience, do not use equations just because you can. An equation is useful when it clarifies the structure of a calculation. If the audience only needs the idea, a sentence may communicate better.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "03.html#code-chunks-and-results",
+    "href": "03.html#code-chunks-and-results",
+    "title": "3  Getting Started with Quarto in RStudio",
+    "section": "3.8 Code chunks and results",
+    "text": "3.8 Code chunks and results\nQuarto can run R code chunks and include the results in the rendered output.\nA basic R chunk looks like this:\nline 1: ```{r}\nline 2: #| label: simple-mean\nline 3:\nline 4: scores &lt;- c(82, 88, 91, 77, 85)\nline 5: mean(scores)\nline 6: ```\nWhen you type this in a real .qmd file, remove the line 1: labels. They are included here only so this textbook can display the chunk structure without running it.\nChunk options let you control what the reader sees:\nline 1: ```{r}\nline 2: #| label: setup\nline 3: #| include: false\nline 4:\nline 5: library(tidyverse)\nline 6: ```\nIn this example, include: false means the code runs but does not appear in the final document.\nFor this course, think of code chunks as part of the evidence trail. If a number appears in your report, your Quarto file can show where it came from.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "03.html#ai-and-quarto",
+    "href": "03.html#ai-and-quarto",
+    "title": "3  Getting Started with Quarto in RStudio",
+    "section": "3.9 AI and Quarto",
+    "text": "3.9 AI and Quarto\nAI tools can be helpful when learning Quarto syntax. They can draft YAML headers, suggest image syntax, troubleshoot an error message, or convert a rough outline into a starter .qmd file.\nBut AI tools can also invent options, mix syntax from R Markdown, Markdown, HTML, LaTeX, and Quarto, or suggest code that looks plausible but does not render. Treat AI output as a draft, not as proof.\nResponsible AI use with Quarto includes:\n\nrendering the file yourself;\nreading error messages;\nchecking that the output matches the source;\nverifying that images, equations, and links work;\ndocumenting AI help when course instructions require it.\n\n\n\n\n\n\n\nTipTest AI-generated Quarto by rendering\n\n\n\nIf AI gives you Quarto syntax, the render is the first test. If it does not render, the syntax is not ready. If it renders but communicates the wrong thing, the communication is still not ready.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "03.html#official-references",
+    "href": "03.html#official-references",
+    "title": "3  Getting Started with Quarto in RStudio",
+    "section": "3.10 Official references",
+    "text": "3.10 Official references\nThe official Quarto documentation is more complete than this chapter. These pages are especially useful:\n\nHello, Quarto in RStudio\nQuarto books\nFigures\nPresentations\nEquations in RStudio authoring",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "03.html#recap",
+    "href": "03.html#recap",
+    "title": "3  Getting Started with Quarto in RStudio",
+    "section": "3.11 Recap",
+    "text": "3.11 Recap\n\n\n\n\n\n\n\nIdea\nTakeaway\n\n\n\n\n.qmd source\nThe editable Quarto file where writing, code, images, and equations live.\n\n\nRendered output\nThe file your audience reads, such as HTML, PDF, Word, slides, or a book.\n\n\nYAML\nThe document settings at the top of the file.\n\n\nHTML\nBest for web reading, links, search, and interactive or flexible layouts.\n\n\nPDF\nBest for printing and fixed page layout, but stricter about formatting.\n\n\nWord\nBest for editing and comments, but not identical to HTML or PDF.\n\n\nSlides\nUse revealjs for HTML slides, pptx for PowerPoint, and beamer for PDF slides.\n\n\nBooks\nUse a Quarto project with multiple chapters and a _quarto.yml file.\n\n\nImages\nUse relative paths, meaningful alt text, and formats that fit the output.\n\n\nEquations\nUse $...$ inline and $$...$$ for display equations.\n\n\nAI help\nUseful for drafting and troubleshooting, but rendering and verification are still your responsibility.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "03.html#check-your-understanding",
+    "href": "03.html#check-your-understanding",
+    "title": "3  Getting Started with Quarto in RStudio",
+    "section": "3.12 Check your understanding",
+    "text": "3.12 Check your understanding\n\n\n\n\n\n\nNoteProblems\n\n\n\n\n\n\nWhat is the difference between a .qmd source file and a rendered output file?\nWhen might HTML be a better output format than PDF?\nWhen might Word be a better output format than HTML?\nWhat output format would you choose for editable slides?\nWhy is this image path likely to create problems?\n![](C:/Users/Me/Downloads/final FINAL chart (new).png)\nWrite Quarto markdown that includes an image named exam_scores.png from an images folder. Include useful alt text.\nWhat is wrong with this sentence in a Quarto document?\nThe program costs $25 per student and saves $40 in staff time.\nWhy should you inspect the rendered output even if the source file looks correct?\nHow could an AI tool help with Quarto? What would you still need to verify yourself?\n\n\n\n\n\n\n\n\n\n\nTipSolutions\n\n\n\n\n\n\nA .qmd file is the editable source file. It contains the writing, YAML settings, code, image links, equations, and other instructions. The rendered output is the file an audience reads, such as .html, .pdf, .docx, a slide deck, or a book page.\nHTML may be better than PDF when the document will be read online, shared through a website or Canvas, searched, linked, updated frequently, or used with interactive or responsive content. HTML is also usually easier to troubleshoot while learning Quarto.\nWord may be better than HTML when someone needs to edit the document, leave comments, use track changes, or fit the work into an office workflow. It is often a practical format for drafts, reports that need feedback, or documents that will be revised by multiple people.\nFor editable slides, choose PowerPoint output with format: pptx. If you want HTML slides, use format: revealjs. If you want PDF slides, use format: beamer or print/export HTML slides to PDF, depending on the situation.\nThe image path is likely to create problems because it points to a personal location on one computer rather than a project-relative path. It also uses a filename with spaces, parentheses, and repeated words, which increases the chance of mistakes. A better workflow is to put the file inside an images folder in the project and use a relative path such as:\n![](images/final_chart.png)\nOne good answer is:\n![Exam score distribution](images/exam_scores.png){fig-alt=\"A chart showing the distribution of exam scores.\"}\nThe best alt text depends on what the image actually shows. If the chart shows a specific pattern, the alt text should name that pattern.\nThe dollar signs may be interpreted as math delimiters rather than currency symbols. Escape currency dollar signs with backslashes:\nThe program costs \\$25 per student and saves \\$40 in staff time.\nThe source file can look correct while the rendered output still has problems. Images may be missing, equations may render incorrectly, tables may overflow, links may break, callouts may display oddly, or Word/PDF output may differ from HTML. The render is the version your audience sees, so it must be checked directly.\nAn AI tool could help draft a YAML header, explain an error message, suggest Quarto syntax, revise wording, create a starter outline, or identify places where the document may be unclear. You would still need to render the file, inspect the output, verify that syntax and code work, check that images and equations display correctly, and make sure the final communication is accurate for the audience.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Getting Started with Quarto in RStudio</span>"
     ]
   }
 ]

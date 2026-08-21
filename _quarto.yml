@@ -17,6 +17,7 @@ book:
     - index.qmd
     - 01.qmd
     - 02.qmd
+    - 03.qmd
 
 execute:
   warning: false

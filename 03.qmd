@@ -1,0 +1,583 @@
+# Getting Started with Quarto in RStudio
+
+Data communication is not only about choosing the right words or making a good chart. It is also about creating a workflow that helps you make, revise, check, and share your work.
+
+In this course, we will use **Quarto** for many written and visual products. Quarto lets you write one source file and render it into polished outputs such as HTML pages, PDF documents, Word documents, slides, websites, and books. That means your writing, code, tables, figures, equations, and notes can live together in one reproducible file.
+
+This chapter introduces the basic model. You do not need to master every option today. You do need to understand what a Quarto file is, how RStudio renders it, and what can go wrong when the same source is sent to different output formats.
+
+## The basic idea
+
+A Quarto source file usually ends in `.qmd`. The `.qmd` file is the file you edit. The rendered file is the file your audience reads.
+
+The workflow is:
+
+1. write a `.qmd` source file;
+2. choose an output format;
+3. click **Render** in RStudio;
+4. inspect the rendered output;
+5. revise the source and render again.
+
+The source file is plain text. It can contain:
+
+- YAML options at the top;
+- headings and paragraphs;
+- lists and tables;
+- links and images;
+- equations;
+- code chunks;
+- figure captions and cross-references.
+
+The output file might be:
+
+- an HTML page;
+- a PDF document;
+- a Word document;
+- an HTML slide deck;
+- a PowerPoint slide deck;
+- a PDF slide deck;
+- a multi-chapter book.
+
+::: {.example title="Example 3.1: Source file versus output file"}
+
+If you write `analysis.qmd`, that file is the editable source. When you render it, Quarto might create `analysis.html`, `analysis.pdf`, or `analysis.docx`.
+
+The source file is like a recipe. The rendered file is the meal your audience sees. If you want to change the final product, you usually edit the source file and render again.
+
+:::
+
+## RStudio as the authoring environment
+
+We will assume you are using RStudio.
+
+In RStudio, you can create a new Quarto file by going to **File > New File > Quarto Document**. RStudio will ask for a title and an output format. For your first few documents, HTML is usually the easiest output because it renders quickly and is forgiving.
+
+RStudio has two useful editing modes:
+
+- **Source mode**, where you see the raw Quarto markdown.
+- **Visual mode**, where RStudio gives you a document-like editing interface.
+
+You may use either mode. Source mode helps you learn the structure. Visual mode can be helpful for tables, links, images, citations, and equation editing. Even when you use Visual mode, it is worth switching to Source mode sometimes so you can see what RStudio created.
+
+To render, click the **Render** button near the top of the editor. If your document has multiple formats, RStudio lets you choose which one to render.
+
+## The YAML header
+
+Most Quarto files begin with a YAML header. YAML controls document metadata and rendering options.
+
+Here is a minimal Quarto document:
+
+```yaml
+---
+title: "My First Quarto Document"
+author: "Your Name"
+format: html
+---
+```
+
+After the YAML header, you write the body of the document:
+
+```markdown
+## Main Finding
+
+The main finding is that visits increased from September to October.
+
+## Evidence
+
+The data came from weekly tutoring center records.
+```
+
+YAML is picky about indentation. If something fails unexpectedly, check for:
+
+- tabs instead of spaces;
+- missing colons;
+- uneven indentation;
+- quotation marks that do not close;
+- a YAML header that starts with `---` but does not end with `---`.
+
+## Rendering one document to HTML, PDF, or Word
+
+A single `.qmd` file can be rendered to several common formats.
+
+For an HTML page:
+
+```yaml
+---
+title: "Tutoring Center Summary"
+format: html
+---
+```
+
+For a PDF document:
+
+```yaml
+---
+title: "Tutoring Center Summary"
+format: pdf
+---
+```
+
+For a Word document:
+
+```yaml
+---
+title: "Tutoring Center Summary"
+format: docx
+---
+```
+
+You can also list multiple formats in the same file:
+
+```yaml
+---
+title: "Tutoring Center Summary"
+format:
+  html:
+    toc: true
+  pdf:
+    toc: true
+  docx:
+    toc: true
+---
+```
+
+In RStudio, you can choose which format to render. From a terminal, the commands would look like this:
+
+```bash
+quarto render tutoring-summary.qmd --to html
+quarto render tutoring-summary.qmd --to pdf
+quarto render tutoring-summary.qmd --to docx
+```
+
+HTML is often best for web reading. PDF is often best for printing or preserving page layout. Word is often best when someone needs to comment, track changes, or edit the file in Microsoft Word.
+
+::: {.callout-warning title="PDF rendering depends on LaTeX"}
+
+PDF output often requires a working LaTeX installation. If HTML and Word render but PDF fails, the problem may not be your writing. It may be a missing LaTeX tool, a LaTeX package issue, or math/table/image syntax that PDF handles more strictly.
+
+:::
+
+## Documents, HTML pages, slides, and books
+
+Quarto can create several kinds of communication products. The same basic writing rules apply, but the project structure and output format change.
+
+| Product | Usual Source | Common Outputs | Typical Use |
+| --- | --- | --- | --- |
+| Document | One `.qmd` file | HTML, PDF, Word | Report, memo, analysis, handout |
+| HTML page | One `.qmd` file rendered to `html` | HTML | Web page, Canvas page, online notes |
+| Slides | One `.qmd` file | `revealjs` HTML, `pptx`, `beamer` PDF | Presentation or short talk |
+| Book | A Quarto project with multiple `.qmd` chapters | HTML, PDF, Word, EPUB | Multi-chapter notes, textbook, manual |
+
+The word "document" can be confusing. A Quarto document is the source you write. HTML, PDF, and Word are possible outputs from that source.
+
+### HTML documents
+
+HTML is the most web-friendly format. It supports links, responsive layout, search in websites and books, interactive graphics, and embedded media.
+
+A useful HTML setup might look like this:
+
+```yaml
+---
+title: "Short Data Report"
+format:
+  html:
+    toc: true
+    number-sections: true
+---
+```
+
+HTML is also the format we will often use when preparing material for Canvas or the course book.
+
+### PDF documents
+
+PDF is useful when page layout matters. It is also useful when you need a file that will print consistently.
+
+```yaml
+---
+title: "Printable Data Report"
+format:
+  pdf:
+    toc: true
+    number-sections: true
+---
+```
+
+PDF is less forgiving than HTML. Very wide tables, huge images, long URLs, and complicated math can overflow the page. If a document renders well to HTML but badly to PDF, inspect the parts that are physically wide.
+
+### Word documents
+
+Word output is useful when your audience wants to edit, comment, or use track changes.
+
+```yaml
+---
+title: "Editable Data Report"
+format:
+  docx:
+    toc: true
+---
+```
+
+Word is not just "HTML in Microsoft Word." Some layouts, interactive features, web-only styling, and advanced figure arrangements may not transfer exactly. If Word is the final format, always open the `.docx` file and inspect it.
+
+### Slides
+
+Quarto slides are usually written as a `.qmd` file where headings become slides. The most common HTML slide format is `revealjs`.
+
+````markdown
+---
+title: "Tutoring Center Patterns"
+format: revealjs
+---
+
+## Main Finding
+
+Tutoring visits increased before midterms.
+
+## Evidence
+
+- Weekly visit counts
+- Course support records
+- Comparison across four weeks
+````
+
+For PowerPoint:
+
+```yaml
+---
+title: "Tutoring Center Patterns"
+format: pptx
+---
+```
+
+For PDF slides, Quarto can use Beamer:
+
+```yaml
+---
+title: "Tutoring Center Patterns"
+format: beamer
+---
+```
+
+There is a special case here. Word (`docx`) is a document format, not a slide format. If someone asks for editable slides, they probably want PowerPoint (`pptx`), not Word. If someone asks for a printable slide handout, PDF may be the better choice.
+
+### Books
+
+A Quarto book is a project made from multiple `.qmd` files. This course textbook is a Quarto book.
+
+A small book project might look like this:
+
+```text
+my-book/
+  _quarto.yml
+  index.qmd
+  01-intro.qmd
+  02-analysis.qmd
+  03-communication.qmd
+```
+
+The `_quarto.yml` file controls the book:
+
+```yaml
+project:
+  type: book
+
+book:
+  title: "My Data Communication Book"
+  chapters:
+    - index.qmd
+    - 01-intro.qmd
+    - 02-analysis.qmd
+    - 03-communication.qmd
+
+format:
+  html:
+    theme: cosmo
+  pdf: default
+  docx: default
+```
+
+HTML books are useful for course notes because students can navigate by chapter and use search. PDF or Word book output may be useful for printing or review, but those formats can expose layout problems that do not appear in HTML.
+
+## Including images
+
+Images are central to data communication. Quarto can include common image formats such as `.png`, `.jpg`, `.jpeg`, `.gif`, and `.svg`, although support can vary by output format.
+
+A good habit is to create an `images` folder inside your project:
+
+```text
+project-folder/
+  report.qmd
+  images/
+    tutoring-dashboard.png
+    campus-photo.jpg
+```
+
+Then include the image with a relative path:
+
+```markdown
+![Weekly tutoring dashboard](images/tutoring-dashboard.png)
+```
+
+The text inside square brackets is the figure caption when the image is treated as a figure. You can also add alt text, size, alignment, and an ID for cross-referencing:
+
+```markdown
+![Weekly tutoring dashboard](images/tutoring-dashboard.png){#fig-tutoring-dashboard fig-alt="A line chart showing tutoring visits increasing before midterms." width="80%"}
+
+As shown in @fig-tutoring-dashboard, visits rose in the weeks before midterms.
+```
+
+Use image formats intentionally:
+
+| Format | Works Well For | Watch Out For |
+| --- | --- | --- |
+| `.png` | Charts, screenshots, diagrams, images with text | File size can be large |
+| `.jpg` or `.jpeg` | Photos | Text and chart lines may become blurry |
+| `.gif` | Simple animation in HTML | Animation may not work in PDF or Word |
+| `.svg` | Vector graphics in HTML | May need conversion for some PDF or Word workflows |
+| `.pdf` | Vector figures for PDF output | Not ideal for HTML pages unless converted |
+
+::: {.example title="Example 3.2: Choosing an image format"}
+
+If you export a bar chart from R, `.png` is usually a good choice because the chart text and bars stay sharp. If you include a photograph of students working in a classroom, `.jpg` is usually better because it compresses photos efficiently.
+
+If you are rendering to PDF and the image looks blurry, try exporting the plot at a larger size or using a vector format such as `.pdf` or `.svg`, depending on the target output.
+
+:::
+
+### Common image problems
+
+Image problems are common because an image is an external file. The `.qmd` file points to the image, but the image itself still has to exist in the right place.
+
+Common problems include:
+
+- the path is wrong;
+- the file extension is wrong, such as `.jpeg` in the folder but `.jpg` in the source;
+- the filename has spaces or inconsistent capitalization;
+- the image is outside the project folder;
+- the image is huge and makes the output file too large;
+- the image is readable on your computer but missing when you share the project.
+
+Use simple filenames:
+
+```text
+good: tutoring_dashboard.png
+good: campus-photo.jpg
+avoid: Screenshot 2027-01-18 at 9.45.22 AM.png
+avoid: final FINAL chart (new).jpeg
+```
+
+For accessibility, include meaningful alt text when the image communicates information. Alt text should describe the information a reader would miss if they could not see the image.
+
+Weak alt text:
+
+```markdown
+![](images/chart.png){fig-alt="A chart."}
+```
+
+Better alt text:
+
+```markdown
+![](images/chart.png){fig-alt="A bar chart showing that tutoring visits were highest during the two weeks before midterms."}
+```
+
+## Writing equations
+
+Quarto supports equations written in LaTeX-style math notation.
+
+Use single dollar signs for inline equations:
+
+```markdown
+The sample proportion is $\hat{p} = x / n$.
+```
+
+Use double dollar signs for display equations:
+
+```markdown
+$$
+\hat{p} = \frac{x}{n}
+$$
+```
+
+You can label an equation and refer to it later:
+
+```markdown
+$$
+z = \frac{x - \mu}{\sigma}
+$$ {#eq-z-score}
+
+The standardized value in @eq-z-score tells us how far an observation is from the mean in standard deviation units.
+```
+
+Here is the same idea rendered as an equation:
+
+$$
+z = \frac{x - \mu}{\sigma}
+$$ {#eq-z-score-rendered}
+
+The value in @eq-z-score-rendered is useful when we want to communicate how unusual a value is relative to a distribution.
+
+### Common equation problems
+
+Equations are powerful, but they also create some predictable problems.
+
+If you are writing about money, the dollar sign can accidentally start math mode. Escape a dollar sign with a backslash:
+
+```markdown
+The program cost \$25 per student.
+```
+
+If your equation has an opening brace `{`, it usually needs a closing brace `}`:
+
+```markdown
+\frac{x}{n}
+```
+
+If you render to PDF, math errors may stop the whole render. HTML may appear more forgiving, but a broken equation is still a broken communication product.
+
+For a general audience, do not use equations just because you can. An equation is useful when it clarifies the structure of a calculation. If the audience only needs the idea, a sentence may communicate better.
+
+## Code chunks and results
+
+Quarto can run R code chunks and include the results in the rendered output.
+
+A basic R chunk looks like this:
+
+```text
+line 1: ```{r}
+line 2: #| label: simple-mean
+line 3:
+line 4: scores <- c(82, 88, 91, 77, 85)
+line 5: mean(scores)
+line 6: ```
+```
+
+When you type this in a real `.qmd` file, remove the `line 1:` labels. They are included here only so this textbook can display the chunk structure without running it.
+
+Chunk options let you control what the reader sees:
+
+```text
+line 1: ```{r}
+line 2: #| label: setup
+line 3: #| include: false
+line 4:
+line 5: library(tidyverse)
+line 6: ```
+```
+
+In this example, `include: false` means the code runs but does not appear in the final document.
+
+For this course, think of code chunks as part of the evidence trail. If a number appears in your report, your Quarto file can show where it came from.
+
+## AI and Quarto
+
+AI tools can be helpful when learning Quarto syntax. They can draft YAML headers, suggest image syntax, troubleshoot an error message, or convert a rough outline into a starter `.qmd` file.
+
+But AI tools can also invent options, mix syntax from R Markdown, Markdown, HTML, LaTeX, and Quarto, or suggest code that looks plausible but does not render. Treat AI output as a draft, not as proof.
+
+Responsible AI use with Quarto includes:
+
+- rendering the file yourself;
+- reading error messages;
+- checking that the output matches the source;
+- verifying that images, equations, and links work;
+- documenting AI help when course instructions require it.
+
+::: {.callout-tip title="Test AI-generated Quarto by rendering"}
+
+If AI gives you Quarto syntax, the render is the first test. If it does not render, the syntax is not ready. If it renders but communicates the wrong thing, the communication is still not ready.
+
+:::
+
+## Official references
+
+The official Quarto documentation is more complete than this chapter. These pages are especially useful:
+
+- [Hello, Quarto in RStudio](https://quarto.org/docs/get-started/hello/rstudio.html)
+- [Quarto books](https://quarto.org/docs/books/)
+- [Figures](https://quarto.org/docs/authoring/figures.html)
+- [Presentations](https://quarto.org/docs/presentations/)
+- [Equations in RStudio authoring](https://quarto.org/docs/manuscripts/authoring/rstudio.html#equations)
+
+## Recap
+
+| Idea | Takeaway |
+| --- | --- |
+| `.qmd` source | The editable Quarto file where writing, code, images, and equations live. |
+| Rendered output | The file your audience reads, such as HTML, PDF, Word, slides, or a book. |
+| YAML | The document settings at the top of the file. |
+| HTML | Best for web reading, links, search, and interactive or flexible layouts. |
+| PDF | Best for printing and fixed page layout, but stricter about formatting. |
+| Word | Best for editing and comments, but not identical to HTML or PDF. |
+| Slides | Use `revealjs` for HTML slides, `pptx` for PowerPoint, and `beamer` for PDF slides. |
+| Books | Use a Quarto project with multiple chapters and a `_quarto.yml` file. |
+| Images | Use relative paths, meaningful alt text, and formats that fit the output. |
+| Equations | Use `$...$` inline and `$$...$$` for display equations. |
+| AI help | Useful for drafting and troubleshooting, but rendering and verification are still your responsibility. |
+
+## Check your understanding
+
+::: {.callout-note collapse="false" title="Problems"}
+
+1. What is the difference between a `.qmd` source file and a rendered output file?
+
+2. When might HTML be a better output format than PDF?
+
+3. When might Word be a better output format than HTML?
+
+4. What output format would you choose for editable slides?
+
+5. Why is this image path likely to create problems?
+
+   ```markdown
+   ![](C:/Users/Me/Downloads/final FINAL chart (new).png)
+   ```
+
+6. Write Quarto markdown that includes an image named `exam_scores.png` from an `images` folder. Include useful alt text.
+
+7. What is wrong with this sentence in a Quarto document?
+
+   ```markdown
+   The program costs $25 per student and saves $40 in staff time.
+   ```
+
+8. Why should you inspect the rendered output even if the source file looks correct?
+
+9. How could an AI tool help with Quarto? What would you still need to verify yourself?
+
+:::
+
+::: {.callout-tip collapse="true" title="Solutions"}
+
+1. A `.qmd` file is the editable source file. It contains the writing, YAML settings, code, image links, equations, and other instructions. The rendered output is the file an audience reads, such as `.html`, `.pdf`, `.docx`, a slide deck, or a book page.
+
+2. HTML may be better than PDF when the document will be read online, shared through a website or Canvas, searched, linked, updated frequently, or used with interactive or responsive content. HTML is also usually easier to troubleshoot while learning Quarto.
+
+3. Word may be better than HTML when someone needs to edit the document, leave comments, use track changes, or fit the work into an office workflow. It is often a practical format for drafts, reports that need feedback, or documents that will be revised by multiple people.
+
+4. For editable slides, choose PowerPoint output with `format: pptx`. If you want HTML slides, use `format: revealjs`. If you want PDF slides, use `format: beamer` or print/export HTML slides to PDF, depending on the situation.
+
+5. The image path is likely to create problems because it points to a personal location on one computer rather than a project-relative path. It also uses a filename with spaces, parentheses, and repeated words, which increases the chance of mistakes. A better workflow is to put the file inside an `images` folder in the project and use a relative path such as:
+
+   ```markdown
+   ![](images/final_chart.png)
+   ```
+
+6. One good answer is:
+
+   ```markdown
+   ![Exam score distribution](images/exam_scores.png){fig-alt="A chart showing the distribution of exam scores."}
+   ```
+
+   The best alt text depends on what the image actually shows. If the chart shows a specific pattern, the alt text should name that pattern.
+
+7. The dollar signs may be interpreted as math delimiters rather than currency symbols. Escape currency dollar signs with backslashes:
+
+   ```markdown
+   The program costs \$25 per student and saves \$40 in staff time.
+   ```
+
+8. The source file can look correct while the rendered output still has problems. Images may be missing, equations may render incorrectly, tables may overflow, links may break, callouts may display oddly, or Word/PDF output may differ from HTML. The render is the version your audience sees, so it must be checked directly.
+
+9. An AI tool could help draft a YAML header, explain an error message, suggest Quarto syntax, revise wording, create a starter outline, or identify places where the document may be unclear. You would still need to render the file, inspect the output, verify that syntax and code work, check that images and equations display correctly, and make sure the final communication is accurate for the audience.
+
+:::
