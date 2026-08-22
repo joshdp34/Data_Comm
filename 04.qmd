@@ -1,0 +1,488 @@
+# Finding and Evaluating Data Sources
+
+Before you can communicate with data, you need data worth communicating from.
+
+This sounds obvious, but it is one of the easiest places to make a mistake. A polished chart can hide a weak source. A fluent paragraph can overstate what a dataset actually measures. An AI tool can suggest a dataset that sounds real but does not exist, or summarize a source in a way that skips the most important limitation.
+
+In this chapter, we focus on how to find and evaluate data sources before building a memo, graph, dashboard, or report. The goal is not to find the largest dataset. The goal is to find a source that fits the question, audience, claim, and ethical responsibilities of the communication task.
+
+## Why source choice matters
+
+A data source shapes what can be claimed.
+
+Suppose you want to communicate about student success. Different sources support different claims:
+
+| Source | What It Might Support | What It May Not Support |
+| --- | --- | --- |
+| Tutoring center visit logs | Patterns in tutoring use | Whether tutoring caused better grades |
+| End-of-course survey | Student perceptions | Actual learning gains |
+| Registrar course records | Enrollment, grades, completion | Why students struggled or succeeded |
+| Interviews with students | Lived experiences and explanations | Campus-wide percentages |
+| National education dataset | Broad comparisons across institutions | Details about one local program |
+
+The source does not just provide numbers. It defines the population, time frame, variables, categories, and limits of the evidence.
+
+::: {.example title="Example 4.1: Same topic, different source"}
+
+Topic: student food insecurity.
+
+A campus survey may help answer:
+
+> What percentage of surveyed students reported worrying about food access this semester?
+
+A dining hall transaction dataset may help answer:
+
+> How often are meal plan swipes used during each week of the semester?
+
+A local food pantry record may help answer:
+
+> How many pantry visits occurred each month?
+
+These are related questions, but they are not interchangeable. The survey, dining hall data, and pantry records measure different things.
+
+:::
+
+## Start with a source-seeking question
+
+Do not start with "I need a dataset about education" or "I need data about health." Those topics are too broad.
+
+Start with a source-seeking question:
+
+1. Who or what should the data describe?
+2. What measure do I need?
+3. What time period matters?
+4. What level of detail matters?
+5. What comparison or context do I need?
+6. What kind of claim am I hoping to make?
+
+For example:
+
+| Broad Topic | Better Source-Seeking Question |
+| --- | --- |
+| College enrollment | What public source reports undergraduate enrollment by institution and year? |
+| Local employment | What official source reports unemployment rates by county and month? |
+| Public health | What source reports county-level health outcomes with definitions and collection notes? |
+| Student support | What campus source records tutoring visits by week and course? |
+
+A source-seeking question makes the search more efficient because it names the data structure you need.
+
+## What counts as a data source?
+
+A data source is not only a spreadsheet. It is the full package of materials that explain where the data came from, what the rows and columns mean, and how the data may be used.
+
+A usable data source often includes:
+
+- the data file or table;
+- documentation or metadata;
+- a data dictionary or codebook;
+- methodology notes;
+- date of collection or publication;
+- source owner or organization;
+- license or terms of use;
+- update schedule;
+- contact information or citation guidance.
+
+::: {.callout-note title="Data file is not the whole source"}
+
+If you download only a `.csv` file and ignore the documentation, you may not know what the variables mean, what population is included, how missing values are coded, or whether the data may be reused.
+
+:::
+
+## Documentation, metadata, and data dictionaries
+
+Three words come up often when evaluating data sources: documentation, metadata, and data dictionary.
+
+| Term | What It Usually Means | Why It Matters |
+| --- | --- | --- |
+| Documentation | General explanation of the dataset, collection process, scope, and use | Helps you understand what the dataset can and cannot support |
+| Metadata | Information about the dataset, such as title, owner, date, format, license, and update schedule | Helps you cite, track, and judge the source |
+| Data dictionary | A list of variables, definitions, units, categories, and coding rules | Helps you interpret columns correctly |
+
+For this course, do not worry about memorizing technical distinctions. The practical question is:
+
+> Can I explain where the data came from, what it means, and what limits it has?
+
+If the answer is no, the source is not ready for communication.
+
+## Evaluating a source
+
+Use the following checks before building a claim from a source.
+
+### Relevance
+
+Relevance asks whether the source actually fits the question.
+
+Ask:
+
+- Does the source describe the group, place, time, or process I care about?
+- Does it include the measure I need?
+- Does it include the comparison I want to make?
+- Does the level of detail fit my audience?
+
+Low relevance creates weak claims. A national dataset may not answer a local campus question. A one-time survey may not answer a trend question. A count may not answer a rate question.
+
+### Authority
+
+Authority asks who created or maintains the data.
+
+Ask:
+
+- What organization produced the source?
+- Does the organization have a clear role or expertise related to the data?
+- Is the source original, or did it copy data from somewhere else?
+- Is there contact information, citation guidance, or documentation?
+
+Authority does not mean the source is perfect. Official sources can still have limits. But source ownership helps you judge credibility and responsibility.
+
+### Collection method
+
+Collection method asks how the data were created.
+
+Ask:
+
+- Was the data collected through a survey, administrative record, sensor, transaction system, observation, experiment, or web scrape?
+- Who was included?
+- Who may have been missed?
+- Were responses required or voluntary?
+- Were definitions consistent over time?
+
+The collection method tells you what kind of evidence the data are.
+
+### Definitions and measurement
+
+Definitions ask what the variables mean.
+
+Ask:
+
+- How is each key variable defined?
+- What unit is used?
+- Are categories mutually exclusive?
+- Are missing values coded as blanks, zeros, `NA`, `999`, or something else?
+- Did the definition change over time?
+
+A variable name is not enough. A column called `completion` might mean course completion, application completion, survey completion, or program completion.
+
+### Coverage
+
+Coverage asks who or what appears in the data.
+
+Ask:
+
+- What population is included?
+- What population is excluded?
+- Are there geographic limits?
+- Are there time limits?
+- Are small groups combined, suppressed, or missing?
+
+Coverage matters because a source can be accurate for the population it includes and still misleading if used for a different population.
+
+### Timeliness
+
+Timeliness asks whether the data are current enough for the communication task.
+
+Ask:
+
+- When were the data collected?
+- When were the data published?
+- How often are they updated?
+- Is there a lag between the event and the published data?
+- Does the audience need the latest available data or a stable historical record?
+
+Recent is not always better. For some questions, a complete older dataset may be more useful than a partial current one. But the audience should not be left guessing about timing.
+
+### Format and accessibility
+
+Format asks whether you can actually use the data.
+
+Ask:
+
+- Is the data available as `.csv`, `.xlsx`, API, database table, PDF, image, or webpage?
+- Can it be downloaded without copying and pasting by hand?
+- Is the file readable by R or another tool?
+- Are column names and formats consistent?
+- Is the dataset too large or complex for the assignment scope?
+
+PDF tables and screenshots may be useful for reading, but they are often poor formats for analysis. A clean `.csv` or documented API is usually easier to use.
+
+### License and terms of use
+
+License asks what you are allowed to do with the data.
+
+Ask:
+
+- Is the data public domain, openly licensed, restricted, or unclear?
+- Are attribution or citation required?
+- Are there limits on redistribution?
+- Are there privacy or confidentiality rules?
+- Are there terms of use for an API or portal?
+
+::: {.callout-warning title="Public does not mean permissionless"}
+
+Data can be visible online and still have terms of use, attribution requirements, privacy concerns, or ethical limits. Always check the source page and documentation before reusing or republishing data.
+
+:::
+
+### Provenance
+
+Provenance means the history of the data: where it came from, how it moved, and how it changed.
+
+For a course project, a provenance note should answer:
+
+- Where did the data come from?
+- Who created or maintains it?
+- When did you access it?
+- What version, year, or release did you use?
+- What file did you download?
+- What changes did you make before analysis?
+
+Provenance is part of reproducibility. If someone cannot trace your source, they cannot fully evaluate your claim.
+
+## Source fit and claim strength
+
+A data source does not support every claim equally.
+
+| Claim Type | Source Needs |
+| --- | --- |
+| Descriptive | Clear population, measure, time frame, and definitions |
+| Comparative | Same definitions across groups, fair comparison groups, and relevant denominators |
+| Associational | Variables measured for the same units or time periods, with attention to confounding |
+| Causal | Strong research design, not only a simple comparison |
+| Predictive | Data suitable for forecasting, with enough history and validation |
+| Evaluative | Evidence plus a stated criterion for what counts as good, bad, effective, or sufficient |
+
+The source and claim must match. If the source is a one-time survey, be careful with trend claims. If the source is administrative records, be careful with claims about attitudes or motivations. If the source is observational, be careful with causal language.
+
+::: {.example title="Example 4.2: Source fit"}
+
+A city dashboard reports the number of pothole repair requests submitted each month.
+
+This source may support:
+
+> Reported pothole repair requests increased from March to April.
+
+It may not support:
+
+> Potholes increased from March to April.
+
+The dashboard counts requests, not all potholes. The difference matters.
+
+:::
+
+## A data source note
+
+For this course, a data source note is a short record of what you found and how you evaluated it.
+
+Use this template:
+
+```markdown
+## Data Source Note
+
+**Source title:** 
+
+**Source owner or organization:** 
+
+**Link or location:** 
+
+**Date accessed:** 
+
+**Data format:** 
+
+**Population or coverage:** 
+
+**Time period:** 
+
+**Key variables or measures:** 
+
+**Documentation available:** 
+
+**License or terms of use:** 
+
+**Possible audience:** 
+
+**Possible claim:** 
+
+**Important limitation:** 
+
+**AI use or verification note:** 
+```
+
+The note does not need to be long. It needs to make your source judgment visible.
+
+## Example source note
+
+::: {.example title="Example 4.3: Draft data source note"}
+
+**Source title:** County unemployment rate data
+
+**Source owner or organization:** U.S. Bureau of Labor Statistics
+
+**Link or location:** BLS data tools or public data API
+
+**Date accessed:** August 22, 2026
+
+**Data format:** Online table, downloadable data, or API
+
+**Population or coverage:** Labor force data by geographic area
+
+**Time period:** Monthly or annual series, depending on the selected table
+
+**Key variables or measures:** Unemployment rate, labor force, employment, unemployment
+
+**Documentation available:** BLS series documentation and API/data tool notes
+
+**License or terms of use:** Public source; still cite BLS and follow portal guidance
+
+**Possible audience:** Local policymakers or community members
+
+**Possible claim:** The county unemployment rate changed from one month to another.
+
+**Important limitation:** Month-to-month changes may need seasonal context, revision notes, and comparison to state or national patterns.
+
+**AI use or verification note:** AI could help draft plain-language explanations, but source links, definitions, and the final claim must be checked against BLS documentation.
+
+:::
+
+## Using AI to find and evaluate sources
+
+AI can help with source discovery, but it should not be trusted as the source itself.
+
+Useful AI tasks:
+
+- brainstorm search terms;
+- suggest possible official agencies or data portals;
+- summarize documentation you provide;
+- identify variables that may matter for a question;
+- draft a source note from information you verified;
+- suggest questions to ask about a dataset.
+
+Risky AI tasks:
+
+- asking AI to invent a dataset;
+- trusting a link without opening it;
+- accepting a license summary without checking the source page;
+- asking AI to decide whether a dataset proves a causal claim;
+- pasting private or identifiable data into an unapproved tool.
+
+::: {.callout-tip title="AI source rule"}
+
+Use AI to help you search and think. Do not cite AI as the data source. Cite the dataset, organization, documentation, or publication that you actually inspected.
+
+:::
+
+## Common problems to watch for
+
+These problems are common enough that you should check for them before writing a claim.
+
+| Problem | Why It Matters |
+| --- | --- |
+| The source has data but no documentation | You may not know what the variables mean |
+| The source measures a proxy | Your claim may name something the data do not directly measure |
+| The time period is unclear | The audience cannot interpret timing or trend |
+| The denominator is missing | Counts may look large or small without context |
+| The data are aggregated | Group-level data may not support individual-level claims |
+| Categories changed over time | Trend comparisons may be unfair |
+| Missing values are not explained | Summaries may be biased or incomplete |
+| The license is unclear | Reuse may be restricted |
+| The file was modified before you received it | Provenance may be incomplete |
+
+Finding one of these problems does not always mean you cannot use the source. It means your claim and caveat need to reflect the limit.
+
+## Public data sources
+
+Public data portals can be useful starting points. They are not a substitute for source evaluation.
+
+Examples of official public data portals include:
+
+- [Data.gov](https://data.gov/), the U.S. government's open data catalog.
+- [data.census.gov](https://data.census.gov/), the U.S. Census Bureau's data platform.
+- [BLS data tools](https://www.bls.gov/data/) and [BLS Public Data API](https://www.bls.gov/bls/api_features.htm), which provide access to Bureau of Labor Statistics data.
+- [NCES IPEDS Use the Data](https://nces.ed.gov/ipeds/use-the-data), which provides access to postsecondary education data submitted to NCES.
+
+When using any portal, move from the portal record to the documentation. The search result is not enough.
+
+## Practical workflow
+
+Use this workflow before starting a data memo:
+
+1. Write a source-seeking question.
+2. Search likely source owners and public portals.
+3. Open the source page, not only a search result.
+4. Download or bookmark the documentation.
+5. Identify the population, time period, variables, and format.
+6. Check license, terms of use, and citation guidance.
+7. Write a data source note.
+8. Draft only claims that the source can support.
+9. Record any AI help and verification.
+
+This workflow is slower than grabbing the first spreadsheet you find. It is also how you avoid building a polished message on weak evidence.
+
+## Recap
+
+::: {.recap-table}
+| **Keyword** | **Definition** |
+| --- | --- |
+| **Data source** | The data file plus the documentation, metadata, ownership, license, and context needed to understand it. |
+| **Documentation** | Explanation of how the data were collected, what they include, and how they should be interpreted. |
+| **Metadata** | Information about the dataset, such as owner, title, date, format, license, and update schedule. |
+| **Data dictionary** | A guide to variables, definitions, units, categories, and codes. |
+| **Coverage** | The people, places, events, time periods, or units included in the data. |
+| **License** | The rules or permissions for using, sharing, or republishing the data. |
+| **Provenance** | The history of where the data came from, when it was accessed, and how it changed. |
+| **Source fit** | The match between the data source and the claim, audience, and communication task. |
+:::
+
+## Check your understanding
+
+::: {.callout-note collapse="false" title="Problems"}
+
+1. Why is a data file alone usually not enough for responsible data communication?
+
+2. What is the difference between a data dictionary and metadata?
+
+3. A dashboard reports the number of pothole repair requests submitted each month. Why is "potholes increased" a stronger claim than the source may support?
+
+4. Name three things you should record in a data source note.
+
+5. Why does licensing matter even when data are publicly visible online?
+
+6. Give one useful way to use AI while searching for data sources and one thing you must verify yourself.
+
+7. Match each term to the best description:
+
+   a. Provenance
+
+   b. Coverage
+
+   c. Source fit
+
+   d. License
+
+   Descriptions:
+
+   1. The match between the data source and the claim or communication task.
+
+   2. The history of where the data came from and how it changed.
+
+   3. The rules or permissions for using and sharing the data.
+
+   4. The people, places, events, or time periods included in the data.
+
+:::
+
+::: {.callout-tip collapse="true" title="Solutions"}
+
+1. A data file alone usually does not explain where the data came from, what population is included, how variables are defined, how missing values are coded, what time period is covered, or what use restrictions apply. Without that context, it is easy to misinterpret the source.
+
+2. A data dictionary explains variables: names, definitions, units, categories, and codes. Metadata describes the dataset as a whole: title, owner, date, format, license, update schedule, and other source information.
+
+3. The dashboard counts repair requests, not all potholes. Requests can change because of reporting behavior, outreach, weather, staffing, or app use. "Repair requests increased" fits the source better than "potholes increased."
+
+4. Answers will vary. Good items include source title, owner, link, date accessed, data format, population or coverage, time period, key variables, documentation, license, possible claim, limitation, and AI verification note.
+
+5. Public visibility does not automatically mean unrestricted reuse. The source may require attribution, limit redistribution, restrict commercial use, include privacy rules, or have terms of use for an API or portal.
+
+6. AI could help brainstorm search terms, identify likely source owners, summarize documentation you provide, or draft questions to ask about a dataset. You must still verify that the source exists, open the source page, read the documentation, check license or terms, and make sure the source supports the claim.
+
+7. a-2. b-4. c-1. d-3.
+
+:::

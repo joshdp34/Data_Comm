@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Finding and Evaluating Data Sources – STA 2310 Data Communication with AI</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ac731d99f942368ec2047317e7e82b91.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style type="text/css">
+.sidebar .chapter-number {
+color: #FFB81c;
+}
+.center-panel.quarto-layout-panel {
+justify-content: center;
+column-gap: 1rem;
+}
+</style>
+<style>
+div.callout-example.callout {
+  border-left-color: #008000;
+}
+div.callout-example.callout-style-default > .callout-header {
+  background-color: rgba(0, 128, 0, 0.13);
+}
+div.callout-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-example.callout-style-default .callout-icon::before, div.callout-example.callout-titled .callout-icon::before {
+  content: '📈';
+  background-image: none;
+}
+</style>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding and Evaluating Data Sources</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"></a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What Is Data Communication with AI?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Audience, Claims, Evidence, and AI Boundaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Started with Quarto in RStudio</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding and Evaluating Data Sources</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#why-source-choice-matters" id="toc-why-source-choice-matters" class="nav-link active" data-scroll-target="#why-source-choice-matters"><span class="header-section-number">4.1</span> Why source choice matters</a></li>
+  <li><a href="#start-with-a-source-seeking-question" id="toc-start-with-a-source-seeking-question" class="nav-link" data-scroll-target="#start-with-a-source-seeking-question"><span class="header-section-number">4.2</span> Start with a source-seeking question</a></li>
+  <li><a href="#what-counts-as-a-data-source" id="toc-what-counts-as-a-data-source" class="nav-link" data-scroll-target="#what-counts-as-a-data-source"><span class="header-section-number">4.3</span> What counts as a data source?</a></li>
+  <li><a href="#documentation-metadata-and-data-dictionaries" id="toc-documentation-metadata-and-data-dictionaries" class="nav-link" data-scroll-target="#documentation-metadata-and-data-dictionaries"><span class="header-section-number">4.4</span> Documentation, metadata, and data dictionaries</a></li>
+  <li><a href="#evaluating-a-source" id="toc-evaluating-a-source" class="nav-link" data-scroll-target="#evaluating-a-source"><span class="header-section-number">4.5</span> Evaluating a source</a>
+  <ul class="collapse">
+  <li><a href="#relevance" id="toc-relevance" class="nav-link" data-scroll-target="#relevance">Relevance</a></li>
+  <li><a href="#authority" id="toc-authority" class="nav-link" data-scroll-target="#authority">Authority</a></li>
+  <li><a href="#collection-method" id="toc-collection-method" class="nav-link" data-scroll-target="#collection-method">Collection method</a></li>
+  <li><a href="#definitions-and-measurement" id="toc-definitions-and-measurement" class="nav-link" data-scroll-target="#definitions-and-measurement">Definitions and measurement</a></li>
+  <li><a href="#coverage" id="toc-coverage" class="nav-link" data-scroll-target="#coverage">Coverage</a></li>
+  <li><a href="#timeliness" id="toc-timeliness" class="nav-link" data-scroll-target="#timeliness">Timeliness</a></li>
+  <li><a href="#format-and-accessibility" id="toc-format-and-accessibility" class="nav-link" data-scroll-target="#format-and-accessibility">Format and accessibility</a></li>
+  <li><a href="#license-and-terms-of-use" id="toc-license-and-terms-of-use" class="nav-link" data-scroll-target="#license-and-terms-of-use">License and terms of use</a></li>
+  <li><a href="#provenance" id="toc-provenance" class="nav-link" data-scroll-target="#provenance">Provenance</a></li>
+  </ul></li>
+  <li><a href="#source-fit-and-claim-strength" id="toc-source-fit-and-claim-strength" class="nav-link" data-scroll-target="#source-fit-and-claim-strength"><span class="header-section-number">4.6</span> Source fit and claim strength</a></li>
+  <li><a href="#a-data-source-note" id="toc-a-data-source-note" class="nav-link" data-scroll-target="#a-data-source-note"><span class="header-section-number">4.7</span> A data source note</a></li>
+  <li><a href="#example-source-note" id="toc-example-source-note" class="nav-link" data-scroll-target="#example-source-note"><span class="header-section-number">4.8</span> Example source note</a></li>
+  <li><a href="#using-ai-to-find-and-evaluate-sources" id="toc-using-ai-to-find-and-evaluate-sources" class="nav-link" data-scroll-target="#using-ai-to-find-and-evaluate-sources"><span class="header-section-number">4.9</span> Using AI to find and evaluate sources</a></li>
+  <li><a href="#common-problems-to-watch-for" id="toc-common-problems-to-watch-for" class="nav-link" data-scroll-target="#common-problems-to-watch-for"><span class="header-section-number">4.10</span> Common problems to watch for</a></li>
+  <li><a href="#public-data-sources" id="toc-public-data-sources" class="nav-link" data-scroll-target="#public-data-sources"><span class="header-section-number">4.11</span> Public data sources</a></li>
+  <li><a href="#practical-workflow" id="toc-practical-workflow" class="nav-link" data-scroll-target="#practical-workflow"><span class="header-section-number">4.12</span> Practical workflow</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">4.13</span> Recap</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding"><span class="header-section-number">4.14</span> Check your understanding</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding and Evaluating Data Sources</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Before you can communicate with data, you need data worth communicating from.</p>
+<p>This sounds obvious, but it is one of the easiest places to make a mistake. A polished chart can hide a weak source. A fluent paragraph can overstate what a dataset actually measures. An AI tool can suggest a dataset that sounds real but does not exist, or summarize a source in a way that skips the most important limitation.</p>
+<p>In this chapter, we focus on how to find and evaluate data sources before building a memo, graph, dashboard, or report. The goal is not to find the largest dataset. The goal is to find a source that fits the question, audience, claim, and ethical responsibilities of the communication task.</p>
+<section id="why-source-choice-matters" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="why-source-choice-matters"><span class="header-section-number">4.1</span> Why source choice matters</h2>
+<p>A data source shapes what can be claimed.</p>
+<p>Suppose you want to communicate about student success. Different sources support different claims:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>What It Might Support</th>
+<th>What It May Not Support</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tutoring center visit logs</td>
+<td>Patterns in tutoring use</td>
+<td>Whether tutoring caused better grades</td>
+</tr>
+<tr class="even">
+<td>End-of-course survey</td>
+<td>Student perceptions</td>
+<td>Actual learning gains</td>
+</tr>
+<tr class="odd">
+<td>Registrar course records</td>
+<td>Enrollment, grades, completion</td>
+<td>Why students struggled or succeeded</td>
+</tr>
+<tr class="even">
+<td>Interviews with students</td>
+<td>Lived experiences and explanations</td>
+<td>Campus-wide percentages</td>
+</tr>
+<tr class="odd">
+<td>National education dataset</td>
+<td>Broad comparisons across institutions</td>
+<td>Details about one local program</td>
+</tr>
+</tbody>
+</table>
+<p>The source does not just provide numbers. It defines the population, time frame, variables, categories, and limits of the evidence.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 4.1: Same topic, different source
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topic: student food insecurity.</p>
+<p>A campus survey may help answer:</p>
+<blockquote class="blockquote">
+<p>What percentage of surveyed students reported worrying about food access this semester?</p>
+</blockquote>
+<p>A dining hall transaction dataset may help answer:</p>
+<blockquote class="blockquote">
+<p>How often are meal plan swipes used during each week of the semester?</p>
+</blockquote>
+<p>A local food pantry record may help answer:</p>
+<blockquote class="blockquote">
+<p>How many pantry visits occurred each month?</p>
+</blockquote>
+<p>These are related questions, but they are not interchangeable. The survey, dining hall data, and pantry records measure different things.</p>
+</div>
+</div>
+</section>
+<section id="start-with-a-source-seeking-question" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="start-with-a-source-seeking-question"><span class="header-section-number">4.2</span> Start with a source-seeking question</h2>
+<p>Do not start with “I need a dataset about education” or “I need data about health.” Those topics are too broad.</p>
+<p>Start with a source-seeking question:</p>
+<ol type="1">
+<li>Who or what should the data describe?</li>
+<li>What measure do I need?</li>
+<li>What time period matters?</li>
+<li>What level of detail matters?</li>
+<li>What comparison or context do I need?</li>
+<li>What kind of claim am I hoping to make?</li>
+</ol>
+<p>For example:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Broad Topic</th>
+<th>Better Source-Seeking Question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>College enrollment</td>
+<td>What public source reports undergraduate enrollment by institution and year?</td>
+</tr>
+<tr class="even">
+<td>Local employment</td>
+<td>What official source reports unemployment rates by county and month?</td>
+</tr>
+<tr class="odd">
+<td>Public health</td>
+<td>What source reports county-level health outcomes with definitions and collection notes?</td>
+</tr>
+<tr class="even">
+<td>Student support</td>
+<td>What campus source records tutoring visits by week and course?</td>
+</tr>
+</tbody>
+</table>
+<p>A source-seeking question makes the search more efficient because it names the data structure you need.</p>
+</section>
+<section id="what-counts-as-a-data-source" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="what-counts-as-a-data-source"><span class="header-section-number">4.3</span> What counts as a data source?</h2>
+<p>A data source is not only a spreadsheet. It is the full package of materials that explain where the data came from, what the rows and columns mean, and how the data may be used.</p>
+<p>A usable data source often includes:</p>
+<ul>
+<li>the data file or table;</li>
+<li>documentation or metadata;</li>
+<li>a data dictionary or codebook;</li>
+<li>methodology notes;</li>
+<li>date of collection or publication;</li>
+<li>source owner or organization;</li>
+<li>license or terms of use;</li>
+<li>update schedule;</li>
+<li>contact information or citation guidance.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Data file is not the whole source">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Data file is not the whole source
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you download only a <code>.csv</code> file and ignore the documentation, you may not know what the variables mean, what population is included, how missing values are coded, or whether the data may be reused.</p>
+</div>
+</div>
+</section>
+<section id="documentation-metadata-and-data-dictionaries" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="documentation-metadata-and-data-dictionaries"><span class="header-section-number">4.4</span> Documentation, metadata, and data dictionaries</h2>
+<p>Three words come up often when evaluating data sources: documentation, metadata, and data dictionary.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>What It Usually Means</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Documentation</td>
+<td>General explanation of the dataset, collection process, scope, and use</td>
+<td>Helps you understand what the dataset can and cannot support</td>
+</tr>
+<tr class="even">
+<td>Metadata</td>
+<td>Information about the dataset, such as title, owner, date, format, license, and update schedule</td>
+<td>Helps you cite, track, and judge the source</td>
+</tr>
+<tr class="odd">
+<td>Data dictionary</td>
+<td>A list of variables, definitions, units, categories, and coding rules</td>
+<td>Helps you interpret columns correctly</td>
+</tr>
+</tbody>
+</table>
+<p>For this course, do not worry about memorizing technical distinctions. The practical question is:</p>
+<blockquote class="blockquote">
+<p>Can I explain where the data came from, what it means, and what limits it has?</p>
+</blockquote>
+<p>If the answer is no, the source is not ready for communication.</p>
+</section>
+<section id="evaluating-a-source" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="evaluating-a-source"><span class="header-section-number">4.5</span> Evaluating a source</h2>
+<p>Use the following checks before building a claim from a source.</p>
+<section id="relevance" class="level3">
+<h3 class="anchored" data-anchor-id="relevance">Relevance</h3>
+<p>Relevance asks whether the source actually fits the question.</p>
+<p>Ask:</p>
+<ul>
+<li>Does the source describe the group, place, time, or process I care about?</li>
+<li>Does it include the measure I need?</li>
+<li>Does it include the comparison I want to make?</li>
+<li>Does the level of detail fit my audience?</li>
+</ul>
+<p>Low relevance creates weak claims. A national dataset may not answer a local campus question. A one-time survey may not answer a trend question. A count may not answer a rate question.</p>
+</section>
+<section id="authority" class="level3">
+<h3 class="anchored" data-anchor-id="authority">Authority</h3>
+<p>Authority asks who created or maintains the data.</p>
+<p>Ask:</p>
+<ul>
+<li>What organization produced the source?</li>
+<li>Does the organization have a clear role or expertise related to the data?</li>
+<li>Is the source original, or did it copy data from somewhere else?</li>
+<li>Is there contact information, citation guidance, or documentation?</li>
+</ul>
+<p>Authority does not mean the source is perfect. Official sources can still have limits. But source ownership helps you judge credibility and responsibility.</p>
+</section>
+<section id="collection-method" class="level3">
+<h3 class="anchored" data-anchor-id="collection-method">Collection method</h3>
+<p>Collection method asks how the data were created.</p>
+<p>Ask:</p>
+<ul>
+<li>Was the data collected through a survey, administrative record, sensor, transaction system, observation, experiment, or web scrape?</li>
+<li>Who was included?</li>
+<li>Who may have been missed?</li>
+<li>Were responses required or voluntary?</li>
+<li>Were definitions consistent over time?</li>
+</ul>
+<p>The collection method tells you what kind of evidence the data are.</p>
+</section>
+<section id="definitions-and-measurement" class="level3">
+<h3 class="anchored" data-anchor-id="definitions-and-measurement">Definitions and measurement</h3>
+<p>Definitions ask what the variables mean.</p>
+<p>Ask:</p>
+<ul>
+<li>How is each key variable defined?</li>
+<li>What unit is used?</li>
+<li>Are categories mutually exclusive?</li>
+<li>Are missing values coded as blanks, zeros, <code>NA</code>, <code>999</code>, or something else?</li>
+<li>Did the definition change over time?</li>
+</ul>
+<p>A variable name is not enough. A column called <code>completion</code> might mean course completion, application completion, survey completion, or program completion.</p>
+</section>
+<section id="coverage" class="level3">
+<h3 class="anchored" data-anchor-id="coverage">Coverage</h3>
+<p>Coverage asks who or what appears in the data.</p>
+<p>Ask:</p>
+<ul>
+<li>What population is included?</li>
+<li>What population is excluded?</li>
+<li>Are there geographic limits?</li>
+<li>Are there time limits?</li>
+<li>Are small groups combined, suppressed, or missing?</li>
+</ul>
+<p>Coverage matters because a source can be accurate for the population it includes and still misleading if used for a different population.</p>
+</section>
+<section id="timeliness" class="level3">
+<h3 class="anchored" data-anchor-id="timeliness">Timeliness</h3>
+<p>Timeliness asks whether the data are current enough for the communication task.</p>
+<p>Ask:</p>
+<ul>
+<li>When were the data collected?</li>
+<li>When were the data published?</li>
+<li>How often are they updated?</li>
+<li>Is there a lag between the event and the published data?</li>
+<li>Does the audience need the latest available data or a stable historical record?</li>
+</ul>
+<p>Recent is not always better. For some questions, a complete older dataset may be more useful than a partial current one. But the audience should not be left guessing about timing.</p>
+</section>
+<section id="format-and-accessibility" class="level3">
+<h3 class="anchored" data-anchor-id="format-and-accessibility">Format and accessibility</h3>
+<p>Format asks whether you can actually use the data.</p>
+<p>Ask:</p>
+<ul>
+<li>Is the data available as <code>.csv</code>, <code>.xlsx</code>, API, database table, PDF, image, or webpage?</li>
+<li>Can it be downloaded without copying and pasting by hand?</li>
+<li>Is the file readable by R or another tool?</li>
+<li>Are column names and formats consistent?</li>
+<li>Is the dataset too large or complex for the assignment scope?</li>
+</ul>
+<p>PDF tables and screenshots may be useful for reading, but they are often poor formats for analysis. A clean <code>.csv</code> or documented API is usually easier to use.</p>
+</section>
+<section id="license-and-terms-of-use" class="level3">
+<h3 class="anchored" data-anchor-id="license-and-terms-of-use">License and terms of use</h3>
+<p>License asks what you are allowed to do with the data.</p>
+<p>Ask:</p>
+<ul>
+<li>Is the data public domain, openly licensed, restricted, or unclear?</li>
+<li>Are attribution or citation required?</li>
+<li>Are there limits on redistribution?</li>
+<li>Are there privacy or confidentiality rules?</li>
+<li>Are there terms of use for an API or portal?</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled" title="Public does not mean permissionless">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Public does not mean permissionless
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Data can be visible online and still have terms of use, attribution requirements, privacy concerns, or ethical limits. Always check the source page and documentation before reusing or republishing data.</p>
+</div>
+</div>
+</section>
+<section id="provenance" class="level3">
+<h3 class="anchored" data-anchor-id="provenance">Provenance</h3>
+<p>Provenance means the history of the data: where it came from, how it moved, and how it changed.</p>
+<p>For a course project, a provenance note should answer:</p>
+<ul>
+<li>Where did the data come from?</li>
+<li>Who created or maintains it?</li>
+<li>When did you access it?</li>
+<li>What version, year, or release did you use?</li>
+<li>What file did you download?</li>
+<li>What changes did you make before analysis?</li>
+</ul>
+<p>Provenance is part of reproducibility. If someone cannot trace your source, they cannot fully evaluate your claim.</p>
+</section>
+</section>
+<section id="source-fit-and-claim-strength" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="source-fit-and-claim-strength"><span class="header-section-number">4.6</span> Source fit and claim strength</h2>
+<p>A data source does not support every claim equally.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Claim Type</th>
+<th>Source Needs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Descriptive</td>
+<td>Clear population, measure, time frame, and definitions</td>
+</tr>
+<tr class="even">
+<td>Comparative</td>
+<td>Same definitions across groups, fair comparison groups, and relevant denominators</td>
+</tr>
+<tr class="odd">
+<td>Associational</td>
+<td>Variables measured for the same units or time periods, with attention to confounding</td>
+</tr>
+<tr class="even">
+<td>Causal</td>
+<td>Strong research design, not only a simple comparison</td>
+</tr>
+<tr class="odd">
+<td>Predictive</td>
+<td>Data suitable for forecasting, with enough history and validation</td>
+</tr>
+<tr class="even">
+<td>Evaluative</td>
+<td>Evidence plus a stated criterion for what counts as good, bad, effective, or sufficient</td>
+</tr>
+</tbody>
+</table>
+<p>The source and claim must match. If the source is a one-time survey, be careful with trend claims. If the source is administrative records, be careful with claims about attitudes or motivations. If the source is observational, be careful with causal language.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 4.2: Source fit
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A city dashboard reports the number of pothole repair requests submitted each month.</p>
+<p>This source may support:</p>
+<blockquote class="blockquote">
+<p>Reported pothole repair requests increased from March to April.</p>
+</blockquote>
+<p>It may not support:</p>
+<blockquote class="blockquote">
+<p>Potholes increased from March to April.</p>
+</blockquote>
+<p>The dashboard counts requests, not all potholes. The difference matters.</p>
+</div>
+</div>
+</section>
+<section id="a-data-source-note" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="a-data-source-note"><span class="header-section-number">4.7</span> A data source note</h2>
+<p>For this course, a data source note is a short record of what you found and how you evaluated it.</p>
+<p>Use this template:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Source Note</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>**Source title:** </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>**Source owner or organization:** </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>**Link or location:** </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>**Date accessed:** </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>**Data format:** </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>**Population or coverage:** </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>**Time period:** </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Key variables or measures:** </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>**Documentation available:** </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>**License or terms of use:** </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>**Possible audience:** </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>**Possible claim:** </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>**Important limitation:** </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>**AI use or verification note:** </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The note does not need to be long. It needs to make your source judgment visible.</p>
+</section>
+<section id="example-source-note" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="example-source-note"><span class="header-section-number">4.8</span> Example source note</h2>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 4.3: Draft data source note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Source title:</strong> County unemployment rate data</p>
+<p><strong>Source owner or organization:</strong> U.S. Bureau of Labor Statistics</p>
+<p><strong>Link or location:</strong> BLS data tools or public data API</p>
+<p><strong>Date accessed:</strong> August 22, 2026</p>
+<p><strong>Data format:</strong> Online table, downloadable data, or API</p>
+<p><strong>Population or coverage:</strong> Labor force data by geographic area</p>
+<p><strong>Time period:</strong> Monthly or annual series, depending on the selected table</p>
+<p><strong>Key variables or measures:</strong> Unemployment rate, labor force, employment, unemployment</p>
+<p><strong>Documentation available:</strong> BLS series documentation and API/data tool notes</p>
+<p><strong>License or terms of use:</strong> Public source; still cite BLS and follow portal guidance</p>
+<p><strong>Possible audience:</strong> Local policymakers or community members</p>
+<p><strong>Possible claim:</strong> The county unemployment rate changed from one month to another.</p>
+<p><strong>Important limitation:</strong> Month-to-month changes may need seasonal context, revision notes, and comparison to state or national patterns.</p>
+<p><strong>AI use or verification note:</strong> AI could help draft plain-language explanations, but source links, definitions, and the final claim must be checked against BLS documentation.</p>
+</div>
+</div>
+</section>
+<section id="using-ai-to-find-and-evaluate-sources" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="using-ai-to-find-and-evaluate-sources"><span class="header-section-number">4.9</span> Using AI to find and evaluate sources</h2>
+<p>AI can help with source discovery, but it should not be trusted as the source itself.</p>
+<p>Useful AI tasks:</p>
+<ul>
+<li>brainstorm search terms;</li>
+<li>suggest possible official agencies or data portals;</li>
+<li>summarize documentation you provide;</li>
+<li>identify variables that may matter for a question;</li>
+<li>draft a source note from information you verified;</li>
+<li>suggest questions to ask about a dataset.</li>
+</ul>
+<p>Risky AI tasks:</p>
+<ul>
+<li>asking AI to invent a dataset;</li>
+<li>trusting a link without opening it;</li>
+<li>accepting a license summary without checking the source page;</li>
+<li>asking AI to decide whether a dataset proves a causal claim;</li>
+<li>pasting private or identifiable data into an unapproved tool.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="AI source rule">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>AI source rule
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use AI to help you search and think. Do not cite AI as the data source. Cite the dataset, organization, documentation, or publication that you actually inspected.</p>
+</div>
+</div>
+</section>
+<section id="common-problems-to-watch-for" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="common-problems-to-watch-for"><span class="header-section-number">4.10</span> Common problems to watch for</h2>
+<p>These problems are common enough that you should check for them before writing a claim.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The source has data but no documentation</td>
+<td>You may not know what the variables mean</td>
+</tr>
+<tr class="even">
+<td>The source measures a proxy</td>
+<td>Your claim may name something the data do not directly measure</td>
+</tr>
+<tr class="odd">
+<td>The time period is unclear</td>
+<td>The audience cannot interpret timing or trend</td>
+</tr>
+<tr class="even">
+<td>The denominator is missing</td>
+<td>Counts may look large or small without context</td>
+</tr>
+<tr class="odd">
+<td>The data are aggregated</td>
+<td>Group-level data may not support individual-level claims</td>
+</tr>
+<tr class="even">
+<td>Categories changed over time</td>
+<td>Trend comparisons may be unfair</td>
+</tr>
+<tr class="odd">
+<td>Missing values are not explained</td>
+<td>Summaries may be biased or incomplete</td>
+</tr>
+<tr class="even">
+<td>The license is unclear</td>
+<td>Reuse may be restricted</td>
+</tr>
+<tr class="odd">
+<td>The file was modified before you received it</td>
+<td>Provenance may be incomplete</td>
+</tr>
+</tbody>
+</table>
+<p>Finding one of these problems does not always mean you cannot use the source. It means your claim and caveat need to reflect the limit.</p>
+</section>
+<section id="public-data-sources" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="public-data-sources"><span class="header-section-number">4.11</span> Public data sources</h2>
+<p>Public data portals can be useful starting points. They are not a substitute for source evaluation.</p>
+<p>Examples of official public data portals include:</p>
+<ul>
+<li><a href="https://data.gov/">Data.gov</a>, the U.S. government’s open data catalog.</li>
+<li><a href="https://data.census.gov/">data.census.gov</a>, the U.S. Census Bureau’s data platform.</li>
+<li><a href="https://www.bls.gov/data/">BLS data tools</a> and <a href="https://www.bls.gov/bls/api_features.htm">BLS Public Data API</a>, which provide access to Bureau of Labor Statistics data.</li>
+<li><a href="https://nces.ed.gov/ipeds/use-the-data">NCES IPEDS Use the Data</a>, which provides access to postsecondary education data submitted to NCES.</li>
+</ul>
+<p>When using any portal, move from the portal record to the documentation. The search result is not enough.</p>
+</section>
+<section id="practical-workflow" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="practical-workflow"><span class="header-section-number">4.12</span> Practical workflow</h2>
+<p>Use this workflow before starting a data memo:</p>
+<ol type="1">
+<li>Write a source-seeking question.</li>
+<li>Search likely source owners and public portals.</li>
+<li>Open the source page, not only a search result.</li>
+<li>Download or bookmark the documentation.</li>
+<li>Identify the population, time period, variables, and format.</li>
+<li>Check license, terms of use, and citation guidance.</li>
+<li>Write a data source note.</li>
+<li>Draft only claims that the source can support.</li>
+<li>Record any AI help and verification.</li>
+</ol>
+<p>This workflow is slower than grabbing the first spreadsheet you find. It is also how you avoid building a polished message on weak evidence.</p>
+</section>
+<section id="recap" class="level2" data-number="4.13">
+<h2 data-number="4.13" class="anchored" data-anchor-id="recap"><span class="header-section-number">4.13</span> Recap</h2>
+<div class="recap-table">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Data source</strong></td>
+<td>The data file plus the documentation, metadata, ownership, license, and context needed to understand it.</td>
+</tr>
+<tr class="even">
+<td><strong>Documentation</strong></td>
+<td>Explanation of how the data were collected, what they include, and how they should be interpreted.</td>
+</tr>
+<tr class="odd">
+<td><strong>Metadata</strong></td>
+<td>Information about the dataset, such as owner, title, date, format, license, and update schedule.</td>
+</tr>
+<tr class="even">
+<td><strong>Data dictionary</strong></td>
+<td>A guide to variables, definitions, units, categories, and codes.</td>
+</tr>
+<tr class="odd">
+<td><strong>Coverage</strong></td>
+<td>The people, places, events, time periods, or units included in the data.</td>
+</tr>
+<tr class="even">
+<td><strong>License</strong></td>
+<td>The rules or permissions for using, sharing, or republishing the data.</td>
+</tr>
+<tr class="odd">
+<td><strong>Provenance</strong></td>
+<td>The history of where the data came from, when it was accessed, and how it changed.</td>
+</tr>
+<tr class="even">
+<td><strong>Source fit</strong></td>
+<td>The match between the data source and the claim, audience, and communication task.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="check-your-understanding" class="level2" data-number="4.14">
+<h2 data-number="4.14" class="anchored" data-anchor-id="check-your-understanding"><span class="header-section-number">4.14</span> Check your understanding</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Why is a data file alone usually not enough for responsible data communication?</p></li>
+<li><p>What is the difference between a data dictionary and metadata?</p></li>
+<li><p>A dashboard reports the number of pothole repair requests submitted each month. Why is “potholes increased” a stronger claim than the source may support?</p></li>
+<li><p>Name three things you should record in a data source note.</p></li>
+<li><p>Why does licensing matter even when data are publicly visible online?</p></li>
+<li><p>Give one useful way to use AI while searching for data sources and one thing you must verify yourself.</p></li>
+<li><p>Match each term to the best description:</p>
+<ol type="a">
+<li><p>Provenance</p></li>
+<li><p>Coverage</p></li>
+<li><p>Source fit</p></li>
+<li><p>License</p></li>
+</ol>
+<p>Descriptions:</p>
+<ol type="1">
+<li><p>The match between the data source and the claim or communication task.</p></li>
+<li><p>The history of where the data came from and how it changed.</p></li>
+<li><p>The rules or permissions for using and sharing the data.</p></li>
+<li><p>The people, places, events, or time periods included in the data.</p></li>
+</ol></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>A data file alone usually does not explain where the data came from, what population is included, how variables are defined, how missing values are coded, what time period is covered, or what use restrictions apply. Without that context, it is easy to misinterpret the source.</p></li>
+<li><p>A data dictionary explains variables: names, definitions, units, categories, and codes. Metadata describes the dataset as a whole: title, owner, date, format, license, update schedule, and other source information.</p></li>
+<li><p>The dashboard counts repair requests, not all potholes. Requests can change because of reporting behavior, outreach, weather, staffing, or app use. “Repair requests increased” fits the source better than “potholes increased.”</p></li>
+<li><p>Answers will vary. Good items include source title, owner, link, date accessed, data format, population or coverage, time period, key variables, documentation, license, possible claim, limitation, and AI verification note.</p></li>
+<li><p>Public visibility does not automatically mean unrestricted reuse. The source may require attribution, limit redistribution, restrict commercial use, include privacy rules, or have terms of use for an API or portal.</p></li>
+<li><p>AI could help brainstorm search terms, identify likely source owners, summarize documentation you provide, or draft questions to ask about a dataset. You must still verify that the source exists, open the source page, read the documentation, check license or terms, and make sure the source supports the claim.</p></li>
+<li><p>a-2. b-4. c-1. d-3.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

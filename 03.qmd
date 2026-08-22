@@ -258,7 +258,7 @@ format: beamer
 ---
 ```
 
-There is a special case here. Word (`docx`) is a document format, not a slide format. If someone asks for editable slides, they probably want PowerPoint (`pptx`), not Word. If someone asks for a printable slide handout, PDF may be the better choice.
+There is an important practical distinction here. Word (`docx`) is a document format, not a slide format. If someone asks for editable slides, they probably want PowerPoint (`pptx`), not Word. If someone asks for a printable slide handout, PDF may be the better choice.
 
 ### Books
 
