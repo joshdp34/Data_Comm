@@ -468,5 +468,175 @@
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Finding and Evaluating Data Sources</span>"
     ]
+  },
+  {
+    "objectID": "05.html",
+    "href": "05.html",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "",
+    "text": "5.1 Why variable meaning matters\nFinding a data source is only the beginning. Before you analyze, summarize, visualize, or communicate from a dataset, you need to understand what the variables mean.\nA data dictionary is a guide to the columns, values, units, categories, codes, and limits of a dataset. It helps you move from “I have a file” to “I understand what this file can support.”\nIn this course, data dictionaries are part of responsible data communication. They help you avoid using a variable incorrectly, making an unsupported claim, or letting AI generate code that appears to work but answers the wrong question.\nDatasets often look more self-explanatory than they really are.\nImagine a dataset with these columns:\nThose names are short, but they are not enough.\nAsk:\nThe dataset may import into R without errors. The problem is not whether the file opens. The problem is whether the values mean what you think they mean.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#why-variable-meaning-matters",
+    "href": "05.html#why-variable-meaning-matters",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "",
+    "text": "id\nterm\nvisits\ncomplete\nscore\nstatus\ngroup\n\n\n\nWhat kind of id is this?\nDoes term mean semester, academic year, or payment period?\nDoes visits count scheduled appointments, completed appointments, or unique days?\nDoes complete mean a completed course, completed survey, completed appointment, or completed degree?\nWhat scale is score measured on?\nWhat values can status take?\nWhat does group refer to?\n\n\n\n\n\n\n\n\nWarningDo not trust variable names alone\n\n\n\nA variable name is a clue, not a definition. Before using a variable in a claim, check the documentation, codebook, or source notes that explain what the variable actually means.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#what-a-data-dictionary-includes",
+    "href": "05.html#what-a-data-dictionary-includes",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.2 What a data dictionary includes",
+    "text": "5.2 What a data dictionary includes\nA useful data dictionary usually includes:\n\nvariable name;\nplain-language definition;\ndata type;\nunit of measurement;\nallowed values or categories;\nmissing value rules;\nsource or collection method;\nnotes about limitations or interpretation.\n\nHere is a basic structure:\n\n\n\n\n\n\n\nField\nMeaning\n\n\n\n\nVariable name\nThe exact column name in the dataset\n\n\nDefinition\nWhat the variable means in ordinary language\n\n\nType\nNumeric, character, date, logical, categorical, identifier, etc.\n\n\nUnit\nDollars, years, visits, percent, points, miles, minutes, etc.\n\n\nAllowed values\nValid categories, codes, ranges, or levels\n\n\nMissing values\nHow missing, unknown, skipped, or not applicable values appear\n\n\nNotes\nWarnings, source details, or interpretation limits\n\n\n\nYou do not need a perfect dictionary before you begin exploring a dataset. But you do need enough variable meaning to avoid making careless claims.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#data-type-is-not-the-same-as-meaning",
+    "href": "05.html#data-type-is-not-the-same-as-meaning",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.3 Data type is not the same as meaning",
+    "text": "5.3 Data type is not the same as meaning\nData type tells software how values are stored. Meaning tells humans what values represent.\n\n\n\n\n\n\n\n\nVariable\nPossible Data Type\nMeaning Question\n\n\n\n\nage\nnumeric\nAge at what date? In years or months? Self-reported or official record?\n\n\nzip\ncharacter\nPostal code, not a number to average\n\n\ngrade\nnumeric or character\nCourse grade, letter grade, exam score, or grade level?\n\n\ndate\ndate\nDate of event, entry, publication, or update?\n\n\nstatus\ncategorical\nWhat are the valid statuses and how are they assigned?\n\n\nid\ncharacter\nPerson, record, institution, transaction, or anonymized unit?\n\n\n\nA common mistake is to let software type drive interpretation. For example, ZIP codes may be made of digits, but they are identifiers, not quantities. Averaging ZIP codes would be meaningless.\n\n\n\n\n\n\nExampleExample 5.1: Type versus meaning\n\n\n\nSuppose a dataset has a column called student_id.\nR may store this column as numeric because it contains digits. That does not mean you should calculate the mean of student IDs. The column identifies records. It is not a measurement.\nThe data type helps software. The definition helps communication.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#units",
+    "href": "05.html#units",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.4 Units",
+    "text": "5.4 Units\nUnits tell the reader what a number represents.\nWithout units, numbers can be ambiguous.\n\n\n\n\n\n\n\nValue\nPossible Meanings\n\n\n\n\n12\n12 students, 12 percent, 12 visits, 12 weeks, 12 dollars, 12 points\n\n\n0.82\n82%, 0.82 points, 0.82 probability, 0.82 dollars\n\n\n45\n45 minutes, 45 years, 45 responses, 45 miles\n\n\n\nUnits belong in the data dictionary and often in the final communication.\nWeak:\n\nThe average was 42.\n\nBetter:\n\nThe average appointment length was 42 minutes.\n\nBetter still:\n\nAmong completed tutoring appointments in Spring 2027, the average appointment length was 42 minutes.\n\nThe final version includes the measure, unit, population, and time frame.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#categories-and-codes",
+    "href": "05.html#categories-and-codes",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.5 Categories and codes",
+    "text": "5.5 Categories and codes\nMany variables use categories or codes.\nExamples:\n\n\n\n\n\n\n\n\nVariable\nPossible Values\nNeeded Definition\n\n\n\n\nstatus\nC, N, R\nWhat does each code mean?\n\n\nclass_year\nfirst-year, sophomore, junior, senior\nHow are transfer students coded?\n\n\nappointment_type\ndrop-in, scheduled, group\nCan one visit have more than one type?\n\n\nresponse\n1, 2, 3, 4, 5\nWhat question was asked and what do the numbers mean?\n\n\nrace_ethnicity\nmultiple categories\nAre categories self-reported, administrative, combined, or suppressed?\n\n\n\nCategories need definitions because category names can carry assumptions.\n\n\n\n\n\n\nNoteCodes must be decoded before communication\n\n\n\nDo not write to an audience using unexplained internal codes. Translate codes into meaningful labels, and keep the original coding rules in your data dictionary or notes.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#missing-values",
+    "href": "05.html#missing-values",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.6 Missing values",
+    "text": "5.6 Missing values\nMissing values are not all the same.\nA blank cell could mean:\n\nthe question was skipped;\nthe value was not applicable;\nthe data were not collected;\nthe value was suppressed for privacy;\nthe value failed a quality check;\nthe source owner has not updated it yet;\nthe answer was refused;\nthe student or record was not in the system.\n\nThese meanings can lead to different communication choices.\n\n\n\nMissing Code\nPossible Meaning\n\n\n\n\nblank\nNo entry, unknown, skipped, or import issue\n\n\nNA\nMissing or not available\n\n\nN/A\nNot applicable\n\n\n999\nMissing, unknown, refused, or legacy code\n\n\n-1\nMissing, not asked, or special system value\n\n\nsuppressed\nHidden because of privacy, small counts, or policy\n\n\n\nBefore summarizing a variable, ask how missing values are coded and whether they should be included, excluded, recoded, or described.\n\n\n\n\n\n\nExampleExample 5.2: Missing value meaning\n\n\n\nSuppose a survey variable records weekly study hours.\nIf a blank response means “student skipped the question,” excluding blanks may be reasonable but should be noted.\nIf a blank response means “student was not asked the question,” the missingness may depend on survey version.\nIf 999 means “prefer not to answer,” treating 999 as 999 hours would destroy the summary.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#measurement-limits",
+    "href": "05.html#measurement-limits",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.7 Measurement limits",
+    "text": "5.7 Measurement limits\nVariables are often imperfect measures of the ideas we care about.\n\n\n\n\n\n\n\n\nIdea We Care About\nPossible Variable\nMeasurement Limit\n\n\n\n\nAcademic engagement\nTutoring visits\nVisits do not capture studying, office hours, peer support, or motivation\n\n\nLearning\nExam score\nScores reflect test design, preparation, timing, and grading choices\n\n\nCommunity concern\nComplaint reports\nReports depend on awareness, access, and willingness to complain\n\n\nHealth access\nAppointment wait time\nWait time may miss cost, transportation, insurance, or trust\n\n\nEconomic well-being\nHousehold income\nIncome may not capture wealth, debt, costs, or household size\n\n\n\nThis does not mean the variable is useless. It means the claim should match the measure.\nIf your variable measures tutoring visits, say “tutoring visits” rather than “student motivation.” If your variable measures complaint reports, say “reported complaints” rather than “all problems.”",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#a-data-dictionary-in-quarto",
+    "href": "05.html#a-data-dictionary-in-quarto",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.8 A data dictionary in Quarto",
+    "text": "5.8 A data dictionary in Quarto\nFor a small course project, a data dictionary can be a markdown table in your .qmd file.\n## Data Dictionary\n\n| Variable | Definition | Type | Unit or Values | Missing Values | Notes |\n| --- | --- | --- | --- | --- | --- |\n| student_key | Anonymous student record identifier | character | Unique ID | none expected | Not a measurement |\n| visits | Completed tutoring visits during the semester | numeric | count of visits | blank means no record | Does not include canceled appointments |\n| course_grade | Final course grade | numeric | points from 0 to 100 | blank if no final grade | Does not prove tutoring caused grade |\n| appointment_type | Type of tutoring appointment | categorical | scheduled, drop-in, group | blank if no visit | Categories may overlap in some systems |\nFor a larger project, a separate .csv or spreadsheet may be easier to maintain.\nThe important habit is the same: define variables before making claims from them.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#building-a-question-list",
+    "href": "05.html#building-a-question-list",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.9 Building a question list",
+    "text": "5.9 Building a question list\nA data dictionary often reveals things you still do not know.\nThat is useful.\nA question list is a short list of issues that need clarification before analysis or communication.\nExamples:\n\nDoes visits count scheduled appointments or completed appointments?\nAre canceled appointments included?\nIs course_grade a final grade or current grade at the time of export?\nAre missing grades missing because students withdrew?\nAre transfer students included in class_year?\nDid the definition of status change between semesters?\nIs the file one row per student, one row per visit, or one row per course?\n\nA good question list protects you from pretending to know more than you do.\n\n\n\n\n\n\nTipQuestion lists are productive\n\n\n\nFinding unanswered questions is not failure. It is evidence that you are reading the data carefully.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#row-meaning",
+    "href": "05.html#row-meaning",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.10 Row meaning",
+    "text": "5.10 Row meaning\nA data dictionary should also clarify what one row represents.\nThis is sometimes called the unit of observation.\n\n\n\n\n\n\n\nOne Row Represents\nExample Claim\n\n\n\n\nOne student\n“In this file, 38% of students visited tutoring at least once.”\n\n\nOne tutoring visit\n“Most visits occurred during the two weeks before midterms.”\n\n\nOne course section\n“Introductory sections had higher tutoring use than advanced sections.”\n\n\nOne institution\n“Enrollment varied across institutions.”\n\n\nOne county-month\n“Unemployment rates changed across months and counties.”\n\n\n\nIf you misunderstand the row meaning, your summaries may be wrong.\nFor example, if a file has one row per visit, counting rows does not count students. One student with five visits appears five times.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#joining-variable-meaning-to-audience-and-claim",
+    "href": "05.html#joining-variable-meaning-to-audience-and-claim",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.11 Joining variable meaning to audience and claim",
+    "text": "5.11 Joining variable meaning to audience and claim\nVariable meaning is not only a technical issue. It affects communication.\nBefore using a variable in a message, ask:\n\nWould the audience understand the variable name?\nDoes the variable directly measure the idea in the claim?\nWhat unit or category label needs to be explained?\nWhat missing values could affect the summary?\nWhat caveat should appear near the claim?\n\n\n\n\n\n\n\nExampleExample 5.3: Revising a claim using variable meaning\n\n\n\nOriginal claim:\n\nStudents who used tutoring were more motivated.\n\nSource variable:\n\nvisits: count of completed tutoring visits during Spring 2027.\n\nBetter claim:\n\nIn Spring 2027, students with at least one completed tutoring visit used the tutoring center more than students with no recorded visits.\n\nEven better, if paired with grade data:\n\nIn Spring 2027, students with at least one completed tutoring visit had higher average course grades than students with no recorded visits, but the data do not show whether tutoring caused the difference.\n\nThe better claims stay closer to the variables.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#ai-and-variable-meaning",
+    "href": "05.html#ai-and-variable-meaning",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.12 AI and variable meaning",
+    "text": "5.12 AI and variable meaning\nAI tools can help draft a data dictionary, but they can also invent definitions.\nUseful AI tasks:\n\nturn rough notes into a cleaner data dictionary table;\nsuggest questions to ask about unclear variables;\nidentify variable names that may need definitions;\ndraft audience-friendly labels from definitions you provide;\ncheck whether a claim uses a variable more strongly than the definition supports.\n\nRisky AI tasks:\n\nasking AI to define columns without documentation;\naccepting guessed category meanings;\nletting AI recode missing values without checking the source;\nusing AI-generated code when you do not understand the row meaning;\nasking AI to infer sensitive categories from names or identifiers.\n\n\n\n\n\n\n\nWarningVerify AI-generated definitions\n\n\n\nIf AI suggests a variable definition, treat it as a draft question, not as an answer. Verify definitions against the data dictionary, source documentation, codebook, or source owner.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#common-problems-to-watch-for",
+    "href": "05.html#common-problems-to-watch-for",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.13 Common problems to watch for",
+    "text": "5.13 Common problems to watch for\nThese problems often appear when students begin working with real datasets.\n\n\n\n\n\n\n\nProblem\nWhy It Matters\n\n\n\n\nVariable name is unclear\nYou may make the wrong claim\n\n\nUnit is missing\nThe number cannot be interpreted\n\n\nCategories are coded\nThe audience will not understand raw codes\n\n\nMissing values are undocumented\nSummaries may be wrong\n\n\nRow meaning is unclear\nCounts and percentages may use the wrong denominator\n\n\nDate variable is ambiguous\nTiming and trend claims may be wrong\n\n\nIdentifier is treated as a number\nSoftware may allow meaningless summaries\n\n\nProxy measure is overstated\nThe claim may name an idea the variable does not directly measure\n\n\nDefinitions changed over time\nComparisons may be unfair\n\n\n\nMost of these problems can be handled if they are documented. They become dangerous when they are ignored.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#practical-workflow",
+    "href": "05.html#practical-workflow",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.14 Practical workflow",
+    "text": "5.14 Practical workflow\nUse this workflow before cleaning or summarizing a dataset:\n\nIdentify what one row represents.\nList the variables you expect to use.\nFind or create definitions for those variables.\nRecord data type, unit, categories, and allowed values.\nIdentify missing value codes.\nWrite notes about measurement limits.\nCreate a question list for unclear items.\nDraft only claims that match the variable definitions.\nRecord any AI help and how you verified it.\n\nThis workflow slows you down at the start. It saves time later because you will make fewer incorrect summaries and fewer misleading claims.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#recap",
+    "href": "05.html#recap",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.15 Recap",
+    "text": "5.15 Recap\n\n\n\n\n\n\n\n\nKeyword\nDefinition\n\n\n\n\nData dictionary\nA guide to variables, definitions, units, categories, missing values, and notes.\n\n\nVariable\nA column or field in a dataset that records a measure, category, identifier, date, or other value.\n\n\nData type\nHow software stores a value, such as numeric, character, date, logical, or categorical.\n\n\nUnit\nWhat a number represents, such as dollars, minutes, visits, percent, or points.\n\n\nCategory\nA named group or level, such as scheduled, drop-in, first-year, or completed.\n\n\nMissing value\nA blank, code, or marker showing that a value is unavailable, unknown, not applicable, suppressed, or not collected.\n\n\nMeasurement limit\nA boundary on what a variable can tell us.\n\n\nUnit of observation\nWhat one row in the dataset represents.\n\n\nQuestion list\nA list of unclear items that must be resolved before analysis or communication.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
+  },
+  {
+    "objectID": "05.html#check-your-understanding",
+    "href": "05.html#check-your-understanding",
+    "title": "5  Data Dictionaries and Variable Meaning",
+    "section": "5.16 Check your understanding",
+    "text": "5.16 Check your understanding\n\n\n\n\n\n\nNoteProblems\n\n\n\n\n\n\nWhy is a variable name not the same thing as a definition?\nWhat is the difference between data type and variable meaning?\nWhy should ZIP code usually be treated as an identifier or category rather than a numeric measurement?\nA column called visits appears in a tutoring dataset. Name two questions you should ask before using it in a claim.\nWhy can missing value codes such as 999 or -1 create problems?\nWhat does unit of observation mean?\nExplain why “tutoring visits” may be a poor direct measure of “student motivation.”\nGive one useful AI task for building a data dictionary and one thing you must verify yourself.\nMatch each term to the best description:\n\nUnit\nMissing value\nData dictionary\nUnit of observation\n\nDescriptions:\n\nWhat one row in the dataset represents.\nA guide to variables, definitions, units, categories, missing values, and notes.\nA marker showing that a value is unavailable, unknown, not applicable, suppressed, or not collected.\nWhat a number represents, such as dollars, minutes, visits, percent, or points.\n\n\n\n\n\n\n\n\n\n\n\nTipSolutions\n\n\n\n\n\n\nA variable name is only a label. It may be short, vague, or based on internal system language. A definition explains what the variable actually measures or records.\nData type tells software how a value is stored, such as numeric, character, date, logical, or categorical. Variable meaning tells humans what the value represents.\nZIP codes may contain digits, but they identify geographic areas. Averaging or adding ZIP codes would not produce a meaningful quantity.\nAnswers will vary. Good questions include: Does visits count scheduled or completed visits? Does it count unique students, total visits, or visit days? Are canceled appointments included? What time period is covered? Are missing values possible?\nIf missing value codes are treated as real values, summaries can be badly distorted. For example, treating 999 as 999 hours or -1 as a real score would produce incorrect averages and misleading claims.\nUnit of observation means what one row represents, such as one student, one visit, one course section, one institution, or one county-month.\nTutoring visits measure recorded use of tutoring, not motivation directly. Visits may reflect availability, scheduling, course requirements, awareness of services, transportation, or other factors.\nAI could help format a data dictionary table, suggest questions for unclear variables, or draft audience-friendly labels from definitions you provide. You must verify definitions, categories, units, missing value rules, and row meaning against source documentation.\na-4. b-3. c-2. d-1.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
+    ]
   }
 ]

@@ -1,0 +1,438 @@
+# Data Dictionaries and Variable Meaning
+
+Finding a data source is only the beginning. Before you analyze, summarize, visualize, or communicate from a dataset, you need to understand what the variables mean.
+
+A **data dictionary** is a guide to the columns, values, units, categories, codes, and limits of a dataset. It helps you move from "I have a file" to "I understand what this file can support."
+
+In this course, data dictionaries are part of responsible data communication. They help you avoid using a variable incorrectly, making an unsupported claim, or letting AI generate code that appears to work but answers the wrong question.
+
+## Why variable meaning matters
+
+Datasets often look more self-explanatory than they really are.
+
+Imagine a dataset with these columns:
+
+```text
+id
+term
+visits
+complete
+score
+status
+group
+```
+
+Those names are short, but they are not enough.
+
+Ask:
+
+- What kind of `id` is this?
+- Does `term` mean semester, academic year, or payment period?
+- Does `visits` count scheduled appointments, completed appointments, or unique days?
+- Does `complete` mean a completed course, completed survey, completed appointment, or completed degree?
+- What scale is `score` measured on?
+- What values can `status` take?
+- What does `group` refer to?
+
+The dataset may import into R without errors. The problem is not whether the file opens. The problem is whether the values mean what you think they mean.
+
+::: {.callout-warning title="Do not trust variable names alone"}
+
+A variable name is a clue, not a definition. Before using a variable in a claim, check the documentation, codebook, or source notes that explain what the variable actually means.
+
+:::
+
+## What a data dictionary includes
+
+A useful data dictionary usually includes:
+
+- variable name;
+- plain-language definition;
+- data type;
+- unit of measurement;
+- allowed values or categories;
+- missing value rules;
+- source or collection method;
+- notes about limitations or interpretation.
+
+Here is a basic structure:
+
+| Field | Meaning |
+| --- | --- |
+| Variable name | The exact column name in the dataset |
+| Definition | What the variable means in ordinary language |
+| Type | Numeric, character, date, logical, categorical, identifier, etc. |
+| Unit | Dollars, years, visits, percent, points, miles, minutes, etc. |
+| Allowed values | Valid categories, codes, ranges, or levels |
+| Missing values | How missing, unknown, skipped, or not applicable values appear |
+| Notes | Warnings, source details, or interpretation limits |
+
+You do not need a perfect dictionary before you begin exploring a dataset. But you do need enough variable meaning to avoid making careless claims.
+
+## Data type is not the same as meaning
+
+Data type tells software how values are stored. Meaning tells humans what values represent.
+
+| Variable | Possible Data Type | Meaning Question |
+| --- | --- | --- |
+| `age` | numeric | Age at what date? In years or months? Self-reported or official record? |
+| `zip` | character | Postal code, not a number to average |
+| `grade` | numeric or character | Course grade, letter grade, exam score, or grade level? |
+| `date` | date | Date of event, entry, publication, or update? |
+| `status` | categorical | What are the valid statuses and how are they assigned? |
+| `id` | character | Person, record, institution, transaction, or anonymized unit? |
+
+A common mistake is to let software type drive interpretation. For example, ZIP codes may be made of digits, but they are identifiers, not quantities. Averaging ZIP codes would be meaningless.
+
+::: {.example title="Example 5.1: Type versus meaning"}
+
+Suppose a dataset has a column called `student_id`.
+
+R may store this column as numeric because it contains digits. That does not mean you should calculate the mean of student IDs. The column identifies records. It is not a measurement.
+
+The data type helps software. The definition helps communication.
+
+:::
+
+## Units
+
+Units tell the reader what a number represents.
+
+Without units, numbers can be ambiguous.
+
+| Value | Possible Meanings |
+| --- | --- |
+| `12` | 12 students, 12 percent, 12 visits, 12 weeks, 12 dollars, 12 points |
+| `0.82` | 82%, 0.82 points, 0.82 probability, 0.82 dollars |
+| `45` | 45 minutes, 45 years, 45 responses, 45 miles |
+
+Units belong in the data dictionary and often in the final communication.
+
+Weak:
+
+> The average was 42.
+
+Better:
+
+> The average appointment length was 42 minutes.
+
+Better still:
+
+> Among completed tutoring appointments in Spring 2027, the average appointment length was 42 minutes.
+
+The final version includes the measure, unit, population, and time frame.
+
+## Categories and codes
+
+Many variables use categories or codes.
+
+Examples:
+
+| Variable | Possible Values | Needed Definition |
+| --- | --- | --- |
+| `status` | `C`, `N`, `R` | What does each code mean? |
+| `class_year` | first-year, sophomore, junior, senior | How are transfer students coded? |
+| `appointment_type` | drop-in, scheduled, group | Can one visit have more than one type? |
+| `response` | 1, 2, 3, 4, 5 | What question was asked and what do the numbers mean? |
+| `race_ethnicity` | multiple categories | Are categories self-reported, administrative, combined, or suppressed? |
+
+Categories need definitions because category names can carry assumptions.
+
+::: {.callout-note title="Codes must be decoded before communication"}
+
+Do not write to an audience using unexplained internal codes. Translate codes into meaningful labels, and keep the original coding rules in your data dictionary or notes.
+
+:::
+
+## Missing values
+
+Missing values are not all the same.
+
+A blank cell could mean:
+
+- the question was skipped;
+- the value was not applicable;
+- the data were not collected;
+- the value was suppressed for privacy;
+- the value failed a quality check;
+- the source owner has not updated it yet;
+- the answer was refused;
+- the student or record was not in the system.
+
+These meanings can lead to different communication choices.
+
+| Missing Code | Possible Meaning |
+| --- | --- |
+| blank | No entry, unknown, skipped, or import issue |
+| `NA` | Missing or not available |
+| `N/A` | Not applicable |
+| `999` | Missing, unknown, refused, or legacy code |
+| `-1` | Missing, not asked, or special system value |
+| `suppressed` | Hidden because of privacy, small counts, or policy |
+
+Before summarizing a variable, ask how missing values are coded and whether they should be included, excluded, recoded, or described.
+
+::: {.example title="Example 5.2: Missing value meaning"}
+
+Suppose a survey variable records weekly study hours.
+
+If a blank response means "student skipped the question," excluding blanks may be reasonable but should be noted.
+
+If a blank response means "student was not asked the question," the missingness may depend on survey version.
+
+If `999` means "prefer not to answer," treating `999` as 999 hours would destroy the summary.
+
+:::
+
+## Measurement limits
+
+Variables are often imperfect measures of the ideas we care about.
+
+| Idea We Care About | Possible Variable | Measurement Limit |
+| --- | --- | --- |
+| Academic engagement | Tutoring visits | Visits do not capture studying, office hours, peer support, or motivation |
+| Learning | Exam score | Scores reflect test design, preparation, timing, and grading choices |
+| Community concern | Complaint reports | Reports depend on awareness, access, and willingness to complain |
+| Health access | Appointment wait time | Wait time may miss cost, transportation, insurance, or trust |
+| Economic well-being | Household income | Income may not capture wealth, debt, costs, or household size |
+
+This does not mean the variable is useless. It means the claim should match the measure.
+
+If your variable measures tutoring visits, say "tutoring visits" rather than "student motivation." If your variable measures complaint reports, say "reported complaints" rather than "all problems."
+
+## A data dictionary in Quarto
+
+For a small course project, a data dictionary can be a markdown table in your `.qmd` file.
+
+```markdown
+## Data Dictionary
+
+| Variable | Definition | Type | Unit or Values | Missing Values | Notes |
+| --- | --- | --- | --- | --- | --- |
+| student_key | Anonymous student record identifier | character | Unique ID | none expected | Not a measurement |
+| visits | Completed tutoring visits during the semester | numeric | count of visits | blank means no record | Does not include canceled appointments |
+| course_grade | Final course grade | numeric | points from 0 to 100 | blank if no final grade | Does not prove tutoring caused grade |
+| appointment_type | Type of tutoring appointment | categorical | scheduled, drop-in, group | blank if no visit | Categories may overlap in some systems |
+```
+
+For a larger project, a separate `.csv` or spreadsheet may be easier to maintain.
+
+The important habit is the same: define variables before making claims from them.
+
+## Building a question list
+
+A data dictionary often reveals things you still do not know.
+
+That is useful.
+
+A **question list** is a short list of issues that need clarification before analysis or communication.
+
+Examples:
+
+- Does `visits` count scheduled appointments or completed appointments?
+- Are canceled appointments included?
+- Is `course_grade` a final grade or current grade at the time of export?
+- Are missing grades missing because students withdrew?
+- Are transfer students included in `class_year`?
+- Did the definition of `status` change between semesters?
+- Is the file one row per student, one row per visit, or one row per course?
+
+A good question list protects you from pretending to know more than you do.
+
+::: {.callout-tip title="Question lists are productive"}
+
+Finding unanswered questions is not failure. It is evidence that you are reading the data carefully.
+
+:::
+
+## Row meaning
+
+A data dictionary should also clarify what one row represents.
+
+This is sometimes called the **unit of observation**.
+
+| One Row Represents | Example Claim |
+| --- | --- |
+| One student | "In this file, 38% of students visited tutoring at least once." |
+| One tutoring visit | "Most visits occurred during the two weeks before midterms." |
+| One course section | "Introductory sections had higher tutoring use than advanced sections." |
+| One institution | "Enrollment varied across institutions." |
+| One county-month | "Unemployment rates changed across months and counties." |
+
+If you misunderstand the row meaning, your summaries may be wrong.
+
+For example, if a file has one row per visit, counting rows does not count students. One student with five visits appears five times.
+
+## Joining variable meaning to audience and claim
+
+Variable meaning is not only a technical issue. It affects communication.
+
+Before using a variable in a message, ask:
+
+1. Would the audience understand the variable name?
+2. Does the variable directly measure the idea in the claim?
+3. What unit or category label needs to be explained?
+4. What missing values could affect the summary?
+5. What caveat should appear near the claim?
+
+::: {.example title="Example 5.3: Revising a claim using variable meaning"}
+
+Original claim:
+
+> Students who used tutoring were more motivated.
+
+Source variable:
+
+> `visits`: count of completed tutoring visits during Spring 2027.
+
+Better claim:
+
+> In Spring 2027, students with at least one completed tutoring visit used the tutoring center more than students with no recorded visits.
+
+Even better, if paired with grade data:
+
+> In Spring 2027, students with at least one completed tutoring visit had higher average course grades than students with no recorded visits, but the data do not show whether tutoring caused the difference.
+
+The better claims stay closer to the variables.
+
+:::
+
+## AI and variable meaning
+
+AI tools can help draft a data dictionary, but they can also invent definitions.
+
+Useful AI tasks:
+
+- turn rough notes into a cleaner data dictionary table;
+- suggest questions to ask about unclear variables;
+- identify variable names that may need definitions;
+- draft audience-friendly labels from definitions you provide;
+- check whether a claim uses a variable more strongly than the definition supports.
+
+Risky AI tasks:
+
+- asking AI to define columns without documentation;
+- accepting guessed category meanings;
+- letting AI recode missing values without checking the source;
+- using AI-generated code when you do not understand the row meaning;
+- asking AI to infer sensitive categories from names or identifiers.
+
+::: {.callout-warning title="Verify AI-generated definitions"}
+
+If AI suggests a variable definition, treat it as a draft question, not as an answer. Verify definitions against the data dictionary, source documentation, codebook, or source owner.
+
+:::
+
+## Common problems to watch for
+
+These problems often appear when students begin working with real datasets.
+
+| Problem | Why It Matters |
+| --- | --- |
+| Variable name is unclear | You may make the wrong claim |
+| Unit is missing | The number cannot be interpreted |
+| Categories are coded | The audience will not understand raw codes |
+| Missing values are undocumented | Summaries may be wrong |
+| Row meaning is unclear | Counts and percentages may use the wrong denominator |
+| Date variable is ambiguous | Timing and trend claims may be wrong |
+| Identifier is treated as a number | Software may allow meaningless summaries |
+| Proxy measure is overstated | The claim may name an idea the variable does not directly measure |
+| Definitions changed over time | Comparisons may be unfair |
+
+Most of these problems can be handled if they are documented. They become dangerous when they are ignored.
+
+## Practical workflow
+
+Use this workflow before cleaning or summarizing a dataset:
+
+1. Identify what one row represents.
+2. List the variables you expect to use.
+3. Find or create definitions for those variables.
+4. Record data type, unit, categories, and allowed values.
+5. Identify missing value codes.
+6. Write notes about measurement limits.
+7. Create a question list for unclear items.
+8. Draft only claims that match the variable definitions.
+9. Record any AI help and how you verified it.
+
+This workflow slows you down at the start. It saves time later because you will make fewer incorrect summaries and fewer misleading claims.
+
+## Recap
+
+::: {.recap-table}
+| **Keyword** | **Definition** |
+| --- | --- |
+| **Data dictionary** | A guide to variables, definitions, units, categories, missing values, and notes. |
+| **Variable** | A column or field in a dataset that records a measure, category, identifier, date, or other value. |
+| **Data type** | How software stores a value, such as numeric, character, date, logical, or categorical. |
+| **Unit** | What a number represents, such as dollars, minutes, visits, percent, or points. |
+| **Category** | A named group or level, such as scheduled, drop-in, first-year, or completed. |
+| **Missing value** | A blank, code, or marker showing that a value is unavailable, unknown, not applicable, suppressed, or not collected. |
+| **Measurement limit** | A boundary on what a variable can tell us. |
+| **Unit of observation** | What one row in the dataset represents. |
+| **Question list** | A list of unclear items that must be resolved before analysis or communication. |
+:::
+
+## Check your understanding
+
+::: {.callout-note collapse="false" title="Problems"}
+
+1. Why is a variable name not the same thing as a definition?
+
+2. What is the difference between data type and variable meaning?
+
+3. Why should ZIP code usually be treated as an identifier or category rather than a numeric measurement?
+
+4. A column called `visits` appears in a tutoring dataset. Name two questions you should ask before using it in a claim.
+
+5. Why can missing value codes such as `999` or `-1` create problems?
+
+6. What does unit of observation mean?
+
+7. Explain why "tutoring visits" may be a poor direct measure of "student motivation."
+
+8. Give one useful AI task for building a data dictionary and one thing you must verify yourself.
+
+9. Match each term to the best description:
+
+   a. Unit
+
+   b. Missing value
+
+   c. Data dictionary
+
+   d. Unit of observation
+
+   Descriptions:
+
+   1. What one row in the dataset represents.
+
+   2. A guide to variables, definitions, units, categories, missing values, and notes.
+
+   3. A marker showing that a value is unavailable, unknown, not applicable, suppressed, or not collected.
+
+   4. What a number represents, such as dollars, minutes, visits, percent, or points.
+
+:::
+
+::: {.callout-tip collapse="true" title="Solutions"}
+
+1. A variable name is only a label. It may be short, vague, or based on internal system language. A definition explains what the variable actually measures or records.
+
+2. Data type tells software how a value is stored, such as numeric, character, date, logical, or categorical. Variable meaning tells humans what the value represents.
+
+3. ZIP codes may contain digits, but they identify geographic areas. Averaging or adding ZIP codes would not produce a meaningful quantity.
+
+4. Answers will vary. Good questions include: Does `visits` count scheduled or completed visits? Does it count unique students, total visits, or visit days? Are canceled appointments included? What time period is covered? Are missing values possible?
+
+5. If missing value codes are treated as real values, summaries can be badly distorted. For example, treating `999` as 999 hours or `-1` as a real score would produce incorrect averages and misleading claims.
+
+6. Unit of observation means what one row represents, such as one student, one visit, one course section, one institution, or one county-month.
+
+7. Tutoring visits measure recorded use of tutoring, not motivation directly. Visits may reflect availability, scheduling, course requirements, awareness of services, transportation, or other factors.
+
+8. AI could help format a data dictionary table, suggest questions for unclear variables, or draft audience-friendly labels from definitions you provide. You must verify definitions, categories, units, missing value rules, and row meaning against source documentation.
+
+9. a-4. b-3. c-2. d-1.
+
+:::
