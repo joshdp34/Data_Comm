@@ -1,0 +1,552 @@
+# Cleaning for Communication
+
+Cleaning data means making the dataset usable for a clear purpose while keeping the meaning of the data honest.
+
+For this course, cleaning is not just a technical step before analysis. It is part of data communication. When you clean a dataset, you make decisions about missing values, categories, dates, labels, and variables. Those decisions can change what a number means, what a chart shows, and what claim an audience is likely to believe.
+
+A good cleaning process should be:
+
+- connected to the data dictionary;
+- reproducible;
+- transparent;
+- documented in plain language;
+- cautious about changing meaning;
+- checked before final communication.
+
+The goal is not to make the data say what you want. The goal is to make the data understandable enough to support a fair claim.
+
+::: {.callout-warning title="Cleaning changes communication"}
+
+A cleaning decision is also a communication decision. If you remove rows, combine categories, recode missing values, or change dates, the audience may see a different story. Document the decision before treating the result as evidence.
+
+:::
+
+## Raw Data and Cleaned Data
+
+The **raw data** is the original form of the data as you received it.
+
+The **cleaned data** is the version you create after applying documented changes.
+
+Both matter.
+
+| Version | Purpose |
+| --- | --- |
+| Raw data | Preserves the original source values. |
+| Cleaning steps | Records what changed and why. |
+| Cleaned data | Supports analysis, tables, charts, and communication. |
+
+Do not overwrite the only copy of the raw data. If the raw data is lost, it becomes difficult to check your work.
+
+In a Quarto project, you might organize files like this:
+
+```text
+project-folder/
+  data/
+    raw/
+      tutoring_export_original.csv
+    cleaned/
+      tutoring_cleaned.csv
+  reports/
+    data_cleaning_log.qmd
+```
+
+Even if your course project is small, the habit is important: keep the original source separate from the cleaned version.
+
+## Cleaning Starts With Meaning
+
+Cleaning should begin with the data dictionary.
+
+Before changing values, ask:
+
+1. What does one row represent?
+2. What does the variable mean?
+3. What values are allowed?
+4. What values are missing, unknown, not applicable, or suppressed?
+5. What unit is used?
+6. What categories need to be renamed or combined?
+7. What date does each date variable record?
+8. What claim do I hope to support?
+
+The same value can require different cleaning choices depending on its meaning.
+
+For example, a blank value in `course_grade` might mean no final grade posted yet. A blank value in `tutoring_visits` might mean no tutoring record. A blank value in `survey_comment` might mean the student chose not to write a comment.
+
+Treating all blanks the same would be quick, but not careful.
+
+::: {.example title="Example 6.1: Cleaning starts with definitions"}
+
+Suppose a source uses `999` in a variable called `study_hours`.
+
+If the data dictionary says `999` means "prefer not to answer," then `999` should be recoded as missing before calculating average study hours.
+
+If there is no documentation, do not guess. Add the issue to your question list and avoid using the variable in a strong claim until the meaning is verified.
+
+:::
+
+## A Small Example Dataset
+
+Imagine a tutoring dataset with these rows:
+
+| student_key | term | visits | appointment_type | final_grade | completed | last_visit |
+| --- | --- | ---: | --- | ---: | --- | --- |
+| S001 | Spring 2027 | 3 | Scheduled | 88 | Yes | 2027-04-12 |
+| S002 | Spring 2027 | 0 | none | 74 | Yes |  |
+| S003 | Spring 2027 | 999 | Drop in | 82 | Yes | 4/7/27 |
+| S004 | Spring 2027 | 2 | scheduled |  | No | 2027-03-29 |
+| S005 | Spring 2027 | 1 | GROUP | 91 | yes | 2027/04/01 |
+
+The file imports into R, but it is not ready for communication.
+
+Possible cleaning issues include:
+
+- `999` appears in `visits`;
+- `appointment_type` uses inconsistent labels;
+- `final_grade` has a blank value;
+- `completed` uses `Yes`, `yes`, and `No`;
+- `last_visit` uses more than one date format;
+- the blank date for S002 may mean no tutoring visit rather than missing information.
+
+Each issue needs a decision. Each decision needs a reason.
+
+## Missing Values
+
+Missing values are one of the most common cleaning problems.
+
+In R, true missing values are represented as `NA`. But data files often use other markers:
+
+| Marker in File | Possible Meaning |
+| --- | --- |
+| blank | no entry, skipped, unknown, not collected, or no record |
+| `NA` | missing or not available |
+| `N/A` | not applicable |
+| `999` | unknown, refused, or a source-specific missing code |
+| `-1` | missing, not asked, or source-specific code |
+| `suppressed` | hidden for privacy or policy |
+
+The cleaning question is not simply:
+
+> How do I remove missing values?
+
+A better question is:
+
+> What does this missing value mean, and should it be excluded, recoded, described, or left alone?
+
+Possible cleaning decisions:
+
+| Situation | Possible Decision | Communication Note |
+| --- | --- | --- |
+| `999` means refused | Recode `999` to `NA` | State that refused responses were excluded from the average. |
+| blank means not applicable | Keep as not applicable or recode to a clear category | Do not describe it as unknown. |
+| blank means no record | Decide whether no record means zero or missing | The denominator may change. |
+| suppressed values | Keep as suppressed or exclude from numeric summaries | Comparisons may be incomplete. |
+
+In R, missing values can be declared during import:
+
+```r
+readr::read_csv(
+  "data/raw/tutoring_export_original.csv",
+  na = c("", "NA", "N/A", "999")
+)
+```
+
+This code tells R to treat blanks, `NA`, `N/A`, and `999` as missing. That might be correct for one dataset and wrong for another. Use the data dictionary before using a broad import rule.
+
+::: {.callout-note title="Do not clean missingness by habit"}
+
+The phrase "remove missing values" sounds simple, but missingness often carries information. A responsible cleaning log explains what was treated as missing and why.
+
+:::
+
+## Category Cleanup
+
+Categories often need cleaning before tables and charts are readable.
+
+Common category problems include:
+
+- inconsistent capitalization;
+- extra spaces;
+- abbreviations;
+- spelling differences;
+- internal codes;
+- labels that are meaningful to the source owner but not to the audience.
+
+Example:
+
+| Original Value | Cleaned Value |
+| --- | --- |
+| `scheduled` | Scheduled |
+| `Scheduled` | Scheduled |
+| `DROP IN` | Drop-in |
+| `Drop in` | Drop-in |
+| `group` | Group |
+| `GROUP` | Group |
+| `none` | No recorded appointment |
+
+A recoding table makes the decision visible:
+
+| Variable | Original Value | Cleaned Value | Reason |
+| --- | --- | --- | --- |
+| `appointment_type` | `scheduled`, `Scheduled` | Scheduled | Same category, inconsistent capitalization. |
+| `appointment_type` | `DROP IN`, `Drop in` | Drop-in | Same category, inconsistent spelling. |
+| `appointment_type` | `none` | No recorded appointment | Audience-facing label is clearer. |
+
+Example R code:
+
+```r
+tutoring_clean <- tutoring_raw |>
+  dplyr::mutate(
+    appointment_type = dplyr::case_when(
+      appointment_type %in% c("scheduled", "Scheduled") ~ "Scheduled",
+      appointment_type %in% c("DROP IN", "Drop in") ~ "Drop-in",
+      appointment_type %in% c("group", "GROUP") ~ "Group",
+      appointment_type == "none" ~ "No recorded appointment",
+      TRUE ~ appointment_type
+    )
+  )
+```
+
+This code is useful only if the recoding choices are documented and checked against the source meaning.
+
+## Recoding Variables
+
+**Recoding** means changing values from one form to another.
+
+Recoding can make data easier to analyze and easier to explain.
+
+Examples:
+
+| Original Variable | Recoded Variable | Purpose |
+| --- | --- | --- |
+| `completed` with `Yes`, `yes`, `No` | `course_completed` with `Yes`, `No` | Consistent labels. |
+| `visits` as a count | `visited_tutoring` as `Yes`, `No` | Creates a simpler grouping variable. |
+| `final_grade` as 0 to 100 | `grade_band` as A/B/C/D/F ranges | Creates audience-friendly categories. |
+| `appointment_type` codes | descriptive labels | Makes output readable. |
+
+Recoding should not hide meaning.
+
+For example, turning `visits` into `visited_tutoring` can be useful:
+
+```r
+tutoring_clean <- tutoring_clean |>
+  dplyr::mutate(
+    visited_tutoring = dplyr::if_else(visits > 0, "Yes", "No")
+  )
+```
+
+But the new variable is less detailed than the original.
+
+| Variable | Meaning |
+| --- | --- |
+| `visits` | Number of completed tutoring visits. |
+| `visited_tutoring` | Whether the student had at least one completed tutoring visit. |
+
+The recoded variable supports a different kind of claim.
+
+::: {.callout-warning title="Recoding can remove detail"}
+
+A recoded variable is not automatically better than the original variable. It may be clearer for communication, but it may also collapse useful differences. Keep track of what information was simplified.
+
+:::
+
+## Date Fields
+
+Date fields often look readable to humans but confusing to software.
+
+Examples:
+
+| Original Date | Possible Issue |
+| --- | --- |
+| `2027-04-12` | Standard year-month-day format. |
+| `4/7/27` | Ambiguous without knowing the local convention. |
+| `2027/04/01` | Different separator. |
+| blank | Missing, not applicable, or no event. |
+| `April 3, 2027` | Readable to humans, but may require parsing. |
+
+Date cleaning should answer:
+
+1. What event does the date record?
+2. What format is used?
+3. Are all rows using the same format?
+4. Are blanks missing values or meaningful non-events?
+5. Will the final communication group dates by day, week, month, term, or year?
+
+Example R code:
+
+```r
+tutoring_clean <- tutoring_raw |>
+  dplyr::mutate(
+    last_visit = lubridate::ymd(last_visit)
+  )
+```
+
+This code assumes the dates are in year-month-day order. If some values use month/day/year, this code may create missing values or incorrect dates.
+
+Date cleaning should be checked after parsing:
+
+```r
+tutoring_clean |>
+  dplyr::summarize(
+    earliest_visit = min(last_visit, na.rm = TRUE),
+    latest_visit = max(last_visit, na.rm = TRUE),
+    missing_dates = sum(is.na(last_visit))
+  )
+```
+
+The output should make sense given the data source.
+
+## Cleaning Logs
+
+A **cleaning log** records what changed, why it changed, and how the change affects communication.
+
+The log can be a table in Quarto.
+
+```markdown
+## Cleaning Log
+
+| Step | Variable | Original Issue | Cleaning Decision | Reason | Communication Effect |
+| --- | --- | --- | --- | --- | --- |
+| 1 | visits | 999 appears in the data | Recode 999 as missing after verifying documentation | 999 means refused or unknown, not 999 visits | Average visits will exclude those rows |
+| 2 | appointment_type | Inconsistent capitalization and spelling | Recode labels to Scheduled, Drop-in, Group, No recorded appointment | Same categories appeared in multiple forms | Tables will show one row per category |
+| 3 | last_visit | Mixed date formats | Parse dates and check earliest/latest values | Date summaries require valid dates | Trend summaries will use comparable dates |
+```
+
+A cleaning log should be specific enough that someone else could understand the decision.
+
+Weak:
+
+> Fixed categories.
+
+Stronger:
+
+> Recoded `DROP IN` and `Drop in` to `Drop-in` because the data dictionary treats them as the same appointment type.
+
+## Cleaning for the Claim
+
+Cleaning choices should connect to the claim you plan to make.
+
+Suppose your claim is:
+
+> Students with at least one completed tutoring visit had a higher average final grade than students with no recorded tutoring visits.
+
+Before making that claim, you need cleaning decisions about:
+
+| Needed Element | Cleaning Question |
+| --- | --- |
+| tutoring visit group | Does `visits > 0` correctly identify at least one completed visit? |
+| no recorded visit group | Does `visits = 0` mean no visit, or no record? |
+| final grade | Are missing grades excluded? Why are they missing? |
+| completed course | Are students who did not complete the course included? |
+| row meaning | Is one row one student, one visit, or one student-course record? |
+
+The claim depends on all of these decisions.
+
+If the cleaning choices are weak, the final claim becomes weak too.
+
+::: {.example title="Example 6.2: Claim-aware cleaning"}
+
+Original claim:
+
+> Tutoring improves grades.
+
+Cleaning questions:
+
+- Which variable records tutoring use?
+- Does it count completed visits?
+- Which variable records grades?
+- Are missing grades caused by withdrawal, delayed posting, or unavailable records?
+- Does one row represent one student?
+
+Careful revised claim:
+
+> In the cleaned Spring 2027 file, students with at least one completed tutoring visit had a higher average recorded final grade than students with no recorded visits. The data do not show whether tutoring caused the difference.
+
+The revised claim makes cleaning, measurement, and causation boundaries visible.
+
+:::
+
+## Cleaning and Audience Trust
+
+Audiences rarely see the raw data. They usually see a chart, table, memo, dashboard, or recommendation.
+
+That means cleaning decisions can quietly shape what the audience trusts.
+
+For example:
+
+| Cleaning Choice | Possible Audience Effect |
+| --- | --- |
+| Remove rows with missing grades | The average may describe only students with posted grades. |
+| Combine small categories | The chart is easier to read, but group differences may disappear. |
+| Rename internal codes | The message becomes clearer, but the mapping must be accurate. |
+| Convert dates to months | The trend is easier to see, but daily variation is hidden. |
+| Recode visit counts into yes/no | The comparison is simpler, but frequency differences disappear. |
+
+Cleaning is not bad. Hidden cleaning is the problem.
+
+## AI and Data Cleaning
+
+AI tools can help with cleaning plans, code drafts, and documentation.
+
+Useful AI tasks:
+
+- suggest likely cleaning checks for a variable list;
+- draft R code for recoding after you provide the intended mapping;
+- help write a plain-language cleaning log;
+- identify where a claim depends on a cleaning decision;
+- explain an error message from RStudio;
+- review whether the cleaning log is clear.
+
+Risky AI tasks:
+
+- guessing missing value codes;
+- inventing category meanings;
+- deciding which rows should be removed without documentation;
+- rewriting the claim after dropping caveats;
+- recoding sensitive variables without approval;
+- treating code that runs as proof that the cleaning is correct.
+
+A stronger AI prompt gives the tool boundaries:
+
+```text
+I am cleaning a dataset for a class project.
+Use only the variable meanings and recoding rules I provide.
+Do not invent definitions or missing value rules.
+Draft R code and a cleaning log entry for these decisions:
+
+[paste verified decisions here]
+```
+
+::: {.callout-note title="Running code is not enough"}
+
+AI-generated code can run and still clean the data incorrectly. Check the cleaned values against the data dictionary, the source documentation, and a before/after table.
+
+:::
+
+## Before and After Checks
+
+A good cleaning process includes checks.
+
+Before and after checks answer:
+
+> Did the cleaning step do what I intended?
+
+Useful checks include:
+
+```r
+table(tutoring_raw$appointment_type, useNA = "ifany")
+table(tutoring_clean$appointment_type, useNA = "ifany")
+```
+
+```r
+summary(tutoring_raw$visits)
+summary(tutoring_clean$visits)
+```
+
+```r
+range(tutoring_clean$last_visit, na.rm = TRUE)
+sum(is.na(tutoring_clean$last_visit))
+```
+
+For communication, the important part is not only that the code ran. The important part is that the result still matches the source meaning.
+
+## A Practical Cleaning Workflow
+
+Use this workflow for small course projects:
+
+1. Save the raw data without overwriting it.
+2. Read the data dictionary or source documentation.
+3. Identify what one row represents.
+4. List variables needed for the likely claim.
+5. Check data types, units, categories, dates, and missing values.
+6. Create a question list for unclear items.
+7. Make one cleaning decision at a time.
+8. Record each decision in a cleaning log.
+9. Run before and after checks.
+10. Revise the claim if the cleaned data supports a narrower message than expected.
+11. Document AI use and verification.
+
+This workflow is slower than immediately making a chart. It is also much safer.
+
+## Recap
+
+::: {.recap-table}
+| **Keyword** | **Definition** |
+| --- | --- |
+| **Raw data** | The original form of the data as received from the source. |
+| **Cleaned data** | A version of the data created after documented changes. |
+| **Cleaning decision** | A choice about how to handle a data problem such as missing values, labels, dates, or recoding. |
+| **Missing value** | A blank, marker, or code that may mean unavailable, skipped, not applicable, suppressed, or unknown. |
+| **Category cleanup** | Making category labels consistent and audience-readable while preserving meaning. |
+| **Recoding** | Changing values from one form to another, such as codes to labels or counts to groups. |
+| **Date parsing** | Converting date values into a format software can recognize and compare. |
+| **Cleaning log** | A record of what changed, why it changed, and how the change affects communication. |
+| **Before/after check** | A check that compares original and cleaned values to confirm that cleaning worked as intended. |
+| **Claim-aware cleaning** | Cleaning that is guided by the claim, audience, variable meaning, and limits of the data. |
+:::
+
+## Check your understanding
+
+::: {.callout-note collapse="false" title="Problems"}
+
+1. Why should you keep the raw data separate from the cleaned data?
+
+2. Why is cleaning a communication decision, not only a technical decision?
+
+3. A dataset uses `999` in a numeric variable. What should you check before recoding it as missing?
+
+4. What is a cleaning log?
+
+5. Give one example of category cleanup.
+
+6. Why can recoding a count variable into a yes/no variable be useful and also limiting?
+
+7. What should you check before parsing a date variable?
+
+8. Why is a before/after check useful?
+
+9. Give one useful AI task for data cleaning and one risky AI task.
+
+10. Match each term to the best description:
+
+   a. Raw data
+
+   b. Recoding
+
+   c. Cleaning log
+
+   d. Date parsing
+
+   Descriptions:
+
+   1. Converting date values into a format software can recognize and compare.
+
+   2. The original form of the data as received from the source.
+
+   3. Changing values from one form to another.
+
+   4. A record of what changed, why it changed, and how the change affects communication.
+
+:::
+
+::: {.callout-tip collapse="true" title="Solutions"}
+
+1. Keeping raw data separate preserves the original source values. If a cleaning step is wrong, you can return to the original data and revise the process.
+
+2. Cleaning affects what values are included, how categories appear, what dates mean, what denominators are used, and what claims the audience may believe.
+
+3. Check the data dictionary, source documentation, or source owner to determine whether `999` means missing, refused, unknown, a valid value, or something else.
+
+4. A cleaning log records each cleaning decision, the original issue, the change made, the reason for the change, and the communication effect.
+
+5. Answers will vary. One example is recoding `scheduled`, `Scheduled`, and `SCHEDULED` to a single label: `Scheduled`.
+
+6. A yes/no variable can simplify a comparison, such as any tutoring use versus no tutoring use. It is limiting because it removes frequency information, such as whether a student had one visit or ten visits.
+
+7. Check what event the date records, what format is used, whether formats are consistent, how blanks are handled, and whether the parsed date range makes sense.
+
+8. A before/after check confirms that the cleaning step did what you intended and did not create unexpected values or remove important meaning.
+
+9. Useful AI tasks include drafting code from verified recoding rules or helping write a cleaning log. Risky AI tasks include guessing missing value codes, inventing category meanings, or deciding which rows to remove without documentation.
+
+10. a-2. b-3. c-4. d-1.
+
+:::

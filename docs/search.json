@@ -638,5 +638,165 @@
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionaries and Variable Meaning</span>"
     ]
+  },
+  {
+    "objectID": "06.html",
+    "href": "06.html",
+    "title": "6  Cleaning for Communication",
+    "section": "",
+    "text": "6.1 Raw Data and Cleaned Data\nCleaning data means making the dataset usable for a clear purpose while keeping the meaning of the data honest.\nFor this course, cleaning is not just a technical step before analysis. It is part of data communication. When you clean a dataset, you make decisions about missing values, categories, dates, labels, and variables. Those decisions can change what a number means, what a chart shows, and what claim an audience is likely to believe.\nA good cleaning process should be:\nThe goal is not to make the data say what you want. The goal is to make the data understandable enough to support a fair claim.\nThe raw data is the original form of the data as you received it.\nThe cleaned data is the version you create after applying documented changes.\nBoth matter.\nDo not overwrite the only copy of the raw data. If the raw data is lost, it becomes difficult to check your work.\nIn a Quarto project, you might organize files like this:\nEven if your course project is small, the habit is important: keep the original source separate from the cleaned version.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#raw-data-and-cleaned-data",
+    "href": "06.html#raw-data-and-cleaned-data",
+    "title": "6  Cleaning for Communication",
+    "section": "",
+    "text": "Version\nPurpose\n\n\n\n\nRaw data\nPreserves the original source values.\n\n\nCleaning steps\nRecords what changed and why.\n\n\nCleaned data\nSupports analysis, tables, charts, and communication.\n\n\n\n\n\nproject-folder/\n  data/\n    raw/\n      tutoring_export_original.csv\n    cleaned/\n      tutoring_cleaned.csv\n  reports/\n    data_cleaning_log.qmd",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#cleaning-starts-with-meaning",
+    "href": "06.html#cleaning-starts-with-meaning",
+    "title": "6  Cleaning for Communication",
+    "section": "6.2 Cleaning Starts With Meaning",
+    "text": "6.2 Cleaning Starts With Meaning\nCleaning should begin with the data dictionary.\nBefore changing values, ask:\n\nWhat does one row represent?\nWhat does the variable mean?\nWhat values are allowed?\nWhat values are missing, unknown, not applicable, or suppressed?\nWhat unit is used?\nWhat categories need to be renamed or combined?\nWhat date does each date variable record?\nWhat claim do I hope to support?\n\nThe same value can require different cleaning choices depending on its meaning.\nFor example, a blank value in course_grade might mean no final grade posted yet. A blank value in tutoring_visits might mean no tutoring record. A blank value in survey_comment might mean the student chose not to write a comment.\nTreating all blanks the same would be quick, but not careful.\n\n\n\n\n\n\nExampleExample 6.1: Cleaning starts with definitions\n\n\n\nSuppose a source uses 999 in a variable called study_hours.\nIf the data dictionary says 999 means “prefer not to answer,” then 999 should be recoded as missing before calculating average study hours.\nIf there is no documentation, do not guess. Add the issue to your question list and avoid using the variable in a strong claim until the meaning is verified.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#a-small-example-dataset",
+    "href": "06.html#a-small-example-dataset",
+    "title": "6  Cleaning for Communication",
+    "section": "6.3 A Small Example Dataset",
+    "text": "6.3 A Small Example Dataset\nImagine a tutoring dataset with these rows:\n\n\n\n\n\n\n\n\n\n\n\n\nstudent_key\nterm\nvisits\nappointment_type\nfinal_grade\ncompleted\nlast_visit\n\n\n\n\nS001\nSpring 2027\n3\nScheduled\n88\nYes\n2027-04-12\n\n\nS002\nSpring 2027\n0\nnone\n74\nYes\n\n\n\nS003\nSpring 2027\n999\nDrop in\n82\nYes\n4/7/27\n\n\nS004\nSpring 2027\n2\nscheduled\n\nNo\n2027-03-29\n\n\nS005\nSpring 2027\n1\nGROUP\n91\nyes\n2027/04/01\n\n\n\nThe file imports into R, but it is not ready for communication.\nPossible cleaning issues include:\n\n999 appears in visits;\nappointment_type uses inconsistent labels;\nfinal_grade has a blank value;\ncompleted uses Yes, yes, and No;\nlast_visit uses more than one date format;\nthe blank date for S002 may mean no tutoring visit rather than missing information.\n\nEach issue needs a decision. Each decision needs a reason.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#missing-values",
+    "href": "06.html#missing-values",
+    "title": "6  Cleaning for Communication",
+    "section": "6.4 Missing Values",
+    "text": "6.4 Missing Values\nMissing values are one of the most common cleaning problems.\nIn R, true missing values are represented as NA. But data files often use other markers:\n\n\n\nMarker in File\nPossible Meaning\n\n\n\n\nblank\nno entry, skipped, unknown, not collected, or no record\n\n\nNA\nmissing or not available\n\n\nN/A\nnot applicable\n\n\n999\nunknown, refused, or a source-specific missing code\n\n\n-1\nmissing, not asked, or source-specific code\n\n\nsuppressed\nhidden for privacy or policy\n\n\n\nThe cleaning question is not simply:\n\nHow do I remove missing values?\n\nA better question is:\n\nWhat does this missing value mean, and should it be excluded, recoded, described, or left alone?\n\nPossible cleaning decisions:\n\n\n\n\n\n\n\n\nSituation\nPossible Decision\nCommunication Note\n\n\n\n\n999 means refused\nRecode 999 to NA\nState that refused responses were excluded from the average.\n\n\nblank means not applicable\nKeep as not applicable or recode to a clear category\nDo not describe it as unknown.\n\n\nblank means no record\nDecide whether no record means zero or missing\nThe denominator may change.\n\n\nsuppressed values\nKeep as suppressed or exclude from numeric summaries\nComparisons may be incomplete.\n\n\n\nIn R, missing values can be declared during import:\nreadr::read_csv(\n  \"data/raw/tutoring_export_original.csv\",\n  na = c(\"\", \"NA\", \"N/A\", \"999\")\n)\nThis code tells R to treat blanks, NA, N/A, and 999 as missing. That might be correct for one dataset and wrong for another. Use the data dictionary before using a broad import rule.\n\n\n\n\n\n\nNoteDo not clean missingness by habit\n\n\n\nThe phrase “remove missing values” sounds simple, but missingness often carries information. A responsible cleaning log explains what was treated as missing and why.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#category-cleanup",
+    "href": "06.html#category-cleanup",
+    "title": "6  Cleaning for Communication",
+    "section": "6.5 Category Cleanup",
+    "text": "6.5 Category Cleanup\nCategories often need cleaning before tables and charts are readable.\nCommon category problems include:\n\ninconsistent capitalization;\nextra spaces;\nabbreviations;\nspelling differences;\ninternal codes;\nlabels that are meaningful to the source owner but not to the audience.\n\nExample:\n\n\n\nOriginal Value\nCleaned Value\n\n\n\n\nscheduled\nScheduled\n\n\nScheduled\nScheduled\n\n\nDROP IN\nDrop-in\n\n\nDrop in\nDrop-in\n\n\ngroup\nGroup\n\n\nGROUP\nGroup\n\n\nnone\nNo recorded appointment\n\n\n\nA recoding table makes the decision visible:\n\n\n\n\n\n\n\n\n\nVariable\nOriginal Value\nCleaned Value\nReason\n\n\n\n\nappointment_type\nscheduled, Scheduled\nScheduled\nSame category, inconsistent capitalization.\n\n\nappointment_type\nDROP IN, Drop in\nDrop-in\nSame category, inconsistent spelling.\n\n\nappointment_type\nnone\nNo recorded appointment\nAudience-facing label is clearer.\n\n\n\nExample R code:\ntutoring_clean &lt;- tutoring_raw |&gt;\n  dplyr::mutate(\n    appointment_type = dplyr::case_when(\n      appointment_type %in% c(\"scheduled\", \"Scheduled\") ~ \"Scheduled\",\n      appointment_type %in% c(\"DROP IN\", \"Drop in\") ~ \"Drop-in\",\n      appointment_type %in% c(\"group\", \"GROUP\") ~ \"Group\",\n      appointment_type == \"none\" ~ \"No recorded appointment\",\n      TRUE ~ appointment_type\n    )\n  )\nThis code is useful only if the recoding choices are documented and checked against the source meaning.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#recoding-variables",
+    "href": "06.html#recoding-variables",
+    "title": "6  Cleaning for Communication",
+    "section": "6.6 Recoding Variables",
+    "text": "6.6 Recoding Variables\nRecoding means changing values from one form to another.\nRecoding can make data easier to analyze and easier to explain.\nExamples:\n\n\n\n\n\n\n\n\nOriginal Variable\nRecoded Variable\nPurpose\n\n\n\n\ncompleted with Yes, yes, No\ncourse_completed with Yes, No\nConsistent labels.\n\n\nvisits as a count\nvisited_tutoring as Yes, No\nCreates a simpler grouping variable.\n\n\nfinal_grade as 0 to 100\ngrade_band as A/B/C/D/F ranges\nCreates audience-friendly categories.\n\n\nappointment_type codes\ndescriptive labels\nMakes output readable.\n\n\n\nRecoding should not hide meaning.\nFor example, turning visits into visited_tutoring can be useful:\ntutoring_clean &lt;- tutoring_clean |&gt;\n  dplyr::mutate(\n    visited_tutoring = dplyr::if_else(visits &gt; 0, \"Yes\", \"No\")\n  )\nBut the new variable is less detailed than the original.\n\n\n\n\n\n\n\nVariable\nMeaning\n\n\n\n\nvisits\nNumber of completed tutoring visits.\n\n\nvisited_tutoring\nWhether the student had at least one completed tutoring visit.\n\n\n\nThe recoded variable supports a different kind of claim.\n\n\n\n\n\n\nWarningRecoding can remove detail\n\n\n\nA recoded variable is not automatically better than the original variable. It may be clearer for communication, but it may also collapse useful differences. Keep track of what information was simplified.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#date-fields",
+    "href": "06.html#date-fields",
+    "title": "6  Cleaning for Communication",
+    "section": "6.7 Date Fields",
+    "text": "6.7 Date Fields\nDate fields often look readable to humans but confusing to software.\nExamples:\n\n\n\nOriginal Date\nPossible Issue\n\n\n\n\n2027-04-12\nStandard year-month-day format.\n\n\n4/7/27\nAmbiguous without knowing the local convention.\n\n\n2027/04/01\nDifferent separator.\n\n\nblank\nMissing, not applicable, or no event.\n\n\nApril 3, 2027\nReadable to humans, but may require parsing.\n\n\n\nDate cleaning should answer:\n\nWhat event does the date record?\nWhat format is used?\nAre all rows using the same format?\nAre blanks missing values or meaningful non-events?\nWill the final communication group dates by day, week, month, term, or year?\n\nExample R code:\ntutoring_clean &lt;- tutoring_raw |&gt;\n  dplyr::mutate(\n    last_visit = lubridate::ymd(last_visit)\n  )\nThis code assumes the dates are in year-month-day order. If some values use month/day/year, this code may create missing values or incorrect dates.\nDate cleaning should be checked after parsing:\ntutoring_clean |&gt;\n  dplyr::summarize(\n    earliest_visit = min(last_visit, na.rm = TRUE),\n    latest_visit = max(last_visit, na.rm = TRUE),\n    missing_dates = sum(is.na(last_visit))\n  )\nThe output should make sense given the data source.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#cleaning-logs",
+    "href": "06.html#cleaning-logs",
+    "title": "6  Cleaning for Communication",
+    "section": "6.8 Cleaning Logs",
+    "text": "6.8 Cleaning Logs\nA cleaning log records what changed, why it changed, and how the change affects communication.\nThe log can be a table in Quarto.\n## Cleaning Log\n\n| Step | Variable | Original Issue | Cleaning Decision | Reason | Communication Effect |\n| --- | --- | --- | --- | --- | --- |\n| 1 | visits | 999 appears in the data | Recode 999 as missing after verifying documentation | 999 means refused or unknown, not 999 visits | Average visits will exclude those rows |\n| 2 | appointment_type | Inconsistent capitalization and spelling | Recode labels to Scheduled, Drop-in, Group, No recorded appointment | Same categories appeared in multiple forms | Tables will show one row per category |\n| 3 | last_visit | Mixed date formats | Parse dates and check earliest/latest values | Date summaries require valid dates | Trend summaries will use comparable dates |\nA cleaning log should be specific enough that someone else could understand the decision.\nWeak:\n\nFixed categories.\n\nStronger:\n\nRecoded DROP IN and Drop in to Drop-in because the data dictionary treats them as the same appointment type.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#cleaning-for-the-claim",
+    "href": "06.html#cleaning-for-the-claim",
+    "title": "6  Cleaning for Communication",
+    "section": "6.9 Cleaning for the Claim",
+    "text": "6.9 Cleaning for the Claim\nCleaning choices should connect to the claim you plan to make.\nSuppose your claim is:\n\nStudents with at least one completed tutoring visit had a higher average final grade than students with no recorded tutoring visits.\n\nBefore making that claim, you need cleaning decisions about:\n\n\n\n\n\n\n\nNeeded Element\nCleaning Question\n\n\n\n\ntutoring visit group\nDoes visits &gt; 0 correctly identify at least one completed visit?\n\n\nno recorded visit group\nDoes visits = 0 mean no visit, or no record?\n\n\nfinal grade\nAre missing grades excluded? Why are they missing?\n\n\ncompleted course\nAre students who did not complete the course included?\n\n\nrow meaning\nIs one row one student, one visit, or one student-course record?\n\n\n\nThe claim depends on all of these decisions.\nIf the cleaning choices are weak, the final claim becomes weak too.\n\n\n\n\n\n\nExampleExample 6.2: Claim-aware cleaning\n\n\n\nOriginal claim:\n\nTutoring improves grades.\n\nCleaning questions:\n\nWhich variable records tutoring use?\nDoes it count completed visits?\nWhich variable records grades?\nAre missing grades caused by withdrawal, delayed posting, or unavailable records?\nDoes one row represent one student?\n\nCareful revised claim:\n\nIn the cleaned Spring 2027 file, students with at least one completed tutoring visit had a higher average recorded final grade than students with no recorded visits. The data do not show whether tutoring caused the difference.\n\nThe revised claim makes cleaning, measurement, and causation boundaries visible.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#cleaning-and-audience-trust",
+    "href": "06.html#cleaning-and-audience-trust",
+    "title": "6  Cleaning for Communication",
+    "section": "6.10 Cleaning and Audience Trust",
+    "text": "6.10 Cleaning and Audience Trust\nAudiences rarely see the raw data. They usually see a chart, table, memo, dashboard, or recommendation.\nThat means cleaning decisions can quietly shape what the audience trusts.\nFor example:\n\n\n\n\n\n\n\nCleaning Choice\nPossible Audience Effect\n\n\n\n\nRemove rows with missing grades\nThe average may describe only students with posted grades.\n\n\nCombine small categories\nThe chart is easier to read, but group differences may disappear.\n\n\nRename internal codes\nThe message becomes clearer, but the mapping must be accurate.\n\n\nConvert dates to months\nThe trend is easier to see, but daily variation is hidden.\n\n\nRecode visit counts into yes/no\nThe comparison is simpler, but frequency differences disappear.\n\n\n\nCleaning is not bad. Hidden cleaning is the problem.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#ai-and-data-cleaning",
+    "href": "06.html#ai-and-data-cleaning",
+    "title": "6  Cleaning for Communication",
+    "section": "6.11 AI and Data Cleaning",
+    "text": "6.11 AI and Data Cleaning\nAI tools can help with cleaning plans, code drafts, and documentation.\nUseful AI tasks:\n\nsuggest likely cleaning checks for a variable list;\ndraft R code for recoding after you provide the intended mapping;\nhelp write a plain-language cleaning log;\nidentify where a claim depends on a cleaning decision;\nexplain an error message from RStudio;\nreview whether the cleaning log is clear.\n\nRisky AI tasks:\n\nguessing missing value codes;\ninventing category meanings;\ndeciding which rows should be removed without documentation;\nrewriting the claim after dropping caveats;\nrecoding sensitive variables without approval;\ntreating code that runs as proof that the cleaning is correct.\n\nA stronger AI prompt gives the tool boundaries:\nI am cleaning a dataset for a class project.\nUse only the variable meanings and recoding rules I provide.\nDo not invent definitions or missing value rules.\nDraft R code and a cleaning log entry for these decisions:\n\n[paste verified decisions here]\n\n\n\n\n\n\nNoteRunning code is not enough\n\n\n\nAI-generated code can run and still clean the data incorrectly. Check the cleaned values against the data dictionary, the source documentation, and a before/after table.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#before-and-after-checks",
+    "href": "06.html#before-and-after-checks",
+    "title": "6  Cleaning for Communication",
+    "section": "6.12 Before and After Checks",
+    "text": "6.12 Before and After Checks\nA good cleaning process includes checks.\nBefore and after checks answer:\n\nDid the cleaning step do what I intended?\n\nUseful checks include:\ntable(tutoring_raw$appointment_type, useNA = \"ifany\")\ntable(tutoring_clean$appointment_type, useNA = \"ifany\")\nsummary(tutoring_raw$visits)\nsummary(tutoring_clean$visits)\nrange(tutoring_clean$last_visit, na.rm = TRUE)\nsum(is.na(tutoring_clean$last_visit))\nFor communication, the important part is not only that the code ran. The important part is that the result still matches the source meaning.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#a-practical-cleaning-workflow",
+    "href": "06.html#a-practical-cleaning-workflow",
+    "title": "6  Cleaning for Communication",
+    "section": "6.13 A Practical Cleaning Workflow",
+    "text": "6.13 A Practical Cleaning Workflow\nUse this workflow for small course projects:\n\nSave the raw data without overwriting it.\nRead the data dictionary or source documentation.\nIdentify what one row represents.\nList variables needed for the likely claim.\nCheck data types, units, categories, dates, and missing values.\nCreate a question list for unclear items.\nMake one cleaning decision at a time.\nRecord each decision in a cleaning log.\nRun before and after checks.\nRevise the claim if the cleaned data supports a narrower message than expected.\nDocument AI use and verification.\n\nThis workflow is slower than immediately making a chart. It is also much safer.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#recap",
+    "href": "06.html#recap",
+    "title": "6  Cleaning for Communication",
+    "section": "6.14 Recap",
+    "text": "6.14 Recap\n\n\n\n\n\n\n\n\nKeyword\nDefinition\n\n\n\n\nRaw data\nThe original form of the data as received from the source.\n\n\nCleaned data\nA version of the data created after documented changes.\n\n\nCleaning decision\nA choice about how to handle a data problem such as missing values, labels, dates, or recoding.\n\n\nMissing value\nA blank, marker, or code that may mean unavailable, skipped, not applicable, suppressed, or unknown.\n\n\nCategory cleanup\nMaking category labels consistent and audience-readable while preserving meaning.\n\n\nRecoding\nChanging values from one form to another, such as codes to labels or counts to groups.\n\n\nDate parsing\nConverting date values into a format software can recognize and compare.\n\n\nCleaning log\nA record of what changed, why it changed, and how the change affects communication.\n\n\nBefore/after check\nA check that compares original and cleaned values to confirm that cleaning worked as intended.\n\n\nClaim-aware cleaning\nCleaning that is guided by the claim, audience, variable meaning, and limits of the data.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
+  },
+  {
+    "objectID": "06.html#check-your-understanding",
+    "href": "06.html#check-your-understanding",
+    "title": "6  Cleaning for Communication",
+    "section": "6.15 Check your understanding",
+    "text": "6.15 Check your understanding\n\n\n\n\n\n\nNoteProblems\n\n\n\n\n\n\nWhy should you keep the raw data separate from the cleaned data?\nWhy is cleaning a communication decision, not only a technical decision?\nA dataset uses 999 in a numeric variable. What should you check before recoding it as missing?\nWhat is a cleaning log?\nGive one example of category cleanup.\nWhy can recoding a count variable into a yes/no variable be useful and also limiting?\nWhat should you check before parsing a date variable?\nWhy is a before/after check useful?\nGive one useful AI task for data cleaning and one risky AI task.\nMatch each term to the best description:\n\n\nRaw data\nRecoding\nCleaning log\nDate parsing\n\nDescriptions:\n\nConverting date values into a format software can recognize and compare.\nThe original form of the data as received from the source.\nChanging values from one form to another.\nA record of what changed, why it changed, and how the change affects communication.\n\n\n\n\n\n\n\n\n\n\nTipSolutions\n\n\n\n\n\n\nKeeping raw data separate preserves the original source values. If a cleaning step is wrong, you can return to the original data and revise the process.\nCleaning affects what values are included, how categories appear, what dates mean, what denominators are used, and what claims the audience may believe.\nCheck the data dictionary, source documentation, or source owner to determine whether 999 means missing, refused, unknown, a valid value, or something else.\nA cleaning log records each cleaning decision, the original issue, the change made, the reason for the change, and the communication effect.\nAnswers will vary. One example is recoding scheduled, Scheduled, and SCHEDULED to a single label: Scheduled.\nA yes/no variable can simplify a comparison, such as any tutoring use versus no tutoring use. It is limiting because it removes frequency information, such as whether a student had one visit or ten visits.\nCheck what event the date records, what format is used, whether formats are consistent, how blanks are handled, and whether the parsed date range makes sense.\nA before/after check confirms that the cleaning step did what you intended and did not create unexpected values or remove important meaning.\nUseful AI tasks include drafting code from verified recoding rules or helping write a cleaning log. Risky AI tasks include guessing missing value codes, inventing category meanings, or deciding which rows to remove without documentation.\na-2. b-3. c-4. d-1.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
+    ]
   }
 ]
