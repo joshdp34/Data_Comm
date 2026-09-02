@@ -798,5 +798,175 @@
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Cleaning for Communication</span>"
     ]
+  },
+  {
+    "objectID": "07.html",
+    "href": "07.html",
+    "title": "7  Descriptive Summaries",
+    "section": "",
+    "text": "7.1 What Descriptive Summaries Do\nAfter you find a data source, understand the variables, and document cleaning decisions, you are ready to begin summarizing.\nA descriptive summary describes what is in the data. It may count observations, calculate percentages, compare groups, compute averages, or report rates. A descriptive summary does not automatically explain why a pattern happened. It tells the audience what the data show.\nIn data communication, descriptive summaries are often the first evidence that an audience sees. They need to be clear, honest, and connected to the data dictionary.\nThis chapter focuses on:\nDescriptive summaries answer questions such as:\nThese questions are useful because audiences rarely need every row of data. They need a smaller, meaningful summary.\nBut a summary is only useful if the audience can tell what it summarizes.\nWeak:\nBetter:\nThe better version tells the audience:",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#what-descriptive-summaries-do",
+    "href": "07.html#what-descriptive-summaries-do",
+    "title": "7  Descriptive Summaries",
+    "section": "",
+    "text": "How many observations are in the dataset?\nHow many people, events, places, or records are in each group?\nWhat percentage of a group has a certain characteristic?\nWhat is the average value of a variable?\nHow does a value differ across categories?\nHow does a count or rate change over time?\n\n\n\n\n\n38% used tutoring.\n\n\n\nIn the cleaned Spring 2027 tutoring file, 38% of students had at least one completed tutoring appointment.\n\n\n\n\n\n\n\n\n\nDetail\nWhy It Matters\n\n\n\n\ncleaned Spring 2027 tutoring file\nNames the source and time frame.\n\n\n38%\nGives the summary value.\n\n\nstudents\nNames the unit being summarized.\n\n\nat least one completed tutoring appointment\nDefines the condition being counted.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#counts",
+    "href": "07.html#counts",
+    "title": "7  Descriptive Summaries",
+    "section": "7.2 Counts",
+    "text": "7.2 Counts\nA count is the number of observations that meet a condition.\nCounts are the foundation of many summaries.\nExamples:\n\n\n\n\n\n\n\nQuestion\nPossible Count\n\n\n\n\nHow many students are in the file?\nNumber of unique student identifiers.\n\n\nHow many tutoring appointments were completed?\nNumber of rows with completed appointment status.\n\n\nHow many survey responses were submitted?\nNumber of survey response rows.\n\n\nHow many counties are included?\nNumber of unique county identifiers.\n\n\nHow many missing grades appear?\nNumber of rows where final grade is missing.\n\n\n\nThe key question is:\n\nWhat exactly is being counted?\n\nCounting rows may or may not answer the question.\nIf one row is one student, row count may count students. If one row is one tutoring appointment, row count counts appointments, not students.\n\n\n\n\n\n\nExampleExample 7.1: Count rows or count students?\n\n\n\nSuppose a file has one row per tutoring appointment.\n\n\n\nstudent_key\nappointment_id\nappointment_type\n\n\n\n\nS001\nA100\nScheduled\n\n\nS001\nA101\nDrop-in\n\n\nS002\nA102\nScheduled\n\n\nS003\nA103\nGroup\n\n\n\nThere are 4 appointment rows, but only 3 students.\nA claim about appointments can count rows. A claim about students needs a unique student count.\n\n\nIn R, the difference might look like this:\nnrow(tutoring)\ndplyr::n_distinct(tutoring$student_key)\nThe first line counts rows. The second counts unique student identifiers.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#percentages",
+    "href": "07.html#percentages",
+    "title": "7  Descriptive Summaries",
+    "section": "7.3 Percentages",
+    "text": "7.3 Percentages\nA percentage describes a part as a share of a whole.\nThe basic idea is:\n\\[\n\\text{percentage} = \\frac{\\text{part}}{\\text{whole}} \\times 100\n\\]\nPercentages are useful because they help audiences compare groups of different sizes.\nExample:\n\n\n\nGroup\nStudents With Tutoring\nTotal Students\nPercentage\n\n\n\n\nFirst-year students\n45\n150\n30.0%\n\n\nSeniors\n20\n50\n40.0%\n\n\n\nThe count is higher for first-year students, but the percentage is higher for seniors.\nThis is why percentages need denominators.\n\n\n\n\n\n\nWarningPercentages without denominators are fragile\n\n\n\nIf a report says “40% of students,” the audience should know 40% of which students. The denominator defines the group being described.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#denominators",
+    "href": "07.html#denominators",
+    "title": "7  Descriptive Summaries",
+    "section": "7.4 Denominators",
+    "text": "7.4 Denominators\nThe denominator is the whole group used to calculate a percentage, rate, or average.\nIn the formula below, the denominator is the bottom number:\n\\[\n\\frac{\\text{part}}{\\text{denominator}}\n\\]\nDifferent denominators create different meanings.\n\n\n\n\n\n\n\n\n\nSummary\nNumerator\nDenominator\nMeaning\n\n\n\n\n38% of students used tutoring\nStudents with at least one completed visit\nAll students in the cleaned file\nShare of students with recorded tutoring use.\n\n\n52% of visits were scheduled\nScheduled visits\nAll tutoring visits\nShare of visits by appointment type.\n\n\n12% of records have missing grades\nRecords with missing grades\nAll records\nShare of records missing final grade.\n\n\n4.5 visits per student\nCompleted visits\nStudents\nAverage visit count per student.\n\n\n\nThe numerator and denominator must describe compatible things.\nFor example, this is confusing:\n\n30 tutoring visits divided by 20 course sections.\n\nThat could be meaningful if the claim is about visits per course section. It is not meaningful if the claim is about the percentage of students using tutoring.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#rates",
+    "href": "07.html#rates",
+    "title": "7  Descriptive Summaries",
+    "section": "7.5 Rates",
+    "text": "7.5 Rates\nA rate compares a count to a meaningful unit.\nRates are often used when raw counts are hard to compare fairly.\nExamples:\n\n\n\n\n\n\n\n\nRate\nNumerator\nDenominator\n\n\n\n\nTutoring visits per 100 students\nTutoring visits\nStudents divided by 100\n\n\nIncidents per 1,000 residents\nIncidents\nResidents divided by 1,000\n\n\nComplaints per month\nComplaints\nMonths\n\n\nAppointments per advisor\nAppointments\nAdvisors\n\n\nGraduates per entering cohort\nGraduates\nStudents in the entering cohort\n\n\n\nRates help when groups have different sizes.\nSuppose two campuses report tutoring visits:\n\n\n\nCampus\nVisits\nStudents\n\n\n\n\nNorth\n400\n2,000\n\n\nSouth\n250\n800\n\n\n\nNorth has more visits. South has more visits per student.\n\n\n\nCampus\nVisits Per 100 Students\n\n\n\n\nNorth\n20.0\n\n\nSouth\n31.3\n\n\n\nThe communication changes depending on whether the audience needs total demand or relative use.\n\n\n\n\n\n\nExampleExample 7.2: Count versus rate\n\n\n\nIf a tutoring center needs to schedule staff, total visits may matter most.\nIf a dean wants to compare student use across campuses of different sizes, visits per 100 students may be more useful.\nThe better summary depends on the audience question.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#averages-and-other-numeric-summaries",
+    "href": "07.html#averages-and-other-numeric-summaries",
+    "title": "7  Descriptive Summaries",
+    "section": "7.6 Averages and Other Numeric Summaries",
+    "text": "7.6 Averages and Other Numeric Summaries\nFor numeric variables, you may summarize typical values or spread.\nCommon numeric summaries include:\n\n\n\nSummary\nWhat It Tells the Audience\n\n\n\n\nMean\nThe arithmetic average.\n\n\nMedian\nThe middle value after sorting.\n\n\nMinimum\nThe smallest value.\n\n\nMaximum\nThe largest value.\n\n\nStandard deviation\nA measure of spread around the mean.\n\n\nCount missing\nHow many values are unavailable or excluded.\n\n\n\nIn introductory data communication, the mean and median are often the most useful.\nThe mean can be pulled by very large or very small values. The median is often more stable when a variable is skewed.\nExample:\n\n\n\nStudent\nVisits\n\n\n\n\nA\n0\n\n\nB\n0\n\n\nC\n1\n\n\nD\n2\n\n\nE\n20\n\n\n\nThe mean is 4.6 visits. The median is 1 visit.\nBoth are true. They tell different stories.\nA careful report might say:\n\nIn this small example, the median student had 1 visit, while the mean was 4.6 visits because one student had many more visits than the others.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#grouped-summaries",
+    "href": "07.html#grouped-summaries",
+    "title": "7  Descriptive Summaries",
+    "section": "7.7 Grouped Summaries",
+    "text": "7.7 Grouped Summaries\nA grouped summary calculates a summary separately for each group.\nExamples:\n\npercentage of students with tutoring use by class year;\naverage final grade by tutoring-use group;\ncount of appointments by appointment type;\ncomplaint rate by month;\nmedian response time by department.\n\nGrouped summaries are useful because audiences often care about comparisons.\nExample summary table:\n\n\n\nTutoring Use Group\nStudents\nAverage Final Grade\nMissing Grades\n\n\n\n\nNo recorded tutoring visit\n82\n78.4\n6\n\n\nAt least one completed visit\n51\n84.6\n3\n\n\n\nThis table gives a comparison, but it does not prove why the difference exists.\nA careful interpretation:\n\nIn the cleaned Spring 2027 file, students with at least one completed tutoring visit had a higher average recorded final grade than students with no recorded visit. The table is descriptive and does not show whether tutoring caused the difference.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#summary-tables",
+    "href": "07.html#summary-tables",
+    "title": "7  Descriptive Summaries",
+    "section": "7.8 Summary Tables",
+    "text": "7.8 Summary Tables\nA summary table presents a small set of descriptive results in rows and columns.\nA good summary table should make the important comparison easy to find.\nIt should usually include:\n\nclear row labels;\nclear column labels;\nunits;\ndenominators or group sizes;\nmissing value notes when needed;\na short interpretation nearby.\n\nWeak table:\n\n\n\nGroup\nN\nAvg\n\n\n\n\n0\n82\n78.4\n\n\n1\n51\n84.6\n\n\n\nBetter table:\n\n\n\n\n\n\n\n\nTutoring Use Group\nStudents in Group\nAverage Recorded Final Grade\n\n\n\n\nNo recorded tutoring visit\n82\n78.4 points\n\n\nAt least one completed tutoring visit\n51\n84.6 points\n\n\n\nBetter still, if missing grades matter:\n\n\n\n\n\n\n\n\n\nTutoring Use Group\nStudents in Group\nStudents With Recorded Final Grade\nAverage Recorded Final Grade\n\n\n\n\nNo recorded tutoring visit\n82\n76\n78.4 points\n\n\nAt least one completed tutoring visit\n51\n48\n84.6 points\n\n\n\nThe last table makes the denominator clearer.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#writing-interpretations",
+    "href": "07.html#writing-interpretations",
+    "title": "7  Descriptive Summaries",
+    "section": "7.9 Writing Interpretations",
+    "text": "7.9 Writing Interpretations\nA table does not speak for itself.\nAfter a summary table, write a short interpretation.\nA useful interpretation usually includes:\n\nthe source or cleaned dataset;\nthe main comparison or pattern;\nthe denominator or group size;\nthe unit;\na caveat when needed.\n\nExample:\n\nIn the cleaned Spring 2027 tutoring file, 48 of the 51 students with at least one completed tutoring visit had a recorded final grade. Their average recorded final grade was 84.6 points, compared with 78.4 points among the 76 students with recorded grades and no recorded tutoring visits. This comparison is descriptive and does not show whether tutoring caused the grade difference.\n\nThis paragraph is longer than “tutoring worked,” but it is much more responsible.\n\n\n\n\n\n\nTipA useful sentence frame\n\n\n\nIn [source/time frame], [group or denominator] had [summary value], compared with [comparison value]. This means [careful interpretation], but [caveat].",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#descriptive-summaries-in-quarto",
+    "href": "07.html#descriptive-summaries-in-quarto",
+    "title": "7  Descriptive Summaries",
+    "section": "7.10 Descriptive Summaries in Quarto",
+    "text": "7.10 Descriptive Summaries in Quarto\nStudents can include descriptive summaries in Quarto as typed markdown tables, code output, or a combination of both.\nFor a hand-built table:\n| Tutoring Use Group | Students in Group | Average Recorded Final Grade |\n| --- | ---: | ---: |\n| No recorded tutoring visit | 82 | 78.4 points |\n| At least one completed tutoring visit | 51 | 84.6 points |\nFor an R workflow, a grouped summary might look like this:\nsummary_table &lt;- tutoring_clean |&gt;\n  dplyr::group_by(visited_tutoring) |&gt;\n  dplyr::summarize(\n    students = dplyr::n_distinct(student_key),\n    students_with_grade = sum(!is.na(final_grade)),\n    average_grade = mean(final_grade, na.rm = TRUE),\n    .groups = \"drop\"\n  )\nThe code creates a table. The communication work is deciding whether the table has the right rows, columns, labels, denominators, and caveat.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#checking-a-summary",
+    "href": "07.html#checking-a-summary",
+    "title": "7  Descriptive Summaries",
+    "section": "7.11 Checking a Summary",
+    "text": "7.11 Checking a Summary\nBefore using a summary in a memo, check it.\nAsk:\n\nWhat is the unit of observation?\nWhat is being counted?\nWhat is the denominator?\nAre missing values included, excluded, or described?\nAre group labels audience-readable?\nDoes the table show counts as well as percentages when needed?\nDoes the interpretation stay descriptive?\nDoes the caveat match the cleaning log and data dictionary?\n\nOne helpful habit is to compare a summary table to the cleaning log.\n\n\n\n\n\n\n\nCleaning Log Issue\nSummary Check\n\n\n\n\n999 recoded as missing\nDoes the summary exclude those values from averages?\n\n\nAppointment labels cleaned\nDo table rows use the cleaned labels?\n\n\nMissing grades documented\nDoes the table show how many grades were available?\n\n\nVisit count recoded to yes/no\nDoes interpretation avoid pretending frequency was preserved?\n\n\n\nThe summary should not hide important cleaning decisions.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#ai-and-descriptive-summaries",
+    "href": "07.html#ai-and-descriptive-summaries",
+    "title": "7  Descriptive Summaries",
+    "section": "7.12 AI and Descriptive Summaries",
+    "text": "7.12 AI and Descriptive Summaries\nAI tools can help with summary work, but they should not replace checking.\nUseful AI tasks:\n\nsuggest summary table layouts for a specific audience;\ndraft R code for a grouped summary after you provide verified variable definitions;\nhelp write a plain-language interpretation;\nidentify missing denominators in a paragraph;\ncheck whether a claim sounds causal when the table is descriptive;\nhelp revise column labels for clarity.\n\nRisky AI tasks:\n\ninventing numbers;\nguessing denominators;\nexplaining a pattern without evidence;\ndropping missing value caveats;\nturning a descriptive comparison into a causal claim;\naccepting code output without checking row meaning.\n\nGood AI prompt:\nI am writing a descriptive summary for a class project.\nUse only the numbers and variable definitions I provide.\nDo not invent denominators or explain causes.\nHelp me revise this interpretation so it names the source, groups, units, denominator, and caveat.\n\n[paste summary table and draft interpretation]\n\n\n\n\n\n\nWarningAI should not invent evidence\n\n\n\nIf AI gives a number, denominator, or explanation that is not in your source or output, do not use it. Your summary must come from the dataset, documented cleaning process, and verified table.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#common-problems-to-watch-for",
+    "href": "07.html#common-problems-to-watch-for",
+    "title": "7  Descriptive Summaries",
+    "section": "7.13 Common Problems to Watch For",
+    "text": "7.13 Common Problems to Watch For\nDescriptive summaries often go wrong in predictable ways.\n\n\n\n\n\n\n\nProblem\nWhy It Matters\n\n\n\n\nCount rows when the claim is about people\nThe same person may appear more than once.\n\n\nReport a percentage without a denominator\nThe audience cannot tell what group is being described.\n\n\nCompare counts across groups of different sizes\nLarger groups may have larger counts even if the rate is lower.\n\n\nHide missing values\nThe summary may describe only records with available data.\n\n\nUse raw codes in a table\nThe audience may not understand the categories.\n\n\nAverage identifiers\nSoftware can calculate meaningless results.\n\n\nUse too many decimal places\nThe number may look more precise than the data support.\n\n\nUse descriptive evidence for a causal claim\nThe claim is stronger than the summary supports.\n\n\n\nMost of these problems can be fixed by returning to the data dictionary, cleaning log, and audience question.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#practical-workflow",
+    "href": "07.html#practical-workflow",
+    "title": "7  Descriptive Summaries",
+    "section": "7.14 Practical Workflow",
+    "text": "7.14 Practical Workflow\nUse this workflow when creating a descriptive summary:\n\nName the audience question.\nIdentify the unit of observation.\nChoose the variables needed for the summary.\nCheck the data dictionary.\nCheck the cleaning log.\nDecide whether you need a count, percentage, rate, average, or grouped summary.\nIdentify the numerator and denominator.\nBuild the summary table.\nCheck missing values and group sizes.\nWrite a short descriptive interpretation.\nAdd a caveat when the summary could be overstated.\nDocument any AI help and verification.\n\nThe workflow keeps the summary connected to meaning instead of letting the table become detached from the data.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#recap",
+    "href": "07.html#recap",
+    "title": "7  Descriptive Summaries",
+    "section": "7.15 Recap",
+    "text": "7.15 Recap\n\n\n\n\n\n\n\n\nKeyword\nDefinition\n\n\n\n\nDescriptive summary\nA count, percentage, rate, average, table, or comparison that describes what is in the data.\n\n\nCount\nThe number of observations, people, events, places, or records meeting a condition.\n\n\nPercentage\nA part divided by a whole, multiplied by 100.\n\n\nDenominator\nThe whole group used to calculate a percentage, rate, or average.\n\n\nRate\nA count divided by a meaningful unit, such as people, time, places, or opportunities.\n\n\nMean\nThe arithmetic average.\n\n\nMedian\nThe middle value after sorting.\n\n\nGrouped summary\nA summary calculated separately for each group.\n\n\nSummary table\nA table that presents a small set of descriptive results for communication.\n\n\nDescriptive interpretation\nA short explanation of what a summary shows without overstating what caused it.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
+  },
+  {
+    "objectID": "07.html#check-your-understanding",
+    "href": "07.html#check-your-understanding",
+    "title": "7  Descriptive Summaries",
+    "section": "7.16 Check your understanding",
+    "text": "7.16 Check your understanding\n\n\n\n\n\n\nNoteProblems\n\n\n\n\n\n\nWhat is a descriptive summary?\nWhy is counting rows not always the same as counting people?\nWhat is a denominator?\nWhy should a percentage usually be reported with enough information to identify the denominator?\nWhen might a rate be more useful than a raw count?\nWhat is the difference between a mean and a median?\nWhy should a grouped summary include group sizes when possible?\nWrite a careful interpretation of this table:\n\n\n\n\n\n\n\n\nTutoring Use Group\nStudents With Recorded Final Grade\nAverage Recorded Final Grade\n\n\n\n\nNo recorded tutoring visit\n76\n78.4 points\n\n\nAt least one completed tutoring visit\n48\n84.6 points\n\n\n\nGive one useful AI task for descriptive summaries and one risky AI task.\nMatch each term to the best description:\n\n\nCount\nPercentage\nRate\nGrouped summary\n\nDescriptions:\n\nA summary calculated separately for each group.\nA part divided by a whole, multiplied by 100.\nThe number of observations, people, events, places, or records meeting a condition.\nA count divided by a meaningful unit, such as people, time, places, or opportunities.\n\n\n\n\n\n\n\n\n\n\nTipSolutions\n\n\n\n\n\n\nA descriptive summary is a count, percentage, rate, average, table, or comparison that describes what is in the data.\nCounting rows depends on the unit of observation. If one person can appear in multiple rows, row counts may count events, visits, transactions, or records rather than unique people.\nA denominator is the whole group used to calculate a percentage, rate, or average.\nThe denominator tells the audience what group is being described. Without it, a percentage can be unclear or misleading.\nA rate can be more useful when groups have different sizes. For example, visits per 100 students may be more useful than total visits when comparing campuses with different enrollments.\nThe mean is the arithmetic average. The median is the middle value after sorting. They can differ when a variable has very large or very small values.\nGroup sizes help the audience interpret the comparison. They also make missing data and small groups easier to notice.\nOne careful interpretation is: In the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had an average recorded final grade of 84.6 points, compared with 78.4 points for students with no recorded tutoring visit. This comparison is descriptive and does not show whether tutoring caused the difference.\nUseful AI tasks include drafting code from verified variable definitions, checking whether denominators are named, or revising an interpretation for clarity. Risky AI tasks include inventing numbers, guessing denominators, or turning a descriptive comparison into a causal claim.\na-3. b-2. c-4. d-1.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
+    ]
   }
 ]

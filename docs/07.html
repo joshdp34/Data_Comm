@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; Descriptive Summaries – STA 2310 Data Communication with AI</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ac731d99f942368ec2047317e7e82b91.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style type="text/css">
+.sidebar .chapter-number {
+color: #FFB81c;
+}
+.center-panel.quarto-layout-panel {
+justify-content: center;
+column-gap: 1rem;
+}
+</style>
+<style>
+div.callout-example.callout {
+  border-left-color: #008000;
+}
+div.callout-example.callout-style-default > .callout-header {
+  background-color: rgba(0, 128, 0, 0.13);
+}
+div.callout-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-example.callout-style-default .callout-icon::before, div.callout-example.callout-titled .callout-icon::before {
+  content: '📈';
+  background-image: none;
+}
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Descriptive Summaries</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"></a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What Is Data Communication with AI?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Audience, Claims, Evidence, and AI Boundaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Started with Quarto in RStudio</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding and Evaluating Data Sources</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Dictionaries and Variable Meaning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Cleaning for Communication</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Descriptive Summaries</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-descriptive-summaries-do" id="toc-what-descriptive-summaries-do" class="nav-link active" data-scroll-target="#what-descriptive-summaries-do"><span class="header-section-number">7.1</span> What Descriptive Summaries Do</a></li>
+  <li><a href="#counts" id="toc-counts" class="nav-link" data-scroll-target="#counts"><span class="header-section-number">7.2</span> Counts</a></li>
+  <li><a href="#percentages" id="toc-percentages" class="nav-link" data-scroll-target="#percentages"><span class="header-section-number">7.3</span> Percentages</a></li>
+  <li><a href="#denominators" id="toc-denominators" class="nav-link" data-scroll-target="#denominators"><span class="header-section-number">7.4</span> Denominators</a></li>
+  <li><a href="#rates" id="toc-rates" class="nav-link" data-scroll-target="#rates"><span class="header-section-number">7.5</span> Rates</a></li>
+  <li><a href="#averages-and-other-numeric-summaries" id="toc-averages-and-other-numeric-summaries" class="nav-link" data-scroll-target="#averages-and-other-numeric-summaries"><span class="header-section-number">7.6</span> Averages and Other Numeric Summaries</a></li>
+  <li><a href="#grouped-summaries" id="toc-grouped-summaries" class="nav-link" data-scroll-target="#grouped-summaries"><span class="header-section-number">7.7</span> Grouped Summaries</a></li>
+  <li><a href="#summary-tables" id="toc-summary-tables" class="nav-link" data-scroll-target="#summary-tables"><span class="header-section-number">7.8</span> Summary Tables</a></li>
+  <li><a href="#writing-interpretations" id="toc-writing-interpretations" class="nav-link" data-scroll-target="#writing-interpretations"><span class="header-section-number">7.9</span> Writing Interpretations</a></li>
+  <li><a href="#descriptive-summaries-in-quarto" id="toc-descriptive-summaries-in-quarto" class="nav-link" data-scroll-target="#descriptive-summaries-in-quarto"><span class="header-section-number">7.10</span> Descriptive Summaries in Quarto</a></li>
+  <li><a href="#checking-a-summary" id="toc-checking-a-summary" class="nav-link" data-scroll-target="#checking-a-summary"><span class="header-section-number">7.11</span> Checking a Summary</a></li>
+  <li><a href="#ai-and-descriptive-summaries" id="toc-ai-and-descriptive-summaries" class="nav-link" data-scroll-target="#ai-and-descriptive-summaries"><span class="header-section-number">7.12</span> AI and Descriptive Summaries</a></li>
+  <li><a href="#common-problems-to-watch-for" id="toc-common-problems-to-watch-for" class="nav-link" data-scroll-target="#common-problems-to-watch-for"><span class="header-section-number">7.13</span> Common Problems to Watch For</a></li>
+  <li><a href="#practical-workflow" id="toc-practical-workflow" class="nav-link" data-scroll-target="#practical-workflow"><span class="header-section-number">7.14</span> Practical Workflow</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">7.15</span> Recap</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding"><span class="header-section-number">7.16</span> Check your understanding</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Descriptive Summaries</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>After you find a data source, understand the variables, and document cleaning decisions, you are ready to begin summarizing.</p>
+<p>A <strong>descriptive summary</strong> describes what is in the data. It may count observations, calculate percentages, compare groups, compute averages, or report rates. A descriptive summary does not automatically explain why a pattern happened. It tells the audience what the data show.</p>
+<p>In data communication, descriptive summaries are often the first evidence that an audience sees. They need to be clear, honest, and connected to the data dictionary.</p>
+<p>This chapter focuses on:</p>
+<ul>
+<li>counts;</li>
+<li>percentages;</li>
+<li>rates;</li>
+<li>grouped summaries;</li>
+<li>denominators;</li>
+<li>summary tables;</li>
+<li>careful interpretation;</li>
+<li>AI support and verification.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Description before explanation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Description before explanation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before explaining a pattern, first describe it accurately. A clear descriptive summary says what was counted, who or what was included, what time period was used, and what denominator supports the number.</p>
+</div>
+</div>
+<section id="what-descriptive-summaries-do" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="what-descriptive-summaries-do"><span class="header-section-number">7.1</span> What Descriptive Summaries Do</h2>
+<p>Descriptive summaries answer questions such as:</p>
+<ul>
+<li>How many observations are in the dataset?</li>
+<li>How many people, events, places, or records are in each group?</li>
+<li>What percentage of a group has a certain characteristic?</li>
+<li>What is the average value of a variable?</li>
+<li>How does a value differ across categories?</li>
+<li>How does a count or rate change over time?</li>
+</ul>
+<p>These questions are useful because audiences rarely need every row of data. They need a smaller, meaningful summary.</p>
+<p>But a summary is only useful if the audience can tell what it summarizes.</p>
+<p>Weak:</p>
+<blockquote class="blockquote">
+<p>38% used tutoring.</p>
+</blockquote>
+<p>Better:</p>
+<blockquote class="blockquote">
+<p>In the cleaned Spring 2027 tutoring file, 38% of students had at least one completed tutoring appointment.</p>
+</blockquote>
+<p>The better version tells the audience:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Detail</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>cleaned Spring 2027 tutoring file</td>
+<td>Names the source and time frame.</td>
+</tr>
+<tr class="even">
+<td>38%</td>
+<td>Gives the summary value.</td>
+</tr>
+<tr class="odd">
+<td>students</td>
+<td>Names the unit being summarized.</td>
+</tr>
+<tr class="even">
+<td>at least one completed tutoring appointment</td>
+<td>Defines the condition being counted.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="counts" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="counts"><span class="header-section-number">7.2</span> Counts</h2>
+<p>A <strong>count</strong> is the number of observations that meet a condition.</p>
+<p>Counts are the foundation of many summaries.</p>
+<p>Examples:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Possible Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>How many students are in the file?</td>
+<td>Number of unique student identifiers.</td>
+</tr>
+<tr class="even">
+<td>How many tutoring appointments were completed?</td>
+<td>Number of rows with completed appointment status.</td>
+</tr>
+<tr class="odd">
+<td>How many survey responses were submitted?</td>
+<td>Number of survey response rows.</td>
+</tr>
+<tr class="even">
+<td>How many counties are included?</td>
+<td>Number of unique county identifiers.</td>
+</tr>
+<tr class="odd">
+<td>How many missing grades appear?</td>
+<td>Number of rows where final grade is missing.</td>
+</tr>
+</tbody>
+</table>
+<p>The key question is:</p>
+<blockquote class="blockquote">
+<p>What exactly is being counted?</p>
+</blockquote>
+<p>Counting rows may or may not answer the question.</p>
+<p>If one row is one student, row count may count students. If one row is one tutoring appointment, row count counts appointments, not students.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 7.1: Count rows or count students?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose a file has one row per tutoring appointment.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>student_key</th>
+<th>appointment_id</th>
+<th>appointment_type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S001</td>
+<td>A100</td>
+<td>Scheduled</td>
+</tr>
+<tr class="even">
+<td>S001</td>
+<td>A101</td>
+<td>Drop-in</td>
+</tr>
+<tr class="odd">
+<td>S002</td>
+<td>A102</td>
+<td>Scheduled</td>
+</tr>
+<tr class="even">
+<td>S003</td>
+<td>A103</td>
+<td>Group</td>
+</tr>
+</tbody>
+</table>
+<p>There are 4 appointment rows, but only 3 students.</p>
+<p>A claim about appointments can count rows. A claim about students needs a unique student count.</p>
+</div>
+</div>
+<p>In R, the difference might look like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(tutoring)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">n_distinct</span>(tutoring<span class="sc">$</span>student_key)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The first line counts rows. The second counts unique student identifiers.</p>
+</section>
+<section id="percentages" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="percentages"><span class="header-section-number">7.3</span> Percentages</h2>
+<p>A <strong>percentage</strong> describes a part as a share of a whole.</p>
+<p>The basic idea is:</p>
+<p><span class="math display">\[
+\text{percentage} = \frac{\text{part}}{\text{whole}} \times 100
+\]</span></p>
+<p>Percentages are useful because they help audiences compare groups of different sizes.</p>
+<p>Example:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Group</th>
+<th style="text-align: right;">Students With Tutoring</th>
+<th style="text-align: right;">Total Students</th>
+<th style="text-align: right;">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>First-year students</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">30.0%</td>
+</tr>
+<tr class="even">
+<td>Seniors</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">40.0%</td>
+</tr>
+</tbody>
+</table>
+<p>The count is higher for first-year students, but the percentage is higher for seniors.</p>
+<p>This is why percentages need denominators.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Percentages without denominators are fragile">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Percentages without denominators are fragile
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If a report says “40% of students,” the audience should know 40% of which students. The denominator defines the group being described.</p>
+</div>
+</div>
+</section>
+<section id="denominators" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="denominators"><span class="header-section-number">7.4</span> Denominators</h2>
+<p>The <strong>denominator</strong> is the whole group used to calculate a percentage, rate, or average.</p>
+<p>In the formula below, the denominator is the bottom number:</p>
+<p><span class="math display">\[
+\frac{\text{part}}{\text{denominator}}
+\]</span></p>
+<p>Different denominators create different meanings.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Summary</th>
+<th>Numerator</th>
+<th>Denominator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>38% of students used tutoring</td>
+<td>Students with at least one completed visit</td>
+<td>All students in the cleaned file</td>
+<td>Share of students with recorded tutoring use.</td>
+</tr>
+<tr class="even">
+<td>52% of visits were scheduled</td>
+<td>Scheduled visits</td>
+<td>All tutoring visits</td>
+<td>Share of visits by appointment type.</td>
+</tr>
+<tr class="odd">
+<td>12% of records have missing grades</td>
+<td>Records with missing grades</td>
+<td>All records</td>
+<td>Share of records missing final grade.</td>
+</tr>
+<tr class="even">
+<td>4.5 visits per student</td>
+<td>Completed visits</td>
+<td>Students</td>
+<td>Average visit count per student.</td>
+</tr>
+</tbody>
+</table>
+<p>The numerator and denominator must describe compatible things.</p>
+<p>For example, this is confusing:</p>
+<blockquote class="blockquote">
+<p>30 tutoring visits divided by 20 course sections.</p>
+</blockquote>
+<p>That could be meaningful if the claim is about visits per course section. It is not meaningful if the claim is about the percentage of students using tutoring.</p>
+</section>
+<section id="rates" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="rates"><span class="header-section-number">7.5</span> Rates</h2>
+<p>A <strong>rate</strong> compares a count to a meaningful unit.</p>
+<p>Rates are often used when raw counts are hard to compare fairly.</p>
+<p>Examples:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Rate</th>
+<th>Numerator</th>
+<th>Denominator</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tutoring visits per 100 students</td>
+<td>Tutoring visits</td>
+<td>Students divided by 100</td>
+</tr>
+<tr class="even">
+<td>Incidents per 1,000 residents</td>
+<td>Incidents</td>
+<td>Residents divided by 1,000</td>
+</tr>
+<tr class="odd">
+<td>Complaints per month</td>
+<td>Complaints</td>
+<td>Months</td>
+</tr>
+<tr class="even">
+<td>Appointments per advisor</td>
+<td>Appointments</td>
+<td>Advisors</td>
+</tr>
+<tr class="odd">
+<td>Graduates per entering cohort</td>
+<td>Graduates</td>
+<td>Students in the entering cohort</td>
+</tr>
+</tbody>
+</table>
+<p>Rates help when groups have different sizes.</p>
+<p>Suppose two campuses report tutoring visits:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Campus</th>
+<th style="text-align: right;">Visits</th>
+<th style="text-align: right;">Students</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>North</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">2,000</td>
+</tr>
+<tr class="even">
+<td>South</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">800</td>
+</tr>
+</tbody>
+</table>
+<p>North has more visits. South has more visits per student.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Campus</th>
+<th style="text-align: right;">Visits Per 100 Students</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>North</td>
+<td style="text-align: right;">20.0</td>
+</tr>
+<tr class="even">
+<td>South</td>
+<td style="text-align: right;">31.3</td>
+</tr>
+</tbody>
+</table>
+<p>The communication changes depending on whether the audience needs total demand or relative use.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 7.2: Count versus rate
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If a tutoring center needs to schedule staff, total visits may matter most.</p>
+<p>If a dean wants to compare student use across campuses of different sizes, visits per 100 students may be more useful.</p>
+<p>The better summary depends on the audience question.</p>
+</div>
+</div>
+</section>
+<section id="averages-and-other-numeric-summaries" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="averages-and-other-numeric-summaries"><span class="header-section-number">7.6</span> Averages and Other Numeric Summaries</h2>
+<p>For numeric variables, you may summarize typical values or spread.</p>
+<p>Common numeric summaries include:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Summary</th>
+<th>What It Tells the Audience</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mean</td>
+<td>The arithmetic average.</td>
+</tr>
+<tr class="even">
+<td>Median</td>
+<td>The middle value after sorting.</td>
+</tr>
+<tr class="odd">
+<td>Minimum</td>
+<td>The smallest value.</td>
+</tr>
+<tr class="even">
+<td>Maximum</td>
+<td>The largest value.</td>
+</tr>
+<tr class="odd">
+<td>Standard deviation</td>
+<td>A measure of spread around the mean.</td>
+</tr>
+<tr class="even">
+<td>Count missing</td>
+<td>How many values are unavailable or excluded.</td>
+</tr>
+</tbody>
+</table>
+<p>In introductory data communication, the mean and median are often the most useful.</p>
+<p>The mean can be pulled by very large or very small values. The median is often more stable when a variable is skewed.</p>
+<p>Example:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Student</th>
+<th style="text-align: right;">Visits</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td style="text-align: right;">20</td>
+</tr>
+</tbody>
+</table>
+<p>The mean is 4.6 visits. The median is 1 visit.</p>
+<p>Both are true. They tell different stories.</p>
+<p>A careful report might say:</p>
+<blockquote class="blockquote">
+<p>In this small example, the median student had 1 visit, while the mean was 4.6 visits because one student had many more visits than the others.</p>
+</blockquote>
+</section>
+<section id="grouped-summaries" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="grouped-summaries"><span class="header-section-number">7.7</span> Grouped Summaries</h2>
+<p>A <strong>grouped summary</strong> calculates a summary separately for each group.</p>
+<p>Examples:</p>
+<ul>
+<li>percentage of students with tutoring use by class year;</li>
+<li>average final grade by tutoring-use group;</li>
+<li>count of appointments by appointment type;</li>
+<li>complaint rate by month;</li>
+<li>median response time by department.</li>
+</ul>
+<p>Grouped summaries are useful because audiences often care about comparisons.</p>
+<p>Example summary table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tutoring Use Group</th>
+<th style="text-align: right;">Students</th>
+<th style="text-align: right;">Average Final Grade</th>
+<th style="text-align: right;">Missing Grades</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No recorded tutoring visit</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">78.4</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td>At least one completed visit</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">84.6</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+<p>This table gives a comparison, but it does not prove why the difference exists.</p>
+<p>A careful interpretation:</p>
+<blockquote class="blockquote">
+<p>In the cleaned Spring 2027 file, students with at least one completed tutoring visit had a higher average recorded final grade than students with no recorded visit. The table is descriptive and does not show whether tutoring caused the difference.</p>
+</blockquote>
+</section>
+<section id="summary-tables" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="summary-tables"><span class="header-section-number">7.8</span> Summary Tables</h2>
+<p>A <strong>summary table</strong> presents a small set of descriptive results in rows and columns.</p>
+<p>A good summary table should make the important comparison easy to find.</p>
+<p>It should usually include:</p>
+<ul>
+<li>clear row labels;</li>
+<li>clear column labels;</li>
+<li>units;</li>
+<li>denominators or group sizes;</li>
+<li>missing value notes when needed;</li>
+<li>a short interpretation nearby.</li>
+</ul>
+<p>Weak table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Group</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">Avg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">78.4</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">84.6</td>
+</tr>
+</tbody>
+</table>
+<p>Better table:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tutoring Use Group</th>
+<th style="text-align: right;">Students in Group</th>
+<th style="text-align: right;">Average Recorded Final Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No recorded tutoring visit</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">78.4 points</td>
+</tr>
+<tr class="even">
+<td>At least one completed tutoring visit</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">84.6 points</td>
+</tr>
+</tbody>
+</table>
+<p>Better still, if missing grades matter:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tutoring Use Group</th>
+<th style="text-align: right;">Students in Group</th>
+<th style="text-align: right;">Students With Recorded Final Grade</th>
+<th style="text-align: right;">Average Recorded Final Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No recorded tutoring visit</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">78.4 points</td>
+</tr>
+<tr class="even">
+<td>At least one completed tutoring visit</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">84.6 points</td>
+</tr>
+</tbody>
+</table>
+<p>The last table makes the denominator clearer.</p>
+</section>
+<section id="writing-interpretations" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="writing-interpretations"><span class="header-section-number">7.9</span> Writing Interpretations</h2>
+<p>A table does not speak for itself.</p>
+<p>After a summary table, write a short interpretation.</p>
+<p>A useful interpretation usually includes:</p>
+<ol type="1">
+<li>the source or cleaned dataset;</li>
+<li>the main comparison or pattern;</li>
+<li>the denominator or group size;</li>
+<li>the unit;</li>
+<li>a caveat when needed.</li>
+</ol>
+<p>Example:</p>
+<blockquote class="blockquote">
+<p>In the cleaned Spring 2027 tutoring file, 48 of the 51 students with at least one completed tutoring visit had a recorded final grade. Their average recorded final grade was 84.6 points, compared with 78.4 points among the 76 students with recorded grades and no recorded tutoring visits. This comparison is descriptive and does not show whether tutoring caused the grade difference.</p>
+</blockquote>
+<p>This paragraph is longer than “tutoring worked,” but it is much more responsible.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="A useful sentence frame">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>A useful sentence frame
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In [source/time frame], [group or denominator] had [summary value], compared with [comparison value]. This means [careful interpretation], but [caveat].</p>
+</div>
+</div>
+</section>
+<section id="descriptive-summaries-in-quarto" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="descriptive-summaries-in-quarto"><span class="header-section-number">7.10</span> Descriptive Summaries in Quarto</h2>
+<p>Students can include descriptive summaries in Quarto as typed markdown tables, code output, or a combination of both.</p>
+<p>For a hand-built table:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Tutoring Use Group <span class="pp">|</span> Students in Group <span class="pp">|</span> Average Recorded Final Grade <span class="pp">|</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---</span> <span class="pp">| ---:</span> <span class="pp">| ---:</span> <span class="pp">|</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> No recorded tutoring visit <span class="pp">|</span> 82 <span class="pp">|</span> 78.4 points <span class="pp">|</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> At least one completed tutoring visit <span class="pp">|</span> 51 <span class="pp">|</span> 84.6 points <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For an R workflow, a grouped summary might look like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>summary_table <span class="ot">&lt;-</span> tutoring_clean <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(visited_tutoring) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">students =</span> dplyr<span class="sc">::</span><span class="fu">n_distinct</span>(student_key),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">students_with_grade =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(final_grade)),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">average_grade =</span> <span class="fu">mean</span>(final_grade, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The code creates a table. The communication work is deciding whether the table has the right rows, columns, labels, denominators, and caveat.</p>
+</section>
+<section id="checking-a-summary" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="checking-a-summary"><span class="header-section-number">7.11</span> Checking a Summary</h2>
+<p>Before using a summary in a memo, check it.</p>
+<p>Ask:</p>
+<ol type="1">
+<li>What is the unit of observation?</li>
+<li>What is being counted?</li>
+<li>What is the denominator?</li>
+<li>Are missing values included, excluded, or described?</li>
+<li>Are group labels audience-readable?</li>
+<li>Does the table show counts as well as percentages when needed?</li>
+<li>Does the interpretation stay descriptive?</li>
+<li>Does the caveat match the cleaning log and data dictionary?</li>
+</ol>
+<p>One helpful habit is to compare a summary table to the cleaning log.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Cleaning Log Issue</th>
+<th>Summary Check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>999</code> recoded as missing</td>
+<td>Does the summary exclude those values from averages?</td>
+</tr>
+<tr class="even">
+<td>Appointment labels cleaned</td>
+<td>Do table rows use the cleaned labels?</td>
+</tr>
+<tr class="odd">
+<td>Missing grades documented</td>
+<td>Does the table show how many grades were available?</td>
+</tr>
+<tr class="even">
+<td>Visit count recoded to yes/no</td>
+<td>Does interpretation avoid pretending frequency was preserved?</td>
+</tr>
+</tbody>
+</table>
+<p>The summary should not hide important cleaning decisions.</p>
+</section>
+<section id="ai-and-descriptive-summaries" class="level2" data-number="7.12">
+<h2 data-number="7.12" class="anchored" data-anchor-id="ai-and-descriptive-summaries"><span class="header-section-number">7.12</span> AI and Descriptive Summaries</h2>
+<p>AI tools can help with summary work, but they should not replace checking.</p>
+<p>Useful AI tasks:</p>
+<ul>
+<li>suggest summary table layouts for a specific audience;</li>
+<li>draft R code for a grouped summary after you provide verified variable definitions;</li>
+<li>help write a plain-language interpretation;</li>
+<li>identify missing denominators in a paragraph;</li>
+<li>check whether a claim sounds causal when the table is descriptive;</li>
+<li>help revise column labels for clarity.</li>
+</ul>
+<p>Risky AI tasks:</p>
+<ul>
+<li>inventing numbers;</li>
+<li>guessing denominators;</li>
+<li>explaining a pattern without evidence;</li>
+<li>dropping missing value caveats;</li>
+<li>turning a descriptive comparison into a causal claim;</li>
+<li>accepting code output without checking row meaning.</li>
+</ul>
+<p>Good AI prompt:</p>
+<pre class="text"><code>I am writing a descriptive summary for a class project.
+Use only the numbers and variable definitions I provide.
+Do not invent denominators or explain causes.
+Help me revise this interpretation so it names the source, groups, units, denominator, and caveat.
+
+[paste summary table and draft interpretation]</code></pre>
+<div class="callout callout-style-default callout-warning callout-titled" title="AI should not invent evidence">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>AI should not invent evidence
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If AI gives a number, denominator, or explanation that is not in your source or output, do not use it. Your summary must come from the dataset, documented cleaning process, and verified table.</p>
+</div>
+</div>
+</section>
+<section id="common-problems-to-watch-for" class="level2" data-number="7.13">
+<h2 data-number="7.13" class="anchored" data-anchor-id="common-problems-to-watch-for"><span class="header-section-number">7.13</span> Common Problems to Watch For</h2>
+<p>Descriptive summaries often go wrong in predictable ways.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Count rows when the claim is about people</td>
+<td>The same person may appear more than once.</td>
+</tr>
+<tr class="even">
+<td>Report a percentage without a denominator</td>
+<td>The audience cannot tell what group is being described.</td>
+</tr>
+<tr class="odd">
+<td>Compare counts across groups of different sizes</td>
+<td>Larger groups may have larger counts even if the rate is lower.</td>
+</tr>
+<tr class="even">
+<td>Hide missing values</td>
+<td>The summary may describe only records with available data.</td>
+</tr>
+<tr class="odd">
+<td>Use raw codes in a table</td>
+<td>The audience may not understand the categories.</td>
+</tr>
+<tr class="even">
+<td>Average identifiers</td>
+<td>Software can calculate meaningless results.</td>
+</tr>
+<tr class="odd">
+<td>Use too many decimal places</td>
+<td>The number may look more precise than the data support.</td>
+</tr>
+<tr class="even">
+<td>Use descriptive evidence for a causal claim</td>
+<td>The claim is stronger than the summary supports.</td>
+</tr>
+</tbody>
+</table>
+<p>Most of these problems can be fixed by returning to the data dictionary, cleaning log, and audience question.</p>
+</section>
+<section id="practical-workflow" class="level2" data-number="7.14">
+<h2 data-number="7.14" class="anchored" data-anchor-id="practical-workflow"><span class="header-section-number">7.14</span> Practical Workflow</h2>
+<p>Use this workflow when creating a descriptive summary:</p>
+<ol type="1">
+<li>Name the audience question.</li>
+<li>Identify the unit of observation.</li>
+<li>Choose the variables needed for the summary.</li>
+<li>Check the data dictionary.</li>
+<li>Check the cleaning log.</li>
+<li>Decide whether you need a count, percentage, rate, average, or grouped summary.</li>
+<li>Identify the numerator and denominator.</li>
+<li>Build the summary table.</li>
+<li>Check missing values and group sizes.</li>
+<li>Write a short descriptive interpretation.</li>
+<li>Add a caveat when the summary could be overstated.</li>
+<li>Document any AI help and verification.</li>
+</ol>
+<p>The workflow keeps the summary connected to meaning instead of letting the table become detached from the data.</p>
+</section>
+<section id="recap" class="level2" data-number="7.15">
+<h2 data-number="7.15" class="anchored" data-anchor-id="recap"><span class="header-section-number">7.15</span> Recap</h2>
+<div class="recap-table">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Descriptive summary</strong></td>
+<td>A count, percentage, rate, average, table, or comparison that describes what is in the data.</td>
+</tr>
+<tr class="even">
+<td><strong>Count</strong></td>
+<td>The number of observations, people, events, places, or records meeting a condition.</td>
+</tr>
+<tr class="odd">
+<td><strong>Percentage</strong></td>
+<td>A part divided by a whole, multiplied by 100.</td>
+</tr>
+<tr class="even">
+<td><strong>Denominator</strong></td>
+<td>The whole group used to calculate a percentage, rate, or average.</td>
+</tr>
+<tr class="odd">
+<td><strong>Rate</strong></td>
+<td>A count divided by a meaningful unit, such as people, time, places, or opportunities.</td>
+</tr>
+<tr class="even">
+<td><strong>Mean</strong></td>
+<td>The arithmetic average.</td>
+</tr>
+<tr class="odd">
+<td><strong>Median</strong></td>
+<td>The middle value after sorting.</td>
+</tr>
+<tr class="even">
+<td><strong>Grouped summary</strong></td>
+<td>A summary calculated separately for each group.</td>
+</tr>
+<tr class="odd">
+<td><strong>Summary table</strong></td>
+<td>A table that presents a small set of descriptive results for communication.</td>
+</tr>
+<tr class="even">
+<td><strong>Descriptive interpretation</strong></td>
+<td>A short explanation of what a summary shows without overstating what caused it.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="check-your-understanding" class="level2" data-number="7.16">
+<h2 data-number="7.16" class="anchored" data-anchor-id="check-your-understanding"><span class="header-section-number">7.16</span> Check your understanding</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>What is a descriptive summary?</p></li>
+<li><p>Why is counting rows not always the same as counting people?</p></li>
+<li><p>What is a denominator?</p></li>
+<li><p>Why should a percentage usually be reported with enough information to identify the denominator?</p></li>
+<li><p>When might a rate be more useful than a raw count?</p></li>
+<li><p>What is the difference between a mean and a median?</p></li>
+<li><p>Why should a grouped summary include group sizes when possible?</p></li>
+<li><p>Write a careful interpretation of this table:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tutoring Use Group</th>
+<th style="text-align: right;">Students With Recorded Final Grade</th>
+<th style="text-align: right;">Average Recorded Final Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No recorded tutoring visit</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">78.4 points</td>
+</tr>
+<tr class="even">
+<td>At least one completed tutoring visit</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">84.6 points</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>Give one useful AI task for descriptive summaries and one risky AI task.</p></li>
+<li><p>Match each term to the best description:</p></li>
+</ol>
+<ol type="a">
+<li><p>Count</p></li>
+<li><p>Percentage</p></li>
+<li><p>Rate</p></li>
+<li><p>Grouped summary</p></li>
+</ol>
+<p>Descriptions:</p>
+<ol type="1">
+<li><p>A summary calculated separately for each group.</p></li>
+<li><p>A part divided by a whole, multiplied by 100.</p></li>
+<li><p>The number of observations, people, events, places, or records meeting a condition.</p></li>
+<li><p>A count divided by a meaningful unit, such as people, time, places, or opportunities.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>A descriptive summary is a count, percentage, rate, average, table, or comparison that describes what is in the data.</p></li>
+<li><p>Counting rows depends on the unit of observation. If one person can appear in multiple rows, row counts may count events, visits, transactions, or records rather than unique people.</p></li>
+<li><p>A denominator is the whole group used to calculate a percentage, rate, or average.</p></li>
+<li><p>The denominator tells the audience what group is being described. Without it, a percentage can be unclear or misleading.</p></li>
+<li><p>A rate can be more useful when groups have different sizes. For example, visits per 100 students may be more useful than total visits when comparing campuses with different enrollments.</p></li>
+<li><p>The mean is the arithmetic average. The median is the middle value after sorting. They can differ when a variable has very large or very small values.</p></li>
+<li><p>Group sizes help the audience interpret the comparison. They also make missing data and small groups easier to notice.</p></li>
+<li><p>One careful interpretation is: In the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had an average recorded final grade of 84.6 points, compared with 78.4 points for students with no recorded tutoring visit. This comparison is descriptive and does not show whether tutoring caused the difference.</p></li>
+<li><p>Useful AI tasks include drafting code from verified variable definitions, checking whether denominators are named, or revising an interpretation for clarity. Risky AI tasks include inventing numbers, guessing denominators, or turning a descriptive comparison into a causal claim.</p></li>
+<li><p>a-3. b-2. c-4. d-1.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

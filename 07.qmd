@@ -1,0 +1,553 @@
+# Descriptive Summaries
+
+After you find a data source, understand the variables, and document cleaning decisions, you are ready to begin summarizing.
+
+A **descriptive summary** describes what is in the data. It may count observations, calculate percentages, compare groups, compute averages, or report rates. A descriptive summary does not automatically explain why a pattern happened. It tells the audience what the data show.
+
+In data communication, descriptive summaries are often the first evidence that an audience sees. They need to be clear, honest, and connected to the data dictionary.
+
+This chapter focuses on:
+
+- counts;
+- percentages;
+- rates;
+- grouped summaries;
+- denominators;
+- summary tables;
+- careful interpretation;
+- AI support and verification.
+
+::: {.callout-note title="Description before explanation"}
+
+Before explaining a pattern, first describe it accurately. A clear descriptive summary says what was counted, who or what was included, what time period was used, and what denominator supports the number.
+
+:::
+
+## What Descriptive Summaries Do
+
+Descriptive summaries answer questions such as:
+
+- How many observations are in the dataset?
+- How many people, events, places, or records are in each group?
+- What percentage of a group has a certain characteristic?
+- What is the average value of a variable?
+- How does a value differ across categories?
+- How does a count or rate change over time?
+
+These questions are useful because audiences rarely need every row of data. They need a smaller, meaningful summary.
+
+But a summary is only useful if the audience can tell what it summarizes.
+
+Weak:
+
+> 38% used tutoring.
+
+Better:
+
+> In the cleaned Spring 2027 tutoring file, 38% of students had at least one completed tutoring appointment.
+
+The better version tells the audience:
+
+| Detail | Why It Matters |
+| --- | --- |
+| cleaned Spring 2027 tutoring file | Names the source and time frame. |
+| 38% | Gives the summary value. |
+| students | Names the unit being summarized. |
+| at least one completed tutoring appointment | Defines the condition being counted. |
+
+## Counts
+
+A **count** is the number of observations that meet a condition.
+
+Counts are the foundation of many summaries.
+
+Examples:
+
+| Question | Possible Count |
+| --- | --- |
+| How many students are in the file? | Number of unique student identifiers. |
+| How many tutoring appointments were completed? | Number of rows with completed appointment status. |
+| How many survey responses were submitted? | Number of survey response rows. |
+| How many counties are included? | Number of unique county identifiers. |
+| How many missing grades appear? | Number of rows where final grade is missing. |
+
+The key question is:
+
+> What exactly is being counted?
+
+Counting rows may or may not answer the question.
+
+If one row is one student, row count may count students. If one row is one tutoring appointment, row count counts appointments, not students.
+
+::: {.example title="Example 7.1: Count rows or count students?"}
+
+Suppose a file has one row per tutoring appointment.
+
+| student_key | appointment_id | appointment_type |
+| --- | --- | --- |
+| S001 | A100 | Scheduled |
+| S001 | A101 | Drop-in |
+| S002 | A102 | Scheduled |
+| S003 | A103 | Group |
+
+There are 4 appointment rows, but only 3 students.
+
+A claim about appointments can count rows. A claim about students needs a unique student count.
+
+:::
+
+In R, the difference might look like this:
+
+```r
+nrow(tutoring)
+dplyr::n_distinct(tutoring$student_key)
+```
+
+The first line counts rows. The second counts unique student identifiers.
+
+## Percentages
+
+A **percentage** describes a part as a share of a whole.
+
+The basic idea is:
+
+$$
+\text{percentage} = \frac{\text{part}}{\text{whole}} \times 100
+$$
+
+Percentages are useful because they help audiences compare groups of different sizes.
+
+Example:
+
+| Group | Students With Tutoring | Total Students | Percentage |
+| --- | ---: | ---: | ---: |
+| First-year students | 45 | 150 | 30.0% |
+| Seniors | 20 | 50 | 40.0% |
+
+The count is higher for first-year students, but the percentage is higher for seniors.
+
+This is why percentages need denominators.
+
+::: {.callout-warning title="Percentages without denominators are fragile"}
+
+If a report says "40% of students," the audience should know 40% of which students. The denominator defines the group being described.
+
+:::
+
+## Denominators
+
+The **denominator** is the whole group used to calculate a percentage, rate, or average.
+
+In the formula below, the denominator is the bottom number:
+
+$$
+\frac{\text{part}}{\text{denominator}}
+$$
+
+Different denominators create different meanings.
+
+| Summary | Numerator | Denominator | Meaning |
+| --- | --- | --- | --- |
+| 38% of students used tutoring | Students with at least one completed visit | All students in the cleaned file | Share of students with recorded tutoring use. |
+| 52% of visits were scheduled | Scheduled visits | All tutoring visits | Share of visits by appointment type. |
+| 12% of records have missing grades | Records with missing grades | All records | Share of records missing final grade. |
+| 4.5 visits per student | Completed visits | Students | Average visit count per student. |
+
+The numerator and denominator must describe compatible things.
+
+For example, this is confusing:
+
+> 30 tutoring visits divided by 20 course sections.
+
+That could be meaningful if the claim is about visits per course section. It is not meaningful if the claim is about the percentage of students using tutoring.
+
+## Rates
+
+A **rate** compares a count to a meaningful unit.
+
+Rates are often used when raw counts are hard to compare fairly.
+
+Examples:
+
+| Rate | Numerator | Denominator |
+| --- | --- | --- |
+| Tutoring visits per 100 students | Tutoring visits | Students divided by 100 |
+| Incidents per 1,000 residents | Incidents | Residents divided by 1,000 |
+| Complaints per month | Complaints | Months |
+| Appointments per advisor | Appointments | Advisors |
+| Graduates per entering cohort | Graduates | Students in the entering cohort |
+
+Rates help when groups have different sizes.
+
+Suppose two campuses report tutoring visits:
+
+| Campus | Visits | Students |
+| --- | ---: | ---: |
+| North | 400 | 2,000 |
+| South | 250 | 800 |
+
+North has more visits. South has more visits per student.
+
+| Campus | Visits Per 100 Students |
+| --- | ---: |
+| North | 20.0 |
+| South | 31.3 |
+
+The communication changes depending on whether the audience needs total demand or relative use.
+
+::: {.example title="Example 7.2: Count versus rate"}
+
+If a tutoring center needs to schedule staff, total visits may matter most.
+
+If a dean wants to compare student use across campuses of different sizes, visits per 100 students may be more useful.
+
+The better summary depends on the audience question.
+
+:::
+
+## Averages and Other Numeric Summaries
+
+For numeric variables, you may summarize typical values or spread.
+
+Common numeric summaries include:
+
+| Summary | What It Tells the Audience |
+| --- | --- |
+| Mean | The arithmetic average. |
+| Median | The middle value after sorting. |
+| Minimum | The smallest value. |
+| Maximum | The largest value. |
+| Standard deviation | A measure of spread around the mean. |
+| Count missing | How many values are unavailable or excluded. |
+
+In introductory data communication, the mean and median are often the most useful.
+
+The mean can be pulled by very large or very small values. The median is often more stable when a variable is skewed.
+
+Example:
+
+| Student | Visits |
+| --- | ---: |
+| A | 0 |
+| B | 0 |
+| C | 1 |
+| D | 2 |
+| E | 20 |
+
+The mean is 4.6 visits. The median is 1 visit.
+
+Both are true. They tell different stories.
+
+A careful report might say:
+
+> In this small example, the median student had 1 visit, while the mean was 4.6 visits because one student had many more visits than the others.
+
+## Grouped Summaries
+
+A **grouped summary** calculates a summary separately for each group.
+
+Examples:
+
+- percentage of students with tutoring use by class year;
+- average final grade by tutoring-use group;
+- count of appointments by appointment type;
+- complaint rate by month;
+- median response time by department.
+
+Grouped summaries are useful because audiences often care about comparisons.
+
+Example summary table:
+
+| Tutoring Use Group | Students | Average Final Grade | Missing Grades |
+| --- | ---: | ---: | ---: |
+| No recorded tutoring visit | 82 | 78.4 | 6 |
+| At least one completed visit | 51 | 84.6 | 3 |
+
+This table gives a comparison, but it does not prove why the difference exists.
+
+A careful interpretation:
+
+> In the cleaned Spring 2027 file, students with at least one completed tutoring visit had a higher average recorded final grade than students with no recorded visit. The table is descriptive and does not show whether tutoring caused the difference.
+
+## Summary Tables
+
+A **summary table** presents a small set of descriptive results in rows and columns.
+
+A good summary table should make the important comparison easy to find.
+
+It should usually include:
+
+- clear row labels;
+- clear column labels;
+- units;
+- denominators or group sizes;
+- missing value notes when needed;
+- a short interpretation nearby.
+
+Weak table:
+
+| Group | N | Avg |
+| --- | ---: | ---: |
+| 0 | 82 | 78.4 |
+| 1 | 51 | 84.6 |
+
+Better table:
+
+| Tutoring Use Group | Students in Group | Average Recorded Final Grade |
+| --- | ---: | ---: |
+| No recorded tutoring visit | 82 | 78.4 points |
+| At least one completed tutoring visit | 51 | 84.6 points |
+
+Better still, if missing grades matter:
+
+| Tutoring Use Group | Students in Group | Students With Recorded Final Grade | Average Recorded Final Grade |
+| --- | ---: | ---: | ---: |
+| No recorded tutoring visit | 82 | 76 | 78.4 points |
+| At least one completed tutoring visit | 51 | 48 | 84.6 points |
+
+The last table makes the denominator clearer.
+
+## Writing Interpretations
+
+A table does not speak for itself.
+
+After a summary table, write a short interpretation.
+
+A useful interpretation usually includes:
+
+1. the source or cleaned dataset;
+2. the main comparison or pattern;
+3. the denominator or group size;
+4. the unit;
+5. a caveat when needed.
+
+Example:
+
+> In the cleaned Spring 2027 tutoring file, 48 of the 51 students with at least one completed tutoring visit had a recorded final grade. Their average recorded final grade was 84.6 points, compared with 78.4 points among the 76 students with recorded grades and no recorded tutoring visits. This comparison is descriptive and does not show whether tutoring caused the grade difference.
+
+This paragraph is longer than "tutoring worked," but it is much more responsible.
+
+::: {.callout-tip title="A useful sentence frame"}
+
+In [source/time frame], [group or denominator] had [summary value], compared with [comparison value]. This means [careful interpretation], but [caveat].
+
+:::
+
+## Descriptive Summaries in Quarto
+
+Students can include descriptive summaries in Quarto as typed markdown tables, code output, or a combination of both.
+
+For a hand-built table:
+
+```markdown
+| Tutoring Use Group | Students in Group | Average Recorded Final Grade |
+| --- | ---: | ---: |
+| No recorded tutoring visit | 82 | 78.4 points |
+| At least one completed tutoring visit | 51 | 84.6 points |
+```
+
+For an R workflow, a grouped summary might look like this:
+
+```r
+summary_table <- tutoring_clean |>
+  dplyr::group_by(visited_tutoring) |>
+  dplyr::summarize(
+    students = dplyr::n_distinct(student_key),
+    students_with_grade = sum(!is.na(final_grade)),
+    average_grade = mean(final_grade, na.rm = TRUE),
+    .groups = "drop"
+  )
+```
+
+The code creates a table. The communication work is deciding whether the table has the right rows, columns, labels, denominators, and caveat.
+
+## Checking a Summary
+
+Before using a summary in a memo, check it.
+
+Ask:
+
+1. What is the unit of observation?
+2. What is being counted?
+3. What is the denominator?
+4. Are missing values included, excluded, or described?
+5. Are group labels audience-readable?
+6. Does the table show counts as well as percentages when needed?
+7. Does the interpretation stay descriptive?
+8. Does the caveat match the cleaning log and data dictionary?
+
+One helpful habit is to compare a summary table to the cleaning log.
+
+| Cleaning Log Issue | Summary Check |
+| --- | --- |
+| `999` recoded as missing | Does the summary exclude those values from averages? |
+| Appointment labels cleaned | Do table rows use the cleaned labels? |
+| Missing grades documented | Does the table show how many grades were available? |
+| Visit count recoded to yes/no | Does interpretation avoid pretending frequency was preserved? |
+
+The summary should not hide important cleaning decisions.
+
+## AI and Descriptive Summaries
+
+AI tools can help with summary work, but they should not replace checking.
+
+Useful AI tasks:
+
+- suggest summary table layouts for a specific audience;
+- draft R code for a grouped summary after you provide verified variable definitions;
+- help write a plain-language interpretation;
+- identify missing denominators in a paragraph;
+- check whether a claim sounds causal when the table is descriptive;
+- help revise column labels for clarity.
+
+Risky AI tasks:
+
+- inventing numbers;
+- guessing denominators;
+- explaining a pattern without evidence;
+- dropping missing value caveats;
+- turning a descriptive comparison into a causal claim;
+- accepting code output without checking row meaning.
+
+Good AI prompt:
+
+```text
+I am writing a descriptive summary for a class project.
+Use only the numbers and variable definitions I provide.
+Do not invent denominators or explain causes.
+Help me revise this interpretation so it names the source, groups, units, denominator, and caveat.
+
+[paste summary table and draft interpretation]
+```
+
+::: {.callout-warning title="AI should not invent evidence"}
+
+If AI gives a number, denominator, or explanation that is not in your source or output, do not use it. Your summary must come from the dataset, documented cleaning process, and verified table.
+
+:::
+
+## Common Problems to Watch For
+
+Descriptive summaries often go wrong in predictable ways.
+
+| Problem | Why It Matters |
+| --- | --- |
+| Count rows when the claim is about people | The same person may appear more than once. |
+| Report a percentage without a denominator | The audience cannot tell what group is being described. |
+| Compare counts across groups of different sizes | Larger groups may have larger counts even if the rate is lower. |
+| Hide missing values | The summary may describe only records with available data. |
+| Use raw codes in a table | The audience may not understand the categories. |
+| Average identifiers | Software can calculate meaningless results. |
+| Use too many decimal places | The number may look more precise than the data support. |
+| Use descriptive evidence for a causal claim | The claim is stronger than the summary supports. |
+
+Most of these problems can be fixed by returning to the data dictionary, cleaning log, and audience question.
+
+## Practical Workflow
+
+Use this workflow when creating a descriptive summary:
+
+1. Name the audience question.
+2. Identify the unit of observation.
+3. Choose the variables needed for the summary.
+4. Check the data dictionary.
+5. Check the cleaning log.
+6. Decide whether you need a count, percentage, rate, average, or grouped summary.
+7. Identify the numerator and denominator.
+8. Build the summary table.
+9. Check missing values and group sizes.
+10. Write a short descriptive interpretation.
+11. Add a caveat when the summary could be overstated.
+12. Document any AI help and verification.
+
+The workflow keeps the summary connected to meaning instead of letting the table become detached from the data.
+
+## Recap
+
+::: {.recap-table}
+| **Keyword** | **Definition** |
+| --- | --- |
+| **Descriptive summary** | A count, percentage, rate, average, table, or comparison that describes what is in the data. |
+| **Count** | The number of observations, people, events, places, or records meeting a condition. |
+| **Percentage** | A part divided by a whole, multiplied by 100. |
+| **Denominator** | The whole group used to calculate a percentage, rate, or average. |
+| **Rate** | A count divided by a meaningful unit, such as people, time, places, or opportunities. |
+| **Mean** | The arithmetic average. |
+| **Median** | The middle value after sorting. |
+| **Grouped summary** | A summary calculated separately for each group. |
+| **Summary table** | A table that presents a small set of descriptive results for communication. |
+| **Descriptive interpretation** | A short explanation of what a summary shows without overstating what caused it. |
+:::
+
+## Check your understanding
+
+::: {.callout-note collapse="false" title="Problems"}
+
+1. What is a descriptive summary?
+
+2. Why is counting rows not always the same as counting people?
+
+3. What is a denominator?
+
+4. Why should a percentage usually be reported with enough information to identify the denominator?
+
+5. When might a rate be more useful than a raw count?
+
+6. What is the difference between a mean and a median?
+
+7. Why should a grouped summary include group sizes when possible?
+
+8. Write a careful interpretation of this table:
+
+   | Tutoring Use Group | Students With Recorded Final Grade | Average Recorded Final Grade |
+   | --- | ---: | ---: |
+   | No recorded tutoring visit | 76 | 78.4 points |
+   | At least one completed tutoring visit | 48 | 84.6 points |
+
+9. Give one useful AI task for descriptive summaries and one risky AI task.
+
+10. Match each term to the best description:
+
+   a. Count
+
+   b. Percentage
+
+   c. Rate
+
+   d. Grouped summary
+
+   Descriptions:
+
+   1. A summary calculated separately for each group.
+
+   2. A part divided by a whole, multiplied by 100.
+
+   3. The number of observations, people, events, places, or records meeting a condition.
+
+   4. A count divided by a meaningful unit, such as people, time, places, or opportunities.
+
+:::
+
+::: {.callout-tip collapse="true" title="Solutions"}
+
+1. A descriptive summary is a count, percentage, rate, average, table, or comparison that describes what is in the data.
+
+2. Counting rows depends on the unit of observation. If one person can appear in multiple rows, row counts may count events, visits, transactions, or records rather than unique people.
+
+3. A denominator is the whole group used to calculate a percentage, rate, or average.
+
+4. The denominator tells the audience what group is being described. Without it, a percentage can be unclear or misleading.
+
+5. A rate can be more useful when groups have different sizes. For example, visits per 100 students may be more useful than total visits when comparing campuses with different enrollments.
+
+6. The mean is the arithmetic average. The median is the middle value after sorting. They can differ when a variable has very large or very small values.
+
+7. Group sizes help the audience interpret the comparison. They also make missing data and small groups easier to notice.
+
+8. One careful interpretation is: In the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had an average recorded final grade of 84.6 points, compared with 78.4 points for students with no recorded tutoring visit. This comparison is descriptive and does not show whether tutoring caused the difference.
+
+9. Useful AI tasks include drafting code from verified variable definitions, checking whether denominators are named, or revising an interpretation for clarity. Risky AI tasks include inventing numbers, guessing denominators, or turning a descriptive comparison into a causal claim.
+
+10. a-3. b-2. c-4. d-1.
+
+:::
