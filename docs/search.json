@@ -968,5 +968,185 @@
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Summaries</span>"
     ]
+  },
+  {
+    "objectID": "08.html",
+    "href": "08.html",
+    "title": "8  Context for Comparison",
+    "section": "",
+    "text": "8.1 Why Context Matters\nA descriptive summary becomes more useful when the audience can compare it to something meaningful.\nIn Chapter 7, you learned how to create summaries such as counts, percentages, rates, means, medians, and grouped tables. Those summaries answer questions like “How many?”, “What share?”, and “What is typical?”\nChapter 8 asks the next question:\nComparison gives numbers context. A tutoring center reported 400 completed visits. Is that high or low? The answer depends on the comparison:\nEach comparison tells a different story. The number did not change. The context changed.\nThis chapter focuses on:\nA number rarely explains itself.\nConsider this sentence:\nThat is a descriptive summary. It is clear enough as a single number, but the audience may immediately ask:\nContext helps answer some of those questions.\nFor example:\nThe context does not make the result perfect. It makes the result more interpretable.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#why-context-matters",
+    "href": "08.html#why-context-matters",
+    "title": "8  Context for Comparison",
+    "section": "",
+    "text": "The average recorded final grade for students with at least one completed tutoring visit was 84.6 points.\n\n\n\nIs 84.6 high or low?\nHow does it compare with students who did not use tutoring?\nHow does it compare with the course average?\nHow does it compare with last semester?\nHow many students are included?\nWere missing grades excluded?\nDoes this mean tutoring caused the difference?\n\n\n\n\n\n\n\n\n\n\nContext Added\nRevised Statement\n\n\n\n\nComparison group\nStudents with at least one completed tutoring visit had an average recorded final grade of 84.6 points, compared with 78.4 points for students with no recorded tutoring visit.\n\n\nGroup size\nThe average was based on 48 students with recorded grades in the tutoring group and 76 students with recorded grades in the no-recorded-visit group.\n\n\nTime frame\nThe comparison describes the cleaned Spring 2027 tutoring file.\n\n\nCaveat\nThe comparison is descriptive and does not show whether tutoring caused the grade difference.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#comparison-questions",
+    "href": "08.html#comparison-questions",
+    "title": "8  Context for Comparison",
+    "section": "8.2 Comparison Questions",
+    "text": "8.2 Comparison Questions\nBefore choosing a table or sentence, identify the comparison question.\nDifferent comparison questions need different kinds of context.\n\n\n\n\n\n\n\nAudience Question\nMain Comparison Context Needed\n\n\n\n\nDid tutoring visits increase from last semester?\nBaseline from the previous semester.\n\n\nDid the program meet its goal?\nBenchmark or target.\n\n\nWhich campus had heavier tutoring demand?\nTotal counts and staff capacity.\n\n\nWhich campus had higher relative use?\nRates per student or per 100 students.\n\n\nDid users and non-users have different recorded grades?\nComparison groups, group sizes, and missing grade notes.\n\n\nWas this month unusual?\nHistorical average, seasonal pattern, or same month in prior years.\n\n\nDid the value improve after a change?\nBefore/after values plus a caveat about causation.\n\n\n\nA good comparison question names:\n\nThe measure.\nThe groups, periods, or standards being compared.\nThe time frame.\nThe denominator or unit.\nThe claim type.\n\nWeak:\n\nAre tutoring results good?\n\nBetter:\n\nIn the cleaned Spring 2027 tutoring file, how did the average recorded final grade differ between students with at least one completed tutoring visit and students with no recorded tutoring visit?\n\nThe better version makes the comparison visible before the calculation begins.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#baselines",
+    "href": "08.html#baselines",
+    "title": "8  Context for Comparison",
+    "section": "8.3 Baselines",
+    "text": "8.3 Baselines\nA baseline is a reference value used for comparison.\nBaselines often answer:\n\nCompared with where we started?\n\nCommon baselines include:\n\n\n\n\n\n\n\nBaseline Type\nExample\n\n\n\n\nPrevious period\nThis semester compared with last semester.\n\n\nFirst period\nWeek 15 compared with Week 1.\n\n\nPre-change value\nAfter a new advising policy compared with before the policy.\n\n\nHistorical average\nThis month compared with the average month over the last three years.\n\n\nStatus quo group\nStudents using a new resource compared with students using the usual resource.\n\n\n\nSuppose a tutoring center reports completed visits:\n\n\n\nTerm\nCompleted Visits\n\n\n\n\nFall 2026\n320\n\n\nSpring 2027\n400\n\n\n\nA careful summary:\n\nCompleted tutoring visits increased from 320 in Fall 2026 to 400 in Spring 2027, an increase of 80 visits.\n\nThe baseline is Fall 2026.\nYou could also report percent change:\n\\[\n\\text{percent change} = \\frac{\\text{new value} - \\text{baseline value}}{\\text{baseline value}} \\times 100\n\\]\nFor this example:\n\\[\n\\frac{400 - 320}{320} \\times 100 = 25\\%\n\\]\nSo the summary could say:\n\nCompleted tutoring visits increased by 80 visits, or 25%, from Fall 2026 to Spring 2027.\n\n\n\n\n\n\n\nWarningDifferent baselines create different stories\n\n\n\nThe baseline should fit the audience question. Comparing Spring 2027 to Fall 2026 may answer a semester-to-semester question, but comparing Spring 2027 to Spring 2026 may be better if tutoring use follows a seasonal academic pattern.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#benchmarks",
+    "href": "08.html#benchmarks",
+    "title": "8  Context for Comparison",
+    "section": "8.4 Benchmarks",
+    "text": "8.4 Benchmarks\nA benchmark is a reference standard, target, goal, or external comparison value.\nBenchmarks often answer:\n\nCompared with a standard or expectation?\n\nExamples:\n\n\n\n\n\n\n\nBenchmark\nPossible Use\n\n\n\n\nDepartment goal\nCompare current value with an internal target.\n\n\nCampus average\nCompare one program with the broader institution.\n\n\nState average\nCompare a local value with a state reference.\n\n\nNational average\nCompare a local value with a broader reference.\n\n\nProfessional standard\nCompare a result with an accepted threshold.\n\n\nPrior published result\nCompare a new finding with earlier research or reporting.\n\n\n\n\n\n\n\n\n\nExampleExample 8.1: Same value, two benchmarks\n\n\n\nSuppose a program has a 68% completion rate.\n\n\n\n\n\n\n\n\nReference\nValue\nInterpretation\n\n\n\n\nProgram completion rate\n68%\nCurrent program result.\n\n\nCampus target\n70%\nThe program is 2 percentage points below the target.\n\n\nState average\n63%\nThe program is 5 percentage points above the state average.\n\n\n\nBoth comparisons are true. The program is below one benchmark and above another.\nThe communication should name the benchmark instead of saying only that the result is “good” or “bad.”\n\n\nBenchmarks need documentation.\nAsk:\n\nWho created the benchmark?\nWhat population does it describe?\nWhat time period does it use?\nDoes it define the measure the same way?\nIs it a target, average, minimum standard, or aspirational goal?\nIs it still current?\nDoes the audience understand why this benchmark matters?\n\nA benchmark is useful only if it fits the measure and audience question.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#time-frames",
+    "href": "08.html#time-frames",
+    "title": "8  Context for Comparison",
+    "section": "8.5 Time Frames",
+    "text": "8.5 Time Frames\nA time frame is the period covered by a summary or comparison.\nTime frames shape interpretation.\nThe same data can look different depending on whether you summarize by day, week, month, semester, calendar year, academic year, or multi-year period.\n\n\n\n\n\n\n\n\nTime Frame Choice\nUseful For\nWatch For\n\n\n\n\nDaily\nOperational monitoring and short-term activity.\nRandom variation and day-of-week patterns.\n\n\nWeekly\nClass schedules, service use, and workload cycles.\nHoliday weeks and partial weeks.\n\n\nMonthly\nDashboards and administrative reporting.\nMonths have different lengths.\n\n\nSemester\nAcademic programs and course outcomes.\nFall and spring may not be directly comparable.\n\n\nCalendar year\nPublic reporting and annual summaries.\nMay split academic cycles.\n\n\nAcademic year\nEducation outcomes and program planning.\nMay not match public reporting calendars.\n\n\nMulti-year average\nStable context and long-term pattern.\nCan hide recent changes.\n\n\n\nSuppose tutoring visits are summarized by month:\n\n\n\nMonth\nCompleted Visits\n\n\n\n\nJanuary\n40\n\n\nFebruary\n75\n\n\nMarch\n110\n\n\nApril\n125\n\n\nMay\n50\n\n\n\nA weak claim:\n\nTutoring demand increased every month.\n\nThat ignores May, and it may ignore the academic calendar.\nA better descriptive claim:\n\nCompleted tutoring visits rose from January through April, then declined in May. This pattern may reflect the semester calendar, so a comparison with the same months in prior spring terms would provide better context.\n\nThe better claim describes the pattern and names a useful next comparison.\n\n\n\n\n\n\nTipUse matching time frames\n\n\n\nWhen possible, compare like with like: spring to spring, full month to full month, complete semester to complete semester, and academic year to academic year.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#comparison-groups",
+    "href": "08.html#comparison-groups",
+    "title": "8  Context for Comparison",
+    "section": "8.6 Comparison Groups",
+    "text": "8.6 Comparison Groups\nA comparison group is another group used to interpret a summary.\nExamples:\n\nstudents with at least one completed tutoring visit compared with students with no recorded tutoring visit;\nfirst-year students compared with seniors;\none campus compared with another campus;\nsurvey respondents compared with all invited students;\none course section compared with another section;\none county compared with neighboring counties.\n\nComparison groups should be clear enough that the audience knows who or what is being compared.\nAsk:\n\nHow is each group defined?\nAre groups mutually exclusive?\nCan one person or record appear in more than one group?\nDo the groups use the same time frame?\nDo the groups use the same variable definitions?\nAre group sizes visible?\nAre missing values handled consistently?\nIs the comparison descriptive, associational, or causal?\n\nExample:\n\n\n\n\n\n\n\n\nTutoring Use Group\nStudents With Recorded Final Grade\nAverage Recorded Final Grade\n\n\n\n\nNo recorded tutoring visit\n76\n78.4 points\n\n\nAt least one completed tutoring visit\n48\n84.6 points\n\n\n\nCareful interpretation:\n\nIn the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had a higher average recorded final grade than students with no recorded tutoring visit. The comparison is descriptive and does not show whether tutoring caused the grade difference.\n\nThe comparison group is useful. The causal boundary still matters.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#absolute-difference-and-relative-change",
+    "href": "08.html#absolute-difference-and-relative-change",
+    "title": "8  Context for Comparison",
+    "section": "8.7 Absolute Difference and Relative Change",
+    "text": "8.7 Absolute Difference and Relative Change\nComparisons often use change language.\nTwo common summaries are absolute difference and relative change.\nThe absolute difference is the new value minus the baseline value.\n\\[\n\\text{absolute difference} = \\text{new value} - \\text{baseline value}\n\\]\nThe relative change compares the difference with the baseline.\n\\[\n\\text{relative change} = \\frac{\\text{new value} - \\text{baseline value}}{\\text{baseline value}}\n\\]\nSuppose completed tutoring visits increased from 320 to 400.\n\n\n\n\n\n\n\n\nSummary\nCalculation\nMeaning\n\n\n\n\nAbsolute difference\n400 - 320 = 80\n80 more completed visits.\n\n\nPercent change\n(400 - 320) / 320 x 100 = 25%\n25% increase relative to the baseline.\n\n\n\nBoth can be useful.\nThe absolute difference is often easier to understand. The percent change helps compare changes from different starting sizes.\n\n\n\n\n\n\nNoteUse both when it helps\n\n\n\nFor many audiences, reporting both the count difference and the percent change is clearer than choosing only one. “An increase of 80 visits, or 25%” gives both scale and relative change.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#percentage-points-and-percent-change",
+    "href": "08.html#percentage-points-and-percent-change",
+    "title": "8  Context for Comparison",
+    "section": "8.8 Percentage Points and Percent Change",
+    "text": "8.8 Percentage Points and Percent Change\nPercentages need careful change language.\nIf a completion rate rises from 10% to 12%, the change is:\n\n2 percentage points;\n20% relative increase from the original 10%.\n\nBoth are mathematically true, but they are not the same statement.\n\n\n\nOriginal Rate\nNew Rate\nPercentage Point Change\nPercent Change\n\n\n\n\n10%\n12%\n+2 percentage points\n+20%\n\n\n40%\n44%\n+4 percentage points\n+10%\n\n\n80%\n84%\n+4 percentage points\n+5%\n\n\n\nA careful sentence:\n\nThe completion rate increased from 10% to 12%, a 2 percentage point increase.\n\nIf relative change matters, say it clearly:\n\nThe completion rate increased from 10% to 12%, which is a 20% increase relative to the original 10% rate.\n\nAvoid:\n\nThe completion rate increased by 2%.\n\nThat sentence is ambiguous. It may mean 2 percentage points, or it may mean 2% relative change.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#comparing-counts-and-rates",
+    "href": "08.html#comparing-counts-and-rates",
+    "title": "8  Context for Comparison",
+    "section": "8.9 Comparing Counts and Rates",
+    "text": "8.9 Comparing Counts and Rates\nRaw counts and rates answer different questions.\nSuppose two campuses report tutoring use:\n\n\n\nCampus\nCompleted Visits\nStudents\nVisits per 100 Students\n\n\n\n\nNorth\n400\n2,000\n20.0\n\n\nSouth\n250\n800\n31.3\n\n\n\nNorth has more total visits.\nSouth has more visits per 100 students.\nBoth summaries are true.\nThe better choice depends on the audience question:\n\n\n\n\n\n\n\nAudience Question\nBetter Summary\n\n\n\n\nWhere is total workload larger?\nCompleted visits.\n\n\nWhere is relative student use higher?\nVisits per 100 students.\n\n\nWhere might staffing pressure be higher?\nVisits plus staff hours or advisor capacity.\n\n\nWhere might outreach be more successful?\nVisit rate plus context about eligibility and access.\n\n\n\nDo not treat a rate as automatically better than a count. The right summary depends on the decision the audience needs to make.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#context-in-quarto",
+    "href": "08.html#context-in-quarto",
+    "title": "8  Context for Comparison",
+    "section": "8.10 Context in Quarto",
+    "text": "8.10 Context in Quarto\nQuarto can help you keep comparison context close to the result.\nFor a simple typed table:\n| Term | Completed Visits | Baseline | Change from Baseline |\n| --- | ---: | ---: | ---: |\n| Fall 2026 | 320 | -- | -- |\n| Spring 2027 | 400 | 320 | +80 visits |\nFor an R workflow, the comparison might look like this:\nterm_summary &lt;- tutoring_clean |&gt;\n  dplyr::group_by(term) |&gt;\n  dplyr::summarize(\n    completed_visits = sum(completed_visit == \"Yes\", na.rm = TRUE),\n    students = dplyr::n_distinct(student_key),\n    visits_per_100_students = completed_visits / students * 100,\n    .groups = \"drop\"\n  )\nIf the table is ordered by time, you can calculate change from the previous term:\nterm_summary &lt;- term_summary |&gt;\n  dplyr::arrange(term) |&gt;\n  dplyr::mutate(\n    previous_visits = dplyr::lag(completed_visits),\n    visit_change = completed_visits - previous_visits,\n    percent_change = visit_change / previous_visits * 100\n  )\nThe code is not enough by itself. The written interpretation should still name the baseline, denominator, time frame, and caveat.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#descriptive-wording-and-causal-boundaries",
+    "href": "08.html#descriptive-wording-and-causal-boundaries",
+    "title": "8  Context for Comparison",
+    "section": "8.11 Descriptive Wording and Causal Boundaries",
+    "text": "8.11 Descriptive Wording and Causal Boundaries\nComparison language can easily drift into causal language.\nDescriptive comparison:\n\nStudents with at least one completed tutoring visit had higher average recorded grades than students with no recorded tutoring visit.\n\nCausal claim:\n\nTutoring improved student grades.\n\nThe causal claim is stronger. It needs stronger evidence.\nCommon causal words include:\n\n\n\nCausal Word or Phrase\nWhy It Needs Care\n\n\n\n\ncaused\nClaims one thing produced another.\n\n\nled to\nImplies one event produced a later result.\n\n\nimproved\nOften implies the program created the improvement.\n\n\nimpact\nUsually implies an effect.\n\n\nbecause\nGives an explanation, not only a description.\n\n\nresulted in\nClaims an outcome followed from a cause.\n\n\n\nDescriptive alternatives include:\n\n\n\n\n\n\n\nDescriptive Phrase\nExample\n\n\n\n\nhad\nTutoring users had higher average recorded grades.\n\n\nreported\nSurvey respondents reported more confidence after the workshop.\n\n\nshowed\nThe table showed higher visit rates at South Campus.\n\n\ndiffered\nCompletion rates differed by section.\n\n\nwas higher than\nThe visit rate was higher in Spring 2027 than in Fall 2026.\n\n\nwas lower than\nThe response rate was lower for the second survey.\n\n\n\nDescriptive wording is not timid. It is accurate.\n\n\n\n\n\n\nWarningA table does not prove a cause\n\n\n\nA comparison table can show that two values differ. It does not automatically show why they differ. Causal claims require design evidence, not only descriptive differences.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#context-and-caveat-tables",
+    "href": "08.html#context-and-caveat-tables",
+    "title": "8  Context for Comparison",
+    "section": "8.12 Context and Caveat Tables",
+    "text": "8.12 Context and Caveat Tables\nA context and caveat table helps connect a possible claim to the comparison information it needs.\nThis is useful when a summary is technically correct but easy to overstate.\nTemplate:\n\n\n\n\n\n\n\n\n\nPossible Claim\nContext Needed\nCareful Caveat\nSafer Wording\n\n\n\n\n[draft claim]\n[baseline, benchmark, time frame, denominator, or comparison group]\n[what the comparison does not prove]\n[revised claim]\n\n\n\nExample:\n\n\n\n\n\n\n\n\n\nPossible Claim\nContext Needed\nCareful Caveat\nSafer Wording\n\n\n\n\nTutoring use increased.\nPrevious term or same term last year; total students; completed visit definition.\nMore visits may reflect more students, more appointments per student, better recordkeeping, or higher demand.\nCompleted tutoring visits increased from 320 in Fall 2026 to 400 in Spring 2027.\n\n\nSouth Campus used tutoring more than North Campus.\nCampus enrollment and same visit definition.\nSouth had fewer total visits but more visits per 100 students.\nSouth Campus had 31.3 visits per 100 students, compared with 20.0 at North Campus.\n\n\nTutoring improved grades.\nComparison group, group sizes, missing grade counts, research design.\nThe table is descriptive and does not show whether tutoring caused grade differences.\nStudents with at least one completed tutoring visit had higher average recorded grades in the cleaned file.\n\n\n\nThis table trains a useful habit:\n\nDraft the claim, then ask what context the claim needs before it is safe to publish.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#ai-and-comparison-context",
+    "href": "08.html#ai-and-comparison-context",
+    "title": "8  Context for Comparison",
+    "section": "8.13 AI and Comparison Context",
+    "text": "8.13 AI and Comparison Context\nAI can help with comparison work, but it should not create the evidence.\nUseful AI tasks:\n\nidentify whether a sentence names its baseline;\nsuggest clearer benchmark language;\nrevise a paragraph to distinguish percentage points from percent change;\ncheck whether wording sounds causal;\nsuggest a context and caveat table structure;\nhelp draft R code for a comparison after you provide verified variable definitions;\nask questions about whether a comparison group is clear.\n\nRisky AI tasks:\n\ninventing baseline values;\nchoosing a benchmark without explaining why it fits;\nguessing whether groups are comparable;\nturning a descriptive difference into a causal explanation;\nignoring missing values or group sizes;\nwriting a confident conclusion from an unclear denominator.\n\nGood AI prompt:\nI am writing a descriptive comparison for a class project.\nUse only the numbers and definitions I provide.\nDo not invent a baseline, benchmark, denominator, or cause.\nTell me whether my paragraph clearly names the comparison group,\ntime frame, denominator, and caveat.\n\n[paste table and draft paragraph]\n\n\n\n\n\n\nTipUse AI as a reviewer\n\n\n\nAI is often most useful after you have a draft table and paragraph. Ask it to look for missing context, ambiguous change language, and unsupported causal wording.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#common-mistakes-to-avoid",
+    "href": "08.html#common-mistakes-to-avoid",
+    "title": "8  Context for Comparison",
+    "section": "8.14 Common Mistakes to Avoid",
+    "text": "8.14 Common Mistakes to Avoid\nMany comparison problems are not caused by hard math. They are caused by unclear context.\n\n\n\n\n\n\n\nMistake\nWhy It Matters\n\n\n\n\nSaying a number is high or low without a comparison.\nThe audience cannot tell what reference point is being used.\n\n\nComparing raw counts across groups of different sizes.\nLarger groups may have larger counts even when their rate is lower.\n\n\nUsing a previous period as a baseline without checking seasonality.\nFall and spring patterns may differ for reasons unrelated to the claim.\n\n\nCalling a target an average.\nA goal and an average are different kinds of benchmarks.\n\n\nMixing percentage points and percent change.\nThe change may sound much smaller or larger than it is.\n\n\nHiding group sizes.\nSmall groups can make percentages or averages unstable.\n\n\nIgnoring missing values.\nThe summary may describe only records with available data.\n\n\nUsing causal words for descriptive tables.\nThe wording says more than the evidence can support.\n\n\nLetting AI add explanation.\nA smooth explanation can become invented evidence.\n\n\n\nThe fix is usually simple: name the baseline, benchmark, denominator, time frame, group sizes, and caveat.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#practical-workflow",
+    "href": "08.html#practical-workflow",
+    "title": "8  Context for Comparison",
+    "section": "8.15 Practical Workflow",
+    "text": "8.15 Practical Workflow\nUse this workflow when adding context to a descriptive summary:\n\nStart with the audience question.\nIdentify the descriptive summary from Chapter 7.\nAsk “Compared with what?”\nDecide whether you need a baseline, benchmark, time comparison, or comparison group.\nCheck that definitions and time frames match.\nName the denominator or comparison unit.\nDecide whether to report absolute difference, percent change, percentage point change, or a rate.\nShow counts or group sizes when needed.\nWrite a sentence that stays descriptive.\nAdd a caveat if the comparison could be overstated.\nAsk AI to review missing context only after you provide verified numbers.\nVerify any AI-assisted wording against the table, data dictionary, and cleaning log.\n\nThe purpose is not to make every paragraph long. The purpose is to make the comparison clear enough that the audience can understand what the number does and does not show.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#recap",
+    "href": "08.html#recap",
+    "title": "8  Context for Comparison",
+    "section": "8.16 Recap",
+    "text": "8.16 Recap\n\n\n\n\n\n\n\n\nKeyword\nDefinition\n\n\n\n\nComparison context\nThe reference information that helps an audience interpret a summary value.\n\n\nBaseline\nA starting, previous, or reference value used to compare change.\n\n\nBenchmark\nA target, goal, standard, average, or external value used for comparison.\n\n\nTime frame\nThe period covered by a summary or comparison.\n\n\nComparison group\nAnother group used to interpret a summary.\n\n\nAbsolute difference\nThe new value minus the baseline value.\n\n\nRelative change\nThe change divided by the baseline value.\n\n\nPercent change\nRelative change multiplied by 100.\n\n\nPercentage point change\nThe direct subtraction of two percentages.\n\n\nCausal boundary\nThe limit that keeps a descriptive comparison from becoming an unsupported causal claim.\n\n\nContext and caveat table\nA table that pairs a possible claim with needed context, a caveat, and safer wording.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
+  },
+  {
+    "objectID": "08.html#check-your-understanding",
+    "href": "08.html#check-your-understanding",
+    "title": "8  Context for Comparison",
+    "section": "8.17 Check your understanding",
+    "text": "8.17 Check your understanding\n\n\n\n\n\n\nNoteProblems\n\n\n\n\n\n\nWhy does a descriptive summary often need comparison context?\nWhat is a baseline?\nWhat is a benchmark?\nA tutoring center had 320 completed visits in Fall 2026 and 400 completed visits in Spring 2027. What is the absolute difference?\nUsing the same values, what is the percent change from Fall 2026 to Spring 2027?\nA completion rate increased from 10% to 12%. Is this a 2 percent increase or a 2 percentage point increase?\nWhy might visits per 100 students be more useful than total visits when comparing two campuses?\nWrite a careful descriptive interpretation of this table:\n\n\n\nCampus\nCompleted Visits\nStudents\nVisits per 100 Students\n\n\n\n\nNorth\n400\n2,000\n20.0\n\n\nSouth\n250\n800\n31.3\n\n\n\nWhy should a table comparing tutoring users and non-users avoid saying “tutoring caused higher grades” unless the study design supports that claim?\nMatch each term to the best description:\n\n\nBaseline\nBenchmark\nComparison group\nPercentage point change\n\nDescriptions:\n\nThe direct subtraction of two percentages.\nAnother group used to interpret a summary.\nA starting, previous, or reference value used to compare change.\nA target, goal, standard, average, or external value used for comparison.\n\n\n\n\n\n\n\n\n\n\nTipSolutions\n\n\n\n\n\n\nA descriptive summary often needs comparison context because a number by itself may not tell the audience whether the value is high, low, changing, meeting a goal, or different from another group.\nA baseline is a starting, previous, or reference value used to compare change.\nA benchmark is a target, goal, standard, average, or external value used for comparison.\nThe absolute difference is 80 completed visits because 400 - 320 = 80.\nThe percent change is 25% because (400 - 320) / 320 x 100 = 25%.\nThe completion rate increased by 2 percentage points. It also increased by 20% relative to the original 10% rate. The phrase “2 percent increase” is ambiguous and should be avoided.\nVisits per 100 students can be more useful when campuses have different enrollments. It compares relative use instead of only total activity.\nOne careful interpretation is: North Campus had more total completed tutoring visits than South Campus, with 400 compared with 250. South Campus had higher relative use, with 31.3 visits per 100 students compared with 20.0 at North Campus.\nA descriptive comparison can show that grades differed between groups, but it does not show why they differed. Tutoring users and non-users may differ in other ways, and the table alone does not establish causation.\na-3. b-4. c-2. d-1.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
+    ]
   }
 ]

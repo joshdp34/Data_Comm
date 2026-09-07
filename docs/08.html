@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Context for Comparison – STA 2310 Data Communication with AI</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ac731d99f942368ec2047317e7e82b91.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style type="text/css">
+.sidebar .chapter-number {
+color: #FFB81c;
+}
+.center-panel.quarto-layout-panel {
+justify-content: center;
+column-gap: 1rem;
+}
+</style>
+<style>
+div.callout-example.callout {
+  border-left-color: #008000;
+}
+div.callout-example.callout-style-default > .callout-header {
+  background-color: rgba(0, 128, 0, 0.13);
+}
+div.callout-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-example.callout-style-default .callout-icon::before, div.callout-example.callout-titled .callout-icon::before {
+  content: '📈';
+  background-image: none;
+}
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Context for Comparison</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"></a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What Is Data Communication with AI?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Audience, Claims, Evidence, and AI Boundaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Started with Quarto in RStudio</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding and Evaluating Data Sources</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Dictionaries and Variable Meaning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Cleaning for Communication</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Descriptive Summaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Context for Comparison</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#why-context-matters" id="toc-why-context-matters" class="nav-link active" data-scroll-target="#why-context-matters"><span class="header-section-number">8.1</span> Why Context Matters</a></li>
+  <li><a href="#comparison-questions" id="toc-comparison-questions" class="nav-link" data-scroll-target="#comparison-questions"><span class="header-section-number">8.2</span> Comparison Questions</a></li>
+  <li><a href="#baselines" id="toc-baselines" class="nav-link" data-scroll-target="#baselines"><span class="header-section-number">8.3</span> Baselines</a></li>
+  <li><a href="#benchmarks" id="toc-benchmarks" class="nav-link" data-scroll-target="#benchmarks"><span class="header-section-number">8.4</span> Benchmarks</a></li>
+  <li><a href="#time-frames" id="toc-time-frames" class="nav-link" data-scroll-target="#time-frames"><span class="header-section-number">8.5</span> Time Frames</a></li>
+  <li><a href="#comparison-groups" id="toc-comparison-groups" class="nav-link" data-scroll-target="#comparison-groups"><span class="header-section-number">8.6</span> Comparison Groups</a></li>
+  <li><a href="#absolute-difference-and-relative-change" id="toc-absolute-difference-and-relative-change" class="nav-link" data-scroll-target="#absolute-difference-and-relative-change"><span class="header-section-number">8.7</span> Absolute Difference and Relative Change</a></li>
+  <li><a href="#percentage-points-and-percent-change" id="toc-percentage-points-and-percent-change" class="nav-link" data-scroll-target="#percentage-points-and-percent-change"><span class="header-section-number">8.8</span> Percentage Points and Percent Change</a></li>
+  <li><a href="#comparing-counts-and-rates" id="toc-comparing-counts-and-rates" class="nav-link" data-scroll-target="#comparing-counts-and-rates"><span class="header-section-number">8.9</span> Comparing Counts and Rates</a></li>
+  <li><a href="#context-in-quarto" id="toc-context-in-quarto" class="nav-link" data-scroll-target="#context-in-quarto"><span class="header-section-number">8.10</span> Context in Quarto</a></li>
+  <li><a href="#descriptive-wording-and-causal-boundaries" id="toc-descriptive-wording-and-causal-boundaries" class="nav-link" data-scroll-target="#descriptive-wording-and-causal-boundaries"><span class="header-section-number">8.11</span> Descriptive Wording and Causal Boundaries</a></li>
+  <li><a href="#context-and-caveat-tables" id="toc-context-and-caveat-tables" class="nav-link" data-scroll-target="#context-and-caveat-tables"><span class="header-section-number">8.12</span> Context and Caveat Tables</a></li>
+  <li><a href="#ai-and-comparison-context" id="toc-ai-and-comparison-context" class="nav-link" data-scroll-target="#ai-and-comparison-context"><span class="header-section-number">8.13</span> AI and Comparison Context</a></li>
+  <li><a href="#common-mistakes-to-avoid" id="toc-common-mistakes-to-avoid" class="nav-link" data-scroll-target="#common-mistakes-to-avoid"><span class="header-section-number">8.14</span> Common Mistakes to Avoid</a></li>
+  <li><a href="#practical-workflow" id="toc-practical-workflow" class="nav-link" data-scroll-target="#practical-workflow"><span class="header-section-number">8.15</span> Practical Workflow</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">8.16</span> Recap</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding"><span class="header-section-number">8.17</span> Check your understanding</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Context for Comparison</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>A descriptive summary becomes more useful when the audience can compare it to something meaningful.</p>
+<p>In Chapter 7, you learned how to create summaries such as counts, percentages, rates, means, medians, and grouped tables. Those summaries answer questions like “How many?”, “What share?”, and “What is typical?”</p>
+<p>Chapter 8 asks the next question:</p>
+<blockquote class="blockquote">
+<p>Compared with what?</p>
+</blockquote>
+<p>Comparison gives numbers context. A tutoring center reported 400 completed visits. Is that high or low? The answer depends on the comparison:</p>
+<ul>
+<li>400 visits compared with 320 visits last semester;</li>
+<li>400 visits compared with 475 visits in the same semester last year;</li>
+<li>400 visits compared with a goal of 450 visits;</li>
+<li>400 visits across 2,000 students compared with 250 visits across 800 students at another campus;</li>
+<li>400 visits compared with available staff capacity.</li>
+</ul>
+<p>Each comparison tells a different story. The number did not change. The context changed.</p>
+<p>This chapter focuses on:</p>
+<ul>
+<li>comparison questions;</li>
+<li>baselines;</li>
+<li>benchmarks;</li>
+<li>time frames;</li>
+<li>comparison groups;</li>
+<li>absolute and relative change;</li>
+<li>percentage points and percent change;</li>
+<li>descriptive versus causal wording;</li>
+<li>context and caveat tables;</li>
+<li>AI support and verification.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Comparison creates meaning and risk">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Comparison creates meaning and risk
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A comparison can make a number easier to understand, but it can also make a claim too strong. The communication task is to choose context that fits the audience question and to explain the limits of that comparison.</p>
+</div>
+</div>
+<section id="why-context-matters" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="why-context-matters"><span class="header-section-number">8.1</span> Why Context Matters</h2>
+<p>A number rarely explains itself.</p>
+<p>Consider this sentence:</p>
+<blockquote class="blockquote">
+<p>The average recorded final grade for students with at least one completed tutoring visit was 84.6 points.</p>
+</blockquote>
+<p>That is a descriptive summary. It is clear enough as a single number, but the audience may immediately ask:</p>
+<ul>
+<li>Is 84.6 high or low?</li>
+<li>How does it compare with students who did not use tutoring?</li>
+<li>How does it compare with the course average?</li>
+<li>How does it compare with last semester?</li>
+<li>How many students are included?</li>
+<li>Were missing grades excluded?</li>
+<li>Does this mean tutoring caused the difference?</li>
+</ul>
+<p>Context helps answer some of those questions.</p>
+<p>For example:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Context Added</th>
+<th>Revised Statement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Comparison group</td>
+<td>Students with at least one completed tutoring visit had an average recorded final grade of 84.6 points, compared with 78.4 points for students with no recorded tutoring visit.</td>
+</tr>
+<tr class="even">
+<td>Group size</td>
+<td>The average was based on 48 students with recorded grades in the tutoring group and 76 students with recorded grades in the no-recorded-visit group.</td>
+</tr>
+<tr class="odd">
+<td>Time frame</td>
+<td>The comparison describes the cleaned Spring 2027 tutoring file.</td>
+</tr>
+<tr class="even">
+<td>Caveat</td>
+<td>The comparison is descriptive and does not show whether tutoring caused the grade difference.</td>
+</tr>
+</tbody>
+</table>
+<p>The context does not make the result perfect. It makes the result more interpretable.</p>
+</section>
+<section id="comparison-questions" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="comparison-questions"><span class="header-section-number">8.2</span> Comparison Questions</h2>
+<p>Before choosing a table or sentence, identify the comparison question.</p>
+<p>Different comparison questions need different kinds of context.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Audience Question</th>
+<th>Main Comparison Context Needed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Did tutoring visits increase from last semester?</td>
+<td>Baseline from the previous semester.</td>
+</tr>
+<tr class="even">
+<td>Did the program meet its goal?</td>
+<td>Benchmark or target.</td>
+</tr>
+<tr class="odd">
+<td>Which campus had heavier tutoring demand?</td>
+<td>Total counts and staff capacity.</td>
+</tr>
+<tr class="even">
+<td>Which campus had higher relative use?</td>
+<td>Rates per student or per 100 students.</td>
+</tr>
+<tr class="odd">
+<td>Did users and non-users have different recorded grades?</td>
+<td>Comparison groups, group sizes, and missing grade notes.</td>
+</tr>
+<tr class="even">
+<td>Was this month unusual?</td>
+<td>Historical average, seasonal pattern, or same month in prior years.</td>
+</tr>
+<tr class="odd">
+<td>Did the value improve after a change?</td>
+<td>Before/after values plus a caveat about causation.</td>
+</tr>
+</tbody>
+</table>
+<p>A good comparison question names:</p>
+<ol type="1">
+<li>The measure.</li>
+<li>The groups, periods, or standards being compared.</li>
+<li>The time frame.</li>
+<li>The denominator or unit.</li>
+<li>The claim type.</li>
+</ol>
+<p>Weak:</p>
+<blockquote class="blockquote">
+<p>Are tutoring results good?</p>
+</blockquote>
+<p>Better:</p>
+<blockquote class="blockquote">
+<p>In the cleaned Spring 2027 tutoring file, how did the average recorded final grade differ between students with at least one completed tutoring visit and students with no recorded tutoring visit?</p>
+</blockquote>
+<p>The better version makes the comparison visible before the calculation begins.</p>
+</section>
+<section id="baselines" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="baselines"><span class="header-section-number">8.3</span> Baselines</h2>
+<p>A <strong>baseline</strong> is a reference value used for comparison.</p>
+<p>Baselines often answer:</p>
+<blockquote class="blockquote">
+<p>Compared with where we started?</p>
+</blockquote>
+<p>Common baselines include:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Baseline Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Previous period</td>
+<td>This semester compared with last semester.</td>
+</tr>
+<tr class="even">
+<td>First period</td>
+<td>Week 15 compared with Week 1.</td>
+</tr>
+<tr class="odd">
+<td>Pre-change value</td>
+<td>After a new advising policy compared with before the policy.</td>
+</tr>
+<tr class="even">
+<td>Historical average</td>
+<td>This month compared with the average month over the last three years.</td>
+</tr>
+<tr class="odd">
+<td>Status quo group</td>
+<td>Students using a new resource compared with students using the usual resource.</td>
+</tr>
+</tbody>
+</table>
+<p>Suppose a tutoring center reports completed visits:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Term</th>
+<th style="text-align: right;">Completed Visits</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fall 2026</td>
+<td style="text-align: right;">320</td>
+</tr>
+<tr class="even">
+<td>Spring 2027</td>
+<td style="text-align: right;">400</td>
+</tr>
+</tbody>
+</table>
+<p>A careful summary:</p>
+<blockquote class="blockquote">
+<p>Completed tutoring visits increased from 320 in Fall 2026 to 400 in Spring 2027, an increase of 80 visits.</p>
+</blockquote>
+<p>The baseline is Fall 2026.</p>
+<p>You could also report percent change:</p>
+<p><span class="math display">\[
+\text{percent change} = \frac{\text{new value} - \text{baseline value}}{\text{baseline value}} \times 100
+\]</span></p>
+<p>For this example:</p>
+<p><span class="math display">\[
+\frac{400 - 320}{320} \times 100 = 25\%
+\]</span></p>
+<p>So the summary could say:</p>
+<blockquote class="blockquote">
+<p>Completed tutoring visits increased by 80 visits, or 25%, from Fall 2026 to Spring 2027.</p>
+</blockquote>
+<div class="callout callout-style-default callout-warning callout-titled" title="Different baselines create different stories">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Different baselines create different stories
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The baseline should fit the audience question. Comparing Spring 2027 to Fall 2026 may answer a semester-to-semester question, but comparing Spring 2027 to Spring 2026 may be better if tutoring use follows a seasonal academic pattern.</p>
+</div>
+</div>
+</section>
+<section id="benchmarks" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="benchmarks"><span class="header-section-number">8.4</span> Benchmarks</h2>
+<p>A <strong>benchmark</strong> is a reference standard, target, goal, or external comparison value.</p>
+<p>Benchmarks often answer:</p>
+<blockquote class="blockquote">
+<p>Compared with a standard or expectation?</p>
+</blockquote>
+<p>Examples:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Benchmark</th>
+<th>Possible Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Department goal</td>
+<td>Compare current value with an internal target.</td>
+</tr>
+<tr class="even">
+<td>Campus average</td>
+<td>Compare one program with the broader institution.</td>
+</tr>
+<tr class="odd">
+<td>State average</td>
+<td>Compare a local value with a state reference.</td>
+</tr>
+<tr class="even">
+<td>National average</td>
+<td>Compare a local value with a broader reference.</td>
+</tr>
+<tr class="odd">
+<td>Professional standard</td>
+<td>Compare a result with an accepted threshold.</td>
+</tr>
+<tr class="even">
+<td>Prior published result</td>
+<td>Compare a new finding with earlier research or reporting.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 8.1: Same value, two benchmarks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose a program has a 68% completion rate.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Reference</th>
+<th style="text-align: right;">Value</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Program completion rate</td>
+<td style="text-align: right;">68%</td>
+<td>Current program result.</td>
+</tr>
+<tr class="even">
+<td>Campus target</td>
+<td style="text-align: right;">70%</td>
+<td>The program is 2 percentage points below the target.</td>
+</tr>
+<tr class="odd">
+<td>State average</td>
+<td style="text-align: right;">63%</td>
+<td>The program is 5 percentage points above the state average.</td>
+</tr>
+</tbody>
+</table>
+<p>Both comparisons are true. The program is below one benchmark and above another.</p>
+<p>The communication should name the benchmark instead of saying only that the result is “good” or “bad.”</p>
+</div>
+</div>
+<p>Benchmarks need documentation.</p>
+<p>Ask:</p>
+<ol type="1">
+<li>Who created the benchmark?</li>
+<li>What population does it describe?</li>
+<li>What time period does it use?</li>
+<li>Does it define the measure the same way?</li>
+<li>Is it a target, average, minimum standard, or aspirational goal?</li>
+<li>Is it still current?</li>
+<li>Does the audience understand why this benchmark matters?</li>
+</ol>
+<p>A benchmark is useful only if it fits the measure and audience question.</p>
+</section>
+<section id="time-frames" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="time-frames"><span class="header-section-number">8.5</span> Time Frames</h2>
+<p>A <strong>time frame</strong> is the period covered by a summary or comparison.</p>
+<p>Time frames shape interpretation.</p>
+<p>The same data can look different depending on whether you summarize by day, week, month, semester, calendar year, academic year, or multi-year period.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time Frame Choice</th>
+<th>Useful For</th>
+<th>Watch For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Daily</td>
+<td>Operational monitoring and short-term activity.</td>
+<td>Random variation and day-of-week patterns.</td>
+</tr>
+<tr class="even">
+<td>Weekly</td>
+<td>Class schedules, service use, and workload cycles.</td>
+<td>Holiday weeks and partial weeks.</td>
+</tr>
+<tr class="odd">
+<td>Monthly</td>
+<td>Dashboards and administrative reporting.</td>
+<td>Months have different lengths.</td>
+</tr>
+<tr class="even">
+<td>Semester</td>
+<td>Academic programs and course outcomes.</td>
+<td>Fall and spring may not be directly comparable.</td>
+</tr>
+<tr class="odd">
+<td>Calendar year</td>
+<td>Public reporting and annual summaries.</td>
+<td>May split academic cycles.</td>
+</tr>
+<tr class="even">
+<td>Academic year</td>
+<td>Education outcomes and program planning.</td>
+<td>May not match public reporting calendars.</td>
+</tr>
+<tr class="odd">
+<td>Multi-year average</td>
+<td>Stable context and long-term pattern.</td>
+<td>Can hide recent changes.</td>
+</tr>
+</tbody>
+</table>
+<p>Suppose tutoring visits are summarized by month:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Month</th>
+<th style="text-align: right;">Completed Visits</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>January</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="even">
+<td>February</td>
+<td style="text-align: right;">75</td>
+</tr>
+<tr class="odd">
+<td>March</td>
+<td style="text-align: right;">110</td>
+</tr>
+<tr class="even">
+<td>April</td>
+<td style="text-align: right;">125</td>
+</tr>
+<tr class="odd">
+<td>May</td>
+<td style="text-align: right;">50</td>
+</tr>
+</tbody>
+</table>
+<p>A weak claim:</p>
+<blockquote class="blockquote">
+<p>Tutoring demand increased every month.</p>
+</blockquote>
+<p>That ignores May, and it may ignore the academic calendar.</p>
+<p>A better descriptive claim:</p>
+<blockquote class="blockquote">
+<p>Completed tutoring visits rose from January through April, then declined in May. This pattern may reflect the semester calendar, so a comparison with the same months in prior spring terms would provide better context.</p>
+</blockquote>
+<p>The better claim describes the pattern and names a useful next comparison.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Use matching time frames">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Use matching time frames
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When possible, compare like with like: spring to spring, full month to full month, complete semester to complete semester, and academic year to academic year.</p>
+</div>
+</div>
+</section>
+<section id="comparison-groups" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="comparison-groups"><span class="header-section-number">8.6</span> Comparison Groups</h2>
+<p>A <strong>comparison group</strong> is another group used to interpret a summary.</p>
+<p>Examples:</p>
+<ul>
+<li>students with at least one completed tutoring visit compared with students with no recorded tutoring visit;</li>
+<li>first-year students compared with seniors;</li>
+<li>one campus compared with another campus;</li>
+<li>survey respondents compared with all invited students;</li>
+<li>one course section compared with another section;</li>
+<li>one county compared with neighboring counties.</li>
+</ul>
+<p>Comparison groups should be clear enough that the audience knows who or what is being compared.</p>
+<p>Ask:</p>
+<ol type="1">
+<li>How is each group defined?</li>
+<li>Are groups mutually exclusive?</li>
+<li>Can one person or record appear in more than one group?</li>
+<li>Do the groups use the same time frame?</li>
+<li>Do the groups use the same variable definitions?</li>
+<li>Are group sizes visible?</li>
+<li>Are missing values handled consistently?</li>
+<li>Is the comparison descriptive, associational, or causal?</li>
+</ol>
+<p>Example:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tutoring Use Group</th>
+<th style="text-align: right;">Students With Recorded Final Grade</th>
+<th style="text-align: right;">Average Recorded Final Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No recorded tutoring visit</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">78.4 points</td>
+</tr>
+<tr class="even">
+<td>At least one completed tutoring visit</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">84.6 points</td>
+</tr>
+</tbody>
+</table>
+<p>Careful interpretation:</p>
+<blockquote class="blockquote">
+<p>In the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had a higher average recorded final grade than students with no recorded tutoring visit. The comparison is descriptive and does not show whether tutoring caused the grade difference.</p>
+</blockquote>
+<p>The comparison group is useful. The causal boundary still matters.</p>
+</section>
+<section id="absolute-difference-and-relative-change" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="absolute-difference-and-relative-change"><span class="header-section-number">8.7</span> Absolute Difference and Relative Change</h2>
+<p>Comparisons often use change language.</p>
+<p>Two common summaries are <strong>absolute difference</strong> and <strong>relative change</strong>.</p>
+<p>The <strong>absolute difference</strong> is the new value minus the baseline value.</p>
+<p><span class="math display">\[
+\text{absolute difference} = \text{new value} - \text{baseline value}
+\]</span></p>
+<p>The <strong>relative change</strong> compares the difference with the baseline.</p>
+<p><span class="math display">\[
+\text{relative change} = \frac{\text{new value} - \text{baseline value}}{\text{baseline value}}
+\]</span></p>
+<p>Suppose completed tutoring visits increased from 320 to 400.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Summary</th>
+<th>Calculation</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Absolute difference</td>
+<td>400 - 320 = 80</td>
+<td>80 more completed visits.</td>
+</tr>
+<tr class="even">
+<td>Percent change</td>
+<td>(400 - 320) / 320 x 100 = 25%</td>
+<td>25% increase relative to the baseline.</td>
+</tr>
+</tbody>
+</table>
+<p>Both can be useful.</p>
+<p>The absolute difference is often easier to understand. The percent change helps compare changes from different starting sizes.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Use both when it helps">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Use both when it helps
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For many audiences, reporting both the count difference and the percent change is clearer than choosing only one. “An increase of 80 visits, or 25%” gives both scale and relative change.</p>
+</div>
+</div>
+</section>
+<section id="percentage-points-and-percent-change" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="percentage-points-and-percent-change"><span class="header-section-number">8.8</span> Percentage Points and Percent Change</h2>
+<p>Percentages need careful change language.</p>
+<p>If a completion rate rises from 10% to 12%, the change is:</p>
+<ul>
+<li>2 percentage points;</li>
+<li>20% relative increase from the original 10%.</li>
+</ul>
+<p>Both are mathematically true, but they are not the same statement.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Original Rate</th>
+<th style="text-align: right;">New Rate</th>
+<th style="text-align: right;">Percentage Point Change</th>
+<th style="text-align: right;">Percent Change</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">10%</td>
+<td style="text-align: right;">12%</td>
+<td style="text-align: right;">+2 percentage points</td>
+<td style="text-align: right;">+20%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40%</td>
+<td style="text-align: right;">44%</td>
+<td style="text-align: right;">+4 percentage points</td>
+<td style="text-align: right;">+10%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">80%</td>
+<td style="text-align: right;">84%</td>
+<td style="text-align: right;">+4 percentage points</td>
+<td style="text-align: right;">+5%</td>
+</tr>
+</tbody>
+</table>
+<p>A careful sentence:</p>
+<blockquote class="blockquote">
+<p>The completion rate increased from 10% to 12%, a 2 percentage point increase.</p>
+</blockquote>
+<p>If relative change matters, say it clearly:</p>
+<blockquote class="blockquote">
+<p>The completion rate increased from 10% to 12%, which is a 20% increase relative to the original 10% rate.</p>
+</blockquote>
+<p>Avoid:</p>
+<blockquote class="blockquote">
+<p>The completion rate increased by 2%.</p>
+</blockquote>
+<p>That sentence is ambiguous. It may mean 2 percentage points, or it may mean 2% relative change.</p>
+</section>
+<section id="comparing-counts-and-rates" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="comparing-counts-and-rates"><span class="header-section-number">8.9</span> Comparing Counts and Rates</h2>
+<p>Raw counts and rates answer different questions.</p>
+<p>Suppose two campuses report tutoring use:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Campus</th>
+<th style="text-align: right;">Completed Visits</th>
+<th style="text-align: right;">Students</th>
+<th style="text-align: right;">Visits per 100 Students</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>North</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">2,000</td>
+<td style="text-align: right;">20.0</td>
+</tr>
+<tr class="even">
+<td>South</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">800</td>
+<td style="text-align: right;">31.3</td>
+</tr>
+</tbody>
+</table>
+<p>North has more total visits.</p>
+<p>South has more visits per 100 students.</p>
+<p>Both summaries are true.</p>
+<p>The better choice depends on the audience question:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Audience Question</th>
+<th>Better Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Where is total workload larger?</td>
+<td>Completed visits.</td>
+</tr>
+<tr class="even">
+<td>Where is relative student use higher?</td>
+<td>Visits per 100 students.</td>
+</tr>
+<tr class="odd">
+<td>Where might staffing pressure be higher?</td>
+<td>Visits plus staff hours or advisor capacity.</td>
+</tr>
+<tr class="even">
+<td>Where might outreach be more successful?</td>
+<td>Visit rate plus context about eligibility and access.</td>
+</tr>
+</tbody>
+</table>
+<p>Do not treat a rate as automatically better than a count. The right summary depends on the decision the audience needs to make.</p>
+</section>
+<section id="context-in-quarto" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="context-in-quarto"><span class="header-section-number">8.10</span> Context in Quarto</h2>
+<p>Quarto can help you keep comparison context close to the result.</p>
+<p>For a simple typed table:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Term <span class="pp">|</span> Completed Visits <span class="pp">|</span> Baseline <span class="pp">|</span> Change from Baseline <span class="pp">|</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---</span> <span class="pp">| ---:</span> <span class="pp">| ---:</span> <span class="pp">| ---:</span> <span class="pp">|</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fall 2026 <span class="pp">|</span> 320 <span class="pp">|</span> -- <span class="pp">|</span> -- <span class="pp">|</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Spring 2027 <span class="pp">|</span> 400 <span class="pp">|</span> 320 <span class="pp">|</span> +80 visits <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For an R workflow, the comparison might look like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>term_summary <span class="ot">&lt;-</span> tutoring_clean <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(term) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">completed_visits =</span> <span class="fu">sum</span>(completed_visit <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">students =</span> dplyr<span class="sc">::</span><span class="fu">n_distinct</span>(student_key),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">visits_per_100_students =</span> completed_visits <span class="sc">/</span> students <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the table is ordered by time, you can calculate change from the previous term:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>term_summary <span class="ot">&lt;-</span> term_summary <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(term) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">previous_visits =</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(completed_visits),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">visit_change =</span> completed_visits <span class="sc">-</span> previous_visits,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent_change =</span> visit_change <span class="sc">/</span> previous_visits <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The code is not enough by itself. The written interpretation should still name the baseline, denominator, time frame, and caveat.</p>
+</section>
+<section id="descriptive-wording-and-causal-boundaries" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="descriptive-wording-and-causal-boundaries"><span class="header-section-number">8.11</span> Descriptive Wording and Causal Boundaries</h2>
+<p>Comparison language can easily drift into causal language.</p>
+<p>Descriptive comparison:</p>
+<blockquote class="blockquote">
+<p>Students with at least one completed tutoring visit had higher average recorded grades than students with no recorded tutoring visit.</p>
+</blockquote>
+<p>Causal claim:</p>
+<blockquote class="blockquote">
+<p>Tutoring improved student grades.</p>
+</blockquote>
+<p>The causal claim is stronger. It needs stronger evidence.</p>
+<p>Common causal words include:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Causal Word or Phrase</th>
+<th>Why It Needs Care</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>caused</td>
+<td>Claims one thing produced another.</td>
+</tr>
+<tr class="even">
+<td>led to</td>
+<td>Implies one event produced a later result.</td>
+</tr>
+<tr class="odd">
+<td>improved</td>
+<td>Often implies the program created the improvement.</td>
+</tr>
+<tr class="even">
+<td>impact</td>
+<td>Usually implies an effect.</td>
+</tr>
+<tr class="odd">
+<td>because</td>
+<td>Gives an explanation, not only a description.</td>
+</tr>
+<tr class="even">
+<td>resulted in</td>
+<td>Claims an outcome followed from a cause.</td>
+</tr>
+</tbody>
+</table>
+<p>Descriptive alternatives include:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Descriptive Phrase</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>had</td>
+<td>Tutoring users had higher average recorded grades.</td>
+</tr>
+<tr class="even">
+<td>reported</td>
+<td>Survey respondents reported more confidence after the workshop.</td>
+</tr>
+<tr class="odd">
+<td>showed</td>
+<td>The table showed higher visit rates at South Campus.</td>
+</tr>
+<tr class="even">
+<td>differed</td>
+<td>Completion rates differed by section.</td>
+</tr>
+<tr class="odd">
+<td>was higher than</td>
+<td>The visit rate was higher in Spring 2027 than in Fall 2026.</td>
+</tr>
+<tr class="even">
+<td>was lower than</td>
+<td>The response rate was lower for the second survey.</td>
+</tr>
+</tbody>
+</table>
+<p>Descriptive wording is not timid. It is accurate.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="A table does not prove a cause">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>A table does not prove a cause
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A comparison table can show that two values differ. It does not automatically show why they differ. Causal claims require design evidence, not only descriptive differences.</p>
+</div>
+</div>
+</section>
+<section id="context-and-caveat-tables" class="level2" data-number="8.12">
+<h2 data-number="8.12" class="anchored" data-anchor-id="context-and-caveat-tables"><span class="header-section-number">8.12</span> Context and Caveat Tables</h2>
+<p>A <strong>context and caveat table</strong> helps connect a possible claim to the comparison information it needs.</p>
+<p>This is useful when a summary is technically correct but easy to overstate.</p>
+<p>Template:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Possible Claim</th>
+<th>Context Needed</th>
+<th>Careful Caveat</th>
+<th>Safer Wording</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[draft claim]</td>
+<td>[baseline, benchmark, time frame, denominator, or comparison group]</td>
+<td>[what the comparison does not prove]</td>
+<td>[revised claim]</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Possible Claim</th>
+<th>Context Needed</th>
+<th>Careful Caveat</th>
+<th>Safer Wording</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tutoring use increased.</td>
+<td>Previous term or same term last year; total students; completed visit definition.</td>
+<td>More visits may reflect more students, more appointments per student, better recordkeeping, or higher demand.</td>
+<td>Completed tutoring visits increased from 320 in Fall 2026 to 400 in Spring 2027.</td>
+</tr>
+<tr class="even">
+<td>South Campus used tutoring more than North Campus.</td>
+<td>Campus enrollment and same visit definition.</td>
+<td>South had fewer total visits but more visits per 100 students.</td>
+<td>South Campus had 31.3 visits per 100 students, compared with 20.0 at North Campus.</td>
+</tr>
+<tr class="odd">
+<td>Tutoring improved grades.</td>
+<td>Comparison group, group sizes, missing grade counts, research design.</td>
+<td>The table is descriptive and does not show whether tutoring caused grade differences.</td>
+<td>Students with at least one completed tutoring visit had higher average recorded grades in the cleaned file.</td>
+</tr>
+</tbody>
+</table>
+<p>This table trains a useful habit:</p>
+<blockquote class="blockquote">
+<p>Draft the claim, then ask what context the claim needs before it is safe to publish.</p>
+</blockquote>
+</section>
+<section id="ai-and-comparison-context" class="level2" data-number="8.13">
+<h2 data-number="8.13" class="anchored" data-anchor-id="ai-and-comparison-context"><span class="header-section-number">8.13</span> AI and Comparison Context</h2>
+<p>AI can help with comparison work, but it should not create the evidence.</p>
+<p>Useful AI tasks:</p>
+<ul>
+<li>identify whether a sentence names its baseline;</li>
+<li>suggest clearer benchmark language;</li>
+<li>revise a paragraph to distinguish percentage points from percent change;</li>
+<li>check whether wording sounds causal;</li>
+<li>suggest a context and caveat table structure;</li>
+<li>help draft R code for a comparison after you provide verified variable definitions;</li>
+<li>ask questions about whether a comparison group is clear.</li>
+</ul>
+<p>Risky AI tasks:</p>
+<ul>
+<li>inventing baseline values;</li>
+<li>choosing a benchmark without explaining why it fits;</li>
+<li>guessing whether groups are comparable;</li>
+<li>turning a descriptive difference into a causal explanation;</li>
+<li>ignoring missing values or group sizes;</li>
+<li>writing a confident conclusion from an unclear denominator.</li>
+</ul>
+<p>Good AI prompt:</p>
+<pre class="text"><code>I am writing a descriptive comparison for a class project.
+Use only the numbers and definitions I provide.
+Do not invent a baseline, benchmark, denominator, or cause.
+Tell me whether my paragraph clearly names the comparison group,
+time frame, denominator, and caveat.
+
+[paste table and draft paragraph]</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled" title="Use AI as a reviewer">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Use AI as a reviewer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>AI is often most useful after you have a draft table and paragraph. Ask it to look for missing context, ambiguous change language, and unsupported causal wording.</p>
+</div>
+</div>
+</section>
+<section id="common-mistakes-to-avoid" class="level2" data-number="8.14">
+<h2 data-number="8.14" class="anchored" data-anchor-id="common-mistakes-to-avoid"><span class="header-section-number">8.14</span> Common Mistakes to Avoid</h2>
+<p>Many comparison problems are not caused by hard math. They are caused by unclear context.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Saying a number is high or low without a comparison.</td>
+<td>The audience cannot tell what reference point is being used.</td>
+</tr>
+<tr class="even">
+<td>Comparing raw counts across groups of different sizes.</td>
+<td>Larger groups may have larger counts even when their rate is lower.</td>
+</tr>
+<tr class="odd">
+<td>Using a previous period as a baseline without checking seasonality.</td>
+<td>Fall and spring patterns may differ for reasons unrelated to the claim.</td>
+</tr>
+<tr class="even">
+<td>Calling a target an average.</td>
+<td>A goal and an average are different kinds of benchmarks.</td>
+</tr>
+<tr class="odd">
+<td>Mixing percentage points and percent change.</td>
+<td>The change may sound much smaller or larger than it is.</td>
+</tr>
+<tr class="even">
+<td>Hiding group sizes.</td>
+<td>Small groups can make percentages or averages unstable.</td>
+</tr>
+<tr class="odd">
+<td>Ignoring missing values.</td>
+<td>The summary may describe only records with available data.</td>
+</tr>
+<tr class="even">
+<td>Using causal words for descriptive tables.</td>
+<td>The wording says more than the evidence can support.</td>
+</tr>
+<tr class="odd">
+<td>Letting AI add explanation.</td>
+<td>A smooth explanation can become invented evidence.</td>
+</tr>
+</tbody>
+</table>
+<p>The fix is usually simple: name the baseline, benchmark, denominator, time frame, group sizes, and caveat.</p>
+</section>
+<section id="practical-workflow" class="level2" data-number="8.15">
+<h2 data-number="8.15" class="anchored" data-anchor-id="practical-workflow"><span class="header-section-number">8.15</span> Practical Workflow</h2>
+<p>Use this workflow when adding context to a descriptive summary:</p>
+<ol type="1">
+<li>Start with the audience question.</li>
+<li>Identify the descriptive summary from Chapter 7.</li>
+<li>Ask “Compared with what?”</li>
+<li>Decide whether you need a baseline, benchmark, time comparison, or comparison group.</li>
+<li>Check that definitions and time frames match.</li>
+<li>Name the denominator or comparison unit.</li>
+<li>Decide whether to report absolute difference, percent change, percentage point change, or a rate.</li>
+<li>Show counts or group sizes when needed.</li>
+<li>Write a sentence that stays descriptive.</li>
+<li>Add a caveat if the comparison could be overstated.</li>
+<li>Ask AI to review missing context only after you provide verified numbers.</li>
+<li>Verify any AI-assisted wording against the table, data dictionary, and cleaning log.</li>
+</ol>
+<p>The purpose is not to make every paragraph long. The purpose is to make the comparison clear enough that the audience can understand what the number does and does not show.</p>
+</section>
+<section id="recap" class="level2" data-number="8.16">
+<h2 data-number="8.16" class="anchored" data-anchor-id="recap"><span class="header-section-number">8.16</span> Recap</h2>
+<div class="recap-table">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Comparison context</strong></td>
+<td>The reference information that helps an audience interpret a summary value.</td>
+</tr>
+<tr class="even">
+<td><strong>Baseline</strong></td>
+<td>A starting, previous, or reference value used to compare change.</td>
+</tr>
+<tr class="odd">
+<td><strong>Benchmark</strong></td>
+<td>A target, goal, standard, average, or external value used for comparison.</td>
+</tr>
+<tr class="even">
+<td><strong>Time frame</strong></td>
+<td>The period covered by a summary or comparison.</td>
+</tr>
+<tr class="odd">
+<td><strong>Comparison group</strong></td>
+<td>Another group used to interpret a summary.</td>
+</tr>
+<tr class="even">
+<td><strong>Absolute difference</strong></td>
+<td>The new value minus the baseline value.</td>
+</tr>
+<tr class="odd">
+<td><strong>Relative change</strong></td>
+<td>The change divided by the baseline value.</td>
+</tr>
+<tr class="even">
+<td><strong>Percent change</strong></td>
+<td>Relative change multiplied by 100.</td>
+</tr>
+<tr class="odd">
+<td><strong>Percentage point change</strong></td>
+<td>The direct subtraction of two percentages.</td>
+</tr>
+<tr class="even">
+<td><strong>Causal boundary</strong></td>
+<td>The limit that keeps a descriptive comparison from becoming an unsupported causal claim.</td>
+</tr>
+<tr class="odd">
+<td><strong>Context and caveat table</strong></td>
+<td>A table that pairs a possible claim with needed context, a caveat, and safer wording.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="check-your-understanding" class="level2" data-number="8.17">
+<h2 data-number="8.17" class="anchored" data-anchor-id="check-your-understanding"><span class="header-section-number">8.17</span> Check your understanding</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Why does a descriptive summary often need comparison context?</p></li>
+<li><p>What is a baseline?</p></li>
+<li><p>What is a benchmark?</p></li>
+<li><p>A tutoring center had 320 completed visits in Fall 2026 and 400 completed visits in Spring 2027. What is the absolute difference?</p></li>
+<li><p>Using the same values, what is the percent change from Fall 2026 to Spring 2027?</p></li>
+<li><p>A completion rate increased from 10% to 12%. Is this a 2 percent increase or a 2 percentage point increase?</p></li>
+<li><p>Why might visits per 100 students be more useful than total visits when comparing two campuses?</p></li>
+<li><p>Write a careful descriptive interpretation of this table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Campus</th>
+<th style="text-align: right;">Completed Visits</th>
+<th style="text-align: right;">Students</th>
+<th style="text-align: right;">Visits per 100 Students</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>North</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">2,000</td>
+<td style="text-align: right;">20.0</td>
+</tr>
+<tr class="even">
+<td>South</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">800</td>
+<td style="text-align: right;">31.3</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>Why should a table comparing tutoring users and non-users avoid saying “tutoring caused higher grades” unless the study design supports that claim?</p></li>
+<li><p>Match each term to the best description:</p></li>
+</ol>
+<ol type="a">
+<li><p>Baseline</p></li>
+<li><p>Benchmark</p></li>
+<li><p>Comparison group</p></li>
+<li><p>Percentage point change</p></li>
+</ol>
+<p>Descriptions:</p>
+<ol type="1">
+<li><p>The direct subtraction of two percentages.</p></li>
+<li><p>Another group used to interpret a summary.</p></li>
+<li><p>A starting, previous, or reference value used to compare change.</p></li>
+<li><p>A target, goal, standard, average, or external value used for comparison.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>A descriptive summary often needs comparison context because a number by itself may not tell the audience whether the value is high, low, changing, meeting a goal, or different from another group.</p></li>
+<li><p>A baseline is a starting, previous, or reference value used to compare change.</p></li>
+<li><p>A benchmark is a target, goal, standard, average, or external value used for comparison.</p></li>
+<li><p>The absolute difference is 80 completed visits because 400 - 320 = 80.</p></li>
+<li><p>The percent change is 25% because (400 - 320) / 320 x 100 = 25%.</p></li>
+<li><p>The completion rate increased by 2 percentage points. It also increased by 20% relative to the original 10% rate. The phrase “2 percent increase” is ambiguous and should be avoided.</p></li>
+<li><p>Visits per 100 students can be more useful when campuses have different enrollments. It compares relative use instead of only total activity.</p></li>
+<li><p>One careful interpretation is: North Campus had more total completed tutoring visits than South Campus, with 400 compared with 250. South Campus had higher relative use, with 31.3 visits per 100 students compared with 20.0 at North Campus.</p></li>
+<li><p>A descriptive comparison can show that grades differed between groups, but it does not show why they differed. Tutoring users and non-users may differ in other ways, and the table alone does not establish causation.</p></li>
+<li><p>a-3. b-4. c-2. d-1.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
