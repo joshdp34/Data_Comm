@@ -1148,5 +1148,205 @@
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Context for Comparison</span>"
     ]
+  },
+  {
+    "objectID": "09.html",
+    "href": "09.html",
+    "title": "9  Planning Mini-Project 1",
+    "section": "",
+    "text": "9.1 What Mini-Project 1 Is\nMini-Project 1 is your first chance to pull several course skills together into one short data communication product.\nSo far, you have practiced:\nMini-Project 1 asks you to use those skills in a short data memo.\nBefore writing the memo, you need a plan. A good plan does not need to answer every question yet. It should make the project clear enough that you can draft the memo without wandering.\nThis chapter focuses on:\nMini-Project 1 is a short data memo.\nThe memo should communicate a careful, evidence-based answer to a focused question for a specific audience.\nIt will usually include:\nThe final memo is not meant to be a full research paper. It is a short, disciplined communication product.\nThink of it as answering:\nThat sentence has four important pieces:",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#what-mini-project-1-is",
+    "href": "09.html#what-mini-project-1-is",
+    "title": "9  Planning Mini-Project 1",
+    "section": "",
+    "text": "a clear audience;\na focused question;\none data source;\na brief source note;\na small data dictionary or variable note;\na cleaning note, if cleaning is needed;\none descriptive summary table;\na careful interpretation;\na caveat or limitation;\nan AI-use note.\n\n\n\n\nHere is what this source can responsibly tell this audience about this question.\n\n\n\n\n\nPiece\nQuestion to Ask\n\n\n\n\nthis source\nWhat data source am I using, and what does it measure?\n\n\nresponsibly tell\nWhat can I claim without overstating?\n\n\nthis audience\nWho needs this information?\n\n\nthis question\nWhat focused question am I answering?",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#start-with-the-audience",
+    "href": "09.html#start-with-the-audience",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.2 Start With the Audience",
+    "text": "9.2 Start With the Audience\nA project becomes easier to scope when the audience is specific.\nWeak audience:\n\nEveryone.\n\nBetter audiences:\n\nstudents deciding whether to use campus tutoring;\na tutoring center director planning staffing;\na department chair reviewing course support needs;\na local nonprofit explaining service demand;\na city council member comparing neighborhood requests;\na campus communications team preparing a short update.\n\nThe audience affects every later decision.\n\n\n\n\n\n\n\nAudience\nLikely Need\n\n\n\n\nStudents\nClear, practical information and plain-language interpretation.\n\n\nProgram staff\nOperational counts, workload, and context for planning.\n\n\nAdministrators\nSummary comparisons, trends, caveats, and decision relevance.\n\n\nPublic readers\nSource clarity, definitions, accessibility, and careful wording.\n\n\nTechnical readers\nReproducible workflow, methods detail, and data limitations.\n\n\n\n\n\n\n\n\n\nTipUse a real audience\n\n\n\nThe audience does not need to be a real person you know, but it should be a realistic group. “Students considering tutoring” is easier to write for than “people interested in education.”",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#turn-a-topic-into-a-question",
+    "href": "09.html#turn-a-topic-into-a-question",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.3 Turn a Topic Into a Question",
+    "text": "9.3 Turn a Topic Into a Question\nA broad topic is not yet a project.\nExamples of broad topics:\n\ntutoring;\nstudent success;\npublic health;\nhousing;\nunemployment;\ntransportation;\nclimate;\ngraduation rates.\n\nA focused question names the measure, group, time frame, and comparison.\n\n\n\n\n\n\n\nBroad Topic\nMore Focused Question\n\n\n\n\nTutoring\nIn the cleaned Spring 2027 tutoring file, what share of students had at least one completed tutoring visit?\n\n\nStudent success\nHow did course completion rates differ by section in Spring 2027?\n\n\nPublic health\nHow did reported flu-like illness visits change from January to March in one county?\n\n\nHousing\nHow did median rent differ between two nearby counties in the most recent available year?\n\n\nUnemployment\nHow did one county’s unemployment rate compare with the state average during the same month?\n\n\nTransportation\nWhich bus route had the highest average weekday ridership in the selected month?\n\n\n\nA useful Mini-Project 1 question should be answerable with one source and one small summary table.\nWeak:\n\nWhat causes student success?\n\nBetter:\n\nIn the cleaned Spring 2027 tutoring file, how did average recorded final grades differ between students with at least one completed tutoring visit and students with no recorded tutoring visit?\n\nThe better question is smaller. That is a strength.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#scope-make-the-project-small-enough",
+    "href": "09.html#scope-make-the-project-small-enough",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.4 Scope: Make the Project Small Enough",
+    "text": "9.4 Scope: Make the Project Small Enough\nMini-Project 1 should be narrow enough to complete carefully.\nA good scope usually has:\n\none main audience;\none main source;\none focused question;\none main summary table;\none careful interpretation;\none caveat.\n\nScope is not about making the project less important. It is about making the work more precise.\n\n\n\n\n\n\n\nToo Broad\nBetter Scope\n\n\n\n\n“Analyze all factors related to student success.”\nCompare recorded final grades by tutoring-use group in one cleaned course file.\n\n\n“Explain housing affordability.”\nCompare median rent between two counties using one public source.\n\n\n“Show whether public transit works.”\nSummarize weekday ridership by route for one month.\n\n\n“Evaluate a campus program.”\nCompare program participation with an internal target for one semester.\n\n\n\n\n\n\n\n\n\nWarningSmall is not shallow\n\n\n\nA small question can still require careful source evaluation, variable meaning, cleaning, denominator choices, comparison context, and caveats. Narrow scope gives you room to be responsible.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#source-fit",
+    "href": "09.html#source-fit",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.5 Source Fit",
+    "text": "9.5 Source Fit\nYour source should fit the question.\nAsk:\n\nDoes the source include the population or units I care about?\nDoes it include the measure I need?\nDoes it cover the right time frame?\nDoes it provide documentation, definitions, or notes?\nCan I use it in Quarto?\nCan I cite or describe where it came from?\nDoes it avoid private, sensitive, or identifiable information?\nDoes it support a descriptive or comparative claim?\n\nThe source does not have to be perfect. It does need to be honest enough for the claim.\n\n\n\n\n\n\nExampleExample 9.1: Source fit\n\n\n\nAudience:\n\nA tutoring center director planning next semester’s staffing.\n\nFocused question:\n\nHow did completed tutoring visits change from Fall 2026 to Spring 2027?\n\nPossible source:\n\nA tutoring appointment export with one row per appointment, appointment status, term, date, and student identifier.\n\nWhy it fits:\n\nThe source records appointment-level service use and includes a term field. It can support a descriptive comparison of completed visits by term.\n\nLimit:\n\nIt measures recorded appointments, not all possible student need for tutoring.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#draft-claims",
+    "href": "09.html#draft-claims",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.6 Draft Claims",
+    "text": "9.6 Draft Claims\nA draft claim is a first version of what you think the memo may say.\nAt the proposal stage, the claim may still change. That is normal.\nA draft claim should be:\n\nspecific;\nconnected to the source;\nsupported by a planned summary;\ndescriptive unless the project design supports something stronger;\npaired with a caveat.\n\nWeak draft claim:\n\nTutoring works.\n\nBetter draft claim:\n\nIn the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had higher average recorded final grades than students with no recorded tutoring visit.\n\nBetter with caveat:\n\nIn the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had higher average recorded final grades than students with no recorded tutoring visit. This comparison is descriptive and does not show whether tutoring caused the grade difference.\n\nThe better claim uses what the course has been building:\n\n\n\n\n\n\n\nCourse Skill\nHow It Appears in the Claim\n\n\n\n\nSource\n“cleaned Spring 2027 tutoring file”\n\n\nVariable meaning\n“completed tutoring visit” and “recorded final grade”\n\n\nSummary\naverage grade by group\n\n\nComparison context\ntutoring users compared with non-users\n\n\nCaveat\ndescriptive, not causal",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#claim-type",
+    "href": "09.html#claim-type",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.7 Claim Type",
+    "text": "9.7 Claim Type\nBefore drafting the memo, identify the type of claim.\n\n\n\n\n\n\n\n\nClaim Type\nWhat It Says\nEvidence Needed\n\n\n\n\nDescriptive\nWhat is in the data.\nClear source, definitions, denominator, and summary.\n\n\nComparative\nHow groups, time periods, or benchmarks differ.\nConsistent definitions and a clear comparison.\n\n\nAssociational\nHow two variables vary together.\nVariables measured for the same units plus careful wording.\n\n\nCausal\nOne thing produced a change in another.\nStrong research design, not only a summary table.\n\n\nEvaluative\nSomething is good, bad, sufficient, or insufficient.\nEvidence plus a stated criterion or benchmark.\n\n\n\nMini-Project 1 will usually use descriptive or comparative claims.\nThat is enough. A careful descriptive or comparative memo can be strong communication.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#evidence-plan",
+    "href": "09.html#evidence-plan",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.8 Evidence Plan",
+    "text": "9.8 Evidence Plan\nAn evidence plan explains what summary will support the claim.\nIt should name:\n\nThe variable or variables you will use.\nThe unit of observation.\nThe summary table you plan to create.\nThe numerator and denominator, if using percentages or rates.\nThe comparison group, baseline, benchmark, or time frame.\nHow missing values will be handled or described.\nWhat caveat the audience needs.\n\nExample evidence plan:\n\n\n\n\n\n\n\nPlanning Item\nExample\n\n\n\n\nUnit of observation\nOne row is one tutoring appointment.\n\n\nMain variables\nstudent_key, term, completed_visit, final_grade\n\n\nPlanned summary\nAverage recorded final grade by tutoring-use group.\n\n\nGroup definition\nAt least one completed tutoring visit versus no recorded completed visit.\n\n\nDenominator\nStudents with recorded final grades in each group.\n\n\nMissing values\nMissing final grades excluded from average and counted in table.\n\n\nCaveat\nThe table is descriptive and does not show causation.\n\n\n\nThe evidence plan keeps the memo from becoming a loose collection of numbers.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#data-readiness",
+    "href": "09.html#data-readiness",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.9 Data Readiness",
+    "text": "9.9 Data Readiness\nA project can have a good question and still not be ready to draft.\nBefore drafting, check whether the data are ready enough.\n\n\n\n\n\n\n\nReadiness Area\nQuestion\n\n\n\n\nSource\nDo I know where the data came from?\n\n\nDocumentation\nDo I know what the important variables mean?\n\n\nRow meaning\nDo I know what one row represents?\n\n\nCleaning\nDo obvious cleaning decisions need to be documented first?\n\n\nMissing values\nDo I know how missing values affect my summary?\n\n\nDenominator\nCan I clearly name the group behind a percentage, rate, or average?\n\n\nComparison\nDo I know what the value is compared with?\n\n\nCaveat\nCan I say what the result does not prove?\n\n\nReproducibility\nCan I explain or reproduce how the summary was made?\n\n\nAI use\nCan I document what AI did and how I checked it?\n\n\n\nIf several answers are “no,” the proposal should name what must be clarified.\nA good proposal can include unresolved questions. It should not pretend uncertainty is gone.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#caveats",
+    "href": "09.html#caveats",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.10 Caveats",
+    "text": "9.10 Caveats\nA caveat explains a limit that should travel with the claim.\nCaveats often involve:\n\nsource coverage;\ndefinitions;\nmissing values;\nsmall groups;\ndata cleaning;\ndenominators;\ncomparison context;\ndescriptive versus causal evidence;\nproxy measures.\n\nWeak caveat:\n\nThe data may have limitations.\n\nStronger caveat:\n\nThe grade comparison includes only students with recorded final grades. It does not include students with missing grades, and it does not show whether tutoring caused the difference.\n\nThe stronger caveat is more useful because it names the limit.\n\n\n\n\n\n\nTipMake the caveat specific\n\n\n\nA caveat should not be a generic apology. It should tell the audience exactly how to interpret the claim with appropriate caution.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#ai-use-plan",
+    "href": "09.html#ai-use-plan",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.11 AI-Use Plan",
+    "text": "9.11 AI-Use Plan\nAn AI-use plan explains how you might use AI and how you will verify the output.\nFor Mini-Project 1, responsible AI uses may include:\n\nbrainstorming audience questions;\nturning a broad topic into a narrower question;\nsuggesting table layouts;\ndrafting R code from verified variable definitions;\nchecking whether a paragraph has a denominator;\nflagging causal language;\nrevising a caveat for clarity;\nhelping diagnose a Quarto render error.\n\nRisky uses include:\n\ninventing source details;\nguessing variable definitions;\nchoosing a denominator without evidence;\ncreating numbers that do not come from the dataset;\nremoving caveats;\nwriting causal explanations for descriptive patterns;\naccepting code output without checking what it counted.\n\nA useful AI-use plan might say:\n\nI may use AI to help draft R code for the summary table after I provide the verified variable definitions. I will check the code output against the data dictionary, cleaning notes, and group counts before using any number in the memo.\n\nOr:\n\nI may use AI to review my interpretation paragraph for missing denominator, unclear comparison context, and causal wording. I will not ask AI to invent values or explain why the pattern occurred.\n\n\n\n\n\n\n\nWarningPlan verification before using AI\n\n\n\nResponsible AI use is not only about writing a good prompt. It is also about knowing how you will check the output before it becomes part of the memo.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#proposal-packet",
+    "href": "09.html#proposal-packet",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.12 Proposal Packet",
+    "text": "9.12 Proposal Packet\nA proposal packet is a short planning document for Mini-Project 1.\nIt should include:\n\nAudience.\nFocused question.\nSource.\nSource fit note.\nVariables needed.\nDraft claim.\nEvidence plan.\nContext and caveat.\nAI-use plan.\nQuestions to resolve before drafting.\n\nThe packet should be brief, but it should be specific.\nWeak proposal:\n\nI will use education data to show student success.\n\nStronger proposal:\n\nI will write for a tutoring center director. My question is: In the cleaned Spring 2027 tutoring file, how did average recorded final grades differ between students with at least one completed tutoring visit and students with no recorded visit? I will use student_key, completed_visit, and final_grade to build a summary table by tutoring-use group. The memo will be descriptive and will not claim that tutoring caused the grade difference.\n\nThe stronger proposal gives the project a path.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#quarto-structure-for-the-proposal",
+    "href": "09.html#quarto-structure-for-the-proposal",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.13 Quarto Structure for the Proposal",
+    "text": "9.13 Quarto Structure for the Proposal\nYou can write the proposal packet in Quarto.\nHere is a possible structure:\n---\ntitle: \"Mini-Project 1 Proposal Packet\"\nauthor: \"Your Name\"\nformat: docx\n---\n\n## Audience\n\n[Who is the memo for? What do they need to understand or decide?]\n\n## Focused Question\n\n[Write one answerable question.]\n\n## Source\n\n**Source title:** [title]\n\n**Source owner or organization:** [owner]\n\n**Link or location:** [link]\n\n**Date accessed:** [date]\n\n**Source summary:** [one sentence]\n\n## Source Fit\n\n[Explain why this source fits the question and what it does not measure.]\n\n## Variables Needed\n\n| Variable | Meaning | Role in Project | Note |\n| --- | --- | --- | --- |\n| [variable] | [definition] | [group, denominator, summary value, etc.] | [cleaning or missing value note] |\n\n## Draft Claim\n\n[Write a careful draft claim.]\n\n## Evidence Plan\n\n| Planning Item | Plan |\n| --- | --- |\n| Unit of observation | [what one row represents] |\n| Summary table | [what table you will make] |\n| Numerator/denominator | [if needed] |\n| Comparison context | [baseline, benchmark, time frame, or group] |\n| Missing values | [how they will be handled or described] |\n\n## Caveat\n\n[Write one specific caveat.]\n\n## AI-Use Plan\n\n[Explain how AI may be used and how output will be verified.]\n\n## Questions to Resolve\n\n1. [question]\n2. [question]\n3. [question]\nThis structure is not the only possible structure, but it includes the major planning pieces.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#example-proposal-packet",
+    "href": "09.html#example-proposal-packet",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.14 Example Proposal Packet",
+    "text": "9.14 Example Proposal Packet\n\n\n\n\n\n\nExampleExample 9.2: Mini-Project 1 proposal packet\n\n\n\nAudience:\n\nTutoring center director.\n\nFocused question:\n\nIn the cleaned Spring 2027 tutoring file, how did average recorded final grades differ between students with at least one completed tutoring visit and students with no recorded tutoring visit?\n\nSource:\n\nCleaned Spring 2027 tutoring file created from the appointment export and course grade file used in class.\n\nSource fit:\n\nThe source includes tutoring-use records and final recorded grades, so it can support a descriptive comparison by tutoring-use group. It does not show whether tutoring caused grade differences.\n\nVariables needed:\n\n\n\n\n\n\n\n\n\nVariable\nMeaning\nRole in Project\nNote\n\n\n\n\nstudent_key\nAnonymous student identifier\nCount unique students\nIdentifier, not a measurement.\n\n\ncompleted_visit\nWhether a tutoring appointment was completed\nDefine tutoring-use group\nNeeds consistent yes/no coding.\n\n\nfinal_grade\nRecorded final course grade\nNumeric summary value\nMissing grades should be counted.\n\n\n\nDraft claim:\n\nIn the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had higher average recorded final grades than students with no recorded tutoring visit.\n\nEvidence plan:\n\n\n\n\n\n\n\nPlanning Item\nPlan\n\n\n\n\nUnit of observation\nOne row in the appointment file is one appointment; the memo will summarize unique students.\n\n\nSummary table\nAverage recorded final grade by tutoring-use group.\n\n\nGroup size\nShow students in each group and students with recorded grades.\n\n\nMissing values\nExclude missing grades from the average and report the number of recorded grades.\n\n\nComparison context\nTutoring-use group comparison within Spring 2027.\n\n\n\nCaveat:\n\nThe comparison is descriptive. It does not show whether tutoring caused the grade difference, and it includes only students with recorded final grades.\n\nAI-use plan:\n\nI may use AI to review the draft interpretation for missing group sizes, denominator language, and causal wording. I will verify every number against my R output before using it.\n\nQuestions to resolve:\n\nDoes completed_visit exclude canceled and no-show appointments?\nDoes the student identifier appear consistently across appointment and grade files?\nWhy are some final grades missing?",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#from-proposal-to-draft",
+    "href": "09.html#from-proposal-to-draft",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.15 From Proposal to Draft",
+    "text": "9.15 From Proposal to Draft\nAfter the proposal packet, the next step is drafting the memo.\nThe proposal becomes the draft structure:\n\n\n\nProposal Piece\nDraft Memo Section\n\n\n\n\nAudience\nOpening sentence or memo context.\n\n\nFocused question\nMain question or purpose statement.\n\n\nSource fit\nBrief data/source note.\n\n\nVariables needed\nMethods or variable note.\n\n\nEvidence plan\nSummary table.\n\n\nDraft claim\nResults interpretation.\n\n\nCaveat\nLimitation sentence or paragraph.\n\n\nAI-use plan\nAI documentation note.\n\n\n\nThe proposal does not lock you into bad choices. If the evidence plan reveals a problem, revise the question, claim, or caveat.\nPlanning is part of analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#common-planning-problems",
+    "href": "09.html#common-planning-problems",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.16 Common Planning Problems",
+    "text": "9.16 Common Planning Problems\nMini-project proposals often run into predictable problems.\n\n\n\n\n\n\n\nProblem\nRevision Move\n\n\n\n\nAudience is too broad.\nName a realistic group that needs the information.\n\n\nQuestion is too large.\nNarrow to one source, time frame, measure, or comparison.\n\n\nSource does not fit the question.\nRevise the question or choose a better source.\n\n\nClaim is causal but evidence is descriptive.\nRewrite as a descriptive or comparative claim.\n\n\nTable plan lacks a denominator.\nIdentify the whole group behind the percentage, rate, or average.\n\n\nCaveat is generic.\nName the specific source, missingness, comparison, or cleaning limit.\n\n\nAI plan is vague.\nState what AI may do and how output will be checked.\n\n\nToo many tables are planned.\nChoose the one table that best answers the audience question.\n\n\n\nThe goal is not to make the proposal perfect. The goal is to make the project workable.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#practical-workflow",
+    "href": "09.html#practical-workflow",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.17 Practical Workflow",
+    "text": "9.17 Practical Workflow\nUse this workflow to plan Mini-Project 1:\n\nChoose a realistic audience.\nWrite one broad topic.\nNarrow the topic into one focused question.\nIdentify one source that fits the question.\nCheck source documentation and row meaning.\nChoose the variables needed.\nDraft a descriptive or comparative claim.\nPlan one summary table.\nIdentify numerator, denominator, group, baseline, benchmark, or time frame.\nWrite one specific caveat.\nDecide how AI may help.\nDecide how AI output will be verified.\nList unresolved questions.\nRender the proposal packet from Quarto and inspect the output.\n\nThis workflow keeps the project focused enough to finish and careful enough to trust.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#recap",
+    "href": "09.html#recap",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.18 Recap",
+    "text": "9.18 Recap\n\n\n\n\n\n\n\n\nKeyword\nDefinition\n\n\n\n\nMini-Project 1\nA short data memo that answers a focused question for a specific audience using one source and careful evidence.\n\n\nProposal packet\nA planning document that connects audience, question, source, claim, evidence, caveat, and AI-use plan.\n\n\nAudience\nThe realistic group the memo is written for.\n\n\nFocused question\nA specific, answerable question that names the measure, group, time frame, or comparison.\n\n\nScope\nThe boundary that keeps the project manageable.\n\n\nSource fit\nThe match between the source, question, audience, and claim.\n\n\nDraft claim\nA first version of what the memo may say, subject to revision after checking evidence.\n\n\nEvidence plan\nA plan for the table, summary, denominator, comparison, and missing-value treatment that will support the claim.\n\n\nData readiness\nWhether the source, variables, row meaning, cleaning decisions, and denominators are clear enough to draft responsibly.\n\n\nCaveat\nA specific limit that should travel with the claim.\n\n\nAI-use plan\nA plan for how AI may help and how its output will be verified.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "09.html#check-your-understanding",
+    "href": "09.html#check-your-understanding",
+    "title": "9  Planning Mini-Project 1",
+    "section": "9.19 Check your understanding",
+    "text": "9.19 Check your understanding\n\n\n\n\n\n\nNoteProblems\n\n\n\n\n\n\nWhat is the purpose of a Mini-Project 1 proposal packet?\nWhy is “everyone” usually a weak audience?\nTurn this broad topic into a more focused question: tutoring.\nWhat does source fit mean?\nWhy should Mini-Project 1 usually use one main source and one main summary table?\nWhat is a draft claim?\nName three items that should appear in an evidence plan.\nWhy is this claim too strong for a descriptive summary table: “Tutoring caused students to earn higher grades”?\nWrite one specific caveat for a memo comparing average recorded grades by tutoring-use group.\nMatch each term to the best description:\n\n\nProposal packet\nSource fit\nEvidence plan\nAI-use plan\n\nDescriptions:\n\nA plan for the table, denominator, comparison, and missing-value treatment that will support the claim.\nA plan for how AI may help and how its output will be verified.\nThe match between the source, question, audience, and claim.\nA planning document that connects audience, question, source, claim, evidence, caveat, and AI use.\n\n\n\n\n\n\n\n\n\n\nTipSolutions\n\n\n\n\n\n\nThe proposal packet helps test whether the audience, question, source, claim, evidence, caveat, and AI-use plan fit together before drafting the memo.\n“Everyone” is usually too broad because different audiences need different evidence, language, context, and caveats. A realistic audience makes the memo easier to focus.\nOne focused question is: In the cleaned Spring 2027 tutoring file, what share of students had at least one completed tutoring visit? Another is: How did average recorded final grades differ between students with at least one completed tutoring visit and students with no recorded tutoring visit?\nSource fit is the match between the source, question, audience, and claim. A source fits when it measures the population, variables, time frame, and comparison needed for the planned communication.\nOne main source and one main summary table keep the project small enough to complete carefully. The goal is a focused memo, not a full research paper.\nA draft claim is a first version of what the memo may say. It should be specific, connected to the source, supported by planned evidence, and open to revision.\nAn evidence plan should include items such as the variables used, unit of observation, planned summary table, numerator and denominator, comparison context, missing-value treatment, and caveat.\nThe claim is too strong because a descriptive summary table can show that groups had different average recorded grades, but it does not show why they differed or whether tutoring caused the difference.\nOne specific caveat is: The comparison includes only students with recorded final grades, and it does not show whether tutoring caused the grade difference.\na-4. b-3. c-1. d-2.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
+    ]
   }
 ]

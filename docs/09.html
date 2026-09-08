@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; Planning Mini-Project 1 – STA 2310 Data Communication with AI</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ac731d99f942368ec2047317e7e82b91.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style type="text/css">
+.sidebar .chapter-number {
+color: #FFB81c;
+}
+.center-panel.quarto-layout-panel {
+justify-content: center;
+column-gap: 1rem;
+}
+</style>
+<style>
+div.callout-example.callout {
+  border-left-color: #008000;
+}
+div.callout-example.callout-style-default > .callout-header {
+  background-color: rgba(0, 128, 0, 0.13);
+}
+div.callout-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-example.callout-style-default .callout-icon::before, div.callout-example.callout-titled .callout-icon::before {
+  content: '📈';
+  background-image: none;
+}
+</style>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Planning Mini-Project 1</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"></a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What Is Data Communication with AI?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Audience, Claims, Evidence, and AI Boundaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Started with Quarto in RStudio</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding and Evaluating Data Sources</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Dictionaries and Variable Meaning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Cleaning for Communication</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Descriptive Summaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Context for Comparison</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Planning Mini-Project 1</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-mini-project-1-is" id="toc-what-mini-project-1-is" class="nav-link active" data-scroll-target="#what-mini-project-1-is"><span class="header-section-number">9.1</span> What Mini-Project 1 Is</a></li>
+  <li><a href="#start-with-the-audience" id="toc-start-with-the-audience" class="nav-link" data-scroll-target="#start-with-the-audience"><span class="header-section-number">9.2</span> Start With the Audience</a></li>
+  <li><a href="#turn-a-topic-into-a-question" id="toc-turn-a-topic-into-a-question" class="nav-link" data-scroll-target="#turn-a-topic-into-a-question"><span class="header-section-number">9.3</span> Turn a Topic Into a Question</a></li>
+  <li><a href="#scope-make-the-project-small-enough" id="toc-scope-make-the-project-small-enough" class="nav-link" data-scroll-target="#scope-make-the-project-small-enough"><span class="header-section-number">9.4</span> Scope: Make the Project Small Enough</a></li>
+  <li><a href="#source-fit" id="toc-source-fit" class="nav-link" data-scroll-target="#source-fit"><span class="header-section-number">9.5</span> Source Fit</a></li>
+  <li><a href="#draft-claims" id="toc-draft-claims" class="nav-link" data-scroll-target="#draft-claims"><span class="header-section-number">9.6</span> Draft Claims</a></li>
+  <li><a href="#claim-type" id="toc-claim-type" class="nav-link" data-scroll-target="#claim-type"><span class="header-section-number">9.7</span> Claim Type</a></li>
+  <li><a href="#evidence-plan" id="toc-evidence-plan" class="nav-link" data-scroll-target="#evidence-plan"><span class="header-section-number">9.8</span> Evidence Plan</a></li>
+  <li><a href="#data-readiness" id="toc-data-readiness" class="nav-link" data-scroll-target="#data-readiness"><span class="header-section-number">9.9</span> Data Readiness</a></li>
+  <li><a href="#caveats" id="toc-caveats" class="nav-link" data-scroll-target="#caveats"><span class="header-section-number">9.10</span> Caveats</a></li>
+  <li><a href="#ai-use-plan" id="toc-ai-use-plan" class="nav-link" data-scroll-target="#ai-use-plan"><span class="header-section-number">9.11</span> AI-Use Plan</a></li>
+  <li><a href="#proposal-packet" id="toc-proposal-packet" class="nav-link" data-scroll-target="#proposal-packet"><span class="header-section-number">9.12</span> Proposal Packet</a></li>
+  <li><a href="#quarto-structure-for-the-proposal" id="toc-quarto-structure-for-the-proposal" class="nav-link" data-scroll-target="#quarto-structure-for-the-proposal"><span class="header-section-number">9.13</span> Quarto Structure for the Proposal</a></li>
+  <li><a href="#example-proposal-packet" id="toc-example-proposal-packet" class="nav-link" data-scroll-target="#example-proposal-packet"><span class="header-section-number">9.14</span> Example Proposal Packet</a></li>
+  <li><a href="#from-proposal-to-draft" id="toc-from-proposal-to-draft" class="nav-link" data-scroll-target="#from-proposal-to-draft"><span class="header-section-number">9.15</span> From Proposal to Draft</a></li>
+  <li><a href="#common-planning-problems" id="toc-common-planning-problems" class="nav-link" data-scroll-target="#common-planning-problems"><span class="header-section-number">9.16</span> Common Planning Problems</a></li>
+  <li><a href="#practical-workflow" id="toc-practical-workflow" class="nav-link" data-scroll-target="#practical-workflow"><span class="header-section-number">9.17</span> Practical Workflow</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">9.18</span> Recap</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding"><span class="header-section-number">9.19</span> Check your understanding</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Planning Mini-Project 1</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Mini-Project 1 is your first chance to pull several course skills together into one short data communication product.</p>
+<p>So far, you have practiced:</p>
+<ul>
+<li>identifying an audience;</li>
+<li>separating claims from evidence;</li>
+<li>finding and evaluating data sources;</li>
+<li>reading variable meaning;</li>
+<li>documenting cleaning decisions;</li>
+<li>creating descriptive summaries;</li>
+<li>adding comparison context and caveats;</li>
+<li>using AI responsibly.</li>
+</ul>
+<p>Mini-Project 1 asks you to use those skills in a short data memo.</p>
+<p>Before writing the memo, you need a plan. A good plan does not need to answer every question yet. It should make the project clear enough that you can draft the memo without wandering.</p>
+<p>This chapter focuses on:</p>
+<ul>
+<li>the purpose of Mini-Project 1;</li>
+<li>choosing a focused audience question;</li>
+<li>narrowing the scope;</li>
+<li>selecting a source;</li>
+<li>drafting a claim;</li>
+<li>planning evidence;</li>
+<li>identifying needed context and caveats;</li>
+<li>checking data readiness;</li>
+<li>documenting AI use;</li>
+<li>building a proposal packet in Quarto.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="The proposal is a thinking tool">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The proposal is a thinking tool
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A proposal packet is not busywork. It is a small plan that helps you test whether your audience, question, source, claim, evidence, and caveat fit together before you spend time writing the full memo.</p>
+</div>
+</div>
+<section id="what-mini-project-1-is" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="what-mini-project-1-is"><span class="header-section-number">9.1</span> What Mini-Project 1 Is</h2>
+<p>Mini-Project 1 is a short data memo.</p>
+<p>The memo should communicate a careful, evidence-based answer to a focused question for a specific audience.</p>
+<p>It will usually include:</p>
+<ul>
+<li>a clear audience;</li>
+<li>a focused question;</li>
+<li>one data source;</li>
+<li>a brief source note;</li>
+<li>a small data dictionary or variable note;</li>
+<li>a cleaning note, if cleaning is needed;</li>
+<li>one descriptive summary table;</li>
+<li>a careful interpretation;</li>
+<li>a caveat or limitation;</li>
+<li>an AI-use note.</li>
+</ul>
+<p>The final memo is not meant to be a full research paper. It is a short, disciplined communication product.</p>
+<p>Think of it as answering:</p>
+<blockquote class="blockquote">
+<p>Here is what this source can responsibly tell this audience about this question.</p>
+</blockquote>
+<p>That sentence has four important pieces:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Piece</th>
+<th>Question to Ask</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>this source</td>
+<td>What data source am I using, and what does it measure?</td>
+</tr>
+<tr class="even">
+<td>responsibly tell</td>
+<td>What can I claim without overstating?</td>
+</tr>
+<tr class="odd">
+<td>this audience</td>
+<td>Who needs this information?</td>
+</tr>
+<tr class="even">
+<td>this question</td>
+<td>What focused question am I answering?</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="start-with-the-audience" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="start-with-the-audience"><span class="header-section-number">9.2</span> Start With the Audience</h2>
+<p>A project becomes easier to scope when the audience is specific.</p>
+<p>Weak audience:</p>
+<blockquote class="blockquote">
+<p>Everyone.</p>
+</blockquote>
+<p>Better audiences:</p>
+<ul>
+<li>students deciding whether to use campus tutoring;</li>
+<li>a tutoring center director planning staffing;</li>
+<li>a department chair reviewing course support needs;</li>
+<li>a local nonprofit explaining service demand;</li>
+<li>a city council member comparing neighborhood requests;</li>
+<li>a campus communications team preparing a short update.</li>
+</ul>
+<p>The audience affects every later decision.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Audience</th>
+<th>Likely Need</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Students</td>
+<td>Clear, practical information and plain-language interpretation.</td>
+</tr>
+<tr class="even">
+<td>Program staff</td>
+<td>Operational counts, workload, and context for planning.</td>
+</tr>
+<tr class="odd">
+<td>Administrators</td>
+<td>Summary comparisons, trends, caveats, and decision relevance.</td>
+</tr>
+<tr class="even">
+<td>Public readers</td>
+<td>Source clarity, definitions, accessibility, and careful wording.</td>
+</tr>
+<tr class="odd">
+<td>Technical readers</td>
+<td>Reproducible workflow, methods detail, and data limitations.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled" title="Use a real audience">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Use a real audience
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The audience does not need to be a real person you know, but it should be a realistic group. “Students considering tutoring” is easier to write for than “people interested in education.”</p>
+</div>
+</div>
+</section>
+<section id="turn-a-topic-into-a-question" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="turn-a-topic-into-a-question"><span class="header-section-number">9.3</span> Turn a Topic Into a Question</h2>
+<p>A broad topic is not yet a project.</p>
+<p>Examples of broad topics:</p>
+<ul>
+<li>tutoring;</li>
+<li>student success;</li>
+<li>public health;</li>
+<li>housing;</li>
+<li>unemployment;</li>
+<li>transportation;</li>
+<li>climate;</li>
+<li>graduation rates.</li>
+</ul>
+<p>A focused question names the measure, group, time frame, and comparison.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Broad Topic</th>
+<th>More Focused Question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tutoring</td>
+<td>In the cleaned Spring 2027 tutoring file, what share of students had at least one completed tutoring visit?</td>
+</tr>
+<tr class="even">
+<td>Student success</td>
+<td>How did course completion rates differ by section in Spring 2027?</td>
+</tr>
+<tr class="odd">
+<td>Public health</td>
+<td>How did reported flu-like illness visits change from January to March in one county?</td>
+</tr>
+<tr class="even">
+<td>Housing</td>
+<td>How did median rent differ between two nearby counties in the most recent available year?</td>
+</tr>
+<tr class="odd">
+<td>Unemployment</td>
+<td>How did one county’s unemployment rate compare with the state average during the same month?</td>
+</tr>
+<tr class="even">
+<td>Transportation</td>
+<td>Which bus route had the highest average weekday ridership in the selected month?</td>
+</tr>
+</tbody>
+</table>
+<p>A useful Mini-Project 1 question should be answerable with one source and one small summary table.</p>
+<p>Weak:</p>
+<blockquote class="blockquote">
+<p>What causes student success?</p>
+</blockquote>
+<p>Better:</p>
+<blockquote class="blockquote">
+<p>In the cleaned Spring 2027 tutoring file, how did average recorded final grades differ between students with at least one completed tutoring visit and students with no recorded tutoring visit?</p>
+</blockquote>
+<p>The better question is smaller. That is a strength.</p>
+</section>
+<section id="scope-make-the-project-small-enough" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="scope-make-the-project-small-enough"><span class="header-section-number">9.4</span> Scope: Make the Project Small Enough</h2>
+<p>Mini-Project 1 should be narrow enough to complete carefully.</p>
+<p>A good scope usually has:</p>
+<ul>
+<li>one main audience;</li>
+<li>one main source;</li>
+<li>one focused question;</li>
+<li>one main summary table;</li>
+<li>one careful interpretation;</li>
+<li>one caveat.</li>
+</ul>
+<p>Scope is not about making the project less important. It is about making the work more precise.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Too Broad</th>
+<th>Better Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Analyze all factors related to student success.”</td>
+<td>Compare recorded final grades by tutoring-use group in one cleaned course file.</td>
+</tr>
+<tr class="even">
+<td>“Explain housing affordability.”</td>
+<td>Compare median rent between two counties using one public source.</td>
+</tr>
+<tr class="odd">
+<td>“Show whether public transit works.”</td>
+<td>Summarize weekday ridership by route for one month.</td>
+</tr>
+<tr class="even">
+<td>“Evaluate a campus program.”</td>
+<td>Compare program participation with an internal target for one semester.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled" title="Small is not shallow">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Small is not shallow
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A small question can still require careful source evaluation, variable meaning, cleaning, denominator choices, comparison context, and caveats. Narrow scope gives you room to be responsible.</p>
+</div>
+</div>
+</section>
+<section id="source-fit" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="source-fit"><span class="header-section-number">9.5</span> Source Fit</h2>
+<p>Your source should fit the question.</p>
+<p>Ask:</p>
+<ol type="1">
+<li>Does the source include the population or units I care about?</li>
+<li>Does it include the measure I need?</li>
+<li>Does it cover the right time frame?</li>
+<li>Does it provide documentation, definitions, or notes?</li>
+<li>Can I use it in Quarto?</li>
+<li>Can I cite or describe where it came from?</li>
+<li>Does it avoid private, sensitive, or identifiable information?</li>
+<li>Does it support a descriptive or comparative claim?</li>
+</ol>
+<p>The source does not have to be perfect. It does need to be honest enough for the claim.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 9.1: Source fit
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Audience:</p>
+<blockquote class="blockquote">
+<p>A tutoring center director planning next semester’s staffing.</p>
+</blockquote>
+<p>Focused question:</p>
+<blockquote class="blockquote">
+<p>How did completed tutoring visits change from Fall 2026 to Spring 2027?</p>
+</blockquote>
+<p>Possible source:</p>
+<blockquote class="blockquote">
+<p>A tutoring appointment export with one row per appointment, appointment status, term, date, and student identifier.</p>
+</blockquote>
+<p>Why it fits:</p>
+<blockquote class="blockquote">
+<p>The source records appointment-level service use and includes a term field. It can support a descriptive comparison of completed visits by term.</p>
+</blockquote>
+<p>Limit:</p>
+<blockquote class="blockquote">
+<p>It measures recorded appointments, not all possible student need for tutoring.</p>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="draft-claims" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="draft-claims"><span class="header-section-number">9.6</span> Draft Claims</h2>
+<p>A <strong>draft claim</strong> is a first version of what you think the memo may say.</p>
+<p>At the proposal stage, the claim may still change. That is normal.</p>
+<p>A draft claim should be:</p>
+<ul>
+<li>specific;</li>
+<li>connected to the source;</li>
+<li>supported by a planned summary;</li>
+<li>descriptive unless the project design supports something stronger;</li>
+<li>paired with a caveat.</li>
+</ul>
+<p>Weak draft claim:</p>
+<blockquote class="blockquote">
+<p>Tutoring works.</p>
+</blockquote>
+<p>Better draft claim:</p>
+<blockquote class="blockquote">
+<p>In the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had higher average recorded final grades than students with no recorded tutoring visit.</p>
+</blockquote>
+<p>Better with caveat:</p>
+<blockquote class="blockquote">
+<p>In the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had higher average recorded final grades than students with no recorded tutoring visit. This comparison is descriptive and does not show whether tutoring caused the grade difference.</p>
+</blockquote>
+<p>The better claim uses what the course has been building:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Course Skill</th>
+<th>How It Appears in the Claim</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source</td>
+<td>“cleaned Spring 2027 tutoring file”</td>
+</tr>
+<tr class="even">
+<td>Variable meaning</td>
+<td>“completed tutoring visit” and “recorded final grade”</td>
+</tr>
+<tr class="odd">
+<td>Summary</td>
+<td>average grade by group</td>
+</tr>
+<tr class="even">
+<td>Comparison context</td>
+<td>tutoring users compared with non-users</td>
+</tr>
+<tr class="odd">
+<td>Caveat</td>
+<td>descriptive, not causal</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="claim-type" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="claim-type"><span class="header-section-number">9.7</span> Claim Type</h2>
+<p>Before drafting the memo, identify the type of claim.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Claim Type</th>
+<th>What It Says</th>
+<th>Evidence Needed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Descriptive</td>
+<td>What is in the data.</td>
+<td>Clear source, definitions, denominator, and summary.</td>
+</tr>
+<tr class="even">
+<td>Comparative</td>
+<td>How groups, time periods, or benchmarks differ.</td>
+<td>Consistent definitions and a clear comparison.</td>
+</tr>
+<tr class="odd">
+<td>Associational</td>
+<td>How two variables vary together.</td>
+<td>Variables measured for the same units plus careful wording.</td>
+</tr>
+<tr class="even">
+<td>Causal</td>
+<td>One thing produced a change in another.</td>
+<td>Strong research design, not only a summary table.</td>
+</tr>
+<tr class="odd">
+<td>Evaluative</td>
+<td>Something is good, bad, sufficient, or insufficient.</td>
+<td>Evidence plus a stated criterion or benchmark.</td>
+</tr>
+</tbody>
+</table>
+<p>Mini-Project 1 will usually use descriptive or comparative claims.</p>
+<p>That is enough. A careful descriptive or comparative memo can be strong communication.</p>
+</section>
+<section id="evidence-plan" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="evidence-plan"><span class="header-section-number">9.8</span> Evidence Plan</h2>
+<p>An evidence plan explains what summary will support the claim.</p>
+<p>It should name:</p>
+<ol type="1">
+<li>The variable or variables you will use.</li>
+<li>The unit of observation.</li>
+<li>The summary table you plan to create.</li>
+<li>The numerator and denominator, if using percentages or rates.</li>
+<li>The comparison group, baseline, benchmark, or time frame.</li>
+<li>How missing values will be handled or described.</li>
+<li>What caveat the audience needs.</li>
+</ol>
+<p>Example evidence plan:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Planning Item</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Unit of observation</td>
+<td>One row is one tutoring appointment.</td>
+</tr>
+<tr class="even">
+<td>Main variables</td>
+<td><code>student_key</code>, <code>term</code>, <code>completed_visit</code>, <code>final_grade</code></td>
+</tr>
+<tr class="odd">
+<td>Planned summary</td>
+<td>Average recorded final grade by tutoring-use group.</td>
+</tr>
+<tr class="even">
+<td>Group definition</td>
+<td>At least one completed tutoring visit versus no recorded completed visit.</td>
+</tr>
+<tr class="odd">
+<td>Denominator</td>
+<td>Students with recorded final grades in each group.</td>
+</tr>
+<tr class="even">
+<td>Missing values</td>
+<td>Missing final grades excluded from average and counted in table.</td>
+</tr>
+<tr class="odd">
+<td>Caveat</td>
+<td>The table is descriptive and does not show causation.</td>
+</tr>
+</tbody>
+</table>
+<p>The evidence plan keeps the memo from becoming a loose collection of numbers.</p>
+</section>
+<section id="data-readiness" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="data-readiness"><span class="header-section-number">9.9</span> Data Readiness</h2>
+<p>A project can have a good question and still not be ready to draft.</p>
+<p>Before drafting, check whether the data are ready enough.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Readiness Area</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source</td>
+<td>Do I know where the data came from?</td>
+</tr>
+<tr class="even">
+<td>Documentation</td>
+<td>Do I know what the important variables mean?</td>
+</tr>
+<tr class="odd">
+<td>Row meaning</td>
+<td>Do I know what one row represents?</td>
+</tr>
+<tr class="even">
+<td>Cleaning</td>
+<td>Do obvious cleaning decisions need to be documented first?</td>
+</tr>
+<tr class="odd">
+<td>Missing values</td>
+<td>Do I know how missing values affect my summary?</td>
+</tr>
+<tr class="even">
+<td>Denominator</td>
+<td>Can I clearly name the group behind a percentage, rate, or average?</td>
+</tr>
+<tr class="odd">
+<td>Comparison</td>
+<td>Do I know what the value is compared with?</td>
+</tr>
+<tr class="even">
+<td>Caveat</td>
+<td>Can I say what the result does not prove?</td>
+</tr>
+<tr class="odd">
+<td>Reproducibility</td>
+<td>Can I explain or reproduce how the summary was made?</td>
+</tr>
+<tr class="even">
+<td>AI use</td>
+<td>Can I document what AI did and how I checked it?</td>
+</tr>
+</tbody>
+</table>
+<p>If several answers are “no,” the proposal should name what must be clarified.</p>
+<p>A good proposal can include unresolved questions. It should not pretend uncertainty is gone.</p>
+</section>
+<section id="caveats" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="caveats"><span class="header-section-number">9.10</span> Caveats</h2>
+<p>A <strong>caveat</strong> explains a limit that should travel with the claim.</p>
+<p>Caveats often involve:</p>
+<ul>
+<li>source coverage;</li>
+<li>definitions;</li>
+<li>missing values;</li>
+<li>small groups;</li>
+<li>data cleaning;</li>
+<li>denominators;</li>
+<li>comparison context;</li>
+<li>descriptive versus causal evidence;</li>
+<li>proxy measures.</li>
+</ul>
+<p>Weak caveat:</p>
+<blockquote class="blockquote">
+<p>The data may have limitations.</p>
+</blockquote>
+<p>Stronger caveat:</p>
+<blockquote class="blockquote">
+<p>The grade comparison includes only students with recorded final grades. It does not include students with missing grades, and it does not show whether tutoring caused the difference.</p>
+</blockquote>
+<p>The stronger caveat is more useful because it names the limit.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Make the caveat specific">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Make the caveat specific
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A caveat should not be a generic apology. It should tell the audience exactly how to interpret the claim with appropriate caution.</p>
+</div>
+</div>
+</section>
+<section id="ai-use-plan" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="ai-use-plan"><span class="header-section-number">9.11</span> AI-Use Plan</h2>
+<p>An AI-use plan explains how you might use AI and how you will verify the output.</p>
+<p>For Mini-Project 1, responsible AI uses may include:</p>
+<ul>
+<li>brainstorming audience questions;</li>
+<li>turning a broad topic into a narrower question;</li>
+<li>suggesting table layouts;</li>
+<li>drafting R code from verified variable definitions;</li>
+<li>checking whether a paragraph has a denominator;</li>
+<li>flagging causal language;</li>
+<li>revising a caveat for clarity;</li>
+<li>helping diagnose a Quarto render error.</li>
+</ul>
+<p>Risky uses include:</p>
+<ul>
+<li>inventing source details;</li>
+<li>guessing variable definitions;</li>
+<li>choosing a denominator without evidence;</li>
+<li>creating numbers that do not come from the dataset;</li>
+<li>removing caveats;</li>
+<li>writing causal explanations for descriptive patterns;</li>
+<li>accepting code output without checking what it counted.</li>
+</ul>
+<p>A useful AI-use plan might say:</p>
+<blockquote class="blockquote">
+<p>I may use AI to help draft R code for the summary table after I provide the verified variable definitions. I will check the code output against the data dictionary, cleaning notes, and group counts before using any number in the memo.</p>
+</blockquote>
+<p>Or:</p>
+<blockquote class="blockquote">
+<p>I may use AI to review my interpretation paragraph for missing denominator, unclear comparison context, and causal wording. I will not ask AI to invent values or explain why the pattern occurred.</p>
+</blockquote>
+<div class="callout callout-style-default callout-warning callout-titled" title="Plan verification before using AI">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Plan verification before using AI
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Responsible AI use is not only about writing a good prompt. It is also about knowing how you will check the output before it becomes part of the memo.</p>
+</div>
+</div>
+</section>
+<section id="proposal-packet" class="level2" data-number="9.12">
+<h2 data-number="9.12" class="anchored" data-anchor-id="proposal-packet"><span class="header-section-number">9.12</span> Proposal Packet</h2>
+<p>A <strong>proposal packet</strong> is a short planning document for Mini-Project 1.</p>
+<p>It should include:</p>
+<ol type="1">
+<li>Audience.</li>
+<li>Focused question.</li>
+<li>Source.</li>
+<li>Source fit note.</li>
+<li>Variables needed.</li>
+<li>Draft claim.</li>
+<li>Evidence plan.</li>
+<li>Context and caveat.</li>
+<li>AI-use plan.</li>
+<li>Questions to resolve before drafting.</li>
+</ol>
+<p>The packet should be brief, but it should be specific.</p>
+<p>Weak proposal:</p>
+<blockquote class="blockquote">
+<p>I will use education data to show student success.</p>
+</blockquote>
+<p>Stronger proposal:</p>
+<blockquote class="blockquote">
+<p>I will write for a tutoring center director. My question is: In the cleaned Spring 2027 tutoring file, how did average recorded final grades differ between students with at least one completed tutoring visit and students with no recorded visit? I will use <code>student_key</code>, <code>completed_visit</code>, and <code>final_grade</code> to build a summary table by tutoring-use group. The memo will be descriptive and will not claim that tutoring caused the grade difference.</p>
+</blockquote>
+<p>The stronger proposal gives the project a path.</p>
+</section>
+<section id="quarto-structure-for-the-proposal" class="level2" data-number="9.13">
+<h2 data-number="9.13" class="anchored" data-anchor-id="quarto-structure-for-the-proposal"><span class="header-section-number">9.13</span> Quarto Structure for the Proposal</h2>
+<p>You can write the proposal packet in Quarto.</p>
+<p>Here is a possible structure:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Mini-Project 1 Proposal Packet"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Your Name"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> docx</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Audience</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Who is the memo for? What do they need to understand or decide?</span><span class="co">]</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Focused Question</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Write one answerable question.</span><span class="co">]</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Source</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Source title:** <span class="co">[</span><span class="ot">title</span><span class="co">]</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>**Source owner or organization:** <span class="co">[</span><span class="ot">owner</span><span class="co">]</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>**Link or location:** <span class="co">[</span><span class="ot">link</span><span class="co">]</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>**Date accessed:** <span class="co">[</span><span class="ot">date</span><span class="co">]</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>**Source summary:** <span class="co">[</span><span class="ot">one sentence</span><span class="co">]</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Source Fit</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Explain why this source fits the question and what it does not measure.</span><span class="co">]</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Variables Needed</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variable <span class="pp">|</span> Meaning <span class="pp">|</span> Role in Project <span class="pp">|</span> Note <span class="pp">|</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---</span> <span class="pp">| ---</span> <span class="pp">| ---</span> <span class="pp">| ---</span> <span class="pp">|</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">variable</span><span class="co">]</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">definition</span><span class="co">]</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">group, denominator, summary value, etc.</span><span class="co">]</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">cleaning or missing value note</span><span class="co">]</span> <span class="pp">|</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Draft Claim</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Write a careful draft claim.</span><span class="co">]</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Evidence Plan</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Planning Item <span class="pp">|</span> Plan <span class="pp">|</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---</span> <span class="pp">| ---</span> <span class="pp">|</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Unit of observation <span class="pp">|</span> <span class="co">[</span><span class="ot">what one row represents</span><span class="co">]</span> <span class="pp">|</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Summary table <span class="pp">|</span> <span class="co">[</span><span class="ot">what table you will make</span><span class="co">]</span> <span class="pp">|</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Numerator/denominator <span class="pp">|</span> <span class="co">[</span><span class="ot">if needed</span><span class="co">]</span> <span class="pp">|</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Comparison context <span class="pp">|</span> <span class="co">[</span><span class="ot">baseline, benchmark, time frame, or group</span><span class="co">]</span> <span class="pp">|</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Missing values <span class="pp">|</span> <span class="co">[</span><span class="ot">how they will be handled or described</span><span class="co">]</span> <span class="pp">|</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Caveat</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Write one specific caveat.</span><span class="co">]</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## AI-Use Plan</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Explain how AI may be used and how output will be verified.</span><span class="co">]</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Questions to Resolve</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">question</span><span class="co">]</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">question</span><span class="co">]</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span><span class="co">[</span><span class="ot">question</span><span class="co">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This structure is not the only possible structure, but it includes the major planning pieces.</p>
+</section>
+<section id="example-proposal-packet" class="level2" data-number="9.14">
+<h2 data-number="9.14" class="anchored" data-anchor-id="example-proposal-packet"><span class="header-section-number">9.14</span> Example Proposal Packet</h2>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 9.2: Mini-Project 1 proposal packet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Audience:</p>
+<blockquote class="blockquote">
+<p>Tutoring center director.</p>
+</blockquote>
+<p>Focused question:</p>
+<blockquote class="blockquote">
+<p>In the cleaned Spring 2027 tutoring file, how did average recorded final grades differ between students with at least one completed tutoring visit and students with no recorded tutoring visit?</p>
+</blockquote>
+<p>Source:</p>
+<blockquote class="blockquote">
+<p>Cleaned Spring 2027 tutoring file created from the appointment export and course grade file used in class.</p>
+</blockquote>
+<p>Source fit:</p>
+<blockquote class="blockquote">
+<p>The source includes tutoring-use records and final recorded grades, so it can support a descriptive comparison by tutoring-use group. It does not show whether tutoring caused grade differences.</p>
+</blockquote>
+<p>Variables needed:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Meaning</th>
+<th>Role in Project</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>student_key</code></td>
+<td>Anonymous student identifier</td>
+<td>Count unique students</td>
+<td>Identifier, not a measurement.</td>
+</tr>
+<tr class="even">
+<td><code>completed_visit</code></td>
+<td>Whether a tutoring appointment was completed</td>
+<td>Define tutoring-use group</td>
+<td>Needs consistent yes/no coding.</td>
+</tr>
+<tr class="odd">
+<td><code>final_grade</code></td>
+<td>Recorded final course grade</td>
+<td>Numeric summary value</td>
+<td>Missing grades should be counted.</td>
+</tr>
+</tbody>
+</table>
+<p>Draft claim:</p>
+<blockquote class="blockquote">
+<p>In the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had higher average recorded final grades than students with no recorded tutoring visit.</p>
+</blockquote>
+<p>Evidence plan:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Planning Item</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Unit of observation</td>
+<td>One row in the appointment file is one appointment; the memo will summarize unique students.</td>
+</tr>
+<tr class="even">
+<td>Summary table</td>
+<td>Average recorded final grade by tutoring-use group.</td>
+</tr>
+<tr class="odd">
+<td>Group size</td>
+<td>Show students in each group and students with recorded grades.</td>
+</tr>
+<tr class="even">
+<td>Missing values</td>
+<td>Exclude missing grades from the average and report the number of recorded grades.</td>
+</tr>
+<tr class="odd">
+<td>Comparison context</td>
+<td>Tutoring-use group comparison within Spring 2027.</td>
+</tr>
+</tbody>
+</table>
+<p>Caveat:</p>
+<blockquote class="blockquote">
+<p>The comparison is descriptive. It does not show whether tutoring caused the grade difference, and it includes only students with recorded final grades.</p>
+</blockquote>
+<p>AI-use plan:</p>
+<blockquote class="blockquote">
+<p>I may use AI to review the draft interpretation for missing group sizes, denominator language, and causal wording. I will verify every number against my R output before using it.</p>
+</blockquote>
+<p>Questions to resolve:</p>
+<ol type="1">
+<li>Does <code>completed_visit</code> exclude canceled and no-show appointments?</li>
+<li>Does the student identifier appear consistently across appointment and grade files?</li>
+<li>Why are some final grades missing?</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="from-proposal-to-draft" class="level2" data-number="9.15">
+<h2 data-number="9.15" class="anchored" data-anchor-id="from-proposal-to-draft"><span class="header-section-number">9.15</span> From Proposal to Draft</h2>
+<p>After the proposal packet, the next step is drafting the memo.</p>
+<p>The proposal becomes the draft structure:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Proposal Piece</th>
+<th>Draft Memo Section</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Audience</td>
+<td>Opening sentence or memo context.</td>
+</tr>
+<tr class="even">
+<td>Focused question</td>
+<td>Main question or purpose statement.</td>
+</tr>
+<tr class="odd">
+<td>Source fit</td>
+<td>Brief data/source note.</td>
+</tr>
+<tr class="even">
+<td>Variables needed</td>
+<td>Methods or variable note.</td>
+</tr>
+<tr class="odd">
+<td>Evidence plan</td>
+<td>Summary table.</td>
+</tr>
+<tr class="even">
+<td>Draft claim</td>
+<td>Results interpretation.</td>
+</tr>
+<tr class="odd">
+<td>Caveat</td>
+<td>Limitation sentence or paragraph.</td>
+</tr>
+<tr class="even">
+<td>AI-use plan</td>
+<td>AI documentation note.</td>
+</tr>
+</tbody>
+</table>
+<p>The proposal does not lock you into bad choices. If the evidence plan reveals a problem, revise the question, claim, or caveat.</p>
+<p>Planning is part of analysis.</p>
+</section>
+<section id="common-planning-problems" class="level2" data-number="9.16">
+<h2 data-number="9.16" class="anchored" data-anchor-id="common-planning-problems"><span class="header-section-number">9.16</span> Common Planning Problems</h2>
+<p>Mini-project proposals often run into predictable problems.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Revision Move</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Audience is too broad.</td>
+<td>Name a realistic group that needs the information.</td>
+</tr>
+<tr class="even">
+<td>Question is too large.</td>
+<td>Narrow to one source, time frame, measure, or comparison.</td>
+</tr>
+<tr class="odd">
+<td>Source does not fit the question.</td>
+<td>Revise the question or choose a better source.</td>
+</tr>
+<tr class="even">
+<td>Claim is causal but evidence is descriptive.</td>
+<td>Rewrite as a descriptive or comparative claim.</td>
+</tr>
+<tr class="odd">
+<td>Table plan lacks a denominator.</td>
+<td>Identify the whole group behind the percentage, rate, or average.</td>
+</tr>
+<tr class="even">
+<td>Caveat is generic.</td>
+<td>Name the specific source, missingness, comparison, or cleaning limit.</td>
+</tr>
+<tr class="odd">
+<td>AI plan is vague.</td>
+<td>State what AI may do and how output will be checked.</td>
+</tr>
+<tr class="even">
+<td>Too many tables are planned.</td>
+<td>Choose the one table that best answers the audience question.</td>
+</tr>
+</tbody>
+</table>
+<p>The goal is not to make the proposal perfect. The goal is to make the project workable.</p>
+</section>
+<section id="practical-workflow" class="level2" data-number="9.17">
+<h2 data-number="9.17" class="anchored" data-anchor-id="practical-workflow"><span class="header-section-number">9.17</span> Practical Workflow</h2>
+<p>Use this workflow to plan Mini-Project 1:</p>
+<ol type="1">
+<li>Choose a realistic audience.</li>
+<li>Write one broad topic.</li>
+<li>Narrow the topic into one focused question.</li>
+<li>Identify one source that fits the question.</li>
+<li>Check source documentation and row meaning.</li>
+<li>Choose the variables needed.</li>
+<li>Draft a descriptive or comparative claim.</li>
+<li>Plan one summary table.</li>
+<li>Identify numerator, denominator, group, baseline, benchmark, or time frame.</li>
+<li>Write one specific caveat.</li>
+<li>Decide how AI may help.</li>
+<li>Decide how AI output will be verified.</li>
+<li>List unresolved questions.</li>
+<li>Render the proposal packet from Quarto and inspect the output.</li>
+</ol>
+<p>This workflow keeps the project focused enough to finish and careful enough to trust.</p>
+</section>
+<section id="recap" class="level2" data-number="9.18">
+<h2 data-number="9.18" class="anchored" data-anchor-id="recap"><span class="header-section-number">9.18</span> Recap</h2>
+<div class="recap-table">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Mini-Project 1</strong></td>
+<td>A short data memo that answers a focused question for a specific audience using one source and careful evidence.</td>
+</tr>
+<tr class="even">
+<td><strong>Proposal packet</strong></td>
+<td>A planning document that connects audience, question, source, claim, evidence, caveat, and AI-use plan.</td>
+</tr>
+<tr class="odd">
+<td><strong>Audience</strong></td>
+<td>The realistic group the memo is written for.</td>
+</tr>
+<tr class="even">
+<td><strong>Focused question</strong></td>
+<td>A specific, answerable question that names the measure, group, time frame, or comparison.</td>
+</tr>
+<tr class="odd">
+<td><strong>Scope</strong></td>
+<td>The boundary that keeps the project manageable.</td>
+</tr>
+<tr class="even">
+<td><strong>Source fit</strong></td>
+<td>The match between the source, question, audience, and claim.</td>
+</tr>
+<tr class="odd">
+<td><strong>Draft claim</strong></td>
+<td>A first version of what the memo may say, subject to revision after checking evidence.</td>
+</tr>
+<tr class="even">
+<td><strong>Evidence plan</strong></td>
+<td>A plan for the table, summary, denominator, comparison, and missing-value treatment that will support the claim.</td>
+</tr>
+<tr class="odd">
+<td><strong>Data readiness</strong></td>
+<td>Whether the source, variables, row meaning, cleaning decisions, and denominators are clear enough to draft responsibly.</td>
+</tr>
+<tr class="even">
+<td><strong>Caveat</strong></td>
+<td>A specific limit that should travel with the claim.</td>
+</tr>
+<tr class="odd">
+<td><strong>AI-use plan</strong></td>
+<td>A plan for how AI may help and how its output will be verified.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="check-your-understanding" class="level2" data-number="9.19">
+<h2 data-number="9.19" class="anchored" data-anchor-id="check-your-understanding"><span class="header-section-number">9.19</span> Check your understanding</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>What is the purpose of a Mini-Project 1 proposal packet?</p></li>
+<li><p>Why is “everyone” usually a weak audience?</p></li>
+<li><p>Turn this broad topic into a more focused question: tutoring.</p></li>
+<li><p>What does source fit mean?</p></li>
+<li><p>Why should Mini-Project 1 usually use one main source and one main summary table?</p></li>
+<li><p>What is a draft claim?</p></li>
+<li><p>Name three items that should appear in an evidence plan.</p></li>
+<li><p>Why is this claim too strong for a descriptive summary table: “Tutoring caused students to earn higher grades”?</p></li>
+<li><p>Write one specific caveat for a memo comparing average recorded grades by tutoring-use group.</p></li>
+<li><p>Match each term to the best description:</p></li>
+</ol>
+<ol type="a">
+<li><p>Proposal packet</p></li>
+<li><p>Source fit</p></li>
+<li><p>Evidence plan</p></li>
+<li><p>AI-use plan</p></li>
+</ol>
+<p>Descriptions:</p>
+<ol type="1">
+<li><p>A plan for the table, denominator, comparison, and missing-value treatment that will support the claim.</p></li>
+<li><p>A plan for how AI may help and how its output will be verified.</p></li>
+<li><p>The match between the source, question, audience, and claim.</p></li>
+<li><p>A planning document that connects audience, question, source, claim, evidence, caveat, and AI use.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>The proposal packet helps test whether the audience, question, source, claim, evidence, caveat, and AI-use plan fit together before drafting the memo.</p></li>
+<li><p>“Everyone” is usually too broad because different audiences need different evidence, language, context, and caveats. A realistic audience makes the memo easier to focus.</p></li>
+<li><p>One focused question is: In the cleaned Spring 2027 tutoring file, what share of students had at least one completed tutoring visit? Another is: How did average recorded final grades differ between students with at least one completed tutoring visit and students with no recorded tutoring visit?</p></li>
+<li><p>Source fit is the match between the source, question, audience, and claim. A source fits when it measures the population, variables, time frame, and comparison needed for the planned communication.</p></li>
+<li><p>One main source and one main summary table keep the project small enough to complete carefully. The goal is a focused memo, not a full research paper.</p></li>
+<li><p>A draft claim is a first version of what the memo may say. It should be specific, connected to the source, supported by planned evidence, and open to revision.</p></li>
+<li><p>An evidence plan should include items such as the variables used, unit of observation, planned summary table, numerator and denominator, comparison context, missing-value treatment, and caveat.</p></li>
+<li><p>The claim is too strong because a descriptive summary table can show that groups had different average recorded grades, but it does not show why they differed or whether tutoring caused the difference.</p></li>
+<li><p>One specific caveat is: The comparison includes only students with recorded final grades, and it does not show whether tutoring caused the grade difference.</p></li>
+<li><p>a-4. b-3. c-1. d-2.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

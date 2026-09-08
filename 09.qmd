@@ -1,0 +1,691 @@
+# Planning Mini-Project 1
+
+Mini-Project 1 is your first chance to pull several course skills together into one short data communication product.
+
+So far, you have practiced:
+
+- identifying an audience;
+- separating claims from evidence;
+- finding and evaluating data sources;
+- reading variable meaning;
+- documenting cleaning decisions;
+- creating descriptive summaries;
+- adding comparison context and caveats;
+- using AI responsibly.
+
+Mini-Project 1 asks you to use those skills in a short data memo.
+
+Before writing the memo, you need a plan. A good plan does not need to answer every question yet. It should make the project clear enough that you can draft the memo without wandering.
+
+This chapter focuses on:
+
+- the purpose of Mini-Project 1;
+- choosing a focused audience question;
+- narrowing the scope;
+- selecting a source;
+- drafting a claim;
+- planning evidence;
+- identifying needed context and caveats;
+- checking data readiness;
+- documenting AI use;
+- building a proposal packet in Quarto.
+
+::: {.callout-note title="The proposal is a thinking tool"}
+
+A proposal packet is not busywork. It is a small plan that helps you test whether your audience, question, source, claim, evidence, and caveat fit together before you spend time writing the full memo.
+
+:::
+
+## What Mini-Project 1 Is
+
+Mini-Project 1 is a short data memo.
+
+The memo should communicate a careful, evidence-based answer to a focused question for a specific audience.
+
+It will usually include:
+
+- a clear audience;
+- a focused question;
+- one data source;
+- a brief source note;
+- a small data dictionary or variable note;
+- a cleaning note, if cleaning is needed;
+- one descriptive summary table;
+- a careful interpretation;
+- a caveat or limitation;
+- an AI-use note.
+
+The final memo is not meant to be a full research paper. It is a short, disciplined communication product.
+
+Think of it as answering:
+
+> Here is what this source can responsibly tell this audience about this question.
+
+That sentence has four important pieces:
+
+| Piece | Question to Ask |
+| --- | --- |
+| this source | What data source am I using, and what does it measure? |
+| responsibly tell | What can I claim without overstating? |
+| this audience | Who needs this information? |
+| this question | What focused question am I answering? |
+
+## Start With the Audience
+
+A project becomes easier to scope when the audience is specific.
+
+Weak audience:
+
+> Everyone.
+
+Better audiences:
+
+- students deciding whether to use campus tutoring;
+- a tutoring center director planning staffing;
+- a department chair reviewing course support needs;
+- a local nonprofit explaining service demand;
+- a city council member comparing neighborhood requests;
+- a campus communications team preparing a short update.
+
+The audience affects every later decision.
+
+| Audience | Likely Need |
+| --- | --- |
+| Students | Clear, practical information and plain-language interpretation. |
+| Program staff | Operational counts, workload, and context for planning. |
+| Administrators | Summary comparisons, trends, caveats, and decision relevance. |
+| Public readers | Source clarity, definitions, accessibility, and careful wording. |
+| Technical readers | Reproducible workflow, methods detail, and data limitations. |
+
+::: {.callout-tip title="Use a real audience"}
+
+The audience does not need to be a real person you know, but it should be a realistic group. "Students considering tutoring" is easier to write for than "people interested in education."
+
+:::
+
+## Turn a Topic Into a Question
+
+A broad topic is not yet a project.
+
+Examples of broad topics:
+
+- tutoring;
+- student success;
+- public health;
+- housing;
+- unemployment;
+- transportation;
+- climate;
+- graduation rates.
+
+A focused question names the measure, group, time frame, and comparison.
+
+| Broad Topic | More Focused Question |
+| --- | --- |
+| Tutoring | In the cleaned Spring 2027 tutoring file, what share of students had at least one completed tutoring visit? |
+| Student success | How did course completion rates differ by section in Spring 2027? |
+| Public health | How did reported flu-like illness visits change from January to March in one county? |
+| Housing | How did median rent differ between two nearby counties in the most recent available year? |
+| Unemployment | How did one county's unemployment rate compare with the state average during the same month? |
+| Transportation | Which bus route had the highest average weekday ridership in the selected month? |
+
+A useful Mini-Project 1 question should be answerable with one source and one small summary table.
+
+Weak:
+
+> What causes student success?
+
+Better:
+
+> In the cleaned Spring 2027 tutoring file, how did average recorded final grades differ between students with at least one completed tutoring visit and students with no recorded tutoring visit?
+
+The better question is smaller. That is a strength.
+
+## Scope: Make the Project Small Enough
+
+Mini-Project 1 should be narrow enough to complete carefully.
+
+A good scope usually has:
+
+- one main audience;
+- one main source;
+- one focused question;
+- one main summary table;
+- one careful interpretation;
+- one caveat.
+
+Scope is not about making the project less important. It is about making the work more precise.
+
+| Too Broad | Better Scope |
+| --- | --- |
+| "Analyze all factors related to student success." | Compare recorded final grades by tutoring-use group in one cleaned course file. |
+| "Explain housing affordability." | Compare median rent between two counties using one public source. |
+| "Show whether public transit works." | Summarize weekday ridership by route for one month. |
+| "Evaluate a campus program." | Compare program participation with an internal target for one semester. |
+
+::: {.callout-warning title="Small is not shallow"}
+
+A small question can still require careful source evaluation, variable meaning, cleaning, denominator choices, comparison context, and caveats. Narrow scope gives you room to be responsible.
+
+:::
+
+## Source Fit
+
+Your source should fit the question.
+
+Ask:
+
+1. Does the source include the population or units I care about?
+2. Does it include the measure I need?
+3. Does it cover the right time frame?
+4. Does it provide documentation, definitions, or notes?
+5. Can I use it in Quarto?
+6. Can I cite or describe where it came from?
+7. Does it avoid private, sensitive, or identifiable information?
+8. Does it support a descriptive or comparative claim?
+
+The source does not have to be perfect. It does need to be honest enough for the claim.
+
+::: {.example title="Example 9.1: Source fit"}
+
+Audience:
+
+> A tutoring center director planning next semester's staffing.
+
+Focused question:
+
+> How did completed tutoring visits change from Fall 2026 to Spring 2027?
+
+Possible source:
+
+> A tutoring appointment export with one row per appointment, appointment status, term, date, and student identifier.
+
+Why it fits:
+
+> The source records appointment-level service use and includes a term field. It can support a descriptive comparison of completed visits by term.
+
+Limit:
+
+> It measures recorded appointments, not all possible student need for tutoring.
+
+:::
+
+## Draft Claims
+
+A **draft claim** is a first version of what you think the memo may say.
+
+At the proposal stage, the claim may still change. That is normal.
+
+A draft claim should be:
+
+- specific;
+- connected to the source;
+- supported by a planned summary;
+- descriptive unless the project design supports something stronger;
+- paired with a caveat.
+
+Weak draft claim:
+
+> Tutoring works.
+
+Better draft claim:
+
+> In the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had higher average recorded final grades than students with no recorded tutoring visit.
+
+Better with caveat:
+
+> In the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had higher average recorded final grades than students with no recorded tutoring visit. This comparison is descriptive and does not show whether tutoring caused the grade difference.
+
+The better claim uses what the course has been building:
+
+| Course Skill | How It Appears in the Claim |
+| --- | --- |
+| Source | "cleaned Spring 2027 tutoring file" |
+| Variable meaning | "completed tutoring visit" and "recorded final grade" |
+| Summary | average grade by group |
+| Comparison context | tutoring users compared with non-users |
+| Caveat | descriptive, not causal |
+
+## Claim Type
+
+Before drafting the memo, identify the type of claim.
+
+| Claim Type | What It Says | Evidence Needed |
+| --- | --- | --- |
+| Descriptive | What is in the data. | Clear source, definitions, denominator, and summary. |
+| Comparative | How groups, time periods, or benchmarks differ. | Consistent definitions and a clear comparison. |
+| Associational | How two variables vary together. | Variables measured for the same units plus careful wording. |
+| Causal | One thing produced a change in another. | Strong research design, not only a summary table. |
+| Evaluative | Something is good, bad, sufficient, or insufficient. | Evidence plus a stated criterion or benchmark. |
+
+Mini-Project 1 will usually use descriptive or comparative claims.
+
+That is enough. A careful descriptive or comparative memo can be strong communication.
+
+## Evidence Plan
+
+An evidence plan explains what summary will support the claim.
+
+It should name:
+
+1. The variable or variables you will use.
+2. The unit of observation.
+3. The summary table you plan to create.
+4. The numerator and denominator, if using percentages or rates.
+5. The comparison group, baseline, benchmark, or time frame.
+6. How missing values will be handled or described.
+7. What caveat the audience needs.
+
+Example evidence plan:
+
+| Planning Item | Example |
+| --- | --- |
+| Unit of observation | One row is one tutoring appointment. |
+| Main variables | `student_key`, `term`, `completed_visit`, `final_grade` |
+| Planned summary | Average recorded final grade by tutoring-use group. |
+| Group definition | At least one completed tutoring visit versus no recorded completed visit. |
+| Denominator | Students with recorded final grades in each group. |
+| Missing values | Missing final grades excluded from average and counted in table. |
+| Caveat | The table is descriptive and does not show causation. |
+
+The evidence plan keeps the memo from becoming a loose collection of numbers.
+
+## Data Readiness
+
+A project can have a good question and still not be ready to draft.
+
+Before drafting, check whether the data are ready enough.
+
+| Readiness Area | Question |
+| --- | --- |
+| Source | Do I know where the data came from? |
+| Documentation | Do I know what the important variables mean? |
+| Row meaning | Do I know what one row represents? |
+| Cleaning | Do obvious cleaning decisions need to be documented first? |
+| Missing values | Do I know how missing values affect my summary? |
+| Denominator | Can I clearly name the group behind a percentage, rate, or average? |
+| Comparison | Do I know what the value is compared with? |
+| Caveat | Can I say what the result does not prove? |
+| Reproducibility | Can I explain or reproduce how the summary was made? |
+| AI use | Can I document what AI did and how I checked it? |
+
+If several answers are "no," the proposal should name what must be clarified.
+
+A good proposal can include unresolved questions. It should not pretend uncertainty is gone.
+
+## Caveats
+
+A **caveat** explains a limit that should travel with the claim.
+
+Caveats often involve:
+
+- source coverage;
+- definitions;
+- missing values;
+- small groups;
+- data cleaning;
+- denominators;
+- comparison context;
+- descriptive versus causal evidence;
+- proxy measures.
+
+Weak caveat:
+
+> The data may have limitations.
+
+Stronger caveat:
+
+> The grade comparison includes only students with recorded final grades. It does not include students with missing grades, and it does not show whether tutoring caused the difference.
+
+The stronger caveat is more useful because it names the limit.
+
+::: {.callout-tip title="Make the caveat specific"}
+
+A caveat should not be a generic apology. It should tell the audience exactly how to interpret the claim with appropriate caution.
+
+:::
+
+## AI-Use Plan
+
+An AI-use plan explains how you might use AI and how you will verify the output.
+
+For Mini-Project 1, responsible AI uses may include:
+
+- brainstorming audience questions;
+- turning a broad topic into a narrower question;
+- suggesting table layouts;
+- drafting R code from verified variable definitions;
+- checking whether a paragraph has a denominator;
+- flagging causal language;
+- revising a caveat for clarity;
+- helping diagnose a Quarto render error.
+
+Risky uses include:
+
+- inventing source details;
+- guessing variable definitions;
+- choosing a denominator without evidence;
+- creating numbers that do not come from the dataset;
+- removing caveats;
+- writing causal explanations for descriptive patterns;
+- accepting code output without checking what it counted.
+
+A useful AI-use plan might say:
+
+> I may use AI to help draft R code for the summary table after I provide the verified variable definitions. I will check the code output against the data dictionary, cleaning notes, and group counts before using any number in the memo.
+
+Or:
+
+> I may use AI to review my interpretation paragraph for missing denominator, unclear comparison context, and causal wording. I will not ask AI to invent values or explain why the pattern occurred.
+
+::: {.callout-warning title="Plan verification before using AI"}
+
+Responsible AI use is not only about writing a good prompt. It is also about knowing how you will check the output before it becomes part of the memo.
+
+:::
+
+## Proposal Packet
+
+A **proposal packet** is a short planning document for Mini-Project 1.
+
+It should include:
+
+1. Audience.
+2. Focused question.
+3. Source.
+4. Source fit note.
+5. Variables needed.
+6. Draft claim.
+7. Evidence plan.
+8. Context and caveat.
+9. AI-use plan.
+10. Questions to resolve before drafting.
+
+The packet should be brief, but it should be specific.
+
+Weak proposal:
+
+> I will use education data to show student success.
+
+Stronger proposal:
+
+> I will write for a tutoring center director. My question is: In the cleaned Spring 2027 tutoring file, how did average recorded final grades differ between students with at least one completed tutoring visit and students with no recorded visit? I will use `student_key`, `completed_visit`, and `final_grade` to build a summary table by tutoring-use group. The memo will be descriptive and will not claim that tutoring caused the grade difference.
+
+The stronger proposal gives the project a path.
+
+## Quarto Structure for the Proposal
+
+You can write the proposal packet in Quarto.
+
+Here is a possible structure:
+
+```markdown
+---
+title: "Mini-Project 1 Proposal Packet"
+author: "Your Name"
+format: docx
+---
+
+## Audience
+
+[Who is the memo for? What do they need to understand or decide?]
+
+## Focused Question
+
+[Write one answerable question.]
+
+## Source
+
+**Source title:** [title]
+
+**Source owner or organization:** [owner]
+
+**Link or location:** [link]
+
+**Date accessed:** [date]
+
+**Source summary:** [one sentence]
+
+## Source Fit
+
+[Explain why this source fits the question and what it does not measure.]
+
+## Variables Needed
+
+| Variable | Meaning | Role in Project | Note |
+| --- | --- | --- | --- |
+| [variable] | [definition] | [group, denominator, summary value, etc.] | [cleaning or missing value note] |
+
+## Draft Claim
+
+[Write a careful draft claim.]
+
+## Evidence Plan
+
+| Planning Item | Plan |
+| --- | --- |
+| Unit of observation | [what one row represents] |
+| Summary table | [what table you will make] |
+| Numerator/denominator | [if needed] |
+| Comparison context | [baseline, benchmark, time frame, or group] |
+| Missing values | [how they will be handled or described] |
+
+## Caveat
+
+[Write one specific caveat.]
+
+## AI-Use Plan
+
+[Explain how AI may be used and how output will be verified.]
+
+## Questions to Resolve
+
+1. [question]
+2. [question]
+3. [question]
+```
+
+This structure is not the only possible structure, but it includes the major planning pieces.
+
+## Example Proposal Packet
+
+::: {.example title="Example 9.2: Mini-Project 1 proposal packet"}
+
+Audience:
+
+> Tutoring center director.
+
+Focused question:
+
+> In the cleaned Spring 2027 tutoring file, how did average recorded final grades differ between students with at least one completed tutoring visit and students with no recorded tutoring visit?
+
+Source:
+
+> Cleaned Spring 2027 tutoring file created from the appointment export and course grade file used in class.
+
+Source fit:
+
+> The source includes tutoring-use records and final recorded grades, so it can support a descriptive comparison by tutoring-use group. It does not show whether tutoring caused grade differences.
+
+Variables needed:
+
+| Variable | Meaning | Role in Project | Note |
+| --- | --- | --- | --- |
+| `student_key` | Anonymous student identifier | Count unique students | Identifier, not a measurement. |
+| `completed_visit` | Whether a tutoring appointment was completed | Define tutoring-use group | Needs consistent yes/no coding. |
+| `final_grade` | Recorded final course grade | Numeric summary value | Missing grades should be counted. |
+
+Draft claim:
+
+> In the cleaned Spring 2027 tutoring file, students with at least one completed tutoring visit had higher average recorded final grades than students with no recorded tutoring visit.
+
+Evidence plan:
+
+| Planning Item | Plan |
+| --- | --- |
+| Unit of observation | One row in the appointment file is one appointment; the memo will summarize unique students. |
+| Summary table | Average recorded final grade by tutoring-use group. |
+| Group size | Show students in each group and students with recorded grades. |
+| Missing values | Exclude missing grades from the average and report the number of recorded grades. |
+| Comparison context | Tutoring-use group comparison within Spring 2027. |
+
+Caveat:
+
+> The comparison is descriptive. It does not show whether tutoring caused the grade difference, and it includes only students with recorded final grades.
+
+AI-use plan:
+
+> I may use AI to review the draft interpretation for missing group sizes, denominator language, and causal wording. I will verify every number against my R output before using it.
+
+Questions to resolve:
+
+1. Does `completed_visit` exclude canceled and no-show appointments?
+2. Does the student identifier appear consistently across appointment and grade files?
+3. Why are some final grades missing?
+
+:::
+
+## From Proposal to Draft
+
+After the proposal packet, the next step is drafting the memo.
+
+The proposal becomes the draft structure:
+
+| Proposal Piece | Draft Memo Section |
+| --- | --- |
+| Audience | Opening sentence or memo context. |
+| Focused question | Main question or purpose statement. |
+| Source fit | Brief data/source note. |
+| Variables needed | Methods or variable note. |
+| Evidence plan | Summary table. |
+| Draft claim | Results interpretation. |
+| Caveat | Limitation sentence or paragraph. |
+| AI-use plan | AI documentation note. |
+
+The proposal does not lock you into bad choices. If the evidence plan reveals a problem, revise the question, claim, or caveat.
+
+Planning is part of analysis.
+
+## Common Planning Problems
+
+Mini-project proposals often run into predictable problems.
+
+| Problem | Revision Move |
+| --- | --- |
+| Audience is too broad. | Name a realistic group that needs the information. |
+| Question is too large. | Narrow to one source, time frame, measure, or comparison. |
+| Source does not fit the question. | Revise the question or choose a better source. |
+| Claim is causal but evidence is descriptive. | Rewrite as a descriptive or comparative claim. |
+| Table plan lacks a denominator. | Identify the whole group behind the percentage, rate, or average. |
+| Caveat is generic. | Name the specific source, missingness, comparison, or cleaning limit. |
+| AI plan is vague. | State what AI may do and how output will be checked. |
+| Too many tables are planned. | Choose the one table that best answers the audience question. |
+
+The goal is not to make the proposal perfect. The goal is to make the project workable.
+
+## Practical Workflow
+
+Use this workflow to plan Mini-Project 1:
+
+1. Choose a realistic audience.
+2. Write one broad topic.
+3. Narrow the topic into one focused question.
+4. Identify one source that fits the question.
+5. Check source documentation and row meaning.
+6. Choose the variables needed.
+7. Draft a descriptive or comparative claim.
+8. Plan one summary table.
+9. Identify numerator, denominator, group, baseline, benchmark, or time frame.
+10. Write one specific caveat.
+11. Decide how AI may help.
+12. Decide how AI output will be verified.
+13. List unresolved questions.
+14. Render the proposal packet from Quarto and inspect the output.
+
+This workflow keeps the project focused enough to finish and careful enough to trust.
+
+## Recap
+
+::: {.recap-table}
+| **Keyword** | **Definition** |
+| --- | --- |
+| **Mini-Project 1** | A short data memo that answers a focused question for a specific audience using one source and careful evidence. |
+| **Proposal packet** | A planning document that connects audience, question, source, claim, evidence, caveat, and AI-use plan. |
+| **Audience** | The realistic group the memo is written for. |
+| **Focused question** | A specific, answerable question that names the measure, group, time frame, or comparison. |
+| **Scope** | The boundary that keeps the project manageable. |
+| **Source fit** | The match between the source, question, audience, and claim. |
+| **Draft claim** | A first version of what the memo may say, subject to revision after checking evidence. |
+| **Evidence plan** | A plan for the table, summary, denominator, comparison, and missing-value treatment that will support the claim. |
+| **Data readiness** | Whether the source, variables, row meaning, cleaning decisions, and denominators are clear enough to draft responsibly. |
+| **Caveat** | A specific limit that should travel with the claim. |
+| **AI-use plan** | A plan for how AI may help and how its output will be verified. |
+:::
+
+## Check your understanding
+
+::: {.callout-note collapse="false" title="Problems"}
+
+1. What is the purpose of a Mini-Project 1 proposal packet?
+
+2. Why is "everyone" usually a weak audience?
+
+3. Turn this broad topic into a more focused question: tutoring.
+
+4. What does source fit mean?
+
+5. Why should Mini-Project 1 usually use one main source and one main summary table?
+
+6. What is a draft claim?
+
+7. Name three items that should appear in an evidence plan.
+
+8. Why is this claim too strong for a descriptive summary table: "Tutoring caused students to earn higher grades"?
+
+9. Write one specific caveat for a memo comparing average recorded grades by tutoring-use group.
+
+10. Match each term to the best description:
+
+   a. Proposal packet
+
+   b. Source fit
+
+   c. Evidence plan
+
+   d. AI-use plan
+
+   Descriptions:
+
+   1. A plan for the table, denominator, comparison, and missing-value treatment that will support the claim.
+
+   2. A plan for how AI may help and how its output will be verified.
+
+   3. The match between the source, question, audience, and claim.
+
+   4. A planning document that connects audience, question, source, claim, evidence, caveat, and AI use.
+
+:::
+
+::: {.callout-tip collapse="true" title="Solutions"}
+
+1. The proposal packet helps test whether the audience, question, source, claim, evidence, caveat, and AI-use plan fit together before drafting the memo.
+
+2. "Everyone" is usually too broad because different audiences need different evidence, language, context, and caveats. A realistic audience makes the memo easier to focus.
+
+3. One focused question is: In the cleaned Spring 2027 tutoring file, what share of students had at least one completed tutoring visit? Another is: How did average recorded final grades differ between students with at least one completed tutoring visit and students with no recorded tutoring visit?
+
+4. Source fit is the match between the source, question, audience, and claim. A source fits when it measures the population, variables, time frame, and comparison needed for the planned communication.
+
+5. One main source and one main summary table keep the project small enough to complete carefully. The goal is a focused memo, not a full research paper.
+
+6. A draft claim is a first version of what the memo may say. It should be specific, connected to the source, supported by planned evidence, and open to revision.
+
+7. An evidence plan should include items such as the variables used, unit of observation, planned summary table, numerator and denominator, comparison context, missing-value treatment, and caveat.
+
+8. The claim is too strong because a descriptive summary table can show that groups had different average recorded grades, but it does not show why they differed or whether tutoring caused the difference.
+
+9. One specific caveat is: The comparison includes only students with recorded final grades, and it does not show whether tutoring caused the grade difference.
+
+10. a-4. b-3. c-1. d-2.
+
+:::
