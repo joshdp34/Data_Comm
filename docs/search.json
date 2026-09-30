@@ -1348,5 +1348,175 @@
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Planning Mini-Project 1</span>"
     ]
+  },
+  {
+    "objectID": "10.html",
+    "href": "10.html",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "",
+    "text": "10.1 From Proposal to Draft\nMini-Project 1 now moves from planning to drafting.\nIn Chapter 9, you built a proposal packet that connected an audience, a focused question, a source, a draft claim, an evidence plan, a caveat, and an AI-use plan. A proposal helps you decide what the memo should do. A draft begins doing it for a reader.\nThis chapter focuses on:\nA proposal is written mainly for the writer. It records decisions that guide the project. A memo is written for the audience. It turns those decisions into a clear path through the evidence.\nThe proposal does not need to appear as a separate section in the memo. Its pieces should shape what the reader sees.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#from-proposal-to-draft",
+    "href": "10.html#from-proposal-to-draft",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "",
+    "text": "Proposal Piece\nDraft Memo Job\n\n\n\n\nAudience\nSets the language, detail, and context.\n\n\nFocused question\nGives the memo a purpose.\n\n\nSource fit\nBecomes a brief source note.\n\n\nVariables and evidence plan\nProduce the main table.\n\n\nDraft claim\nBecomes an interpretation supported by the table.\n\n\nCaveat\nBecomes a specific limitation attached to the claim.\n\n\nAI-use plan\nBecomes documentation of what AI actually did and how its output was checked.\n\n\n\n\n\n\n\n\n\n\nTipTurn planning language into reader language\n\n\n\nProposal language often says, “I plan to compare…” Draft language should say what the memo does: “This memo compares…” or “The table shows…”",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#what-the-draft-should-accomplish",
+    "href": "10.html#what-the-draft-should-accomplish",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.2 What the Draft Should Accomplish",
+    "text": "10.2 What the Draft Should Accomplish\nThe Mini-Project 1 draft should allow a reader to answer five questions:\n\nWhat question is this memo answering?\nWhat source and observations are being summarized?\nWhat does the main table show?\nWhat conclusion is supported by that evidence?\nWhat important limit should affect the interpretation?\n\nA short memo does not need to include everything you learned while working. It needs to include what the audience needs in order to understand and evaluate the main claim.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#a-practical-memo-structure",
+    "href": "10.html#a-practical-memo-structure",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.3 A Practical Memo Structure",
+    "text": "10.3 A Practical Memo Structure\nOne useful structure is:\n\nTitle: Names the subject and, when useful, the comparison or time period.\nOpening: Identifies the audience question and previews the main finding.\nSource note: Explains where the data came from, what one row represents, and any important preparation decisions.\nMain table: Presents the evidence needed to answer the question.\nInterpretation: Explains the pattern, comparison, or magnitude in plain language.\nLimitation: States what the evidence does not measure or prove.\nAI-use note: Documents any AI assistance and verification.\n\nThese pieces do not need to be equally long. In a short memo, the opening and source note may each be one paragraph. The table and interpretation should receive the most attention because they carry the evidence.\n\n\n\n\n\n\nExampleExample 10.1: Draft structure\n\n\n\nTitle: Recorded Grades by Tutoring-Use Group, Spring 2027\nOpening: This memo summarizes recorded final grades for students in the cleaned Spring 2027 tutoring file. It compares students with at least one completed tutoring visit with students who had no recorded completed visit.\nSource note: The analysis combines appointment records with course-grade records. The final summary uses one row per student and includes only records that could be matched with an anonymous student key.\nMain table: A table showing the number of students, number with recorded grades, average grade, and median grade for each tutoring-use group.\nInterpretation: Students with at least one completed visit had a higher average recorded grade in this file. The group sizes and medians provide context for that difference.\nLimitation: This descriptive comparison does not show that tutoring caused the grade difference. The groups may differ in motivation, prior preparation, course enrollment, or other ways not measured here.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#write-the-opening-for-the-audience",
+    "href": "10.html#write-the-opening-for-the-audience",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.4 Write the Opening for the Audience",
+    "text": "10.4 Write the Opening for the Audience\nThe opening should quickly establish the purpose of the memo. A useful opening usually names the audience or decision context, the focused question, the population or time period, and the main finding if the evidence is ready.\nWeak opening:\n\nTutoring is an important part of college education. Many students use tutoring for many reasons. This paper will discuss tutoring data.\n\nThe opening is broad and delays the actual question.\nStronger opening:\n\nTo help the tutoring center director understand recorded outcomes for Spring 2027, this memo compares final grades for students with at least one completed tutoring visit and students with no recorded completed visit. In the cleaned file, the tutoring-use group had a higher average recorded grade, although the comparison is descriptive rather than causal.\n\nThe stronger version tells the reader what was compared, for whom, when, and how cautiously to read the result.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#write-a-compact-source-note",
+    "href": "10.html#write-a-compact-source-note",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.5 Write a Compact Source Note",
+    "text": "10.5 Write a Compact Source Note\nA source note gives the reader enough information to understand what the evidence represents. It is not a complete data-management log.\nA useful source note may include:\n\nthe source name or owner;\nthe file, website, or system from which the data came;\nthe covered time period;\nthe unit of observation in the original source;\nthe unit used in the final table;\nimportant filters, joins, recodes, or exclusions;\nhow missing values affected the summary.\n\nExample:\n\nThe analysis uses a Spring 2027 tutoring appointment export and a course-grade file. The appointment export contains one row per appointment, but the final table summarizes unique students. Canceled and no-show appointments were not counted as completed visits. Records without a matching anonymous student key were excluded from the joined analysis, and missing final grades were excluded from grade calculations but retained in the reported group counts.\n\n\n\n\n\n\n\nWarningDo not hide the unit of observation\n\n\n\nIf the source has one row per appointment but the claim concerns students, the memo must explain how appointments became a student-level summary. Counting rows and counting people are not the same operation.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#choose-the-main-evidence",
+    "href": "10.html#choose-the-main-evidence",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.6 Choose the Main Evidence",
+    "text": "10.6 Choose the Main Evidence\nThe draft should be organized around one main table that directly answers the focused question. Before creating it, complete this sentence:\n\nIf the audience sees only one table, it should show __________ because __________.\n\nFor example:\n\nIf the tutoring center director sees only one table, it should show group size, recorded-grade count, average grade, and median grade by tutoring-use group because those values answer the comparison question and reveal how much evidence is behind each summary.\n\nChoose columns because they help the audience interpret the claim, not simply because they are available.\n\n\n\n\n\n\n\nUseful Column\nWhy It May Matter\n\n\n\n\nGroup label\nDefines the comparison.\n\n\nTotal group size\nShows how many units are represented.\n\n\nValid-value count\nShows how many observations contribute to a statistic.\n\n\nCount or percentage\nAnswers a frequency question.\n\n\nMean or median\nSummarizes the center of a numeric variable.\n\n\nDifference\nMakes the comparison explicit.\n\n\nTime period or benchmark\nProvides context for interpretation.\n\n\n\nMore columns do not automatically create more evidence. Extra columns can bury the answer.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#build-a-communication-table",
+    "href": "10.html#build-a-communication-table",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.7 Build a Communication Table",
+    "text": "10.7 Build a Communication Table\nAn analysis table helps the analyst inspect results. A communication table helps an audience understand the result. It should have a descriptive title, readable labels, visible units, sensible rounding, group sizes or denominators, and a note when exclusions or definitions matter.\nAnalysis output:\n\n\n\ntut_grp\nn\nn_grade\navg_fg\nmed_fg\n\n\n\n\n0\n184\n169\n76.43846\n78\n\n\n1\n72\n68\n82.17647\n84\n\n\n\nCommunication table:\n\n\n\n\n\n\n\n\n\n\nTutoring-use group\nStudents\nStudents with recorded grades\nAverage final grade\nMedian final grade\n\n\n\n\nNo completed visit recorded\n184\n169\n76.4\n78\n\n\nAt least one completed visit\n72\n68\n82.2\n84\n\n\n\nTable note:\n\nCompleted visits exclude canceled and no-show appointments. Grade summaries exclude missing final grades.\n\nThe second table contains the same main statistics, but its labels, rounding, and note make the evidence easier to interpret.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#interpret-rather-than-transcribe",
+    "href": "10.html#interpret-rather-than-transcribe",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.8 Interpret Rather Than Transcribe",
+    "text": "10.8 Interpret Rather Than Transcribe\nThe interpretation should tell the reader what matters in the table. It should not narrate every cell.\nWeak interpretation:\n\nThere were 184 students in the first group and 72 in the second group. The first average was 76.4 and the second average was 82.2. The medians were 78 and 84.\n\nStronger interpretation:\n\nStudents with at least one completed tutoring visit had an average recorded final grade of 82.2, compared with 76.4 among students with no recorded completed visit, a difference of 5.8 points. The median showed a similar pattern. The tutoring-use group was smaller, and four of its 72 students had missing final grades; the comparison therefore describes the available records rather than all possible student outcomes.\n\nThe stronger paragraph identifies the comparison, quantifies the difference, uses a second statistic as context, and explains a relevant limitation.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#keep-the-claim-at-the-strength-of-the-evidence",
+    "href": "10.html#keep-the-claim-at-the-strength-of-the-evidence",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.9 Keep the Claim at the Strength of the Evidence",
+    "text": "10.9 Keep the Claim at the Strength of the Evidence\nA descriptive table can support descriptive and comparative statements.\nSupported:\n\nIn the cleaned file, the average recorded grade was 5.8 points higher in the tutoring-use group.\n\nNot supported by the table alone:\n\nTutoring raised student grades by 5.8 points.\n\nThe second statement is causal. It assumes the groups would otherwise have had the same outcomes. A simple comparison does not establish that assumption.\nWords such as caused, led to, resulted in, improved, and because of often signal causal overstatement. Descriptive alternatives include was higher than, differed by, was associated with, was observed among, and in this file.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#add-a-specific-limitation",
+    "href": "10.html#add-a-specific-limitation",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.10 Add a Specific Limitation",
+    "text": "10.10 Add a Specific Limitation\nA limitation is useful when it changes how the audience should interpret the result.\nWeak limitation:\n\nThe data may have some problems.\n\nStronger limitation:\n\nThe comparison includes only students with recorded final grades and does not account for prior preparation, course difficulty, motivation, or other differences between the groups. It should not be interpreted as an estimate of the effect of tutoring.\n\nA specific limitation names the limited feature, explains the consequence for interpretation, and identifies any claim the reader should avoid. It belongs near the claim it qualifies.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#document-ai-use",
+    "href": "10.html#document-ai-use",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.11 Document AI Use",
+    "text": "10.11 Document AI Use\nThe draft should report what AI actually did, not what you originally planned for it to do.\nUseful AI-use note:\n\nAI was used to suggest revisions to the interpretation paragraph and to identify possible causal wording. I checked every numerical value against the rendered R output and made the final wording decisions. AI was not used to generate or replace data.\n\nAnother useful note:\n\nAI helped troubleshoot a Quarto table-formatting error. I tested the revised code, inspected the rendered table, and verified its values against the unformatted summary.\n\nA useful note identifies the task, the verification step, and any meaningful boundary.\n\n\n\n\n\n\nNoteAI assistance does not transfer responsibility\n\n\n\nThe author remains responsible for the source description, code, values, interpretation, citations, and final wording. A fluent AI response is not evidence that a result is correct.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#draft-the-memo-in-quarto",
+    "href": "10.html#draft-the-memo-in-quarto",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.12 Draft the Memo in Quarto",
+    "text": "10.12 Draft the Memo in Quarto\nA simple draft can use this structure:\n---\ntitle: \"Recorded Grades by Tutoring-Use Group\"\nauthor: \"Your Name\"\nformat: docx\n---\n\n## Purpose and Main Finding\n\n[State the audience question and preview the main finding.]\n\n## Data Source\n\n[Name the source, time period, unit of observation, important cleaning decisions, and missing-value treatment.]\n\n## Main Evidence\n\n[Include one communication table and interpret its main comparison.]\n\n## Limitation\n\n[State one specific limit and explain its consequence for the claim.]\n\n## AI-Use Note\n\n[Explain what AI did and how its output was verified.]\nInside an R code cell, table-formatting code might look like this:\n#| label: tbl-grade-summary\n#| tbl-cap: \"Recorded final grades by tutoring-use group\"\n\ngrade_summary |&gt;\n  knitr::kable(\n    col.names = c(\n      \"Tutoring-use group\", \"Students\",\n      \"Students with recorded grades\",\n      \"Average final grade\", \"Median final grade\"\n    ),\n    digits = 1,\n    align = c(\"l\", \"r\", \"r\", \"r\", \"r\")\n  )\nThe object grade_summary must already contain checked summary values. Formatting code changes presentation; it should not silently change the analysis.\nFor a small table with values verified elsewhere, Markdown is also acceptable. Whichever method you use, inspect the rendered output. A table that looks correct in source code may wrap, overflow, lose a note, or become difficult to read after rendering.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#revise-while-drafting",
+    "href": "10.html#revise-while-drafting",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.13 Revise While Drafting",
+    "text": "10.13 Revise While Drafting\nDrafting may reveal a problem in the proposal. That is useful information.\n\n\n\n\n\n\n\nDrafting Discovery\nResponsible Revision\n\n\n\n\nThe source does not contain the needed measure.\nRevise the question or choose a better-supported measure.\n\n\nA group has very few observations.\nReport the group size and narrow the claim.\n\n\nMany values are missing.\nShow valid-value counts and explain the effect on interpretation.\n\n\nThe planned table does not answer the question.\nRedesign the table or revise the question.\n\n\nThe draft claim is stronger than the design.\nRewrite it as descriptive or comparative.\n\n\nAI-suggested code produces unexpected values.\nInspect intermediate steps and verify definitions and counts.\n\n\n\nRevision is not evidence that the plan failed. It is part of responsible analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#draft-review-checklist",
+    "href": "10.html#draft-review-checklist",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.14 Draft Review Checklist",
+    "text": "10.14 Draft Review Checklist\nBefore submitting the Mini-Project 1 draft, check that:\n\nthe opening names a focused purpose and fits a realistic audience;\nthe source, time period, and unit of observation are clear;\nimportant filters, joins, recodes, exclusions, and missing values are documented;\none main table directly answers the question;\nlabels, units, group sizes, denominators, and rounding are clear;\nevery displayed number has been checked;\nthe interpretation explains the main pattern rather than repeating every cell;\nthe claim is no stronger than the evidence;\na specific limitation appears near the claim;\nthe .qmd file renders successfully and the output is readable;\nAI assistance and verification are documented.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#recap",
+    "href": "10.html#recap",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.15 Recap",
+    "text": "10.15 Recap\n\n\n\n\n\n\n\n\nKeyword\nDefinition\n\n\n\n\nDraft memo\nA reader-facing version of the project containing the major argument, evidence, interpretation, and limitation.\n\n\nOpening\nThe beginning of the memo that establishes the audience question, context, and main finding.\n\n\nSource note\nA compact explanation of where the data came from, what the observations represent, and which preparation decisions matter.\n\n\nUnit of observation\nWhat one row or record represents at a particular stage of the analysis.\n\n\nMain evidence\nThe focused summary that directly supports the memo’s claim.\n\n\nCommunication table\nA table designed for an audience, with readable labels, units, rounding, denominators, and relevant notes.\n\n\nInterpretation\nA plain-language explanation of the important pattern, comparison, or magnitude in the evidence.\n\n\nCausal overstatement\nLanguage claiming one factor produced an outcome when the design supports only description, comparison, or association.\n\n\nLimitation\nA specific condition affecting what the evidence measures, represents, or proves.\n\n\nAI-use note\nDocumentation of what AI did, how its output was checked, and what responsibility remained with the author.\n\n\nRendered output\nThe HTML, PDF, or Word document produced from the Quarto source and inspected before submission.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
+  },
+  {
+    "objectID": "10.html#check-your-understanding",
+    "href": "10.html#check-your-understanding",
+    "title": "10  Drafting Mini-Project 1",
+    "section": "10.16 Check your understanding",
+    "text": "10.16 Check your understanding\n\n\n\n\n\n\nNoteProblems\n\n\n\n\n\n\nWhat is the main difference between a proposal packet and a draft memo?\nName five pieces that should appear in the Mini-Project 1 draft.\nWhy should the opening name the focused audience question?\nWhat information should a useful source note include?\nWhy is one strong main table usually better than several weakly connected tables in this project?\nRewrite this claim so that it matches descriptive evidence: “Tutoring made students earn higher grades.”\nWhat is wrong with the limitation “The data might have problems”?\nWhy should group sizes, denominators, or valid-value counts appear with percentages, rates, averages, or comparisons?\nGive an example of a useful AI-use note for a draft memo.\nMatch each term to the best description:\n\n\nSource note\nCommunication table\nInterpretation\nLimitation\n\nDescriptions:\n\nA table prepared with readable labels, units, rounding, and relevant context for an audience.\nA specific condition that affects what the evidence represents or proves.\nA compact explanation of the data source, observations, and important preparation decisions.\nA plain-language explanation of the important pattern or comparison in the evidence.\n\n\n\n\n\n\n\n\n\n\nTipSolutions\n\n\n\n\n\n\nA proposal packet records planning decisions for the writer. A draft memo turns those decisions into a reader-facing product with evidence, interpretation, and a limitation.\nAppropriate pieces include a title, opening, source note, main table, interpretation, limitation, and AI-use note. Any five satisfy the question.\nNaming the focused audience question tells the reader what the memo is trying to answer and why the evidence that follows is relevant.\nA useful source note may include the source name or owner, file or system, time period, original and final units of observation, important filters or cleaning decisions, and missing-value treatment.\nOne strong table keeps the memo focused on the audience question and makes the relationship between evidence and claim easier to evaluate. Several loosely connected tables can bury the answer.\nOne responsible rewrite is: “In the cleaned Spring 2027 file, students with at least one completed tutoring visit had higher average recorded final grades than students with no recorded completed visit.” The memo should also state that the comparison does not establish causation.\nIt is too general to help the reader. A useful limitation identifies the specific issue, such as missing grades or unmeasured group differences, and explains how it affects the claim.\nThese counts show how much evidence is behind a statistic, clarify who is included, and can reveal missingness or small groups that should affect interpretation.\nOne useful note is: “AI was used to suggest revisions to the interpretation paragraph and flag possible causal wording. I checked all numerical values against the rendered R output and made the final wording decisions.”\na-3. b-1. c-4. d-2.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Drafting Mini-Project 1</span>"
+    ]
   }
 ]

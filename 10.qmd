@@ -1,0 +1,410 @@
+# Drafting Mini-Project 1
+
+Mini-Project 1 now moves from planning to drafting.
+
+In Chapter 9, you built a proposal packet that connected an audience, a focused question, a source, a draft claim, an evidence plan, a caveat, and an AI-use plan. A proposal helps you decide what the memo should do. A draft begins doing it for a reader.
+
+This chapter focuses on:
+
+- turning a proposal into a short data memo;
+- organizing the memo around an audience question;
+- writing a useful source note;
+- presenting one focused communication table;
+- interpreting evidence without repeating every value;
+- separating description from explanation and causation;
+- writing a specific limitation;
+- documenting AI use;
+- drafting and rendering the memo in Quarto.
+
+::: {.callout-note title="A draft is not a finished memo"}
+
+The purpose of a draft is to make your thinking visible enough to test. A useful draft may still need revision, but it should contain the major pieces of the memo so that feedback can address the argument, evidence, and communication choices.
+
+:::
+
+## From Proposal to Draft
+
+A proposal is written mainly for the writer. It records decisions that guide the project. A memo is written for the audience. It turns those decisions into a clear path through the evidence.
+
+| Proposal Piece | Draft Memo Job |
+| --- | --- |
+| Audience | Sets the language, detail, and context. |
+| Focused question | Gives the memo a purpose. |
+| Source fit | Becomes a brief source note. |
+| Variables and evidence plan | Produce the main table. |
+| Draft claim | Becomes an interpretation supported by the table. |
+| Caveat | Becomes a specific limitation attached to the claim. |
+| AI-use plan | Becomes documentation of what AI actually did and how its output was checked. |
+
+The proposal does not need to appear as a separate section in the memo. Its pieces should shape what the reader sees.
+
+::: {.callout-tip title="Turn planning language into reader language"}
+
+Proposal language often says, "I plan to compare..." Draft language should say what the memo does: "This memo compares..." or "The table shows..."
+
+:::
+
+## What the Draft Should Accomplish
+
+The Mini-Project 1 draft should allow a reader to answer five questions:
+
+1. What question is this memo answering?
+2. What source and observations are being summarized?
+3. What does the main table show?
+4. What conclusion is supported by that evidence?
+5. What important limit should affect the interpretation?
+
+A short memo does not need to include everything you learned while working. It needs to include what the audience needs in order to understand and evaluate the main claim.
+
+## A Practical Memo Structure
+
+One useful structure is:
+
+1. **Title**: Names the subject and, when useful, the comparison or time period.
+2. **Opening**: Identifies the audience question and previews the main finding.
+3. **Source note**: Explains where the data came from, what one row represents, and any important preparation decisions.
+4. **Main table**: Presents the evidence needed to answer the question.
+5. **Interpretation**: Explains the pattern, comparison, or magnitude in plain language.
+6. **Limitation**: States what the evidence does not measure or prove.
+7. **AI-use note**: Documents any AI assistance and verification.
+
+These pieces do not need to be equally long. In a short memo, the opening and source note may each be one paragraph. The table and interpretation should receive the most attention because they carry the evidence.
+
+::: {.example title="Example 10.1: Draft structure"}
+
+**Title:** Recorded Grades by Tutoring-Use Group, Spring 2027
+
+**Opening:** This memo summarizes recorded final grades for students in the cleaned Spring 2027 tutoring file. It compares students with at least one completed tutoring visit with students who had no recorded completed visit.
+
+**Source note:** The analysis combines appointment records with course-grade records. The final summary uses one row per student and includes only records that could be matched with an anonymous student key.
+
+**Main table:** A table showing the number of students, number with recorded grades, average grade, and median grade for each tutoring-use group.
+
+**Interpretation:** Students with at least one completed visit had a higher average recorded grade in this file. The group sizes and medians provide context for that difference.
+
+**Limitation:** This descriptive comparison does not show that tutoring caused the grade difference. The groups may differ in motivation, prior preparation, course enrollment, or other ways not measured here.
+
+:::
+
+## Write the Opening for the Audience
+
+The opening should quickly establish the purpose of the memo. A useful opening usually names the audience or decision context, the focused question, the population or time period, and the main finding if the evidence is ready.
+
+Weak opening:
+
+> Tutoring is an important part of college education. Many students use tutoring for many reasons. This paper will discuss tutoring data.
+
+The opening is broad and delays the actual question.
+
+Stronger opening:
+
+> To help the tutoring center director understand recorded outcomes for Spring 2027, this memo compares final grades for students with at least one completed tutoring visit and students with no recorded completed visit. In the cleaned file, the tutoring-use group had a higher average recorded grade, although the comparison is descriptive rather than causal.
+
+The stronger version tells the reader what was compared, for whom, when, and how cautiously to read the result.
+
+## Write a Compact Source Note
+
+A **source note** gives the reader enough information to understand what the evidence represents. It is not a complete data-management log.
+
+A useful source note may include:
+
+- the source name or owner;
+- the file, website, or system from which the data came;
+- the covered time period;
+- the unit of observation in the original source;
+- the unit used in the final table;
+- important filters, joins, recodes, or exclusions;
+- how missing values affected the summary.
+
+Example:
+
+> The analysis uses a Spring 2027 tutoring appointment export and a course-grade file. The appointment export contains one row per appointment, but the final table summarizes unique students. Canceled and no-show appointments were not counted as completed visits. Records without a matching anonymous student key were excluded from the joined analysis, and missing final grades were excluded from grade calculations but retained in the reported group counts.
+
+::: {.callout-warning title="Do not hide the unit of observation"}
+
+If the source has one row per appointment but the claim concerns students, the memo must explain how appointments became a student-level summary. Counting rows and counting people are not the same operation.
+
+:::
+
+## Choose the Main Evidence
+
+The draft should be organized around one main table that directly answers the focused question. Before creating it, complete this sentence:
+
+> If the audience sees only one table, it should show __________ because __________.
+
+For example:
+
+> If the tutoring center director sees only one table, it should show group size, recorded-grade count, average grade, and median grade by tutoring-use group because those values answer the comparison question and reveal how much evidence is behind each summary.
+
+Choose columns because they help the audience interpret the claim, not simply because they are available.
+
+| Useful Column | Why It May Matter |
+| --- | --- |
+| Group label | Defines the comparison. |
+| Total group size | Shows how many units are represented. |
+| Valid-value count | Shows how many observations contribute to a statistic. |
+| Count or percentage | Answers a frequency question. |
+| Mean or median | Summarizes the center of a numeric variable. |
+| Difference | Makes the comparison explicit. |
+| Time period or benchmark | Provides context for interpretation. |
+
+More columns do not automatically create more evidence. Extra columns can bury the answer.
+
+## Build a Communication Table
+
+An analysis table helps the analyst inspect results. A **communication table** helps an audience understand the result. It should have a descriptive title, readable labels, visible units, sensible rounding, group sizes or denominators, and a note when exclusions or definitions matter.
+
+Analysis output:
+
+| tut_grp | n | n_grade | avg_fg | med_fg |
+| --- | ---: | ---: | ---: | ---: |
+| 0 | 184 | 169 | 76.43846 | 78 |
+| 1 | 72 | 68 | 82.17647 | 84 |
+
+Communication table:
+
+| Tutoring-use group | Students | Students with recorded grades | Average final grade | Median final grade |
+| --- | ---: | ---: | ---: | ---: |
+| No completed visit recorded | 184 | 169 | 76.4 | 78 |
+| At least one completed visit | 72 | 68 | 82.2 | 84 |
+
+Table note:
+
+> Completed visits exclude canceled and no-show appointments. Grade summaries exclude missing final grades.
+
+The second table contains the same main statistics, but its labels, rounding, and note make the evidence easier to interpret.
+
+## Interpret Rather Than Transcribe
+
+The interpretation should tell the reader what matters in the table. It should not narrate every cell.
+
+Weak interpretation:
+
+> There were 184 students in the first group and 72 in the second group. The first average was 76.4 and the second average was 82.2. The medians were 78 and 84.
+
+Stronger interpretation:
+
+> Students with at least one completed tutoring visit had an average recorded final grade of 82.2, compared with 76.4 among students with no recorded completed visit, a difference of 5.8 points. The median showed a similar pattern. The tutoring-use group was smaller, and four of its 72 students had missing final grades; the comparison therefore describes the available records rather than all possible student outcomes.
+
+The stronger paragraph identifies the comparison, quantifies the difference, uses a second statistic as context, and explains a relevant limitation.
+
+## Keep the Claim at the Strength of the Evidence
+
+A descriptive table can support descriptive and comparative statements.
+
+Supported:
+
+> In the cleaned file, the average recorded grade was 5.8 points higher in the tutoring-use group.
+
+Not supported by the table alone:
+
+> Tutoring raised student grades by 5.8 points.
+
+The second statement is causal. It assumes the groups would otherwise have had the same outcomes. A simple comparison does not establish that assumption.
+
+Words such as *caused*, *led to*, *resulted in*, *improved*, and *because of* often signal causal overstatement. Descriptive alternatives include *was higher than*, *differed by*, *was associated with*, *was observed among*, and *in this file*.
+
+## Add a Specific Limitation
+
+A limitation is useful when it changes how the audience should interpret the result.
+
+Weak limitation:
+
+> The data may have some problems.
+
+Stronger limitation:
+
+> The comparison includes only students with recorded final grades and does not account for prior preparation, course difficulty, motivation, or other differences between the groups. It should not be interpreted as an estimate of the effect of tutoring.
+
+A specific limitation names the limited feature, explains the consequence for interpretation, and identifies any claim the reader should avoid. It belongs near the claim it qualifies.
+
+## Document AI Use
+
+The draft should report what AI actually did, not what you originally planned for it to do.
+
+Useful AI-use note:
+
+> AI was used to suggest revisions to the interpretation paragraph and to identify possible causal wording. I checked every numerical value against the rendered R output and made the final wording decisions. AI was not used to generate or replace data.
+
+Another useful note:
+
+> AI helped troubleshoot a Quarto table-formatting error. I tested the revised code, inspected the rendered table, and verified its values against the unformatted summary.
+
+A useful note identifies the task, the verification step, and any meaningful boundary.
+
+::: {.callout-note title="AI assistance does not transfer responsibility"}
+
+The author remains responsible for the source description, code, values, interpretation, citations, and final wording. A fluent AI response is not evidence that a result is correct.
+
+:::
+
+## Draft the Memo in Quarto
+
+A simple draft can use this structure:
+
+```markdown
+---
+title: "Recorded Grades by Tutoring-Use Group"
+author: "Your Name"
+format: docx
+---
+
+## Purpose and Main Finding
+
+[State the audience question and preview the main finding.]
+
+## Data Source
+
+[Name the source, time period, unit of observation, important cleaning decisions, and missing-value treatment.]
+
+## Main Evidence
+
+[Include one communication table and interpret its main comparison.]
+
+## Limitation
+
+[State one specific limit and explain its consequence for the claim.]
+
+## AI-Use Note
+
+[Explain what AI did and how its output was verified.]
+```
+
+Inside an R code cell, table-formatting code might look like this:
+
+```r
+#| label: tbl-grade-summary
+#| tbl-cap: "Recorded final grades by tutoring-use group"
+
+grade_summary |>
+  knitr::kable(
+    col.names = c(
+      "Tutoring-use group", "Students",
+      "Students with recorded grades",
+      "Average final grade", "Median final grade"
+    ),
+    digits = 1,
+    align = c("l", "r", "r", "r", "r")
+  )
+```
+
+The object `grade_summary` must already contain checked summary values. Formatting code changes presentation; it should not silently change the analysis.
+
+For a small table with values verified elsewhere, Markdown is also acceptable. Whichever method you use, inspect the rendered output. A table that looks correct in source code may wrap, overflow, lose a note, or become difficult to read after rendering.
+
+## Revise While Drafting
+
+Drafting may reveal a problem in the proposal. That is useful information.
+
+| Drafting Discovery | Responsible Revision |
+| --- | --- |
+| The source does not contain the needed measure. | Revise the question or choose a better-supported measure. |
+| A group has very few observations. | Report the group size and narrow the claim. |
+| Many values are missing. | Show valid-value counts and explain the effect on interpretation. |
+| The planned table does not answer the question. | Redesign the table or revise the question. |
+| The draft claim is stronger than the design. | Rewrite it as descriptive or comparative. |
+| AI-suggested code produces unexpected values. | Inspect intermediate steps and verify definitions and counts. |
+
+Revision is not evidence that the plan failed. It is part of responsible analysis.
+
+## Draft Review Checklist
+
+Before submitting the Mini-Project 1 draft, check that:
+
+- the opening names a focused purpose and fits a realistic audience;
+- the source, time period, and unit of observation are clear;
+- important filters, joins, recodes, exclusions, and missing values are documented;
+- one main table directly answers the question;
+- labels, units, group sizes, denominators, and rounding are clear;
+- every displayed number has been checked;
+- the interpretation explains the main pattern rather than repeating every cell;
+- the claim is no stronger than the evidence;
+- a specific limitation appears near the claim;
+- the `.qmd` file renders successfully and the output is readable;
+- AI assistance and verification are documented.
+
+## Recap
+
+::: {.recap-table}
+| **Keyword** | **Definition** |
+| --- | --- |
+| **Draft memo** | A reader-facing version of the project containing the major argument, evidence, interpretation, and limitation. |
+| **Opening** | The beginning of the memo that establishes the audience question, context, and main finding. |
+| **Source note** | A compact explanation of where the data came from, what the observations represent, and which preparation decisions matter. |
+| **Unit of observation** | What one row or record represents at a particular stage of the analysis. |
+| **Main evidence** | The focused summary that directly supports the memo's claim. |
+| **Communication table** | A table designed for an audience, with readable labels, units, rounding, denominators, and relevant notes. |
+| **Interpretation** | A plain-language explanation of the important pattern, comparison, or magnitude in the evidence. |
+| **Causal overstatement** | Language claiming one factor produced an outcome when the design supports only description, comparison, or association. |
+| **Limitation** | A specific condition affecting what the evidence measures, represents, or proves. |
+| **AI-use note** | Documentation of what AI did, how its output was checked, and what responsibility remained with the author. |
+| **Rendered output** | The HTML, PDF, or Word document produced from the Quarto source and inspected before submission. |
+:::
+
+## Check your understanding
+
+::: {.callout-note collapse="false" title="Problems"}
+
+1. What is the main difference between a proposal packet and a draft memo?
+
+2. Name five pieces that should appear in the Mini-Project 1 draft.
+
+3. Why should the opening name the focused audience question?
+
+4. What information should a useful source note include?
+
+5. Why is one strong main table usually better than several weakly connected tables in this project?
+
+6. Rewrite this claim so that it matches descriptive evidence: "Tutoring made students earn higher grades."
+
+7. What is wrong with the limitation "The data might have problems"?
+
+8. Why should group sizes, denominators, or valid-value counts appear with percentages, rates, averages, or comparisons?
+
+9. Give an example of a useful AI-use note for a draft memo.
+
+10. Match each term to the best description:
+
+   a. Source note
+
+   b. Communication table
+
+   c. Interpretation
+
+   d. Limitation
+
+   Descriptions:
+
+   1. A table prepared with readable labels, units, rounding, and relevant context for an audience.
+
+   2. A specific condition that affects what the evidence represents or proves.
+
+   3. A compact explanation of the data source, observations, and important preparation decisions.
+
+   4. A plain-language explanation of the important pattern or comparison in the evidence.
+
+:::
+
+::: {.callout-tip collapse="true" title="Solutions"}
+
+1. A proposal packet records planning decisions for the writer. A draft memo turns those decisions into a reader-facing product with evidence, interpretation, and a limitation.
+
+2. Appropriate pieces include a title, opening, source note, main table, interpretation, limitation, and AI-use note. Any five satisfy the question.
+
+3. Naming the focused audience question tells the reader what the memo is trying to answer and why the evidence that follows is relevant.
+
+4. A useful source note may include the source name or owner, file or system, time period, original and final units of observation, important filters or cleaning decisions, and missing-value treatment.
+
+5. One strong table keeps the memo focused on the audience question and makes the relationship between evidence and claim easier to evaluate. Several loosely connected tables can bury the answer.
+
+6. One responsible rewrite is: "In the cleaned Spring 2027 file, students with at least one completed tutoring visit had higher average recorded final grades than students with no recorded completed visit." The memo should also state that the comparison does not establish causation.
+
+7. It is too general to help the reader. A useful limitation identifies the specific issue, such as missing grades or unmeasured group differences, and explains how it affects the claim.
+
+8. These counts show how much evidence is behind a statistic, clarify who is included, and can reveal missingness or small groups that should affect interpretation.
+
+9. One useful note is: "AI was used to suggest revisions to the interpretation paragraph and flag possible causal wording. I checked all numerical values against the rendered R output and made the final wording decisions."
+
+10. a-3. b-1. c-4. d-2.
+
+:::
