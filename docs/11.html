@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>11&nbsp; Reviewing and Revising Mini-Project 1 – STA 2310 Data Communication with AI</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ac731d99f942368ec2047317e7e82b91.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style type="text/css">
+.sidebar .chapter-number {
+color: #FFB81c;
+}
+.center-panel.quarto-layout-panel {
+justify-content: center;
+column-gap: 1rem;
+}
+</style>
+<style>
+div.callout-example.callout {
+  border-left-color: #008000;
+}
+div.callout-example.callout-style-default > .callout-header {
+  background-color: rgba(0, 128, 0, 0.13);
+}
+div.callout-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-example.callout-style-default .callout-icon::before, div.callout-example.callout-titled .callout-icon::before {
+  content: '📈';
+  background-image: none;
+}
+</style>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Reviewing and Revising Mini-Project 1</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"></a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What Is Data Communication with AI?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Audience, Claims, Evidence, and AI Boundaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Started with Quarto in RStudio</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding and Evaluating Data Sources</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Dictionaries and Variable Meaning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Cleaning for Communication</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Descriptive Summaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Context for Comparison</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Planning Mini-Project 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Drafting Mini-Project 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Reviewing and Revising Mini-Project 1</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-peer-review-is-for" id="toc-what-peer-review-is-for" class="nav-link active" data-scroll-target="#what-peer-review-is-for"><span class="header-section-number">11.1</span> What Peer Review Is For</a></li>
+  <li><a href="#begin-by-restating-the-memo" id="toc-begin-by-restating-the-memo" class="nav-link" data-scroll-target="#begin-by-restating-the-memo"><span class="header-section-number">11.2</span> Begin by Restating the Memo</a></li>
+  <li><a href="#review-in-passes" id="toc-review-in-passes" class="nav-link" data-scroll-target="#review-in-passes"><span class="header-section-number">11.3</span> Review in Passes</a>
+  <ul class="collapse">
+  <li><a href="#pass-1-audience-and-purpose" id="toc-pass-1-audience-and-purpose" class="nav-link" data-scroll-target="#pass-1-audience-and-purpose">Pass 1: Audience and Purpose</a></li>
+  <li><a href="#pass-2-source-and-evidence" id="toc-pass-2-source-and-evidence" class="nav-link" data-scroll-target="#pass-2-source-and-evidence">Pass 2: Source and Evidence</a></li>
+  <li><a href="#pass-3-interpretation-and-caveat" id="toc-pass-3-interpretation-and-caveat" class="nav-link" data-scroll-target="#pass-3-interpretation-and-caveat">Pass 3: Interpretation and Caveat</a></li>
+  <li><a href="#pass-4-ai-use-and-render-quality" id="toc-pass-4-ai-use-and-render-quality" class="nav-link" data-scroll-target="#pass-4-ai-use-and-render-quality">Pass 4: AI Use and Render Quality</a></li>
+  </ul></li>
+  <li><a href="#evidence-fit-trace-the-claim-to-the-table" id="toc-evidence-fit-trace-the-claim-to-the-table" class="nav-link" data-scroll-target="#evidence-fit-trace-the-claim-to-the-table"><span class="header-section-number">11.4</span> Evidence Fit: Trace the Claim to the Table</a></li>
+  <li><a href="#check-numerical-consistency" id="toc-check-numerical-consistency" class="nav-link" data-scroll-target="#check-numerical-consistency"><span class="header-section-number">11.5</span> Check Numerical Consistency</a></li>
+  <li><a href="#review-caveats-as-part-of-the-claim" id="toc-review-caveats-as-part-of-the-claim" class="nav-link" data-scroll-target="#review-caveats-as-part-of-the-claim"><span class="header-section-number">11.6</span> Review Caveats as Part of the Claim</a></li>
+  <li><a href="#give-specific-and-useful-feedback" id="toc-give-specific-and-useful-feedback" class="nav-link" data-scroll-target="#give-specific-and-useful-feedback"><span class="header-section-number">11.7</span> Give Specific and Useful Feedback</a></li>
+  <li><a href="#prioritize-revision" id="toc-prioritize-revision" class="nav-link" data-scroll-target="#prioritize-revision"><span class="header-section-number">11.8</span> Prioritize Revision</a></li>
+  <li><a href="#make-a-revision-plan" id="toc-make-a-revision-plan" class="nav-link" data-scroll-target="#make-a-revision-plan"><span class="header-section-number">11.9</span> Make a Revision Plan</a></li>
+  <li><a href="#decide-what-to-do-with-feedback" id="toc-decide-what-to-do-with-feedback" class="nav-link" data-scroll-target="#decide-what-to-do-with-feedback"><span class="header-section-number">11.10</span> Decide What to Do With Feedback</a></li>
+  <li><a href="#worked-revision-from-draft-to-final-memo" id="toc-worked-revision-from-draft-to-final-memo" class="nav-link" data-scroll-target="#worked-revision-from-draft-to-final-memo"><span class="header-section-number">11.11</span> Worked Revision: From Draft to Final Memo</a></li>
+  <li><a href="#use-ai-to-support-review-and-revision" id="toc-use-ai-to-support-review-and-revision" class="nav-link" data-scroll-target="#use-ai-to-support-review-and-revision"><span class="header-section-number">11.12</span> Use AI to Support Review and Revision</a></li>
+  <li><a href="#check-the-quarto-source-and-rendered-output" id="toc-check-the-quarto-source-and-rendered-output" class="nav-link" data-scroll-target="#check-the-quarto-source-and-rendered-output"><span class="header-section-number">11.13</span> Check the Quarto Source and Rendered Output</a></li>
+  <li><a href="#keep-a-short-revision-record" id="toc-keep-a-short-revision-record" class="nav-link" data-scroll-target="#keep-a-short-revision-record"><span class="header-section-number">11.14</span> Keep a Short Revision Record</a></li>
+  <li><a href="#practical-workflow" id="toc-practical-workflow" class="nav-link" data-scroll-target="#practical-workflow"><span class="header-section-number">11.15</span> Practical Workflow</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">11.16</span> Recap</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding"><span class="header-section-number">11.17</span> Check your understanding</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Reviewing and Revising Mini-Project 1</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>A draft gives your project a form that another person can read. Peer review helps you discover whether that form communicates what you intended. Revision uses what you learn to improve the memo before it becomes the final product.</p>
+<p>In Chapter 9, you planned Mini-Project 1. In Chapter 10, you drafted its opening, source note, communication table, interpretation, limitation, and AI-use note. This chapter explains how to review those pieces together and turn feedback into a stronger final memo.</p>
+<p>This chapter focuses on:</p>
+<ul>
+<li>reading a draft as its intended audience;</li>
+<li>checking the fit between question, evidence, and claim;</li>
+<li>giving specific, useful feedback;</li>
+<li>reviewing caveats and AI documentation;</li>
+<li>deciding which revisions matter most;</li>
+<li>documenting revision decisions;</li>
+<li>checking the Quarto source and rendered output.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Peer review is evidence about the reader's experience">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Peer review is evidence about the reader’s experience
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A reviewer can tell you what they understood, where they became uncertain, and which claims they could not verify. Their response is useful information about the memo. You still need to evaluate their suggestions against the source, evidence, audience, and project requirements.</p>
+</div>
+</div>
+<section id="what-peer-review-is-for" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="what-peer-review-is-for"><span class="header-section-number">11.1</span> What Peer Review Is For</h2>
+<p><strong>Peer review</strong> is a structured reading of another person’s draft to identify strengths, questions, and opportunities for improvement.</p>
+<p>For Mini-Project 1, the main goal is to check whether a reader can follow the memo’s reasoning:</p>
+<blockquote class="blockquote">
+<p>This audience needs an answer to this question. This source provides this evidence. The evidence supports this claim, within these limits.</p>
+</blockquote>
+<p>A useful review examines that connection before concentrating on individual sentences or formatting.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Review Area</th>
+<th>Main Question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Audience fit</td>
+<td>Does the memo provide what the intended audience needs?</td>
+</tr>
+<tr class="even">
+<td>Question and scope</td>
+<td>Is the question focused and answerable?</td>
+</tr>
+<tr class="odd">
+<td>Source clarity</td>
+<td>Can the reader identify what the evidence represents?</td>
+</tr>
+<tr class="even">
+<td>Evidence fit</td>
+<td>Does the table support the stated claim?</td>
+</tr>
+<tr class="odd">
+<td>Interpretation</td>
+<td>Does the text explain the important comparison accurately?</td>
+</tr>
+<tr class="even">
+<td>Caveat</td>
+<td>Does a specific limit qualify the claim where the reader needs it?</td>
+</tr>
+<tr class="odd">
+<td>AI documentation</td>
+<td>Does the note explain actual assistance and verification?</td>
+</tr>
+<tr class="even">
+<td>Render quality</td>
+<td>Is the final document readable and complete?</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="begin-by-restating-the-memo" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="begin-by-restating-the-memo"><span class="header-section-number">11.2</span> Begin by Restating the Memo</h2>
+<p>Before suggesting changes, restate the memo in your own words.</p>
+<p>Try this sentence:</p>
+<blockquote class="blockquote">
+<p>For [audience], this memo uses [source] to answer [question]. Its main finding is [claim], with the limitation that [boundary].</p>
+</blockquote>
+<p>If you cannot complete a part of the sentence, identify what you could not find or understand. That gap gives the author a specific revision target.</p>
+<p>If your restatement differs from the author’s intended message, investigate the difference. The opening, table title, group labels, or interpretation may be steering the reader toward a different question.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 11.1: A reader's restatement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Draft title:</p>
+<blockquote class="blockquote">
+<p>Tutoring Success in Spring 2027</p>
+</blockquote>
+<p>Table:</p>
+<blockquote class="blockquote">
+<p>Average recorded final grades by tutoring-use group.</p>
+</blockquote>
+<p>Reviewer restatement:</p>
+<blockquote class="blockquote">
+<p>I understood this as a memo for the tutoring center director comparing recorded grades by tutoring use in Spring 2027. The table shows a difference between groups, but the title made me expect an evaluation of whether the program met a success target.</p>
+</blockquote>
+<p>Revision opportunity:</p>
+<blockquote class="blockquote">
+<p>Use a title such as “Recorded Grades by Tutoring-Use Group, Spring 2027” unless the memo also provides a defensible success criterion.</p>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="review-in-passes" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="review-in-passes"><span class="header-section-number">11.3</span> Review in Passes</h2>
+<p>Reviewing in passes helps you give attention to both the overall argument and the details.</p>
+<section id="pass-1-audience-and-purpose" class="level3">
+<h3 class="anchored" data-anchor-id="pass-1-audience-and-purpose">Pass 1: Audience and Purpose</h3>
+<p>Read the title and opening. Ask:</p>
+<ul>
+<li>Who is the memo for?</li>
+<li>What do they need to understand or decide?</li>
+<li>What focused question is being answered?</li>
+<li>Is the relevant population, place, or time period named?</li>
+<li>Does the opening preview the main finding?</li>
+</ul>
+<p>An opening can be clear and still poorly suited to the audience. For example, a tutoring director deciding when to schedule staff may need visit counts by time period more than grade comparisons. Check both clarity and usefulness.</p>
+</section>
+<section id="pass-2-source-and-evidence" class="level3">
+<h3 class="anchored" data-anchor-id="pass-2-source-and-evidence">Pass 2: Source and Evidence</h3>
+<p>Read the source note and table. Ask:</p>
+<ul>
+<li>Where did the data come from?</li>
+<li>What does one original record represent?</li>
+<li>What units contribute to the final summary?</li>
+<li>Are important filters, joins, exclusions, and recodes explained?</li>
+<li>Are group definitions, units, denominators, and valid-value counts clear?</li>
+<li>Does the table answer the question?</li>
+</ul>
+<p>This pass checks whether the evidence is understandable and traceable. A well-formatted table can still have an unclear denominator or count the wrong units.</p>
+</section>
+<section id="pass-3-interpretation-and-caveat" class="level3">
+<h3 class="anchored" data-anchor-id="pass-3-interpretation-and-caveat">Pass 3: Interpretation and Caveat</h3>
+<p>Read the interpretation beside the table. Ask:</p>
+<ul>
+<li>Does every numerical statement match the displayed evidence?</li>
+<li>Is the main comparison explicit?</li>
+<li>Are differences and units reported accurately?</li>
+<li>Does the paragraph explain the pattern rather than list cells?</li>
+<li>Does any wording imply an unsupported cause or explanation?</li>
+<li>Is the caveat specific and close to the claim it qualifies?</li>
+</ul>
+</section>
+<section id="pass-4-ai-use-and-render-quality" class="level3">
+<h3 class="anchored" data-anchor-id="pass-4-ai-use-and-render-quality">Pass 4: AI Use and Render Quality</h3>
+<p>Read the AI-use note and inspect the rendered document. Ask:</p>
+<ul>
+<li>What did AI actually do?</li>
+<li>How did the author check its output?</li>
+<li>Are source details, values, and final wording the author’s verified decisions?</li>
+<li>Do tables fit and remain readable?</li>
+<li>Are source notes and limitations visible?</li>
+<li>Does the rendered document correspond to the submitted source?</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Record the location of the issue">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Record the location of the issue
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Feedback becomes easier to act on when it names a location: the opening paragraph, Table 1 header, source note, interpretation sentence, limitation, or AI-use note. “The memo needs clarity” gives the author much less direction than “Table 1 does not identify whether its counts are students or appointments.”</p>
+</div>
+</div>
+</section>
+</section>
+<section id="evidence-fit-trace-the-claim-to-the-table" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="evidence-fit-trace-the-claim-to-the-table"><span class="header-section-number">11.4</span> Evidence Fit: Trace the Claim to the Table</h2>
+<p><strong>Evidence fit</strong> is the relationship between what the memo claims and what its source and analysis can support.</p>
+<p>To check it, connect each important claim to its supporting evidence.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Draft Claim</th>
+<th>Evidence Needed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>One group has a higher average grade.</td>
+<td>Comparable grade summaries for clearly defined groups.</td>
+</tr>
+<tr class="even">
+<td>30% of students used tutoring.</td>
+<td>Number of students using tutoring and the defined total student denominator.</td>
+</tr>
+<tr class="odd">
+<td>Visits increased from one term to another.</td>
+<td>Counts using comparable visit definitions and time periods.</td>
+</tr>
+<tr class="even">
+<td>The program met its service target.</td>
+<td>The observed service measure and an identified target.</td>
+</tr>
+<tr class="odd">
+<td>Tutoring caused higher grades.</td>
+<td>A design that supports a causal interpretation beyond a simple group summary.</td>
+</tr>
+</tbody>
+</table>
+<p>If the table lacks the evidence needed for a claim, the author has several options:</p>
+<ol type="1">
+<li>Calculate and verify the missing evidence if the source supports it.</li>
+<li>Revise the table to make existing evidence visible.</li>
+<li>Narrow or remove the claim.</li>
+<li>Revise the focused question to match the available source.</li>
+</ol>
+<p>Adding confident wording cannot repair missing evidence.</p>
+</section>
+<section id="check-numerical-consistency" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="check-numerical-consistency"><span class="header-section-number">11.5</span> Check Numerical Consistency</h2>
+<p>A review should check the memo’s numbers as well as its prose.</p>
+<p>Suppose Table 1 reports:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tutoring-use group</th>
+<th style="text-align: right;">Students</th>
+<th style="text-align: right;">Students with recorded grades</th>
+<th style="text-align: right;">Average final grade</th>
+<th style="text-align: right;">Median final grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No completed visit recorded</td>
+<td style="text-align: right;">184</td>
+<td style="text-align: right;">169</td>
+<td style="text-align: right;">76.4</td>
+<td style="text-align: right;">78</td>
+</tr>
+<tr class="even">
+<td>At least one completed visit</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">82.2</td>
+<td style="text-align: right;">84</td>
+</tr>
+</tbody>
+</table>
+<p>The displayed average difference is:</p>
+<p>[ 82.2 - 76.4 = 5.8 . ]</p>
+<p>Useful review questions include:</p>
+<ul>
+<li>Does the interpretation say 5.8 points, or does it incorrectly call this a 5.8% difference?</li>
+<li>Does the text distinguish the 72 students in the tutoring-use group from the 68 contributing recorded grades?</li>
+<li>Does it identify the grade scale when that scale is needed?</li>
+<li>Does it use the same group definitions as the table?</li>
+<li>Are rounding and labels consistent?</li>
+</ul>
+<p>The four missing grades in the tutoring-use group and 15 in the other group are relevant context. They do not tell us why the grades are missing. A reviewer should request an explanation or limitation when needed without inventing a reason.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Checking agreement is only one part of verification">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Checking agreement is only one part of verification
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A paragraph can agree perfectly with a table while both contain the same calculation error. Comparing prose with the table checks internal consistency. Checking the table against the source and analysis checks the evidence itself. Keep these checks distinct.</p>
+</div>
+</div>
+</section>
+<section id="review-caveats-as-part-of-the-claim" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="review-caveats-as-part-of-the-claim"><span class="header-section-number">11.6</span> Review Caveats as Part of the Claim</h2>
+<p>A caveat helps define what the claim means. Review it together with the interpretation.</p>
+<p>Weak caveat:</p>
+<blockquote class="blockquote">
+<p>There are limitations to this analysis.</p>
+</blockquote>
+<p>More useful caveat:</p>
+<blockquote class="blockquote">
+<p>Grade summaries include only students with recorded final grades. The groups were not randomly assigned to tutoring, and the comparison does not account for prior preparation or other differences between students. It does not estimate the effect of tutoring.</p>
+</blockquote>
+<p>The second caveat names both the missing-value boundary and the causal boundary.</p>
+<p>Ask whether the caveat:</p>
+<ul>
+<li>identifies a specific source, measurement, comparison, or design limit;</li>
+<li>explains how that limit affects interpretation;</li>
+<li>appears where the reader encounters the qualified claim;</li>
+<li>remains consistent with the title, opening, and conclusion.</li>
+</ul>
+<p>A causal title and a cautious final paragraph send conflicting messages. Revision should align the full memo.</p>
+</section>
+<section id="give-specific-and-useful-feedback" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="give-specific-and-useful-feedback"><span class="header-section-number">11.7</span> Give Specific and Useful Feedback</h2>
+<p>Useful feedback combines three parts:</p>
+<ol type="1">
+<li><strong>Observation:</strong> What did you notice, understand, or fail to find?</li>
+<li><strong>Consequence:</strong> Why does that matter for the audience or evidence?</li>
+<li><strong>Revision suggestion:</strong> What could the author check or change?</li>
+</ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>General Comment</th>
+<th>More Useful Feedback</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“The table is confusing.”</td>
+<td>“The count header says <code>n</code>, so I cannot tell whether it counts students or appointments. Use a readable unit label and explain any change in row meaning.”</td>
+</tr>
+<tr class="even">
+<td>“Add detail.”</td>
+<td>“The source note does not explain whether canceled visits count as tutoring use. Define completed visits so the group comparison can be interpreted.”</td>
+</tr>
+<tr class="odd">
+<td>“The claim is wrong.”</td>
+<td>“The sentence says tutoring improved grades, but the table only compares existing groups. Rewrite the claim descriptively unless a causal design supports it.”</td>
+</tr>
+<tr class="even">
+<td>“Looks good.”</td>
+<td>“The valid-grade counts help me see which students contribute to each average. Keep those counts in the revision.”</td>
+</tr>
+<tr class="odd">
+<td>“AI note needs work.”</td>
+<td>“The note says AI helped with writing, but it does not describe verification. State what AI revised and how you checked values and claim strength.”</td>
+</tr>
+</tbody>
+</table>
+<p>Good feedback can identify a strength worth preserving. It can also ask a question when the reviewer lacks enough information to recommend a correction.</p>
+<p>For example:</p>
+<blockquote class="blockquote">
+<p>I could not determine whether the two semesters cover the same number of weeks. Please check the coverage and explain how it affects the comparison.</p>
+</blockquote>
+<p>That comment identifies an uncertainty without pretending the reviewer already knows the answer.</p>
+</section>
+<section id="prioritize-revision" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="prioritize-revision"><span class="header-section-number">11.8</span> Prioritize Revision</h2>
+<p><strong>Revision</strong> means changing the memo to improve its question, evidence, reasoning, organization, or presentation.</p>
+<p><strong>Copyediting</strong> means correcting sentence-level details such as spelling, punctuation, and grammar.</p>
+<p>Both matter. The order matters too: a denominator correction may change the table, interpretation, and opening. Editing those sentences first can create work that must be repeated.</p>
+<p>Use this priority order:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Priority</th>
+<th>Revision Focus</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Evidence correctness and source meaning</td>
+<td>Correct appointment counts that were labeled as student counts.</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Question, claim, and caveat fit</td>
+<td>Replace unsupported causal wording throughout the memo.</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Audience and organization</td>
+<td>Move the focused question and main finding into the opening.</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Table and render readability</td>
+<td>Shorten unclear headers and make the table note visible.</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Sentence-level polish</td>
+<td>Correct grammar and remove repetition.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled" title="Revise connected pieces together">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Revise connected pieces together
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If a table value changes, check every sentence that uses it. If a group definition changes, check the source note, table labels, opening, interpretation, and limitation. Revision is complete when the connected pieces agree.</p>
+</div>
+</div>
+</section>
+<section id="make-a-revision-plan" class="level2" data-number="11.9">
+<h2 data-number="11.9" class="anchored" data-anchor-id="make-a-revision-plan"><span class="header-section-number">11.9</span> Make a Revision Plan</h2>
+<p>A <strong>revision plan</strong> turns feedback into a manageable set of decisions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feedback or Finding</th>
+<th>Planned Action</th>
+<th>Reason</th>
+<th>Completion Check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Table count could mean rows or students.</td>
+<td>Check the analysis and label the count explicitly.</td>
+<td>The claim concerns students.</td>
+<td>Compare unique-student count with displayed value.</td>
+</tr>
+<tr class="even">
+<td>Opening implies causation.</td>
+<td>Rewrite opening, title, and interpretation descriptively.</td>
+<td>The analysis compares self-selected groups.</td>
+<td>Search for causal wording and reread the complete claim.</td>
+</tr>
+<tr class="odd">
+<td>Missing-grade treatment is unclear.</td>
+<td>Add valid-grade counts and a source note.</td>
+<td>The average uses a subset of each group.</td>
+<td>Verify counts and exclusion rule against the data.</td>
+</tr>
+<tr class="even">
+<td>Table is difficult to read in Word.</td>
+<td>Shorten headers and inspect the new render.</td>
+<td>The audience needs a readable comparison.</td>
+<td>Open the submitted Word document.</td>
+</tr>
+</tbody>
+</table>
+<p>The plan should describe actions that can be checked. “Improve the memo” is too broad to guide revision.</p>
+</section>
+<section id="decide-what-to-do-with-feedback" class="level2" data-number="11.10">
+<h2 data-number="11.10" class="anchored" data-anchor-id="decide-what-to-do-with-feedback"><span class="header-section-number">11.10</span> Decide What to Do With Feedback</h2>
+<p>You do not need to accept every suggestion exactly as written. You do need to consider what reader problem it identifies.</p>
+<p>Possible responses include:</p>
+<ul>
+<li><strong>Accept:</strong> Make the suggested change because it improves the memo.</li>
+<li><strong>Adapt:</strong> Address the reader’s problem with a different change.</li>
+<li><strong>Investigate:</strong> Check the source, code, or requirement before deciding.</li>
+<li><strong>Decline with a reason:</strong> Keep the existing choice because the suggestion would conflict with evidence, audience, or scope.</li>
+</ul>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example 11.2: Evaluating a suggestion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Reviewer suggestion:</p>
+<blockquote class="blockquote">
+<p>Add several more analyses to prove that tutoring is effective.</p>
+</blockquote>
+<p>Author decision:</p>
+<blockquote class="blockquote">
+<p>I will keep the project focused on a descriptive grade comparison. Additional descriptive tables would not establish a tutoring effect. I will make the question and causal limitation more explicit so readers understand the purpose of this memo.</p>
+</blockquote>
+<p>The author declines the proposed expansion but responds to the reader’s expectation by clarifying the memo’s scope.</p>
+</div>
+</div>
+</section>
+<section id="worked-revision-from-draft-to-final-memo" class="level2" data-number="11.11">
+<h2 data-number="11.11" class="anchored" data-anchor-id="worked-revision-from-draft-to-final-memo"><span class="header-section-number">11.11</span> Worked Revision: From Draft to Final Memo</h2>
+<p>Consider this draft paragraph:</p>
+<blockquote class="blockquote">
+<p>Tutoring was successful this semester. The tutoring group averaged 82.2 and everyone else averaged 76.4. Tutoring improved grades by 5.8%. The data may have problems. AI helped improve the memo.</p>
+</blockquote>
+<p>The reviewer identifies five revision needs:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Finding</th>
+<th>Revision Needed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Successful” has no criterion.</td>
+<td>Use a descriptive claim or provide a defensible success benchmark.</td>
+</tr>
+<tr class="even">
+<td>Groups and period are unclear.</td>
+<td>Define completed tutoring use and name Spring 2027.</td>
+</tr>
+<tr class="odd">
+<td>Difference is labeled as a percentage.</td>
+<td>Report 5.8 grade points for the displayed subtraction.</td>
+</tr>
+<tr class="even">
+<td>Claim implies causation.</td>
+<td>Describe the observed group difference.</td>
+</tr>
+<tr class="odd">
+<td>Limitation and AI note are vague.</td>
+<td>State specific boundaries and verification steps.</td>
+</tr>
+</tbody>
+</table>
+<p>Revised interpretation:</p>
+<blockquote class="blockquote">
+<p>In the cleaned Spring 2027 file, students with at least one completed tutoring visit had an average recorded final grade of 82.2, compared with 76.4 among students with no completed visit recorded, a difference of 5.8 grade points. The median showed a similar pattern. Grade summaries include 68 of the 72 students in the tutoring-use group and 169 of the 184 students in the other group because some final grades were missing. This descriptive comparison does not account for prior preparation or other differences between students and does not show that tutoring caused the grade difference.</p>
+</blockquote>
+<p>Revised AI-use note:</p>
+<blockquote class="blockquote">
+<p>AI was used to suggest clearer group labels and flag causal wording. I checked all values and group definitions against the analysis output, verified the reported difference, and made the final wording decisions.</p>
+</blockquote>
+<p>The revision improves definitions, units, context, claim strength, and accountability. Those changes make the result easier to evaluate.</p>
+</section>
+<section id="use-ai-to-support-review-and-revision" class="level2" data-number="11.12">
+<h2 data-number="11.12" class="anchored" data-anchor-id="use-ai-to-support-review-and-revision"><span class="header-section-number">11.12</span> Use AI to Support Review and Revision</h2>
+<p>AI can help generate questions about a draft or suggest alternate wording. It cannot replace source checking or the author’s decisions.</p>
+<p>A bounded review prompt might say:</p>
+<pre class="text"><code>Review this interpretation for unclear group definitions, units,
+denominators, and causal wording. Use only the supplied table and
+source note. Identify specific sentences that need attention.
+Do not add values, source details, explanations, or new analyses.
+Explain each suggested change so I can check it.</code></pre>
+<p>After receiving a response:</p>
+<ol type="1">
+<li>Compare each suggestion with the actual source and table.</li>
+<li>Check whether it changes a group definition, unit, or claim.</li>
+<li>Accept, adapt, or reject it with a reason.</li>
+<li>Rerun code if analysis changes.</li>
+<li>Inspect the rendered document after revising.</li>
+<li>Update the AI-use note to describe the assistance and verification.</li>
+</ol>
+<p>Use public, approved, or appropriately de-identified material when sharing data for assistance. Follow the course’s rules for reviewing and sharing classmates’ work.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Clearer wording must preserve the claim boundary">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Clearer wording must preserve the claim boundary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An AI revision may sound smoother while dropping a necessary limitation or changing “was higher” to “improved.” Check the meaning of the revised sentence before accepting its style.</p>
+</div>
+</div>
+</section>
+<section id="check-the-quarto-source-and-rendered-output" class="level2" data-number="11.13">
+<h2 data-number="11.13" class="anchored" data-anchor-id="check-the-quarto-source-and-rendered-output"><span class="header-section-number">11.13</span> Check the Quarto Source and Rendered Output</h2>
+<p>The final memo has two connected artifacts:</p>
+<ul>
+<li>The <code>.qmd</code> file records the document structure and how the evidence was produced or incorporated.</li>
+<li>The PDF or Word document shows the communication the audience receives.</li>
+</ul>
+<p>Check both before submission.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source Check</th>
+<th>Rendered-Output Check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Correct source files and variables are used.</td>
+<td>Displayed values match the current analysis.</td>
+</tr>
+<tr class="even">
+<td>Group and missing-value rules are clear.</td>
+<td>Labels, units, and notes are readable.</td>
+</tr>
+<tr class="odd">
+<td>Required memo sections are present.</td>
+<td>No content is clipped or missing.</td>
+</tr>
+<tr class="even">
+<td>The current source renders successfully.</td>
+<td>Tables fit the page and headings remain useful.</td>
+</tr>
+<tr class="odd">
+<td>AI assistance and verification are documented.</td>
+<td>The AI-use note appears in the submitted output.</td>
+</tr>
+</tbody>
+</table>
+<p>Render the complete document after the final revisions. Then open the specific PDF or Word file you will submit. A successful render confirms that Quarto produced a file; your inspection confirms that the file communicates clearly.</p>
+</section>
+<section id="keep-a-short-revision-record" class="level2" data-number="11.14">
+<h2 data-number="11.14" class="anchored" data-anchor-id="keep-a-short-revision-record"><span class="header-section-number">11.14</span> Keep a Short Revision Record</h2>
+<p>A <strong>revision record</strong> explains what changed and why. It helps you show how feedback affected the final product and gives you a useful reference for later portfolio work.</p>
+<p>It can be brief:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Change</th>
+<th>Reason</th>
+<th>How Checked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Replaced “improved grades” with a descriptive comparison.</td>
+<td>The design does not support a causal claim.</td>
+<td>Compared wording with table and source note.</td>
+</tr>
+<tr class="even">
+<td>Added students-with-recorded-grades column.</td>
+<td>Reviewer could not identify the average’s valid-value count.</td>
+<td>Checked missing-grade counts in the analysis.</td>
+</tr>
+<tr class="odd">
+<td>Corrected “5.8%” to “5.8 grade points.”</td>
+<td>The reported value was a difference on the grade scale.</td>
+<td>Verified subtraction and labels.</td>
+</tr>
+<tr class="even">
+<td>Shortened table headers.</td>
+<td>The table wrapped poorly in Word.</td>
+<td>Opened and inspected the new Word file.</td>
+</tr>
+</tbody>
+</table>
+<p>Keep the record in your working materials or where the instructor requests it. The audience-facing memo can stay focused on its question and evidence.</p>
+</section>
+<section id="practical-workflow" class="level2" data-number="11.15">
+<h2 data-number="11.15" class="anchored" data-anchor-id="practical-workflow"><span class="header-section-number">11.15</span> Practical Workflow</h2>
+<p>Use this sequence to finish Mini-Project 1:</p>
+<ol type="1">
+<li>Exchange a complete draft and identify its intended audience.</li>
+<li>Restate the memo’s question, source, finding, and boundary.</li>
+<li>Review in passes: purpose, evidence, interpretation, AI use, and render quality.</li>
+<li>Give feedback with a location, observation, consequence, and revision suggestion.</li>
+<li>Evaluate the feedback and check uncertain issues against the source or analysis.</li>
+<li>Make a revision plan, starting with evidence and claim problems.</li>
+<li>Revise connected sections together.</li>
+<li>Verify changed values, labels, definitions, and wording.</li>
+<li>Update AI documentation and a short revision record.</li>
+<li>Render the final memo and inspect the submitted output.</li>
+<li>Submit the revised <code>.qmd</code> and matching PDF or Word document as directed.</li>
+</ol>
+</section>
+<section id="recap" class="level2" data-number="11.16">
+<h2 data-number="11.16" class="anchored" data-anchor-id="recap"><span class="header-section-number">11.16</span> Recap</h2>
+<div class="recap-table">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Peer review</strong></td>
+<td>A structured reading of a draft to identify strengths, questions, and opportunities for improvement.</td>
+</tr>
+<tr class="even">
+<td><strong>Reader’s restatement</strong></td>
+<td>A summary in the reviewer’s own words of the audience, question, source, claim, and limitation they understood.</td>
+</tr>
+<tr class="odd">
+<td><strong>Audience fit</strong></td>
+<td>The match between the memo’s content and the audience’s information need.</td>
+</tr>
+<tr class="even">
+<td><strong>Evidence fit</strong></td>
+<td>The relationship between a claim and what the source and analysis can support.</td>
+</tr>
+<tr class="odd">
+<td><strong>Internal consistency</strong></td>
+<td>Agreement among values, definitions, and claims within the memo.</td>
+</tr>
+<tr class="even">
+<td><strong>Verification</strong></td>
+<td>Checking evidence against the source and analysis, beyond checking whether the memo agrees with itself.</td>
+</tr>
+<tr class="odd">
+<td><strong>Useful feedback</strong></td>
+<td>Feedback that identifies an observation, its consequence, and an actionable revision target.</td>
+</tr>
+<tr class="even">
+<td><strong>Revision</strong></td>
+<td>Changes to improve the question, evidence, reasoning, organization, or presentation of a memo.</td>
+</tr>
+<tr class="odd">
+<td><strong>Copyediting</strong></td>
+<td>Corrections to sentence-level details such as spelling, punctuation, and grammar.</td>
+</tr>
+<tr class="even">
+<td><strong>Revision plan</strong></td>
+<td>A prioritized set of changes with reasons and completion checks.</td>
+</tr>
+<tr class="odd">
+<td><strong>Revision record</strong></td>
+<td>A brief explanation of what changed, why it changed, and how it was checked.</td>
+</tr>
+<tr class="even">
+<td><strong>Render quality</strong></td>
+<td>The readability, completeness, and accurate presentation of the document produced from Quarto.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="check-your-understanding" class="level2" data-number="11.17">
+<h2 data-number="11.17" class="anchored" data-anchor-id="check-your-understanding"><span class="header-section-number">11.17</span> Check your understanding</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>What is the main purpose of peer review for Mini-Project 1?</p></li>
+<li><p>Why should a reviewer restate the memo before suggesting changes?</p></li>
+<li><p>Name the four review passes described in this chapter.</p></li>
+<li><p>A paragraph agrees with a table. Why does that alone fail to establish that the numbers are correct?</p></li>
+<li><p>A table reports averages of 82.2 and 76.4. An interpretation says the first group scored “5.8% higher.” What should the reviewer ask the author to correct or clarify?</p></li>
+<li><p>Improve this feedback: “Your source note is confusing.”</p></li>
+<li><p>Which should usually be revised first: an unclear denominator or a spelling error? Explain why.</p></li>
+<li><p>Must an author accept every peer suggestion? Describe an appropriate response to a suggestion that would add an unsupported causal claim.</p></li>
+<li><p>What should the author check after changing a group definition or table value?</p></li>
+<li><p>Match each term to the best description:</p>
+<ol type="a">
+<li><p>Evidence fit</p></li>
+<li><p>Copyediting</p></li>
+<li><p>Revision plan</p></li>
+<li><p>Revision record</p></li>
+</ol>
+<p>Descriptions:</p>
+<ol type="1">
+<li><p>A prioritized set of changes with reasons and completion checks.</p></li>
+<li><p>A brief explanation of what changed, why it changed, and how it was checked.</p></li>
+<li><p>The relationship between a claim and what the source and analysis can support.</p></li>
+<li><p>Corrections to spelling, punctuation, grammar, and other sentence-level details.</p></li>
+</ol></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Peer review checks whether another reader can understand and evaluate the connection among the audience question, source, evidence, claim, and limitation. It provides specific information for revision.</p></li>
+<li><p>Restating the memo shows what the reviewer actually understood. Missing or mismatched parts can reveal where the draft needs clearer purpose, labels, organization, or claim boundaries.</p></li>
+<li><p>The passes are audience and purpose; source and evidence; interpretation and caveat; and AI use and render quality.</p></li>
+<li><p>Agreement checks internal consistency. The table and paragraph could share the same error. Values also need to be checked against the source, definitions, and analysis.</p></li>
+<li><p>Subtracting the displayed averages gives 5.8 grade points, not 5.8%. The author should label the difference in the grade scale’s units. A relative percentage would require a specified baseline and a separate calculation, if appropriate to the measure.</p></li>
+<li><p>One improved comment is: “The source note names the appointment file but does not say whether the table counts appointments or unique students. Explain the original row meaning and how the final student summary was created so readers can interpret the group counts.”</p></li>
+<li><p>The denominator should usually be addressed first because it affects the meaning or calculation of the evidence and may require changes to the table and interpretation. Sentence-level polish can follow those substantive changes.</p></li>
+<li><p>No.&nbsp;The author should evaluate suggestions against evidence, audience, and scope. An appropriate response is to decline unsupported causal language, explain that the analysis is descriptive, and clarify the claim boundary if the reviewer expected a causal conclusion.</p></li>
+<li><p>Check all connected pieces: analysis, source note, table labels and values, title or opening, interpretation, and limitation. Rerender the document and inspect the actual output after revision.</p></li>
+<li><p>a-3. b-4. c-1. d-2.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

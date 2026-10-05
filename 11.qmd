@@ -1,0 +1,490 @@
+# Reviewing and Revising Mini-Project 1
+
+A draft gives your project a form that another person can read. Peer review helps you discover whether that form communicates what you intended. Revision uses what you learn to improve the memo before it becomes the final product.
+
+In Chapter 9, you planned Mini-Project 1. In Chapter 10, you drafted its opening, source note, communication table, interpretation, limitation, and AI-use note. This chapter explains how to review those pieces together and turn feedback into a stronger final memo.
+
+This chapter focuses on:
+
+- reading a draft as its intended audience;
+- checking the fit between question, evidence, and claim;
+- giving specific, useful feedback;
+- reviewing caveats and AI documentation;
+- deciding which revisions matter most;
+- documenting revision decisions;
+- checking the Quarto source and rendered output.
+
+::: {.callout-note title="Peer review is evidence about the reader's experience"}
+
+A reviewer can tell you what they understood, where they became uncertain, and which claims they could not verify. Their response is useful information about the memo. You still need to evaluate their suggestions against the source, evidence, audience, and project requirements.
+
+:::
+
+## What Peer Review Is For
+
+**Peer review** is a structured reading of another person's draft to identify strengths, questions, and opportunities for improvement.
+
+For Mini-Project 1, the main goal is to check whether a reader can follow the memo's reasoning:
+
+> This audience needs an answer to this question. This source provides this evidence. The evidence supports this claim, within these limits.
+
+A useful review examines that connection before concentrating on individual sentences or formatting.
+
+| Review Area | Main Question |
+| --- | --- |
+| Audience fit | Does the memo provide what the intended audience needs? |
+| Question and scope | Is the question focused and answerable? |
+| Source clarity | Can the reader identify what the evidence represents? |
+| Evidence fit | Does the table support the stated claim? |
+| Interpretation | Does the text explain the important comparison accurately? |
+| Caveat | Does a specific limit qualify the claim where the reader needs it? |
+| AI documentation | Does the note explain actual assistance and verification? |
+| Render quality | Is the final document readable and complete? |
+
+## Begin by Restating the Memo
+
+Before suggesting changes, restate the memo in your own words.
+
+Try this sentence:
+
+> For [audience], this memo uses [source] to answer [question]. Its main finding is [claim], with the limitation that [boundary].
+
+If you cannot complete a part of the sentence, identify what you could not find or understand. That gap gives the author a specific revision target.
+
+If your restatement differs from the author's intended message, investigate the difference. The opening, table title, group labels, or interpretation may be steering the reader toward a different question.
+
+::: {.example title="Example 11.1: A reader's restatement"}
+
+Draft title:
+
+> Tutoring Success in Spring 2027
+
+Table:
+
+> Average recorded final grades by tutoring-use group.
+
+Reviewer restatement:
+
+> I understood this as a memo for the tutoring center director comparing recorded grades by tutoring use in Spring 2027. The table shows a difference between groups, but the title made me expect an evaluation of whether the program met a success target.
+
+Revision opportunity:
+
+> Use a title such as "Recorded Grades by Tutoring-Use Group, Spring 2027" unless the memo also provides a defensible success criterion.
+
+:::
+
+## Review in Passes
+
+Reviewing in passes helps you give attention to both the overall argument and the details.
+
+### Pass 1: Audience and Purpose
+
+Read the title and opening. Ask:
+
+- Who is the memo for?
+- What do they need to understand or decide?
+- What focused question is being answered?
+- Is the relevant population, place, or time period named?
+- Does the opening preview the main finding?
+
+An opening can be clear and still poorly suited to the audience. For example, a tutoring director deciding when to schedule staff may need visit counts by time period more than grade comparisons. Check both clarity and usefulness.
+
+### Pass 2: Source and Evidence
+
+Read the source note and table. Ask:
+
+- Where did the data come from?
+- What does one original record represent?
+- What units contribute to the final summary?
+- Are important filters, joins, exclusions, and recodes explained?
+- Are group definitions, units, denominators, and valid-value counts clear?
+- Does the table answer the question?
+
+This pass checks whether the evidence is understandable and traceable. A well-formatted table can still have an unclear denominator or count the wrong units.
+
+### Pass 3: Interpretation and Caveat
+
+Read the interpretation beside the table. Ask:
+
+- Does every numerical statement match the displayed evidence?
+- Is the main comparison explicit?
+- Are differences and units reported accurately?
+- Does the paragraph explain the pattern rather than list cells?
+- Does any wording imply an unsupported cause or explanation?
+- Is the caveat specific and close to the claim it qualifies?
+
+### Pass 4: AI Use and Render Quality
+
+Read the AI-use note and inspect the rendered document. Ask:
+
+- What did AI actually do?
+- How did the author check its output?
+- Are source details, values, and final wording the author's verified decisions?
+- Do tables fit and remain readable?
+- Are source notes and limitations visible?
+- Does the rendered document correspond to the submitted source?
+
+::: {.callout-tip title="Record the location of the issue"}
+
+Feedback becomes easier to act on when it names a location: the opening paragraph, Table 1 header, source note, interpretation sentence, limitation, or AI-use note. "The memo needs clarity" gives the author much less direction than "Table 1 does not identify whether its counts are students or appointments."
+
+:::
+
+## Evidence Fit: Trace the Claim to the Table
+
+**Evidence fit** is the relationship between what the memo claims and what its source and analysis can support.
+
+To check it, connect each important claim to its supporting evidence.
+
+| Draft Claim | Evidence Needed |
+| --- | --- |
+| One group has a higher average grade. | Comparable grade summaries for clearly defined groups. |
+| 30% of students used tutoring. | Number of students using tutoring and the defined total student denominator. |
+| Visits increased from one term to another. | Counts using comparable visit definitions and time periods. |
+| The program met its service target. | The observed service measure and an identified target. |
+| Tutoring caused higher grades. | A design that supports a causal interpretation beyond a simple group summary. |
+
+If the table lacks the evidence needed for a claim, the author has several options:
+
+1. Calculate and verify the missing evidence if the source supports it.
+2. Revise the table to make existing evidence visible.
+3. Narrow or remove the claim.
+4. Revise the focused question to match the available source.
+
+Adding confident wording cannot repair missing evidence.
+
+## Check Numerical Consistency
+
+A review should check the memo's numbers as well as its prose.
+
+Suppose Table 1 reports:
+
+| Tutoring-use group | Students | Students with recorded grades | Average final grade | Median final grade |
+| --- | ---: | ---: | ---: | ---: |
+| No completed visit recorded | 184 | 169 | 76.4 | 78 |
+| At least one completed visit | 72 | 68 | 82.2 | 84 |
+
+The displayed average difference is:
+
+\[
+82.2 - 76.4 = 5.8 \text{ grade points}.
+\]
+
+Useful review questions include:
+
+- Does the interpretation say 5.8 points, or does it incorrectly call this a 5.8% difference?
+- Does the text distinguish the 72 students in the tutoring-use group from the 68 contributing recorded grades?
+- Does it identify the grade scale when that scale is needed?
+- Does it use the same group definitions as the table?
+- Are rounding and labels consistent?
+
+The four missing grades in the tutoring-use group and 15 in the other group are relevant context. They do not tell us why the grades are missing. A reviewer should request an explanation or limitation when needed without inventing a reason.
+
+::: {.callout-warning title="Checking agreement is only one part of verification"}
+
+A paragraph can agree perfectly with a table while both contain the same calculation error. Comparing prose with the table checks internal consistency. Checking the table against the source and analysis checks the evidence itself. Keep these checks distinct.
+
+:::
+
+## Review Caveats as Part of the Claim
+
+A caveat helps define what the claim means. Review it together with the interpretation.
+
+Weak caveat:
+
+> There are limitations to this analysis.
+
+More useful caveat:
+
+> Grade summaries include only students with recorded final grades. The groups were not randomly assigned to tutoring, and the comparison does not account for prior preparation or other differences between students. It does not estimate the effect of tutoring.
+
+The second caveat names both the missing-value boundary and the causal boundary.
+
+Ask whether the caveat:
+
+- identifies a specific source, measurement, comparison, or design limit;
+- explains how that limit affects interpretation;
+- appears where the reader encounters the qualified claim;
+- remains consistent with the title, opening, and conclusion.
+
+A causal title and a cautious final paragraph send conflicting messages. Revision should align the full memo.
+
+## Give Specific and Useful Feedback
+
+Useful feedback combines three parts:
+
+1. **Observation:** What did you notice, understand, or fail to find?
+2. **Consequence:** Why does that matter for the audience or evidence?
+3. **Revision suggestion:** What could the author check or change?
+
+| General Comment | More Useful Feedback |
+| --- | --- |
+| "The table is confusing." | "The count header says `n`, so I cannot tell whether it counts students or appointments. Use a readable unit label and explain any change in row meaning." |
+| "Add detail." | "The source note does not explain whether canceled visits count as tutoring use. Define completed visits so the group comparison can be interpreted." |
+| "The claim is wrong." | "The sentence says tutoring improved grades, but the table only compares existing groups. Rewrite the claim descriptively unless a causal design supports it." |
+| "Looks good." | "The valid-grade counts help me see which students contribute to each average. Keep those counts in the revision." |
+| "AI note needs work." | "The note says AI helped with writing, but it does not describe verification. State what AI revised and how you checked values and claim strength." |
+
+Good feedback can identify a strength worth preserving. It can also ask a question when the reviewer lacks enough information to recommend a correction.
+
+For example:
+
+> I could not determine whether the two semesters cover the same number of weeks. Please check the coverage and explain how it affects the comparison.
+
+That comment identifies an uncertainty without pretending the reviewer already knows the answer.
+
+## Prioritize Revision
+
+**Revision** means changing the memo to improve its question, evidence, reasoning, organization, or presentation.
+
+**Copyediting** means correcting sentence-level details such as spelling, punctuation, and grammar.
+
+Both matter. The order matters too: a denominator correction may change the table, interpretation, and opening. Editing those sentences first can create work that must be repeated.
+
+Use this priority order:
+
+| Priority | Revision Focus | Example |
+| --- | --- | --- |
+| 1 | Evidence correctness and source meaning | Correct appointment counts that were labeled as student counts. |
+| 2 | Question, claim, and caveat fit | Replace unsupported causal wording throughout the memo. |
+| 3 | Audience and organization | Move the focused question and main finding into the opening. |
+| 4 | Table and render readability | Shorten unclear headers and make the table note visible. |
+| 5 | Sentence-level polish | Correct grammar and remove repetition. |
+
+::: {.callout-tip title="Revise connected pieces together"}
+
+If a table value changes, check every sentence that uses it. If a group definition changes, check the source note, table labels, opening, interpretation, and limitation. Revision is complete when the connected pieces agree.
+
+:::
+
+## Make a Revision Plan
+
+A **revision plan** turns feedback into a manageable set of decisions.
+
+| Feedback or Finding | Planned Action | Reason | Completion Check |
+| --- | --- | --- | --- |
+| Table count could mean rows or students. | Check the analysis and label the count explicitly. | The claim concerns students. | Compare unique-student count with displayed value. |
+| Opening implies causation. | Rewrite opening, title, and interpretation descriptively. | The analysis compares self-selected groups. | Search for causal wording and reread the complete claim. |
+| Missing-grade treatment is unclear. | Add valid-grade counts and a source note. | The average uses a subset of each group. | Verify counts and exclusion rule against the data. |
+| Table is difficult to read in Word. | Shorten headers and inspect the new render. | The audience needs a readable comparison. | Open the submitted Word document. |
+
+The plan should describe actions that can be checked. "Improve the memo" is too broad to guide revision.
+
+## Decide What to Do With Feedback
+
+You do not need to accept every suggestion exactly as written. You do need to consider what reader problem it identifies.
+
+Possible responses include:
+
+- **Accept:** Make the suggested change because it improves the memo.
+- **Adapt:** Address the reader's problem with a different change.
+- **Investigate:** Check the source, code, or requirement before deciding.
+- **Decline with a reason:** Keep the existing choice because the suggestion would conflict with evidence, audience, or scope.
+
+::: {.example title="Example 11.2: Evaluating a suggestion"}
+
+Reviewer suggestion:
+
+> Add several more analyses to prove that tutoring is effective.
+
+Author decision:
+
+> I will keep the project focused on a descriptive grade comparison. Additional descriptive tables would not establish a tutoring effect. I will make the question and causal limitation more explicit so readers understand the purpose of this memo.
+
+The author declines the proposed expansion but responds to the reader's expectation by clarifying the memo's scope.
+
+:::
+
+## Worked Revision: From Draft to Final Memo
+
+Consider this draft paragraph:
+
+> Tutoring was successful this semester. The tutoring group averaged 82.2 and everyone else averaged 76.4. Tutoring improved grades by 5.8%. The data may have problems. AI helped improve the memo.
+
+The reviewer identifies five revision needs:
+
+| Finding | Revision Needed |
+| --- | --- |
+| "Successful" has no criterion. | Use a descriptive claim or provide a defensible success benchmark. |
+| Groups and period are unclear. | Define completed tutoring use and name Spring 2027. |
+| Difference is labeled as a percentage. | Report 5.8 grade points for the displayed subtraction. |
+| Claim implies causation. | Describe the observed group difference. |
+| Limitation and AI note are vague. | State specific boundaries and verification steps. |
+
+Revised interpretation:
+
+> In the cleaned Spring 2027 file, students with at least one completed tutoring visit had an average recorded final grade of 82.2, compared with 76.4 among students with no completed visit recorded, a difference of 5.8 grade points. The median showed a similar pattern. Grade summaries include 68 of the 72 students in the tutoring-use group and 169 of the 184 students in the other group because some final grades were missing. This descriptive comparison does not account for prior preparation or other differences between students and does not show that tutoring caused the grade difference.
+
+Revised AI-use note:
+
+> AI was used to suggest clearer group labels and flag causal wording. I checked all values and group definitions against the analysis output, verified the reported difference, and made the final wording decisions.
+
+The revision improves definitions, units, context, claim strength, and accountability. Those changes make the result easier to evaluate.
+
+## Use AI to Support Review and Revision
+
+AI can help generate questions about a draft or suggest alternate wording. It cannot replace source checking or the author's decisions.
+
+A bounded review prompt might say:
+
+```text
+Review this interpretation for unclear group definitions, units,
+denominators, and causal wording. Use only the supplied table and
+source note. Identify specific sentences that need attention.
+Do not add values, source details, explanations, or new analyses.
+Explain each suggested change so I can check it.
+```
+
+After receiving a response:
+
+1. Compare each suggestion with the actual source and table.
+2. Check whether it changes a group definition, unit, or claim.
+3. Accept, adapt, or reject it with a reason.
+4. Rerun code if analysis changes.
+5. Inspect the rendered document after revising.
+6. Update the AI-use note to describe the assistance and verification.
+
+Use public, approved, or appropriately de-identified material when sharing data for assistance. Follow the course's rules for reviewing and sharing classmates' work.
+
+::: {.callout-warning title="Clearer wording must preserve the claim boundary"}
+
+An AI revision may sound smoother while dropping a necessary limitation or changing "was higher" to "improved." Check the meaning of the revised sentence before accepting its style.
+
+:::
+
+## Check the Quarto Source and Rendered Output
+
+The final memo has two connected artifacts:
+
+- The `.qmd` file records the document structure and how the evidence was produced or incorporated.
+- The PDF or Word document shows the communication the audience receives.
+
+Check both before submission.
+
+| Source Check | Rendered-Output Check |
+| --- | --- |
+| Correct source files and variables are used. | Displayed values match the current analysis. |
+| Group and missing-value rules are clear. | Labels, units, and notes are readable. |
+| Required memo sections are present. | No content is clipped or missing. |
+| The current source renders successfully. | Tables fit the page and headings remain useful. |
+| AI assistance and verification are documented. | The AI-use note appears in the submitted output. |
+
+Render the complete document after the final revisions. Then open the specific PDF or Word file you will submit. A successful render confirms that Quarto produced a file; your inspection confirms that the file communicates clearly.
+
+## Keep a Short Revision Record
+
+A **revision record** explains what changed and why. It helps you show how feedback affected the final product and gives you a useful reference for later portfolio work.
+
+It can be brief:
+
+| Change | Reason | How Checked |
+| --- | --- | --- |
+| Replaced "improved grades" with a descriptive comparison. | The design does not support a causal claim. | Compared wording with table and source note. |
+| Added students-with-recorded-grades column. | Reviewer could not identify the average's valid-value count. | Checked missing-grade counts in the analysis. |
+| Corrected "5.8%" to "5.8 grade points." | The reported value was a difference on the grade scale. | Verified subtraction and labels. |
+| Shortened table headers. | The table wrapped poorly in Word. | Opened and inspected the new Word file. |
+
+Keep the record in your working materials or where the instructor requests it. The audience-facing memo can stay focused on its question and evidence.
+
+## Practical Workflow
+
+Use this sequence to finish Mini-Project 1:
+
+1. Exchange a complete draft and identify its intended audience.
+2. Restate the memo's question, source, finding, and boundary.
+3. Review in passes: purpose, evidence, interpretation, AI use, and render quality.
+4. Give feedback with a location, observation, consequence, and revision suggestion.
+5. Evaluate the feedback and check uncertain issues against the source or analysis.
+6. Make a revision plan, starting with evidence and claim problems.
+7. Revise connected sections together.
+8. Verify changed values, labels, definitions, and wording.
+9. Update AI documentation and a short revision record.
+10. Render the final memo and inspect the submitted output.
+11. Submit the revised `.qmd` and matching PDF or Word document as directed.
+
+## Recap
+
+::: {.recap-table}
+| **Keyword** | **Definition** |
+| --- | --- |
+| **Peer review** | A structured reading of a draft to identify strengths, questions, and opportunities for improvement. |
+| **Reader's restatement** | A summary in the reviewer's own words of the audience, question, source, claim, and limitation they understood. |
+| **Audience fit** | The match between the memo's content and the audience's information need. |
+| **Evidence fit** | The relationship between a claim and what the source and analysis can support. |
+| **Internal consistency** | Agreement among values, definitions, and claims within the memo. |
+| **Verification** | Checking evidence against the source and analysis, beyond checking whether the memo agrees with itself. |
+| **Useful feedback** | Feedback that identifies an observation, its consequence, and an actionable revision target. |
+| **Revision** | Changes to improve the question, evidence, reasoning, organization, or presentation of a memo. |
+| **Copyediting** | Corrections to sentence-level details such as spelling, punctuation, and grammar. |
+| **Revision plan** | A prioritized set of changes with reasons and completion checks. |
+| **Revision record** | A brief explanation of what changed, why it changed, and how it was checked. |
+| **Render quality** | The readability, completeness, and accurate presentation of the document produced from Quarto. |
+:::
+
+## Check your understanding
+
+::: {.callout-note collapse="false" title="Problems"}
+
+1. What is the main purpose of peer review for Mini-Project 1?
+
+2. Why should a reviewer restate the memo before suggesting changes?
+
+3. Name the four review passes described in this chapter.
+
+4. A paragraph agrees with a table. Why does that alone fail to establish that the numbers are correct?
+
+5. A table reports averages of 82.2 and 76.4. An interpretation says the first group scored "5.8% higher." What should the reviewer ask the author to correct or clarify?
+
+6. Improve this feedback: "Your source note is confusing."
+
+7. Which should usually be revised first: an unclear denominator or a spelling error? Explain why.
+
+8. Must an author accept every peer suggestion? Describe an appropriate response to a suggestion that would add an unsupported causal claim.
+
+9. What should the author check after changing a group definition or table value?
+
+10. Match each term to the best description:
+
+    a. Evidence fit
+
+    b. Copyediting
+
+    c. Revision plan
+
+    d. Revision record
+
+    Descriptions:
+
+    1. A prioritized set of changes with reasons and completion checks.
+
+    2. A brief explanation of what changed, why it changed, and how it was checked.
+
+    3. The relationship between a claim and what the source and analysis can support.
+
+    4. Corrections to spelling, punctuation, grammar, and other sentence-level details.
+
+:::
+
+::: {.callout-tip collapse="true" title="Solutions"}
+
+1. Peer review checks whether another reader can understand and evaluate the connection among the audience question, source, evidence, claim, and limitation. It provides specific information for revision.
+
+2. Restating the memo shows what the reviewer actually understood. Missing or mismatched parts can reveal where the draft needs clearer purpose, labels, organization, or claim boundaries.
+
+3. The passes are audience and purpose; source and evidence; interpretation and caveat; and AI use and render quality.
+
+4. Agreement checks internal consistency. The table and paragraph could share the same error. Values also need to be checked against the source, definitions, and analysis.
+
+5. Subtracting the displayed averages gives 5.8 grade points, not 5.8%. The author should label the difference in the grade scale's units. A relative percentage would require a specified baseline and a separate calculation, if appropriate to the measure.
+
+6. One improved comment is: "The source note names the appointment file but does not say whether the table counts appointments or unique students. Explain the original row meaning and how the final student summary was created so readers can interpret the group counts."
+
+7. The denominator should usually be addressed first because it affects the meaning or calculation of the evidence and may require changes to the table and interpretation. Sentence-level polish can follow those substantive changes.
+
+8. No. The author should evaluate suggestions against evidence, audience, and scope. An appropriate response is to decline unsupported causal language, explain that the analysis is descriptive, and clarify the claim boundary if the reviewer expected a causal conclusion.
+
+9. Check all connected pieces: analysis, source note, table labels and values, title or opening, interpretation, and limitation. Rerender the document and inspect the actual output after revision.
+
+10. a-3. b-4. c-1. d-2.
+
+:::
