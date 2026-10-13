@@ -1698,5 +1698,195 @@
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Reviewing and Revising Mini-Project 1</span>"
     ]
+  },
+  {
+    "objectID": "12.html",
+    "href": "12.html",
+    "title": "12  Choosing a chart",
+    "section": "",
+    "text": "12.1 Begin with the audience’s question\nMini-Project 1 used a table to answer a focused audience question. The next part of the course adds charts. A chart can help readers notice a difference, follow a pattern over time, or inspect the distribution of a numeric measure. Choosing the chart begins with what readers need to see.\nSuppose a tutoring director asks which subject has the most completed visits. A bar chart can make that comparison easy to see. If the director instead asks how visits changed during the semester, a line chart answers a different question. Both may use the same appointment file, but they require different summaries and different visual forms.\nIn this chapter, you will learn how to choose a chart from an audience task, identify the variables it needs, and explain what the chart can support. The next chapter will cover building figures in Quarto.\nBefore selecting a chart, write the question in ordinary language. Then describe what the reader needs to do with the evidence.\nFor example:\nThis sentence identifies a comparison task. It also defines the measure as completed visits. Counting all scheduled appointments would answer a different question.\nAn audience task might be to compare categories, follow change over time, inspect a distribution, examine a relationship, or understand parts of a whole. A chart should make that task easy to perform.\nThe subject of the data does not determine the chart. The audience’s question and the required evidence determine the choice.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#begin-with-the-audiences-question",
+    "href": "12.html#begin-with-the-audiences-question",
+    "title": "12  Choosing a chart",
+    "section": "",
+    "text": "The tutoring director needs to compare completed visits across subjects to understand recorded service demand.\n\n\n\n\n\n\n\n\n\n\n\nAudience question\nTask\nEvidence needed\n\n\n\n\nWhich subject had the most completed tutoring visits?\nCompare categories.\nCompleted-visit count for each subject.\n\n\nHow did completed visits change from January through June?\nFollow change over time.\nCounts for comparable monthly periods.\n\n\nHow were final grades distributed?\nInspect a distribution.\nRecorded grades for the students being described.\n\n\nHow did grade distributions differ by tutoring use?\nCompare distributions.\nGrades and a defined tutoring-use group for each student.\n\n\nHow did visit count vary with final grade?\nExamine a relationship.\nBoth measures for the same students.\n\n\nWhat share of appointments were completed, canceled, or no-shows?\nUnderstand parts of a whole.\nOutcome counts with a defined appointment denominator.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#separate-exploration-from-explanation",
+    "href": "12.html#separate-exploration-from-explanation",
+    "title": "12  Choosing a chart",
+    "section": "12.2 Separate exploration from explanation",
+    "text": "12.2 Separate exploration from explanation\nCharts can be used during analysis or in a final communication.\nAn exploratory chart helps the analyst investigate a question: Are values concentrated in one range? Do two groups differ? Are there gaps in the time series? Several exploratory charts may be needed before the analyst understands what the source can show.\nAn explanatory chart is selected and prepared for an audience. It focuses on a supported finding or comparison and includes the definitions needed to read it.\nFor example, an analyst may inspect a histogram of grades, a scatterplot of visits and grades, and a count chart by subject. A memo about appointment staffing might ultimately use the subject counts. The other charts helped the analysis but may have no role in that particular communication.\n\n\n\n\n\n\nTipState the chart’s job\n\n\n\nWrite one sentence before making the figure: “This chart will help the reader compare completed-visit counts across subjects.” If the sentence is difficult to write, revisit the audience question and measure before choosing a form.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#check-the-meaning-of-the-variables",
+    "href": "12.html#check-the-meaning-of-the-variables",
+    "title": "12  Choosing a chart",
+    "section": "12.3 Check the meaning of the variables",
+    "text": "12.3 Check the meaning of the variables\nA chart combines variables with visual marks. Check what each variable measures before deciding how to display it.\nA categorical variable identifies a group, label, or class. Subject, campus, and appointment outcome are categorical variables. Some categories have a meaningful order, including levels of agreement or ordered rating categories.\nA numeric variable measures a quantity. Completed visits, waiting minutes, and grades on a defined scale are numeric variables. An identifier can contain digits without measuring an amount. A student identifier of 1042 is a label; it should not be averaged or placed on a quantitative axis as if it measured performance.\nA time variable provides chronological position. Dates and months can be used to show a trend when the observations refer to comparable periods and the axis preserves their order.\nAlso determine what one observation is. One appointment, one student, and one student-course enrollment can produce different counts and comparisons. The choice made in the analysis must carry into the chart’s labels and interpretation.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#how-a-chart-encodes-a-value",
+    "href": "12.html#how-a-chart-encodes-a-value",
+    "title": "12  Choosing a chart",
+    "section": "12.4 How a chart encodes a value",
+    "text": "12.4 How a chart encodes a value\nA chart uses visible properties to convey quantities. These properties are called visual encodings.\nIn a bar chart, bar length communicates the value. In a dot plot, the dot’s position on an axis communicates the value. A scatterplot places each observation using two numeric coordinates. In a pie chart, slice angle and area communicate a share of the whole.\nThink about the comparison the reader will perform. Comparing values along a shared axis often makes differences easier to judge than comparing angles or areas. That is one reason bar charts and dot plots are useful for category comparisons.\nThe axis also defines the quantity. A bar labeled “100” might mean 100 appointments, 100 unique students, or 100 visits per 1,000 students. The visual form cannot supply a definition that is missing from the analysis.\n\n\n\n\n\n\nWarningSelect the measure before selecting the shape\n\n\n\nA suitable chart can still communicate the wrong result if it displays the wrong measure. Decide whether the question needs a count, percentage, rate, average, or distribution, and establish its units and denominator before designing the chart.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#compare-categories-with-a-bar-chart-or-dot-plot",
+    "href": "12.html#compare-categories-with-a-bar-chart-or-dot-plot",
+    "title": "12  Choosing a chart",
+    "section": "12.5 Compare categories with a bar chart or dot plot",
+    "text": "12.5 Compare categories with a bar chart or dot plot\nUse a bar chart or dot plot when readers need to compare numeric summaries across discrete categories.\nExamples include completed visits by subject, participation percentages by campus, and median waiting time by service location. These use different measures but share a comparison task.\n\n\n\n\n\n\nExampleExample 12.1: Completed visits by subject\n\n\n\nA tutoring director wants to compare recorded demand across subjects. The illustrative source contains 40 completed history visits, 60 biology visits, and 90 mathematics visits.\n\n\n\n\n\n\nFigure 12.1: Two views of completed visits by subject. The bar chart and dot plot both show history at 40 visits, biology at 60, and mathematics at 90. Both use a common axis from 0 to 100 visits.\n\n\n\nBoth forms make the ranking visible. The bar chart uses lengths from zero. The dot plot places each value on the same scale. Neither connects the subjects with a line because the categories have no continuous path between them.\nA supported interpretation is: “Mathematics had the most recorded completed visits in this example.” That count does not measure total unmet need or the percentage of students using tutoring in each subject.\n\n\nHorizontal bars are useful when category labels need room. Categories can be ordered by value when ranking is the task, or by a meaningful category order when the order itself needs to be read.\nBar length is read from its baseline, so a zero baseline is the normal choice for an ordinary bar chart. A dot plot conveys position and can use a restricted range when it is labeled appropriately. Later chapters will examine scales and misleading comparisons in more detail.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#counts-and-percentages-answer-different-questions",
+    "href": "12.html#counts-and-percentages-answer-different-questions",
+    "title": "12  Choosing a chart",
+    "section": "12.6 Counts and percentages answer different questions",
+    "text": "12.6 Counts and percentages answer different questions\nA count describes the amount recorded. A percentage describes a share of a defined whole. Different group sizes can produce different rankings for those two measures.\nSuppose the audience asks which campus had more students using tutoring. A count is appropriate. If the audience asks which campus had a higher participation share, the chart needs a numerator and denominator for each campus.\n\n\n\n\n\n\nExampleExample 12.2: Two campus questions\n\n\n\nIn an illustrative semester, East campus had 80 tutoring users among 200 eligible students. West campus had 100 users among 500 eligible students. A tutoring user is a student with at least one completed visit during the semester.\nWest had the larger number of users: 100 compared with 80. East had the higher participation percentage: 80 divided by 200 is 40%, while 100 divided by 500 is 20%.\n\n\n\n\n\n\nFigure 12.2: Two bar charts comparing East and West campuses. The count chart shows 80 tutoring users at East and 100 at West. The percentage chart shows participation of 40 percent at East and 20 percent at West.\n\n\n\nA count chart answers the first question. A percentage chart answers the second. Each is defensible when its measure fits the question and its denominator is stated.\n\n\nRepeated visits are another measure. If one student has five completed appointments, that student contributes five visits but only one tutoring user. A visit rate and a student participation percentage need different numerators and labels.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#follow-change-over-time-with-a-line-chart",
+    "href": "12.html#follow-change-over-time-with-a-line-chart",
+    "title": "12  Choosing a chart",
+    "section": "12.7 Follow change over time with a line chart",
+    "text": "12.7 Follow change over time with a line chart\nA line chart is useful when the audience needs to follow a numeric measure across ordered time points. The connecting line draws attention to the sequence.\nPossible measures include completed visits by month, a monthly unemployment rate, or weekly average waiting time. The meaning of the time interval belongs in the source note or caption.\n\n\n\n\n\n\nFigure 12.3: A line chart of illustrative monthly completed visits. January has 120, February 160, March 140, April 200, May 180, and June 220. The series rises from its first to last month with decreases in March and May.\n\n\n\nThe figure supports this statement:\n\nRecorded completed visits were higher in June than in January, although the count decreased in March and May.\n\nIt does not support the statement that visits increased every month.\nThe analyst should also ask whether the periods cover comparable service opportunities. Monthly totals may differ partly because of the number of operating days. If the audience asks about daily workload, a measure per operating day may answer that question better than a monthly count.\nA line across time does not identify the cause of a change. It shows the recorded sequence. Evidence about an intervention or policy requires an appropriate design and context.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#inspect-a-distribution-with-a-histogram",
+    "href": "12.html#inspect-a-distribution-with-a-histogram",
+    "title": "12  Choosing a chart",
+    "section": "12.8 Inspect a distribution with a histogram",
+    "text": "12.8 Inspect a distribution with a histogram\nA distribution describes how values are spread across their possible range. A mean or median summarizes part of that information, but it does not show how many observations lie in different ranges.\nA histogram groups numeric observations into intervals, often called bins, and displays the frequency in each interval. Readers can inspect concentration, spread, and the shape of the distribution.\n\n\n\n\n\n\nFigure 12.4: A histogram of 40 illustrative final grades using equal-width ten-point intervals. Most grades fall between 70 and 89, with fewer in the lower intervals and several in the 90s.\n\n\n\nA histogram answers a question about one numeric variable’s distribution. It can show whether the observations are concentrated in one range or extend across a broad range. The choice of bin width affects what readers see and should be appropriate to the measure and task.\nA bar chart and histogram may both contain rectangular marks, but their meanings differ. A bar chart compares categories. A histogram groups a numeric scale into intervals. The order and interval widths carry meaning in a histogram.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#compare-distributions-with-a-boxplot",
+    "href": "12.html#compare-distributions-with-a-boxplot",
+    "title": "12  Choosing a chart",
+    "section": "12.9 Compare distributions with a boxplot",
+    "text": "12.9 Compare distributions with a boxplot\nWhen the audience needs to compare numeric distributions across groups, a boxplot can summarize each group’s center and spread in a compact form.\nThe line inside the box shows the median. The box extends from the first quartile to the third quartile, covering the middle portion of the observations. Whiskers extend according to the rule used by the plotting method. Points beyond them identify values outside that rule; they do not automatically indicate errors.\n\n\n\n\n\n\nFigure 12.5: Boxplots of illustrative final grades for two tutoring-use groups, each with 16 students. The completed-visit group has a higher median. Both groups contain a range of scores, and those ranges overlap.\n\n\n\nThe figure supports a group comparison of the distributions shown. It does not say that every student in one group scored higher than every student in the other group.\nA boxplot also omits details about individual observations and the distribution’s shape. Its value comes from the task: it provides a compact comparison of medians and spread. If the audience needs individual values or a fuller view of shape, another display may be needed.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#examine-a-relationship-with-a-scatterplot",
+    "href": "12.html#examine-a-relationship-with-a-scatterplot",
+    "title": "12  Choosing a chart",
+    "section": "12.10 Examine a relationship with a scatterplot",
+    "text": "12.10 Examine a relationship with a scatterplot\nA scatterplot displays two numeric variables measured for the same observations. One variable determines horizontal position and the other determines vertical position. Each point is an observation.\nFor a tutoring question, each point could be one student, with completed visit count on the horizontal axis and recorded final grade on the vertical axis.\n\n\n\n\n\n\nFigure 12.6: A scatterplot of illustrative completed visits and grades for 35 students. At each visit count from zero to six there are several grades. Higher visit counts tend to occur with higher grades in this generated example.\n\n\n\nA scatterplot can reveal direction, spread, clusters, or other patterns in paired measurements. It also lets readers see that observations with the same visit count can have different grades.\nBoth measures must describe the same units. A list of appointment totals for departments and an unrelated list of student grades cannot be paired to produce a meaningful student-level scatterplot.\nA pattern between visits and grades does not establish why it exists. A claim that tutoring produced the grades would need evidence beyond the displayed relationship.\n\n\n\n\n\n\nNoteGroup summaries and student observations are different\n\n\n\nA chart of average grades by tutoring-use group shows group summaries. A scatterplot of visits and grades shows paired values for individual students. Decide which level of evidence the question needs, and label the units accordingly.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#show-parts-of-a-defined-whole",
+    "href": "12.html#show-parts-of-a-defined-whole",
+    "title": "12  Choosing a chart",
+    "section": "12.11 Show parts of a defined whole",
+    "text": "12.11 Show parts of a defined whole\nPart-to-whole questions ask how a total is divided among categories. The categories and denominator must make that total meaningful.\nIf appointment outcomes are completed, canceled, and no-show, a 100% stacked bar can show the share assigned to each outcome. The displayed categories need to cover the stated whole without counting an appointment in multiple outcomes.\n\n\n\n\n\n\nFigure 12.7: Two 100 percent stacked bars showing illustrative appointment outcomes. Fall is 60 percent completed, 25 percent canceled, and 15 percent no-show. Spring is 80 percent completed, 15 percent canceled, and 5 percent no-show.\n\n\n\nReaders can compare the completed share from the common zero baseline. Interior segments are harder to compare because they begin at different positions. If the audience’s main task is to compare every outcome across terms, grouped bars or a table may be more suitable.\nA 100% stacked bar shows composition. It hides the difference in total appointment volume. An 80% completed share could come from a much smaller appointment total than a 60% share. Include counts when the audience also needs service volume.\nA pie chart can show a few parts of one whole, but close shares are difficult to compare by angle. A bar chart is often easier to read when the question is which category is larger or how much larger it is.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#know-when-a-table-answers-the-task",
+    "href": "12.html#know-when-a-table-answers-the-task",
+    "title": "12  Choosing a chart",
+    "section": "12.12 Know when a table answers the task",
+    "text": "12.12 Know when a table answers the task\nCharts help readers see patterns. Tables help readers look up exact values and inspect several measures for a named group.\nAn audience checking counts, percentages, and denominators for a specific campus may benefit from a table. An audience comparing participation shares across several campuses may benefit from a bar chart.\nThe two forms can be used together when each has a distinct job. For example, a chart can show the ranking and an accompanying table can provide exact counts and denominators. Every display should earn its place by helping the audience answer the question.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#match-the-visual-claim-to-the-evidence",
+    "href": "12.html#match-the-visual-claim-to-the-evidence",
+    "title": "12  Choosing a chart",
+    "section": "12.13 Match the visual claim to the evidence",
+    "text": "12.13 Match the visual claim to the evidence\nA chart makes some patterns easy to notice. The written claim still needs to fit the source and analysis.\n\n\n\n\n\n\n\n\nVisual finding\nSupported wording\nEvidence still needed for a stronger claim\n\n\n\n\nOne subject’s bar is longest.\nMathematics had the most recorded completed visits.\nA demand or need claim requires information about eligible students and unrecorded need.\n\n\nA line ends higher than it begins.\nThe recorded count was higher in June than in January.\nAn explanation for the change requires evidence about the proposed cause.\n\n\nOne boxplot has a higher median.\nThe displayed group had the higher median recorded grade.\nA tutoring-effect claim requires a design that addresses other group differences.\n\n\nScatterplot values tend to rise together.\nHigher visit counts tended to occur with higher recorded grades in the displayed data.\nCausation requires evidence beyond the observed relationship.\n\n\nThe completed share is larger.\nA larger share of recorded appointments was completed in Spring.\nA workload claim also needs appointment totals and comparable coverage.\n\n\n\nThe shape of a chart cannot make a descriptive source support a causal conclusion.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#write-a-chart-choice-rationale",
+    "href": "12.html#write-a-chart-choice-rationale",
+    "title": "12  Choosing a chart",
+    "section": "12.14 Write a chart-choice rationale",
+    "text": "12.14 Write a chart-choice rationale\nA chart-choice rationale explains why a form fits the audience’s task and the available evidence. It should name the question and measure before describing the chart.\nInclude:\n\nThe audience and what they need to compare or understand.\nThe focused question and a supported draft claim.\nThe variables, units, observation level, and denominator when relevant.\nThe proposed chart form and the visual comparison it supports.\nAn alternative form considered and a reason for the choice.\nA source or interpretation limit that needs to travel with the chart.\n\n\n\n\n\n\n\nExampleExample 12.3: A chart-choice rationale\n\n\n\n\nA tutoring director wants to compare participation shares across campuses during the same semester. I would use a horizontal bar chart of the percentage of eligible students with at least one completed visit at each campus. The numerator is unique participating students and the denominator is eligible students at that campus. Bar lengths on a common scale would let readers compare participation shares; the axis would begin at zero. I considered a chart of user counts, but that answers a question about the number of users and can give a different ranking when campus sizes differ. The caption or accompanying table should report the campus denominators. The chart would describe recorded participation and would not measure unmet need or tutoring effectiveness.\n\nThis rationale states what the chart will show, how the audience will read it, and what the evidence will leave unanswered.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#use-ai-to-discuss-chart-options",
+    "href": "12.html#use-ai-to-discuss-chart-options",
+    "title": "12  Choosing a chart",
+    "section": "12.15 Use AI to discuss chart options",
+    "text": "12.15 Use AI to discuss chart options\nAI can suggest candidate forms when given the audience task and verified variable definitions. It may also help explain tradeoffs between a table and chart or between two chart families.\nA request can use the worked campus example:\nAudience: a tutoring director comparing participation across campuses.\nQuestion: which campus had a higher share of eligible students\nwith at least one completed tutoring visit during the semester?\nValues: East had 80 users among 200 eligible students;\nWest had 100 users among 500 eligible students.\n\nSuggest two chart forms for this question. Explain the measure,\naxes, denominator, and comparison each form would support.\nUse only these definitions and values. Include a limitation.\nEvaluate the response against the actual task. Did AI choose percentages or counts? Did it keep unique students separate from appointments? Does the proposed chart show the relevant comparison? Did it add a claim that the source cannot support?\nDocument AI assistance and how the final choice was checked. The author remains responsible for definitions and evidence, including when AI supplies code in a later chapter.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#before-you-build-the-figure",
+    "href": "12.html#before-you-build-the-figure",
+    "title": "12  Choosing a chart",
+    "section": "12.16 Before you build the figure",
+    "text": "12.16 Before you build the figure\nWrite the audience question and name the measure. Check the source definitions and the units being summarized. Select a form that makes the required comparison easy to see, then consider what information the form hides.\nDescribe the chart in words before plotting. For example: “Campus names will appear on the vertical axis; participation percentages will appear on the horizontal axis; each bar will show one campus’s share of eligible students with a completed visit.”\nThat description is a useful starting point for Day 13’s Quarto figure. The chart will also need a caption and a text description of its content, so plan which finding and boundary a reader should take from it.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#recap",
+    "href": "12.html#recap",
+    "title": "12  Choosing a chart",
+    "section": "12.17 Recap",
+    "text": "12.17 Recap\n\n\n\n\n\n\n\n\nKeyword\nDefinition\n\n\n\n\nAudience task\nWhat the reader needs to do with the evidence, for example compare groups or follow change over time.\n\n\nExploratory chart\nA display used during analysis to investigate the data.\n\n\nExplanatory chart\nA display prepared to communicate a supported result to an audience.\n\n\nVisual encoding\nA visible property used to communicate a value, including position, length, angle, or area.\n\n\nBar chart\nA chart that compares values across categories using bar lengths.\n\n\nDot plot\nA chart that compares values using positions on a shared scale.\n\n\nLine chart\nA chart that shows a numeric measure across an ordered sequence, commonly time.\n\n\nDistribution\nHow numeric observations are spread across their range.\n\n\nHistogram\nA chart that groups numeric observations into intervals and displays their frequencies.\n\n\nBoxplot\nA display of a group’s median, quartiles, and spread according to a stated whisker rule.\n\n\nScatterplot\nA display of paired numeric values for the same observations.\n\n\nPart-to-whole display\nA chart that shows how a defined total is divided among categories.\n\n\nChart-choice rationale\nAn explanation of how a chart form fits an audience task, measure, and supported claim.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
+  },
+  {
+    "objectID": "12.html#check-your-understanding",
+    "href": "12.html#check-your-understanding",
+    "title": "12  Choosing a chart",
+    "section": "12.18 Check your understanding",
+    "text": "12.18 Check your understanding\n\n\n\n\n\n\nNoteProblems\n\n\n\n\n\n\nWhy should an audience question be written before selecting a chart?\nWhat is the difference between exploratory and explanatory charts?\nA director wants to compare completed visits across subjects. Name two suitable chart forms and identify the categorical and numeric variables.\nEast campus has 80 tutoring users among 200 eligible students; West has 100 among 500. Which campus has more users? Which has the higher participation percentage? Explain why the chart measure affects the answer.\nWhy is a line chart suitable for monthly counts but usually unsuitable for connecting nominal subject categories?\nHow does a histogram differ from a category bar chart?\nWhat does the line inside a boxplot show? Why can two groups with different medians still contain overlapping observations?\nWhat must be true about the two variables in a student-level scatterplot? What can a visible pattern tell you about causation?\nWhat information is hidden by a 100% stacked bar of appointment outcomes, and what should be added if the audience needs workload information?\nMatch each audience task to a suitable chart family:\n\nCompare completed visits across subjects.\nFollow a monthly visit count through the semester.\nInspect the distribution of individual final grades.\nExamine completed visits and final grades for the same students.\nCompare numeric distributions across tutoring-use groups.\n\nChart families:\n\nScatterplot.\nHistogram.\nBar chart or dot plot.\nBoxplot.\nLine chart.\n\n\n\n\n\n\n\n\n\n\n\nTipSolutions\n\n\n\n\n\n\nThe question determines what the audience needs to see and what measure answers it. A form chosen first may display a different quantity or comparison from the one the audience needs.\nExploratory charts help an analyst investigate the data. Explanatory charts are selected and prepared to communicate a supported result to an audience. The same chart can be used for either purpose, but its role and presentation differ.\nA bar chart or dot plot can compare subjects. Subject is the categorical variable; completed-visit count is the numeric summary. The source and period should define which visits were counted.\nWest has more users, 100 compared with 80. East has the higher participation percentage: 80/200 is 40%, while 100/500 is 20%. Counts answer the number-of-users question; percentages answer the share-of-eligible-students question.\nMonths have a chronological sequence, so a line can help readers follow change over time. Nominal subject categories have no continuous path; connecting them can suggest a sequence that the categories do not have.\nA histogram groups numeric observations into ordered intervals. A category bar chart compares separate categories. Histogram intervals have numeric boundaries and widths; category bars summarize values for labels or groups.\nThe line shows the median. Different group medians do not imply that all observations in one group exceed those in another; each group can span a range of values that overlaps the other group’s range.\nBoth numeric measures must describe the same students so that each point is a valid pair. A pattern can describe how measured values vary together, but the scatterplot cannot establish that tutoring caused a grade difference.\nThe display hides the total appointment count in each group or period. Add counts or an accompanying volume display if the audience needs to compare workload. Comparable time coverage and definitions are also needed.\na-3. b-5. c-2. d-1. e-4.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Choosing a chart</span>"
+    ]
   }
 ]

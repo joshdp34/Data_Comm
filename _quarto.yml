@@ -26,6 +26,7 @@ book:
     - 09.qmd
     - 10.qmd
     - 11.qmd
+    - 12.qmd
 
 execute:
   warning: false
